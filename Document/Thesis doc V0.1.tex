@@ -1,0 +1,111 @@
+%Report on The Design of a White Lab Component Vending Machine
+%Undergratuate Engineering Thesis
+%Author: Baden David Morgan
+%Supervisor: Justin Pead
+
+\documentclass[a4paper,11pt]{report}
+
+	% packages
+\usepackage{graphicx}
+\graphicspath{{C:/"Google Drive"/thesis/Document/Pictures/}}
+\usepackage[margin=2cm]{geometry}
+
+	% commands
+\newcommand{\sign}[1]{%      
+  \begin{tabular}[t]{@{}l@{}}
+  \makebox[1.5in]{\dotfill}\\
+  \strut#1\strut
+  \end{tabular}%
+  }
+\newcommand{\Date}{%
+  \begin{tabular}[t]{@{}p{1.5in}@{}}
+  \\[-2ex]
+  \strut Date: \dotfill\strut
+  \end{tabular}%
+}
+
+
+\begin{document}
+
+	% title page
+\begin{titlepage}
+	\centering
+	{\huge\bfseries\underline{White Lab Component Vending Machine}\par}
+	\vspace{1cm}
+	{\Large Design and Build Report of a Component Vending Machine for the Undergraduates for White 	Lab\par}
+	\vspace{1cm}
+	\includegraphics[scale=0.2]{{UCTLogo}.jpg}
+	\vfill
+	Prepared by:\par
+	Baden David Morgan\par
+	MRGBAD001\par
+	
+	\vfill
+	Prepared for:\par
+	Mr. J. Pead\par
+	Department of Electrical and Electronics Engineering\par
+	University of Cape Town\par
+	
+	\vfill
+	Submitted to the Department of Electrical Engineering at the University of Cape Town
+	in partial fulfilment of the academic requirements for a Bachelor of Science degree in
+	Mechatronic Engineering\par
+	
+	\vfill
+	{\large October, 2016 \par}
+	
+	\vfill
+	{\bfseries Key words:}
+	this and that
+\end{titlepage}
+
+	% empty page
+	\mbox{}
+	\thispagestyle{empty}
+	\newpage
+	
+	% plagiarism declaration
+	\thispagestyle{empty}
+	{\huge Plagiarism Declaration \par}
+	\begin{enumerate}
+  		\item I, \makebox[1in]{\hrulefill}, know that plagiarism is wrong. Plagiarism is to use another’s work and pretend
+			that it is one’s own.
+ 		\item I, \makebox[1in]{\hrulefill}, have used the IEEE convention for citation and referencing. Each contribution to,
+			and quotation in, this report from the work(s) of other people has been attributed,
+			and has been cited and referenced
+ 		\item This report is my, \makebox[1in]{\hrulefill}, own work.
+ 		\item	I, \makebox[1in]{\hrulefill}, have not allowed, and will not allow, anyone to copy my work with the intention
+			of passing it off as their own work or part thereof.
+	\end{enumerate}
+		\noindent\begin{tabular}{ll}
+		\makebox[2.5in]{\hrulefill} & \makebox[2.5in]{\hrulefill}\\
+		Full Name & Date\\[8ex]% adds space between the two sets of signatures
+		\makebox[2.5in]{\hrulefill} \\
+		Signature \\[8ex]% adds space between the two sets of signatures
+	\end{tabular}
+	\newpage
+	
+	% empty page
+	\mbox{}
+	\thispagestyle{empty}
+	\newpage	
+	
+	% insert the table of contents
+	\pagenumbering{roman}
+	\tableofcontents
+	\newpage
+	
+	% new section
+	\pagenumbering{arabic}
+	\newpage
+	\pagenumbering{arabic}
+	\newpage
+\section{Some Interesting Words}
+	Well, and here begins my lovely article.
+
+	% new section
+\section{Good Bye World}
+	\ldots{} and here it ends.
+
+	%the end
+\end{document}
