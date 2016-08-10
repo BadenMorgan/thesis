@@ -3,7 +3,8 @@
 %Author: Baden David Morgan
 %Supervisor: Justin Pead
 
-\documentclass[a4paper,11pt]{report}
+%document formatting
+\documentclass[a4paper,11pt]{article}
 
 	% packages
 \usepackage{graphicx}
@@ -24,15 +25,23 @@
   \end{tabular}%
 }
 
+\usepackage{titlesec}
+%title formatting
+\titleformat*{\section}{\center\Huge\bfseries}
+%\titleformat*{\subsection}{\LARGE\bfseries}
+\titleformat{\subsection}[block]{\LARGE\bfseries\hspace{1em}}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}[block]{\Large\bfseries\hspace{2em}}{\thesubsubsection}{1em}{}
+\titleformat*{\paragraph}{\large\bfseries}
+\titleformat*{\subparagraph}{\large\bfseries}
 
 \begin{document}
 
 	% title page
 \begin{titlepage}
 	\centering
-	{\huge\bfseries\underline{White Lab Component Vending Machine}\par}
+	{\Huge\bfseries\underline{White Lab Component Vending Machine}\par}
 	\vspace{1cm}
-	{\Large Design and Build Report of a Component Vending Machine for the Undergraduates for White 	Lab\par}
+	{\huge Design and Build Report of a Component Vending Machine for the Undergraduates for White 	Lab\par}
 	\vspace{1cm}
 	\includegraphics[scale=0.2]{{UCTLogo}.jpg}
 	\vfill
@@ -90,9 +99,34 @@
 	\thispagestyle{empty}
 	\newpage	
 	
+	%terms of reference
+	\pagenumbering{roman}	
+	
+	{\centering\Huge\bfseries\underline{Terms of Reference}\par}
+	\newpage
+	
+	%acknowledgements
+	{\centering\Huge\bfseries\underline{Acknowledgments}\par}
+	\newpage
+	
+	% empty page
+	\mbox{}
+	\newpage
+	
+	%abstract
+	{\centering\Huge\bfseries\underline{Abstract}\par}
+	\newpage	
+	
 	% insert the table of contents
-	\pagenumbering{roman}
 	\tableofcontents
+	\newpage
+		
+	% list of figures here
+	\listoffigures
+	\newpage
+ 
+ 	%list of tables here
+	\listoftables
 	\newpage
 	
 	% new section
@@ -100,12 +134,37 @@
 	\newpage
 	\pagenumbering{arabic}
 	\newpage
-\section{Some Interesting Words}
+	
+	% introduction
+\section{Introduction}
 	Well, and here begins my lovely article.
+	\subsection{Subject and motivation for the Research}
+		meh
+	\subsection{Background to the Research}
+		adding it here
+	\subsection{ Objectives of this Research}
+		adding more
+		\subsubsection{The Significance of the Research}
+			a little here
+	\subsection{Scope and Limitations of the Research}
+		something something	
+	\subsection{Plan of Development}	
+		blah blah
+	\newpage
 
-	% new section
-\section{Good Bye World}
-	\ldots{} and here it ends.
+	% literature review
+\section{Literature Review}
+	some more stuff
+	\newpage
+	
+	% design and prototyping
+\section{Design and Prototyping}
+	notes:
+\begin{itemize}
+	\item design
+\end{itemize}
+	\newpage
+
 
 	%the end
 \end{document}

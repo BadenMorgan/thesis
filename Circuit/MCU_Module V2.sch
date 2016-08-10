@@ -13657,11 +13657,6 @@ high speed</description>
 <part name="GND9" library="supply1" deviceset="GND" device=""/>
 <part name="R9" library="rcl" deviceset="R-US_" device="R0805" value="150"/>
 <part name="R10" library="resistor" deviceset="R-US_" device="R0805" value="120"/>
-<part name="DCMTR" library="con-molex" deviceset="22-?-02" device="27-2021" value="DCMOTOR"/>
-<part name="D2" library="diode" deviceset="PMLL4150" device="" value="LL4148"/>
-<part name="T2" library="transistor" deviceset="BC848" device=""/>
-<part name="R13" library="rcl" deviceset="R-US_" device="R0805" value="120"/>
-<part name="GND11" library="supply1" deviceset="GND" device=""/>
 <part name="U$2" library="RepRapjr" deviceset="A4983CARRIER" device=""/>
 <part name="STEPPERMTR" library="con-molex" deviceset="22-?-04" device="27-2041" value="STEPPER"/>
 <part name="R14" library="rcl" deviceset="R-US_" device="R0805" value="1K"/>
@@ -13671,7 +13666,6 @@ high speed</description>
 <part name="GND13" library="supply1" deviceset="GND" device=""/>
 <part name="GND14" library="supply1" deviceset="GND" device=""/>
 <part name="R17" library="rcl" deviceset="R-US_" device="R0805" value="10k"/>
-<part name="R18" library="rcl" deviceset="R-US_" device="R0805" value="10k"/>
 <part name="R19" library="rcl" deviceset="R-US_" device="R0805" value="10k"/>
 <part name="R20" library="rcl" deviceset="R-US_" device="R0805" value="10k"/>
 <part name="GND15" library="supply1" deviceset="GND" device=""/>
@@ -13698,7 +13692,6 @@ high speed</description>
 <text x="22.86" y="86.36" size="1.778" layer="91">GAP SENSOR HEADERS</text>
 <text x="22.86" y="83.82" size="1.778" layer="91">GAP SENSOR IS AN IR LED AND PHOTOTRANSITOR</text>
 <text x="96.52" y="160.02" size="1.778" layer="91" rot="R270">LINE TERMINATION</text>
-<text x="83.82" y="96.52" size="1.778" layer="91">DC MOTOR HEADER</text>
 <text x="-55.88" y="55.88" size="1.778" layer="91">STEPPER MOTOR DRIVER</text>
 <text x="10.16" y="55.88" size="1.778" layer="91">STEPPER MOTOR HEADER</text>
 </plain>
@@ -13759,12 +13752,6 @@ high speed</description>
 <instance part="GND9" gate="1" x="60.96" y="101.6"/>
 <instance part="R9" gate="G$1" x="22.86" y="106.68" rot="R180"/>
 <instance part="R10" gate="G$1" x="91.44" y="167.64" rot="R90"/>
-<instance part="DCMTR" gate="-1" x="106.68" y="111.76" rot="R90"/>
-<instance part="DCMTR" gate="-2" x="86.36" y="111.76" rot="R90"/>
-<instance part="D2" gate="G$1" x="99.06" y="106.68" rot="R180"/>
-<instance part="T2" gate="G$1" x="119.38" y="109.22" rot="MR270"/>
-<instance part="R13" gate="G$1" x="119.38" y="119.38" rot="R90"/>
-<instance part="GND11" gate="1" x="132.08" y="101.6"/>
 <instance part="U$2" gate="G$1" x="-30.48" y="78.74"/>
 <instance part="STEPPERMTR" gate="-1" x="15.24" y="78.74"/>
 <instance part="STEPPERMTR" gate="-2" x="15.24" y="73.66"/>
@@ -13777,20 +13764,19 @@ high speed</description>
 <instance part="GND13" gate="1" x="-96.52" y="53.34"/>
 <instance part="GND14" gate="1" x="-7.62" y="78.74" rot="R90"/>
 <instance part="R17" gate="G$1" x="-7.62" y="111.76" rot="R180"/>
-<instance part="R18" gate="G$1" x="127" y="111.76" rot="R180"/>
 <instance part="R19" gate="G$1" x="17.78" y="198.12" rot="R180"/>
 <instance part="R20" gate="G$1" x="-63.5" y="193.04" rot="R180"/>
 <instance part="GND15" gate="1" x="25.4" y="193.04"/>
 <instance part="RST" gate="G$1" x="-99.06" y="114.3" rot="R90"/>
 <instance part="GND10" gate="1" x="-99.06" y="104.14"/>
-<instance part="GAPSNR2" gate="-1" x="45.72" y="134.62" rot="R270"/>
-<instance part="GAPSNR2" gate="-2" x="40.64" y="134.62" rot="R270"/>
-<instance part="GAPSNR2" gate="-3" x="35.56" y="134.62" rot="R270"/>
-<instance part="GAPSNR2" gate="-4" x="30.48" y="134.62" rot="R270"/>
-<instance part="GND16" gate="1" x="15.24" y="134.62"/>
-<instance part="R11" gate="G$1" x="53.34" y="139.7"/>
-<instance part="GND17" gate="1" x="60.96" y="134.62"/>
-<instance part="R12" gate="G$1" x="22.86" y="139.7" rot="R180"/>
+<instance part="GAPSNR2" gate="-1" x="101.6" y="101.6" rot="R270"/>
+<instance part="GAPSNR2" gate="-2" x="96.52" y="101.6" rot="R270"/>
+<instance part="GAPSNR2" gate="-3" x="91.44" y="101.6" rot="R270"/>
+<instance part="GAPSNR2" gate="-4" x="86.36" y="101.6" rot="R270"/>
+<instance part="GND16" gate="1" x="71.12" y="101.6"/>
+<instance part="R11" gate="G$1" x="109.22" y="106.68"/>
+<instance part="GND17" gate="1" x="116.84" y="101.6"/>
+<instance part="R12" gate="G$1" x="78.74" y="106.68" rot="R180"/>
 </instances>
 <busses>
 </busses>
@@ -13921,15 +13907,6 @@ high speed</description>
 <wire x1="15.24" y1="106.68" x2="15.24" y2="104.14" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="T2" gate="G$1" pin="E"/>
-<wire x1="124.46" y1="106.68" x2="132.08" y2="106.68" width="0.1524" layer="91"/>
-<wire x1="132.08" y1="106.68" x2="132.08" y2="104.14" width="0.1524" layer="91"/>
-<pinref part="GND11" gate="1" pin="GND"/>
-<pinref part="R18" gate="G$1" pin="1"/>
-<wire x1="132.08" y1="111.76" x2="132.08" y2="106.68" width="0.1524" layer="91"/>
-<junction x="132.08" y="106.68"/>
-</segment>
-<segment>
 <pinref part="U$2" gate="G$1" pin="GND@1"/>
 <wire x1="-15.24" y1="63.5" x2="-10.16" y2="63.5" width="0.1524" layer="91"/>
 <wire x1="-10.16" y1="63.5" x2="-10.16" y2="60.96" width="0.1524" layer="91"/>
@@ -13958,15 +13935,15 @@ high speed</description>
 </segment>
 <segment>
 <pinref part="R11" gate="G$1" pin="2"/>
-<wire x1="58.42" y1="139.7" x2="60.96" y2="139.7" width="0.1524" layer="91"/>
-<wire x1="60.96" y1="139.7" x2="60.96" y2="137.16" width="0.1524" layer="91"/>
+<wire x1="114.3" y1="106.68" x2="116.84" y2="106.68" width="0.1524" layer="91"/>
+<wire x1="116.84" y1="106.68" x2="116.84" y2="104.14" width="0.1524" layer="91"/>
 <pinref part="GND17" gate="1" pin="GND"/>
 </segment>
 <segment>
 <pinref part="R12" gate="G$1" pin="2"/>
-<wire x1="17.78" y1="139.7" x2="15.24" y2="139.7" width="0.1524" layer="91"/>
+<wire x1="73.66" y1="106.68" x2="71.12" y2="106.68" width="0.1524" layer="91"/>
 <pinref part="GND16" gate="1" pin="GND"/>
-<wire x1="15.24" y1="139.7" x2="15.24" y2="137.16" width="0.1524" layer="91"/>
+<wire x1="71.12" y1="106.68" x2="71.12" y2="104.14" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="PWR+COM1" gate="-5" pin="S"/>
@@ -14107,8 +14084,8 @@ high speed</description>
 </segment>
 <segment>
 <pinref part="GAPSNR2" gate="-2" pin="S"/>
-<wire x1="40.64" y1="137.16" x2="40.64" y2="144.78" width="0.1524" layer="91"/>
-<label x="40.64" y="144.78" size="1.778" layer="95" rot="R90"/>
+<wire x1="96.52" y1="104.14" x2="96.52" y2="111.76" width="0.1524" layer="91"/>
+<label x="96.52" y="111.76" size="1.778" layer="95" rot="R90"/>
 </segment>
 </net>
 <net name="5V" class="0">
@@ -14127,15 +14104,6 @@ high speed</description>
 <wire x1="71.12" y1="175.26" x2="76.2" y2="175.26" width="0.1524" layer="91"/>
 <wire x1="76.2" y1="175.26" x2="76.2" y2="177.8" width="0.1524" layer="91"/>
 <label x="76.2" y="177.8" size="1.778" layer="95"/>
-</segment>
-<segment>
-<label x="86.36" y="104.14" size="1.778" layer="95" rot="R270"/>
-<wire x1="86.36" y1="106.68" x2="86.36" y2="104.14" width="0.1524" layer="91"/>
-<wire x1="96.52" y1="106.68" x2="86.36" y2="106.68" width="0.1524" layer="91"/>
-<pinref part="D2" gate="G$1" pin="C"/>
-<pinref part="DCMTR" gate="-2" pin="S"/>
-<wire x1="86.36" y1="106.68" x2="86.36" y2="109.22" width="0.1524" layer="91"/>
-<junction x="86.36" y="106.68"/>
 </segment>
 <segment>
 <pinref part="PWR+COM1" gate="-3" pin="S"/>
@@ -14397,8 +14365,8 @@ high speed</description>
 </segment>
 <segment>
 <pinref part="GAPSNR2" gate="-3" pin="S"/>
-<wire x1="35.56" y1="137.16" x2="35.56" y2="144.78" width="0.1524" layer="91"/>
-<label x="35.56" y="144.78" size="1.778" layer="95" rot="R90"/>
+<wire x1="91.44" y1="104.14" x2="91.44" y2="111.76" width="0.1524" layer="91"/>
+<label x="91.44" y="111.76" size="1.778" layer="95" rot="R90"/>
 </segment>
 <segment>
 <pinref part="U$1" gate="G$1" pin="PB2"/>
@@ -14416,28 +14384,6 @@ high speed</description>
 <pinref part="U$1" gate="G$1" pin="PA11"/>
 <wire x1="2.54" y1="167.64" x2="7.62" y2="167.64" width="0.1524" layer="91"/>
 <label x="7.62" y="167.64" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="N$4" class="0">
-<segment>
-<pinref part="T2" gate="G$1" pin="B"/>
-<pinref part="R13" gate="G$1" pin="1"/>
-<wire x1="119.38" y1="111.76" x2="119.38" y2="114.3" width="0.1524" layer="91"/>
-<pinref part="R18" gate="G$1" pin="2"/>
-<wire x1="119.38" y1="111.76" x2="121.92" y2="111.76" width="0.1524" layer="91"/>
-<junction x="119.38" y="111.76"/>
-</segment>
-</net>
-<net name="DCMTR" class="0">
-<segment>
-<pinref part="R13" gate="G$1" pin="2"/>
-<wire x1="119.38" y1="124.46" x2="119.38" y2="127" width="0.1524" layer="91"/>
-<label x="119.38" y="127" size="1.778" layer="95" rot="R90"/>
-</segment>
-<segment>
-<pinref part="U$1" gate="G$1" pin="PB12"/>
-<wire x1="2.54" y1="149.86" x2="7.62" y2="149.86" width="0.1524" layer="91"/>
-<label x="7.62" y="149.86" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$5" class="0">
@@ -14586,24 +14532,12 @@ high speed</description>
 <junction x="-27.94" y="106.68"/>
 </segment>
 </net>
-<net name="MTR2-" class="0">
-<segment>
-<pinref part="D2" gate="G$1" pin="A"/>
-<pinref part="T2" gate="G$1" pin="C"/>
-<wire x1="114.3" y1="106.68" x2="106.68" y2="106.68" width="0.1524" layer="91"/>
-<label x="106.68" y="106.68" size="1.778" layer="95"/>
-<pinref part="DCMTR" gate="-1" pin="S"/>
-<wire x1="106.68" y1="106.68" x2="101.6" y2="106.68" width="0.1524" layer="91"/>
-<wire x1="106.68" y1="109.22" x2="106.68" y2="106.68" width="0.1524" layer="91"/>
-<junction x="106.68" y="106.68"/>
-</segment>
-</net>
 <net name="N$24" class="0">
 <segment>
 <pinref part="GAPSNR2" gate="-4" pin="S"/>
-<wire x1="30.48" y1="137.16" x2="30.48" y2="139.7" width="0.1524" layer="91"/>
+<wire x1="86.36" y1="104.14" x2="86.36" y2="106.68" width="0.1524" layer="91"/>
 <pinref part="R12" gate="G$1" pin="1"/>
-<wire x1="30.48" y1="139.7" x2="27.94" y2="139.7" width="0.1524" layer="91"/>
+<wire x1="86.36" y1="106.68" x2="83.82" y2="106.68" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="VSENSE1" class="0">
@@ -14625,12 +14559,12 @@ high speed</description>
 <net name="VSENSE2" class="0">
 <segment>
 <pinref part="GAPSNR2" gate="-1" pin="S"/>
-<wire x1="45.72" y1="137.16" x2="45.72" y2="139.7" width="0.1524" layer="91"/>
+<wire x1="101.6" y1="104.14" x2="101.6" y2="106.68" width="0.1524" layer="91"/>
 <pinref part="R11" gate="G$1" pin="1"/>
-<wire x1="45.72" y1="139.7" x2="48.26" y2="139.7" width="0.1524" layer="91"/>
-<wire x1="45.72" y1="139.7" x2="45.72" y2="144.78" width="0.1524" layer="91"/>
-<label x="45.72" y="144.78" size="1.778" layer="95" rot="R90"/>
-<junction x="45.72" y="139.7"/>
+<wire x1="101.6" y1="106.68" x2="104.14" y2="106.68" width="0.1524" layer="91"/>
+<wire x1="101.6" y1="106.68" x2="101.6" y2="111.76" width="0.1524" layer="91"/>
+<label x="101.6" y="111.76" size="1.778" layer="95" rot="R90"/>
+<junction x="101.6" y="106.68"/>
 </segment>
 <segment>
 <pinref part="U$1" gate="G$1" pin="PB1"/>

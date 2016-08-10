@@ -13861,6 +13861,11 @@ high speed</description>
 <label x="-43.18" y="190.5" size="1.778" layer="95" rot="R180"/>
 </segment>
 <segment>
+<pinref part="PWR+COM1" gate="-3" pin="S"/>
+<wire x1="-93.98" y1="190.5" x2="-88.9" y2="190.5" width="0.1524" layer="91"/>
+<label x="-88.9" y="190.5" size="1.778" layer="95"/>
+</segment>
+<segment>
 <pinref part="C1" gate="G$1" pin="2"/>
 <pinref part="C2" gate="G$1" pin="1"/>
 <wire x1="-71.12" y1="200.66" x2="-71.12" y2="205.74" width="0.1524" layer="91"/>
@@ -13952,6 +13957,11 @@ high speed</description>
 <pinref part="GND15" gate="1" pin="GND"/>
 </segment>
 <segment>
+<pinref part="PWR+COM2" gate="-4" pin="S"/>
+<wire x1="119.38" y1="190.5" x2="124.46" y2="190.5" width="0.1524" layer="91"/>
+<label x="124.46" y="190.5" size="1.778" layer="95"/>
+</segment>
+<segment>
 <pinref part="RST" gate="G$1" pin="1"/>
 <wire x1="-99.06" y1="109.22" x2="-99.06" y2="106.68" width="0.1524" layer="91"/>
 <pinref part="GND10" gate="1" pin="GND"/>
@@ -13967,16 +13977,6 @@ high speed</description>
 <wire x1="17.78" y1="139.7" x2="15.24" y2="139.7" width="0.1524" layer="91"/>
 <pinref part="GND16" gate="1" pin="GND"/>
 <wire x1="15.24" y1="139.7" x2="15.24" y2="137.16" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="PWR+COM1" gate="-5" pin="S"/>
-<wire x1="-93.98" y1="195.58" x2="-88.9" y2="195.58" width="0.1524" layer="91"/>
-<label x="-88.9" y="195.58" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="PWR+COM2" gate="-2" pin="S"/>
-<wire x1="119.38" y1="185.42" x2="124.46" y2="185.42" width="0.1524" layer="91"/>
-<label x="124.46" y="185.42" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="NRST" class="0">
@@ -14118,6 +14118,11 @@ high speed</description>
 <label x="-88.9" y="215.9" size="1.778" layer="95"/>
 </segment>
 <segment>
+<pinref part="PWR+COM1" gate="-5" pin="S"/>
+<wire x1="-93.98" y1="195.58" x2="-88.9" y2="195.58" width="0.1524" layer="91"/>
+<label x="-88.9" y="195.58" size="1.778" layer="95"/>
+</segment>
+<segment>
 <pinref part="SERVO" gate="A" pin="2"/>
 <wire x1="-96.52" y1="152.4" x2="-86.36" y2="152.4" width="0.1524" layer="91"/>
 <label x="-86.36" y="152.4" size="1.778" layer="95"/>
@@ -14138,14 +14143,9 @@ high speed</description>
 <junction x="86.36" y="106.68"/>
 </segment>
 <segment>
-<pinref part="PWR+COM1" gate="-3" pin="S"/>
-<wire x1="-93.98" y1="190.5" x2="-88.9" y2="190.5" width="0.1524" layer="91"/>
-<label x="-88.9" y="190.5" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="PWR+COM2" gate="-4" pin="S"/>
-<wire x1="119.38" y1="190.5" x2="124.46" y2="190.5" width="0.1524" layer="91"/>
-<label x="124.46" y="190.5" size="1.778" layer="95"/>
+<pinref part="PWR+COM2" gate="-2" pin="S"/>
+<wire x1="119.38" y1="185.42" x2="124.46" y2="185.42" width="0.1524" layer="91"/>
+<label x="124.46" y="185.42" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="T_SWCLK" class="0">
