@@ -66,6 +66,10 @@ void init_leds(void) {
   GPIOB->MODER |= GPIO_MODER_MODER5_0; //set PB5 to output
   GPIOB->MODER |= GPIO_MODER_MODER6_0; //set PB6 to output
   GPIOB->MODER |= GPIO_MODER_MODER7_0; //set PB7 to output
+  GPIOB->MODER |= GPIO_MODER_MODER8_0; //set PB7 to output
+  GPIOB->MODER |= GPIO_MODER_MODER9_0; //set PB7 to output
+  GPIO_INIT()
+
 }
 
 void init_adc(void) {

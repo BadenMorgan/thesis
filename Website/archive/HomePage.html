@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <link rel="stylesheet" href="style.css" type="text/css" media="screen" />
+    </head>
+	<body style="background-color:#cccccc;">
+		
+		<div id="left"></div>
+		<div id="right"></div>
+		<div id="top"></div>
+		<div id="bottom"></div>
+		<style type="text/css">#top, #bottom, #left, #right {
+		background: #000000;
+		position: fixed;
+		}
+		#left, #right {
+			top: 0; bottom: 0;
+			width: 15px;
+			}
+			#left { left: 0; }
+			#right { right: 0; }
+			
+		#top, #bottom {
+			left: 0; right: 0;
+			height: 15px;
+			}
+			#top { top: 0; }
+			#bottom { bottom: 0; }
+		<!--[if lte IE 6]>
+		<style>#top, #bottom, #left, #right { display: none; }</style>
+		<![endif]--></style>
+		 
+		<style type="text/css">
+		@media
+
+		only screen and (max-width: 1000px),
+		{
+			#top, #bottom, #left, #right { display: none; }
+		}
+		</style>
+
+		<center><img src="website pictures/WLVMLogo.png" height="auto" style="margin:50px 0 0 0; max-width:100% ;"></center>
+		
+		<h1><b><center>UCT White Lab Vending Machine</center></b></h1>
+
+		<p></p>
+	</body>
+</html>
