@@ -171,15 +171,36 @@
 		<Unit filename="SPL\src\stm32f0xx_wwdg.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="src\Debug.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src\Debug.h" />
+		<Unit filename="src\definitions.h" />
+		<Unit filename="src\GPIOLib.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src\GPIOLib.h" />
 		<Unit filename="src\main.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="src\SerialMonitor.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src\SerialMonitor.h" />
+		<Unit filename="src\Servo.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src\Servo.h" />
 		<Unit filename="src\startup_stm32f0xx.S">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="src\system_stm32f0xx.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="src\Timers.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src\Timers.h" />
 		<Unit filename="stm32f051c6_flash.ld" />
 		<Unit filename="stm32f051c6_sram.ld" />
 		<Extensions>

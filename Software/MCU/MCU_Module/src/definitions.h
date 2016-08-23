@@ -1,0 +1,9 @@
+#ifndef DEFINITIONS_H_INCLUDED
+#define DEFINITIONS_H_INCLUDED
+#define JAM 0xC1
+#define EMPTY 0xC2
+#define LOW 0xC3
+#define SUCCESS 0xC4
+#define LOWSUCCESS 0xC7
+
+#endif /* DEFINITIONS_H_INCLUDED */
