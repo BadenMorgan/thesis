@@ -1,4 +1,5 @@
 #include "GPIOLib.h"
+#include "definitions.h"
 
 /*
 setup of the GPIO for on led, status led, vibration motor,
@@ -118,4 +119,19 @@ void ADCsInit(){
 
     ADC1->CHSELR |= ADC_CHSELR_CHSEL9; // select channel 8
     ADC1->CFGR1 |= ADC_CFGR1_RES_1;    // resolution to 8 bit
+}
+
+uint8_t GetADCVal(uint8_t Channel){
+    if(Channel == channel0){
+        ADC1->CHSELR = ADC_CHSELR_CHSEL0; // select channel 0
+    }else if(Channel == channel8){
+        ADC1->CHSELR = ADC_CHSELR_CHSEL8; // select channel 8
+    }else if(Channel == channel9){
+        ADC1->CHSELR = ADC_CHSELR_CHSEL9; // select channel 9
+    }
+
+    ADC1->CR |= ADC_CR_ADSTART;
+    // wait for end of conversion: EOC == 1. Not necessary to clear EOC as we read from DR
+    while((ADC1->ISR & ADC_ISR_EOC) == 0);
+    return ADC1->DR;
 }

@@ -49,14 +49,21 @@
 		<style type="text/css">
 		@media
 
-		only screen and (min-width: 1000px),
+		only screen and (max-width: 1000px),
 		{
 			#top, #bottom, #left, #right { display: none; }
 
-			#mobilenote{
-				display:none;
-			}
+			
 
+			
+		}
+
+		@media
+		only screen and (min-width: 1000px),
+		{
+			#mobilenote{
+				display: none;
+			}		
 		}
 		</style>
 
@@ -125,7 +132,7 @@
 		<?php 
 		echo "<font face='Helvetica'>" . $partlimit ."</font>";
 		?>
-		 parts from each component every 24h. </font></center></p>
+		 parts from each component every 24h.</font></center></p>
 		 
 		<hr>
 		<!--Page title and description-->
@@ -140,7 +147,7 @@
 
 		<center>
 
-		<a href="#null"><font face = "Helvetica">Datasheet</font></a>
+		<a href="datasheets\ne555.pdf"><font face = "Helvetica">Datasheet</font></a>
 		<font face = "Helvetica"> |quantity:</font>
 		
 		<select name="IC1">		
@@ -150,7 +157,7 @@
 		</select>
 		<span style="margin-right: 130px;"></span>		
 
-		<a href="#null"><font face = "Helvetica">Datasheet</font></a>
+		<a href="datasheets\lm311n.pdf"><font face = "Helvetica">Datasheet</font></a>
 		<font face = "Helvetica"> |quantity:</font>
 
 		<select name="IC2">
@@ -161,7 +168,7 @@
 
 		<span style="margin-right: 130px;"></span>		
 
-		<a href="#null"><font face = "Helvetica">Datasheet</font></a>
+		<a href="datasheets\LM393-D.PDF"><font face = "Helvetica">Datasheet</font></a>
 		<font face = "Helvetica"> |quantity:</font>
 
 		<select name="IC3">
@@ -174,13 +181,13 @@
 		<!---->
 
 		<!--second line-->
-		<p><center><b><font face = "Helvetica"><span style="margin-right: 260px;">LM741</span><span style="margin-right: 260px;">LM358</span>LM328</font></center></p>
+		<p><center><b><font face = "Helvetica"><span style="margin-right: 260px;">LM741</span><span style="margin-right: 260px;">LM358</span>LM339</font></center></p>
 
-		<p><center><img src="website pictures\dip 8.jpg" hspace="20"><img src="website pictures\dip 8.jpg" hspace="20"><img src="website pictures\dip 8.jpg" hspace="20" ></center></p>
+		<p><center><img src="website pictures\dip 8.jpg" hspace="20"><img src="website pictures\dip 8.jpg" hspace="20"><img src="website pictures\dip 14.jpg" hspace="20" ></center></p>
 
 		<center>
 
-		<a href="#null"><font face = "Helvetica">Datasheet</font></a>
+		<a href="datasheets\LM741.pdf"><font face = "Helvetica">Datasheet</font></a>
 		<font face = "Helvetica"> |quantity:</font>
 
 		<select name="IC4">		
@@ -190,7 +197,7 @@
 		</select>
 		<span style="margin-right: 130px;"></span>		
 
-		<a href="#null"><font face = "Helvetica">Datasheet</font></a>
+		<a href="datasheets\LM358-D.PDF"><font face = "Helvetica">Datasheet</font></a>
 		<font face = "Helvetica"> |quantity:</font>
 
 		<select name="IC5">
@@ -201,7 +208,7 @@
 
 		<span style="margin-right: 130px;"></span>		
 
-		<a href="#null"><font face = "Helvetica">Datasheet</font></a>
+		<a href="datasheets\LM339A.pdf"><font face = "Helvetica">Datasheet</font></a>
 		<font face = "Helvetica"> |quantity:</font>
 
 		<select name="IC6">
@@ -214,13 +221,13 @@
 		<!---->
 
 		<!--third line-->
-		<p><center><b><font face = "Helvetica"><span style="margin-right: 260px;">LM339</span><span style="margin-right: 260px;">LM324</span>unkown</font></center></p>
+		<p><center><b><font face = "Helvetica"><span style="margin-right: 260px;">LM324</span><span style="margin-right: 260px;">unkown</span>unkown</font></center></p>
 
-		<p><center><img src="website pictures\dip 14.jpg" hspace="20"><img src="website pictures\dip 14.jpg" hspace="20"><img src="website pictures\dip 16.jpg" hspace="20" ></center></p>
+		<p><center><img src="website pictures\dip 14.jpg" hspace="20"><img src="website pictures\dip 16.jpg" hspace="20"><img src="website pictures\dip 20.jpg" hspace="20" ></center></p>
 
 		<center>
 
-		<a href="#null"><font face = "Helvetica">Datasheet</font></a>
+		<a href="datasheets\lm324-n.pdf"><font face = "Helvetica">Datasheet</font></a>
 		<font face = "Helvetica"> |quantity:</font>
 
 		<select name="IC7">		
@@ -254,13 +261,13 @@
 		<!---->
 
 		<!--fourth line-->		
-		<p><center><b><font face = "Helvetica"><span style="margin-right: 260px;">unkown</span><span style="margin-right: 260px;">L7805</span>LM317</font></center></p>
+		<p><center><b><font face = "Helvetica"><span style="margin-right: 260px;">L7805</span>LM317</font></center></p>
 
-		<p><center><img src="website pictures\dip 20.jpg" hspace="20"><img src="website pictures\to220.jpg" hspace="20"><img src="website pictures\to220.jpg" hspace="20" ></center></p>
+		<p><center><img src="website pictures\to220.jpg" hspace="20"><img src="website pictures\to220.jpg" hspace="20" ></center></p>
 
 		<center>
 
-		<a href="#null"><font face = "Helvetica">Datasheet</font></a>
+		<a href="datasheets\L7805.pdf"><font face = "Helvetica">Datasheet</font></a>
 		<font face = "Helvetica"> |quantity:</font>
 
 		<select name="IC10">		
@@ -270,7 +277,7 @@
 		</select>
 		<span style="margin-right: 130px;"></span>		
 
-		<a href="#null"><font face = "Helvetica">Datasheet</font></a>
+		<a href="datasheets\lm317.pdf"><font face = "Helvetica">Datasheet</font></a>
 		<font face = "Helvetica"> |quantity:</font>
 
 		<select name="IC11">
@@ -278,17 +285,6 @@
 		        <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
 		    <?php endfor; ?>
 		</select>
-
-		<span style="margin-right: 130px;"></span>		
-
-		<a href="#null"><font face = "Helvetica">Datasheet</font></a>
-		<font face = "Helvetica"> |quantity:</font>
-
-		<select name="IC12">
-		    <?php for ($i = 0; $i <= $partlimit; $i++) : ?>
-		        <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
-		    <?php endfor; ?>
-		</select></center>
 
 		<p>&nbsp;</p>
 		<!---->

@@ -2,7 +2,7 @@
 
 
 //setup timer 2 for PWM on channel 4
-void ServoInit(){
+void ServoInit(uint8_t startval){
     RCC->AHBENR |= RCC_AHBENR_GPIOBEN;
     RCC->APB1ENR |= RCC_APB1ENR_TIM2EN;
 
@@ -14,7 +14,7 @@ void ServoInit(){
     // specify PWM mode: OCxM bits in CCMRx. We want mode 1
     TIM2->CCMR2 |= (TIM_CCMR2_OC4M_2 | TIM_CCMR2_OC4M_1); // PWM Mode 1
     // set PWM percantages
-    TIM2->CCR4 = 90; // Green = 90%
+    TIM2->CCR4 = 90 + startval; // Green = 90%
 
     // enable the OC channels
     TIM2->CCER |= TIM_CCER_CC4E;
