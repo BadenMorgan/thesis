@@ -35,11 +35,12 @@
 
 
 //global variables
-uint16_t Stamp[32];     //stamps used for timing 0: idler 1:test 2:taskmanager 3:alignment 4:taskmanager 5: delay 6: wiggle
+uint16_t Stamp[32];     //stamps used for timing 0: idler 1:test 2:taskmanager 3:alignment 4:taskmanager 5: delay 6: wiggle 7:debug coms
 uint8_t status = 0;     //status to display on the sysled
-uint16_t Serialdata[256];    //serial data buffer
+uint8_t Serialdata[256];    //serial data buffer
 uint8_t buffercount = 0;
 uint8_t bufferreadcount = 0;
+uint8_t RXFlag = 2;
 uint16_t period = 1000;     //period used for the idle function
 uint8_t modeflag = 0;   //mode flag for selecting adjusting alignment
 uint64_t address = 0;   //address byte used to recognize incommoding data
@@ -59,6 +60,7 @@ void Ready();
 void delay(uint16_t time);
 void AlignTaskMng();
 void Calibration();
+void SerialMonitor(void(*FNCName)());
 #ifdef _ROLLER_
 void TaskManager();
 void initTask();
@@ -76,6 +78,7 @@ void ModeSelect();
 #endif
 #ifdef _DEBUG_
 void debuginput();
+void echo();
 #endif
 
 int main(void)
@@ -98,6 +101,7 @@ int main(void)
 
     while(1)
     {
+        SerialMonitor(echo);
         //watchdog
         Idler(period);
 #ifdef _DEBUG_
@@ -211,6 +215,19 @@ void Calibration(){
         ServoSet(pickval);
     }else{
         task++;
+    }
+}
+//function used to determine if serial data received has stopped.
+void SerialMonitor(void(*FNCName)()){
+    uint16_t counterval = TIM_GetCounter(TIM14);
+    if(RXFlag == 1){
+        RXFlag = 0;
+        Stamp[7] = counterval;
+    }
+    uint16_t sum = counterval - Stamp[7];
+    if((sum >= 100) && (RXFlag != 2)){
+        FNCName();
+        RXFlag = 2;
     }
 }
 //function used if roller is being used
@@ -607,7 +624,31 @@ void debuginput(){
         //task = 0;
     }
 }
+
+//irq handler
+void USART2_IRQHandler(){
+    /* Read one byte from the receive data register */
+    Serialdata[buffercount] = USART2->RDR;
+    buffercount++;
+    RXFlag = 1;
+    //USART_ClearFlag(USART2,USART_FLAG_RXNE);
+}
+
+void echo(){
+    while(bufferreadcount != buffercount){
+        USART_SendData(USART2, Serialdata[bufferreadcount]);
+        bufferreadcount++;
+        /* Loop until the end of transmission */
+        while (USART_GetFlagStatus(USART2, USART_FLAG_TC) == RESET){}
+
+    }
+    USART_SendData(USART2, 0x0A);
+    /* Loop until the end of transmission */
+    while (USART_GetFlagStatus(USART2, USART_FLAG_TC) == RESET){}
+    print16bits(buffercount,0x41,3);
+}
 #endif
+
 
 
 

@@ -42,8 +42,19 @@ void USART2Init()
     /* Enable USART3 */
     USART_Cmd(USART2, ENABLE);
 
-    //enable USART interrupt
-    NVIC_EnableIRQ(USART2_IRQn);
+    //enable USART interrupt on receive
+    USART_ITConfig(USART2,USART_IT_RXNE,ENABLE);
+    //NVIC_EnableIRQ(USART2_IRQn);
+
+    NVIC_InitTypeDef NVIC_InitStructure;
+    /* Enable USART3 IRQ channel in the NVIC controller.
+    When the USART3 interrupt is generated (in this example when
+    data is received) the USART3_IRQHandler will be served */
+    NVIC_InitStructure.NVIC_IRQChannel = USART2_IRQn;
+    NVIC_InitStructure.NVIC_IRQChannelPriority = 0;
+    NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+    NVIC_Init(&NVIC_InitStructure);
+
 }
 
 /*
@@ -148,3 +159,6 @@ void ADCtest(){
     }
 
 }
+
+// USART 2 IRQ handler
+
