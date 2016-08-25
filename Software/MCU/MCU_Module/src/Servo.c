@@ -34,3 +34,4 @@ void ServoSweep(){
 void ServoSet(uint16_t angle){
     TIM2->CCR4 = 90 + angle;
 }
+

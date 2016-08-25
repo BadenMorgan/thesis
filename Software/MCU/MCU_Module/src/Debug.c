@@ -45,3 +45,106 @@ void USART2Init()
     //enable USART interrupt
     NVIC_EnableIRQ(USART2_IRQn);
 }
+
+/*
+debug input button
+*/
+void input(){
+    GPIO_InitTypeDef GPIO_InitStructure;
+    //MODE
+    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_7;
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN;
+    GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_DOWN;
+    GPIO_Init(GPIOB, &GPIO_InitStructure);
+}
+
+/*
+print the address obtained by the initialization
+*/
+void printBIN(uint8_t val){
+    int i;
+    for( i = 0; i < 8 ; i++){
+        if(val & (0b10000000 >> i)){
+            USART_SendData(USART2, 0x31);
+            /* Loop until the end of transmission */
+            while (USART_GetFlagStatus(USART2, USART_FLAG_TC) == RESET){}
+        }else{
+            USART_SendData(USART2, 0x30);
+            /* Loop until the end of transmission */
+            while (USART_GetFlagStatus(USART2, USART_FLAG_TC) == RESET){}
+        }
+    }
+    USART_SendData(USART2, 0x0A);
+    /* Loop until the end of transmission */
+    while (USART_GetFlagStatus(USART2, USART_FLAG_TC) == RESET){}
+}
+
+/*
+output a value on the serial monitor
+*/
+void print16bits(uint16_t value, uint8_t pre, uint8_t len){
+    USART_SendData(USART2, pre);
+    /* Loop until the end of transmission */
+    while (USART_GetFlagStatus(USART2, USART_FLAG_TC) == RESET){}
+    USART_SendData(USART2, 0x0A);
+    /* Loop until the end of transmission */
+    while (USART_GetFlagStatus(USART2, USART_FLAG_TC) == RESET){}
+    uint8_t split[5];
+    split[4] = (value/10000);
+    split[3] = (value - (split[4]*10000))/1000;
+    split[2] = (value - split[4]*10000 - split[3]*1000)/100;
+    split[1] = (value - split[4]*10000 - split[3]*1000 - split[2]*100)/10;
+    split[0] = (value - split[4]*10000 - split[3]*1000 - split[2]*100 - split[1]*10);
+    int i;
+    for(i = len ; i > 0  ; i--){
+        USART_SendData(USART2, split[i-1] + 48);
+        /* Loop until the end of transmission */
+        while (USART_GetFlagStatus(USART2, USART_FLAG_TC) == RESET){}
+    }
+    USART_SendData(USART2, 0x0A);
+    /* Loop until the end of transmission */
+    while (USART_GetFlagStatus(USART2, USART_FLAG_TC) == RESET){}
+}
+
+/*
+print 1 byte
+*/
+void printbyte(uint8_t val){
+    USART_SendData(USART2, val);
+    /* Loop until the end of transmission */
+    while (USART_GetFlagStatus(USART2, USART_FLAG_TC) == RESET){}
+    USART_SendData(USART2, 0x0A);
+    /* Loop until the end of transmission */
+    while (USART_GetFlagStatus(USART2, USART_FLAG_TC) == RESET){}
+}
+
+/*
+test the adc
+*/
+void ADCtest(){
+    /*ADC1->CHSELR |= ADC_CHSELR_CHSEL0; // select channel 0
+    delay(200);
+    ADC1->CR |= ADC_CR_ADSTART;
+    // wait for end of conversion: EOC == 1. Not necessary to clear EOC as we read from DR
+    while((ADC1->ISR & ADC_ISR_EOC) == 0);
+    print16bits(ADC1->DR/4,0x41,3);*/
+
+    int i;
+
+    for(i = 0; i < 5 ; i++){
+        ADC1->CHSELR = ADC_CHSELR_CHSEL8; // select channel 8
+        ADC1->CR |= ADC_CR_ADSTART;
+        // wait for end of conversion: EOC == 1. Not necessary to clear EOC as we read from DR
+        while((ADC1->ISR & ADC_ISR_EOC) == 0);
+        print16bits(ADC1->DR,0x42,3);
+    }
+
+    for(i = 0; i < 5 ; i++){
+        ADC1->CHSELR = ADC_CHSELR_CHSEL9; // select channel 9
+        ADC1->CR |= ADC_CR_ADSTART;
+        // wait for end of conversion: EOC == 1. Not necessary to clear EOC as we read from DR
+        while((ADC1->ISR & ADC_ISR_EOC) == 0);
+        print16bits(ADC1->DR,0x43,3);
+    }
+
+}

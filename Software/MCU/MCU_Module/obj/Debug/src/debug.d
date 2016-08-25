@@ -10,4 +10,5 @@ obj\debug\src\debug.o: src\Debug.c src\Debug.h inc/stm32f0xx_conf.h \
  SPL\inc/stm32f0xx_iwdg.h SPL\inc/stm32f0xx_pwr.h SPL\inc/stm32f0xx_rcc.h \
  SPL\inc/stm32f0xx_rtc.h SPL\inc/stm32f0xx_spi.h SPL\inc/stm32f0xx_tim.h \
  SPL\inc/stm32f0xx_usart.h SPL\inc/stm32f0xx_wwdg.h \
- SPL\inc/stm32f0xx_misc.h
+ SPL\inc/stm32f0xx_misc.h src\SerialMonitor.h src\Timers.h src\GPIOLib.h \
+ src\definitions.h src\Servo.h

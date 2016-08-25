@@ -15819,7 +15819,7 @@ Source: http://www.bourns.com/data/global/PDFs/3223.PDF</description>
 <part name="GND8" library="supply1" deviceset="GND" device=""/>
 <part name="R8" library="resistor" deviceset="R-US_" device="R0805" value="2k"/>
 <part name="GND9" library="supply1" deviceset="GND" device=""/>
-<part name="R9" library="rcl" deviceset="R-US_" device="R0805" value="120"/>
+<part name="R9" library="rcl" deviceset="R-US_" device="R0805" value="75"/>
 <part name="R10" library="resistor" deviceset="R-US_" device="R0805" value="120"/>
 <part name="U$2" library="RepRapjr" deviceset="A4983CARRIER" device=""/>
 <part name="STEPPERMTR" library="con-molex" deviceset="22-?-04" device="27-2041" value="STEPPER"/>
@@ -15839,7 +15839,7 @@ Source: http://www.bourns.com/data/global/PDFs/3223.PDF</description>
 <part name="GND16" library="supply1" deviceset="GND" device=""/>
 <part name="R11" library="resistor" deviceset="R-US_" device="R0805" value="2k"/>
 <part name="GND17" library="supply1" deviceset="GND" device=""/>
-<part name="R12" library="rcl" deviceset="R-US_" device="R0805" value="120"/>
+<part name="R12" library="rcl" deviceset="R-US_" device="R0805" value="75"/>
 <part name="R13" library="pot" deviceset="TRIM_EU-" device="B25P" value="5k"/>
 <part name="TRIM" library="pinhead" deviceset="PINHD-1X2" device=""/>
 <part name="MODE" library="pinhead" deviceset="PINHD-1X2" device=""/>

@@ -1,5 +1,5 @@
 #include "GPIOLib.h"
-#include "definitions.h"
+
 
 /*
 setup of the GPIO for on led, status led, vibration motor,

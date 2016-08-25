@@ -17,9 +17,9 @@
 
 **********************************************************************/
 //macros
+//#define _EXTRA_
 #define _DEBUG_
 #define _ROLLER_
-
 
 //Libraries
 #include "stm32f0xx_conf.h"
@@ -35,11 +35,12 @@
 
 
 //global variables
-uint16_t Stamp[32];     //stamps used for timing 0: idler 1:test 2:taskmanager 3:alignment 4:taskmanager 5: delay
+uint16_t Stamp[32];     //stamps used for timing 0: idler 1:test 2:taskmanager 3:alignment 4:taskmanager 5: delay 6: wiggle
 uint8_t status = 0;     //status to display on the sysled
-uint16_t Serialdata[64];    //serial data buffer
+uint16_t Serialdata[256];    //serial data buffer
+uint8_t buffercount = 0;
+uint8_t bufferreadcount = 0;
 uint16_t period = 1000;     //period used for the idle function
-uint8_t task = 0;       //task number used for task management
 uint8_t modeflag = 0;   //mode flag for selecting adjusting alignment
 uint64_t address = 0;   //address byte used to recognize incommoding data
 uint8_t testflag = 0;   //test flag used to check if a test is requested
@@ -48,7 +49,10 @@ uint16_t pickval = 74;  //angle at which an IC will be picked up
 uint8_t ICADVVal[10];   //used to average out the IC bucket reading
 uint8_t GUIDEADCVal[10];    //used to average out the guide reading
 uint8_t ADCCounter = 0;
-uint8_t DeliverxMany = 0;
+uint8_t DeliverxMany = 0;   //amount to dispense
+uint8_t task = 0;       //task number used for task management
+uint8_t jamorempty = 0;
+
 
 //function definitions
 void Ready();
@@ -60,26 +64,25 @@ void TaskManager();
 void initTask();
 void Test();
 void CheckIC();
+void Release();
+void PickUp();
+void CheckIC2();
+void CheckLow();
 void FinishTask();
+void ServoWiggle(uint8_t pos, uint16_t initpos);
 void Idler(uint16_t period);
 void IntervalHandle(void(*FNCName)(),uint16_t interval,uint8_t stamp);
 void ModeSelect();
-
 #endif
 #ifdef _DEBUG_
-void Test();
-void input();
 void debuginput();
-void printBIN(uint8_t val);
-void print16bits(uint16_t value, uint8_t pre, uint8_t len);
-void printbyte(uint8_t val);
-void ADCtest();
 #endif
 
 int main(void)
 {
     GPIOInit();
     address = InitAdress();
+    testflag = GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_7);
     TIM14Init();
     USART1Init();
     ADCsInit();
@@ -112,6 +115,9 @@ int main(void)
 #endif
         if(modeflag){
             AlignTaskMng();
+#ifdef _DEBUG_
+            jamorempty = 0;
+#endif
         }else if(!modeflag){
             TaskManager();
         }
@@ -169,8 +175,8 @@ void AlignTaskMng(){
 void Calibration(){
     uint16_t counterval = TIM_GetCounter(TIM14);
     uint16_t sum = counterval - Stamp[3];
-    if(sum <= 30000){
-        ADC1->CHSELR |= ADC_CHSELR_CHSEL0; // select channel 0
+    if(sum <= 15000){
+        ADC1->CHSELR = ADC_CHSELR_CHSEL0; // select channel 0
         delay(200);
         ADC1->CR |= ADC_CR_ADSTART;
         // wait for end of conversion: EOC == 1. Not necessary to clear EOC as we read from DR
@@ -186,8 +192,8 @@ void Calibration(){
             releaseval = 250 - val;
         }
         ServoSet(releaseval);
-    }else if(sum <= 60000){
-        ADC1->CHSELR |= ADC_CHSELR_CHSEL0; // select channel 0
+    }else if(sum <= 30000){
+        ADC1->CHSELR = ADC_CHSELR_CHSEL0; // select channel 0
         delay(200);
         ADC1->CR |= ADC_CR_ADSTART;
         // wait for end of conversion: EOC == 1. Not necessary to clear EOC as we read from DR
@@ -229,15 +235,45 @@ void TaskManager(){
             Release();
             break;
         }
+        case 4:{
+            ServoWiggle(ReleaseWiggle,releaseval);
+            break;
+        }
+        case 5:{
+            Release();
+            break;
+        }
+        case 6:{
+            PickUp();
+            break;
+        }
+        case 7:{
+            ServoWiggle(PickWiggle,pickval);
+            break;
+        }
+        case 8:{
+            CheckIC2();
+            break;
+        }
+        case 9:{
+            if(DeliverxMany == 1){
+                CheckLow();
+            }else{
+                task++;
+            }
+            break;
+        }
         default:{
-            delay(1000);        //remove this code for proper operation
-            ServoSet(pickval);  //remove this code for proper operation
             DeliverxMany--;
-            print16bits(DeliverxMany,0x43,3);
             if(DeliverxMany != 0){
                 task = 1;
                 break;
             }
+#ifdef _DEBUG_
+            if(!jamorempty){
+                printbyte(0x53);
+            }
+#endif
             FinishTask();
             break;
         }
@@ -245,20 +281,25 @@ void TaskManager(){
 }
 //task 1 turn of receiver and turn on vibration motor
 void initTask(){
-    period = 100;
-    GPIO_WriteBit(GPIOA,RE,0);
-    GPIO_WriteBit(GPIOB,VBRMTR,1);
-    GPIO_WriteBit(GPIOB,IRLED1,1);
-    GPIO_WriteBit(GPIOB,IRLED2,1);
-    task++;
-    Stamp[2] = TIM_GetCounter(TIM14);
+    if(!jamorempty){
+        ServoSet(pickval);  //remove this code for proper operation
+        period = 100;
+        GPIO_WriteBit(GPIOA,RE,0);
+        GPIO_WriteBit(GPIOB,VBRMTR,1);
+        GPIO_WriteBit(GPIOB,IRLED1,1);
+        GPIO_WriteBit(GPIOB,IRLED2,1);
+        task++;
+        Stamp[2] = TIM_GetCounter(TIM14);
+    }else{
+        task = 0xFF;
+    }
 }
 
 //check for IC in bucket and tube then move to release
 void CheckIC(){
     uint16_t counterval = TIM_GetCounter(TIM14);
     uint16_t sum = counterval - Stamp[2];
-    if(sum >= Wait - 400){
+    if(sum >= Wait - 150){
         uint16_t sum2 = counterval - Stamp[4];
         if(sum2 >= 40){
             ICADVVal[ADCCounter] = GetADCVal(channel8);
@@ -275,8 +316,8 @@ void CheckIC(){
                 }
                 ICSum = ICSum/10;
                 GuideSum = GuideSum/10;
-#ifdef _DEBUG_
-                print16bits(ICSum,0x42,3);
+#ifdef _EXTRA_
+                print16bits(ICSum,0x41,3);
                 print16bits(GuideSum,0x42,3);
 #endif
                 if(ICSum < GapThreshold){   //is there IC in bucket
@@ -289,12 +330,14 @@ void CheckIC(){
                     #ifdef _DEBUG_
                     printbyte(0x4A);
                     #endif
+                    jamorempty = 1;
                     task = 0xFF;
                 }else{  //tube is empty
                     //report empty
                     #ifdef _DEBUG_
                     printbyte(0x45);
                     #endif
+                    jamorempty = 1;
                     task = 0xFF;
                 }
             }
@@ -305,10 +348,168 @@ void CheckIC(){
 
 //check IC has dropped hen move to pickup
 void Release(){
-
-    task++;
+    uint16_t counterval = TIM_GetCounter(TIM14);
+    uint16_t sum = counterval - Stamp[2];
+    if(sum >= Wait - 250){
+        uint16_t sum2 = counterval - Stamp[4];
+        if(sum2 >= 40){
+            ICADVVal[ADCCounter] = GetADCVal(channel8);
+            ADCCounter++;
+            if(ADCCounter >= 10){
+                ADCCounter = 0;
+                int i;
+                uint16_t ICSum = 0;
+                for(i = 0; i < 10; i++){
+                    ICSum += ICADVVal[i];
+                }
+                ICSum = ICSum/10;
+#ifdef _EXTRA_
+                print16bits(ICSum,0x43,3);
+#endif
+                if(ICSum > GapThreshold){   //is there IC in bucket
+                    ServoSet(pickval);
+                    if(task == 3) task += 3;
+                    else task ++;
+                    Stamp[2] = counterval;
+                }else if(task == 3){
+                    Stamp[5] = TIM_GetCounter(TIM14);
+                    task++;
+                }else{
+                    DeliverxMany = 1;
+#ifdef _DEBUG_
+                    printbyte(0x4A);
+#endif
+                    jamorempty = 1;
+                    task = 0xFF;
+                }
+            }
+            Stamp[4] = counterval;
+        }
+    }
 }
 
+//pickup another IC
+void PickUp(){
+    uint16_t counterval = TIM_GetCounter(TIM14);
+    uint16_t sum = counterval - Stamp[2];
+    if(sum >= Wait - 150){
+        uint16_t sum2 = counterval - Stamp[4];
+        if(sum2 >= 40){
+            ICADVVal[ADCCounter] = GetADCVal(channel8);
+            GUIDEADCVal[ADCCounter] = GetADCVal(channel9);
+            ADCCounter++;
+            if(ADCCounter >= 10){
+                ADCCounter = 0;
+                int i;
+                uint16_t ICSum = 0;
+                uint16_t GuideSum = 0;
+                for(i = 0; i < 10; i++){
+                    ICSum += ICADVVal[i];
+                    GuideSum += GUIDEADCVal[i];
+                }
+                ICSum = ICSum/10;
+                GuideSum = GuideSum/10;
+#ifdef _EXTRA_
+                print16bits(ICSum,0x41,3);
+#endif
+                if(ICSum < GapThreshold){   //is there IC in bucket
+                    task+=3;
+                    Stamp[2] = counterval;
+                }else{
+                    task++;
+                    Stamp[5] = counterval;
+                }
+            }
+            Stamp[4] = counterval;
+        }
+    }
+}
+
+//checks IC but does not end task if empty
+void CheckIC2(){
+    uint16_t counterval = TIM_GetCounter(TIM14);
+    uint16_t sum = counterval - Stamp[2];
+    if(sum >= Wait - 150){
+        uint16_t sum2 = counterval - Stamp[4];
+        if(sum2 >= 40){
+            ICADVVal[ADCCounter] = GetADCVal(channel8);
+            GUIDEADCVal[ADCCounter] = GetADCVal(channel9);
+            ADCCounter++;
+            if(ADCCounter >= 10){
+                ADCCounter = 0;
+                int i;
+                uint16_t ICSum = 0;
+                uint16_t GuideSum = 0;
+                for(i = 0; i < 10; i++){
+                    ICSum += ICADVVal[i];
+                    GuideSum += GUIDEADCVal[i];
+                }
+                ICSum = ICSum/10;
+                GuideSum = GuideSum/10;
+#ifdef _EXTRA_
+                print16bits(ICSum,0x41,3);
+                print16bits(GuideSum,0x42,3);
+#endif
+                if(ICSum < GapThreshold){   //is there IC in bucket
+                    task++;
+                    Stamp[2] = counterval;
+                }else if(GuideSum < GapThreshold){  //is the tube empty
+                    //if not empty
+                    //report jam
+                    #ifdef _DEBUG_
+                    printbyte(0x4A);
+                    #endif
+                    jamorempty = 1;
+                    task = 0xFF;
+                }else{  //tube is empty
+                    //report empty
+                    #ifdef _DEBUG_
+                    printbyte(0x45);
+                    #endif
+                    jamorempty = 1;
+                    task = 0xFF;
+                }
+            }
+            Stamp[4] = counterval;
+        }
+    }
+}
+
+//check if tube is low
+void CheckLow(){
+    uint16_t counterval = TIM_GetCounter(TIM14);
+    uint16_t sum = counterval - Stamp[2];
+    if(sum >= Wait - 150){
+        uint16_t sum2 = counterval - Stamp[4];
+        if(sum2 >= 40){
+            GUIDEADCVal[ADCCounter] = GetADCVal(channel9);
+            ADCCounter++;
+            if(ADCCounter >= 10){
+                ADCCounter = 0;
+                int i;
+                uint16_t GuideSum = 0;
+                for(i = 0; i < 10; i++){
+                    GuideSum += GUIDEADCVal[i];
+                }
+                GuideSum = GuideSum/10;
+#ifdef _EXTRA_
+                print16bits(GuideSum,0x42,3);
+#endif
+                if(GuideSum < GapThreshold){  //is the tube empty
+                    task++;
+                }else{  //tube is empty
+                    //report empty
+                    #ifdef _DEBUG_
+                    printbyte(0x4C);
+                    #endif
+                    task++;
+                }
+            }
+            Stamp[4] = counterval;
+        }
+    }
+}
+//finish off the task and back to idle
 void FinishTask(){
     GPIO_WriteBit(GPIOA,RE,1);
     GPIO_WriteBit(GPIOB,VBRMTR,0);
@@ -316,6 +517,30 @@ void FinishTask(){
     GPIO_WriteBit(GPIOB,IRLED2,0);
     task = 0;
     period = 1000;
+}
+
+//wiggle the servo by the specified amount
+void ServoWiggle(uint8_t pos, uint16_t initpos){
+    uint16_t counterval = TIM_GetCounter(TIM14);
+    uint16_t sum = counterval - Stamp[5];
+    uint16_t waitfor = 50;
+    if(sum <= 25){
+        ServoSet(initpos + pos);
+    }else if(sum <= (waitfor +25)){
+        ServoSet(initpos - pos);
+    }else if(sum <= (waitfor*2 +25)){
+        ServoSet(initpos + pos);
+    }else if(sum <= (waitfor*3 +25)){
+        ServoSet(initpos - pos);
+    }else if(sum <= (waitfor*4 +25)){
+        ServoSet(initpos + pos);
+    }else if(sum <= (waitfor*5 +25)){
+        ServoSet(initpos - pos);
+    }else{
+        Stamp[2] = counterval;
+        ServoSet(initpos);
+        task++;
+    }
 }
 #endif
 /*
@@ -362,27 +587,15 @@ void Test(){
     testflag = GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_7);
     if(tempbit != testflag){
         DeliverxMany = 2;
+#ifdef _EXTRA_
         print16bits(DeliverxMany,0x43,3);
+#endif
+        jamorempty = 0;
         task = 1;
     }
-
+}
 
 #ifdef _DEBUG_
-
-}
-
-/*
-debug input button
-*/
-void input(){
-    GPIO_InitTypeDef GPIO_InitStructure;
-    //MODE
-    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_7;
-    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN;
-    GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_DOWN;
-    GPIO_Init(GPIOB, &GPIO_InitStructure);
-}
-
 /*
 debug input function
 */
@@ -394,100 +607,7 @@ void debuginput(){
         //task = 0;
     }
 }
-
-/*
-print the address obtained by the initialization
-*/
-void printBIN(uint8_t val){
-    int i;
-    for( i = 0; i < 8 ; i++){
-        if(val & (0b10000000 >> i)){
-            USART_SendData(USART2, 0x31);
-            /* Loop until the end of transmission */
-            while (USART_GetFlagStatus(USART2, USART_FLAG_TC) == RESET){}
-        }else{
-            USART_SendData(USART2, 0x30);
-            /* Loop until the end of transmission */
-            while (USART_GetFlagStatus(USART2, USART_FLAG_TC) == RESET){}
-        }
-    }
-    USART_SendData(USART2, 0x0A);
-    /* Loop until the end of transmission */
-    while (USART_GetFlagStatus(USART2, USART_FLAG_TC) == RESET){}
-}
-
-/*
-output a value on the serial monitor
-*/
-void print16bits(uint16_t value, uint8_t pre, uint8_t len){
-    USART_SendData(USART2, pre);
-    /* Loop until the end of transmission */
-    while (USART_GetFlagStatus(USART2, USART_FLAG_TC) == RESET){}
-    USART_SendData(USART2, 0x0A);
-    /* Loop until the end of transmission */
-    while (USART_GetFlagStatus(USART2, USART_FLAG_TC) == RESET){}
-    uint8_t split[5];
-    split[4] = (value/10000);
-    split[3] = (value - (split[4]*10000))/1000;
-    split[2] = (value - split[4]*10000 - split[3]*1000)/100;
-    split[1] = (value - split[4]*10000 - split[3]*1000 - split[2]*100)/10;
-    split[0] = (value - split[4]*10000 - split[3]*1000 - split[2]*100 - split[1]*10);
-    int i;
-    for(i = len ; i > 0  ; i--){
-        USART_SendData(USART2, split[i-1] + 48);
-        /* Loop until the end of transmission */
-        while (USART_GetFlagStatus(USART2, USART_FLAG_TC) == RESET){}
-    }
-    USART_SendData(USART2, 0x0A);
-    /* Loop until the end of transmission */
-    while (USART_GetFlagStatus(USART2, USART_FLAG_TC) == RESET){}
-}
-
-/*
-print 1 byte
-*/
-void printbyte(uint8_t val){
-    USART_SendData(USART2, val);
-    /* Loop until the end of transmission */
-    while (USART_GetFlagStatus(USART2, USART_FLAG_TC) == RESET){}
-    USART_SendData(USART2, 0x0A);
-    /* Loop until the end of transmission */
-    while (USART_GetFlagStatus(USART2, USART_FLAG_TC) == RESET){}
-}
-
-/*
-test the adc
-*/
-void ADCtest(){
-    /*ADC1->CHSELR |= ADC_CHSELR_CHSEL0; // select channel 0
-    delay(200);
-    ADC1->CR |= ADC_CR_ADSTART;
-    // wait for end of conversion: EOC == 1. Not necessary to clear EOC as we read from DR
-    while((ADC1->ISR & ADC_ISR_EOC) == 0);
-    print16bits(ADC1->DR/4,0x41,3);*/
-
-    int i;
-
-    for(i = 0; i < 5 ; i++){
-        ADC1->CHSELR = ADC_CHSELR_CHSEL8; // select channel 8
-        ADC1->CR |= ADC_CR_ADSTART;
-        // wait for end of conversion: EOC == 1. Not necessary to clear EOC as we read from DR
-        while((ADC1->ISR & ADC_ISR_EOC) == 0);
-        print16bits(ADC1->DR,0x42,3);
-    }
-
-    for(i = 0; i < 5 ; i++){
-        ADC1->CHSELR = ADC_CHSELR_CHSEL9; // select channel 9
-        ADC1->CR |= ADC_CR_ADSTART;
-        // wait for end of conversion: EOC == 1. Not necessary to clear EOC as we read from DR
-        while((ADC1->ISR & ADC_ISR_EOC) == 0);
-        print16bits(ADC1->DR,0x43,3);
-    }
-
-}
 #endif
-
-
 
 
 
