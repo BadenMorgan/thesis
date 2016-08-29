@@ -125,7 +125,7 @@
 		 <?php 
 			echo "<font face='Helvetica'>" . $complimit ."</font>";
 		 ?>
-		 you pick, the rest will be ignored). Once you have selected your components enter your student number in the field at the bottom of the page and hit submit(Double check it, if it is incorrect you will not get your components). Once sumbitted procceed to the Vending Machine in White lab and swipe your student card within 24h to collect your components.</font></center></p>
+		 you pick, the rest will be ignored). Once you have selected your components enter your student number in the field at the bottom of the page and hit submit(Double check it, if it is incorrect you will not get your components). Once sumbitted procceed to the Vending Machine in White lab and swipe your student card on the same day as ordering to collect your components. Note orders are reset at mindnight each day.</font></center></p>
 
 		<p><center><font face="Helvetica">Please note you  are limited to 
 
@@ -159,22 +159,14 @@
 		<a href="datasheets\lm311n.pdf"><font face = "Helvetica">Datasheet</font></a>
 		<font face = "Helvetica"> |quantity:</font>
 
-		<select name="IC2">
-		    <?php for ($i = 0; $i <= $partlimit; $i++) : ?>
-		        <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
-		    <?php endfor; ?>
-		</select>
+		<input type="number" name="IC2" max=<?php echo $partlimit; ?> min="0" value="0">
 
 		<span style="margin-right: 130px;"></span>		
 
 		<a href="datasheets\LM393-D.PDF"><font face = "Helvetica">Datasheet</font></a>
 		<font face = "Helvetica"> |quantity:</font>
 
-		<select name="IC3">
-		    <?php for ($i = 0; $i <= $partlimit; $i++) : ?>
-		        <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
-		    <?php endfor; ?>
-		</select></center>
+		<input type="number" name="IC3" max=<?php echo $partlimit; ?> min="0" value="0">
 
 		<p>&nbsp;</p>
 		<!---->
@@ -189,32 +181,21 @@
 		<a href="datasheets\LM741.pdf"><font face = "Helvetica">Datasheet</font></a>
 		<font face = "Helvetica"> |quantity:</font>
 
-		<select name="IC4">		
-		    <?php for ($i = 0; $i <= $partlimit; $i++) : ?>
-		        <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
-		    <?php endfor; ?>
-		</select>
+		 <input type="number" name="IC4" max=<?php echo $partlimit; ?> min="0" value="0">
+
 		<span style="margin-right: 130px;"></span>		
 
 		<a href="datasheets\LM358-D.PDF"><font face = "Helvetica">Datasheet</font></a>
 		<font face = "Helvetica"> |quantity:</font>
 
-		<select name="IC5">
-		    <?php for ($i = 0; $i <= $partlimit; $i++) : ?>
-		        <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
-		    <?php endfor; ?>
-		</select>
+		<input type="number" name="IC5" max=<?php echo $partlimit; ?> min="0" value="0">
 
 		<span style="margin-right: 130px;"></span>		
 
 		<a href="datasheets\LM339A.pdf"><font face = "Helvetica">Datasheet</font></a>
 		<font face = "Helvetica"> |quantity:</font>
 
-		<select name="IC6">
-		    <?php for ($i = 0; $i <= $partlimit; $i++) : ?>
-		        <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
-		    <?php endfor; ?>
-		</select></center>
+		<input type="number" name="IC6" max=<?php echo $partlimit; ?> min="0" value="0">
 
 		<p>&nbsp;</p>
 		<!---->
@@ -229,32 +210,21 @@
 		<a href="datasheets\lm324-n.pdf"><font face = "Helvetica">Datasheet</font></a>
 		<font face = "Helvetica"> |quantity:</font>
 
-		<select name="IC7">		
-		    <?php for ($i = 0; $i <= $partlimit; $i++) : ?>
-		        <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
-		    <?php endfor; ?>
-		</select>
-		<span style="margin-right: 130px;"></span>		
-
-		<a href="#null"><font face = "Helvetica">Datasheet</font></a>
-		<font face = "Helvetica"> |quantity:</font>
-
-		<select name="IC8">
-		    <?php for ($i = 0; $i <= $partlimit; $i++) : ?>
-		        <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
-		    <?php endfor; ?>
-		</select>
+		<input type="number" name="IC7" max=<?php echo $partlimit; ?> min="0" value="0">
 
 		<span style="margin-right: 130px;"></span>		
 
 		<a href="#null"><font face = "Helvetica">Datasheet</font></a>
 		<font face = "Helvetica"> |quantity:</font>
 
-		<select name="IC9">
-		    <?php for ($i = 0; $i <= $partlimit; $i++) : ?>
-		        <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
-		    <?php endfor; ?>
-		</select></center>
+		<input type="number" name="IC8" max=<?php echo $partlimit; ?> min="0" value="0">
+
+		<span style="margin-right: 130px;"></span>		
+
+		<a href="#null"><font face = "Helvetica">Datasheet</font></a>
+		<font face = "Helvetica"> |quantity:</font>
+
+		<input type="number" name="IC9" max=<?php echo $partlimit; ?> min="0" value="0">
 
 		<p>&nbsp;</p>
 		<!---->
@@ -269,21 +239,14 @@
 		<a href="datasheets\L7805.pdf"><font face = "Helvetica">Datasheet</font></a>
 		<font face = "Helvetica"> |quantity:</font>
 
-		<select name="IC10">		
-		    <?php for ($i = 0; $i <= $partlimit; $i++) : ?>
-		        <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
-		    <?php endfor; ?>
-		</select>
+		<input type="number" name="IC10" max=<?php echo $partlimit; ?> min="0" value="0">
+
 		<span style="margin-right: 130px;"></span>		
 
 		<a href="datasheets\lm317.pdf"><font face = "Helvetica">Datasheet</font></a>
 		<font face = "Helvetica"> |quantity:</font>
 
-		<select name="IC11">
-		    <?php for ($i = 0; $i <= $partlimit; $i++) : ?>
-		        <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
-		    <?php endfor; ?>
-		</select>
+		<input type="number" name="IC11" max=<?php echo $partlimit; ?> min="0" value="0">
 
 		<p>&nbsp;</p>
 		<!---->

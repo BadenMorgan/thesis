@@ -263,7 +263,6 @@ void SerialMonitor(void(*FNCName)()){
     uint16_t sum = counterval - Stamp[7];
     if((sum >= 1) && (RXFlag != 2)){
         FNCName();
-        echo();
         RXFlag = 2;
     }
 }
@@ -380,18 +379,14 @@ void TaskManager(){
 }
 //task 1 turn of receiver and turn on vibration motor
 void initTask(){
-    if(!jamorempty){
-        ServoSet(pickval);  //remove this code for proper operation
-        period = 100;
-        GPIO_WriteBit(GPIOA,RE,0);
-        GPIO_WriteBit(GPIOB,VBRMTR,1);
-        GPIO_WriteBit(GPIOB,IRLED1,1);
-        GPIO_WriteBit(GPIOB,IRLED2,1);
-        task++;
-        Stamp[2] = TIM_GetCounter(TIM14);
-    }else{
-        task = 0xFF;
-    }
+    ServoSet(pickval);  //remove this code for proper operation
+    period = 100;
+    GPIO_WriteBit(GPIOA,RE,0);
+    GPIO_WriteBit(GPIOB,VBRMTR,1);
+    GPIO_WriteBit(GPIOB,IRLED1,1);
+    GPIO_WriteBit(GPIOB,IRLED2,1);
+    task++;
+    Stamp[2] = TIM_GetCounter(TIM14);
 }
 
 //check for IC in bucket and tube then move to release
@@ -430,6 +425,7 @@ void CheckIC(){
                     printbyte(0x4A);
                     #endif
                     jamorempty = 1;
+                    DeliverxMany = 1;
                     task = 0xFF;
                 }else{  //tube is empty
                     //report empty
@@ -437,6 +433,7 @@ void CheckIC(){
                     printbyte(0x45);
                     #endif
                     jamorempty = 1;
+                    DeliverxMany = 1;
                     task = 0xFF;
                 }
             }
@@ -560,6 +557,7 @@ void CheckIC2(){
                     if(DeliverxMany == 1)printbyte(0x53);;
                     #endif
                     jamorempty = 1;
+                    DeliverxMany = 1;
                     task = 0xFF;
                 }else{  //tube is empty
                     //report empty
@@ -568,6 +566,7 @@ void CheckIC2(){
                     if(DeliverxMany == 1)printbyte(0x53);
                     #endif
                     jamorempty = 1;
+                    DeliverxMany = 1;
                     task = 0xFF;
                 }
             }
