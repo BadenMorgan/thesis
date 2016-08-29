@@ -8,9 +8,9 @@
 #define SUCCESS 0xC7
 #define LOWSUCCESS 0xC9
 //command bytes
-#define CALL 0xA1
-#define DISPENSE 0xA3
-#define FREE 0xA5
+#define CALL 0xB1
+#define DISPENSE 0xB3
+#define FREE 0xB5
 
 //program macros
 #define Wait 550    //Time between each dispensary task
@@ -20,8 +20,11 @@
 #define channel8 1
 #define channel9 2
 
-#define PickWiggle 5
+#define PickWiggle 10
 #define ReleaseWiggle 15
+
+#define releasevalINIT 144
+#define pickupINIT 283
 
 
 

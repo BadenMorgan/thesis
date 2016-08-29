@@ -45,22 +45,27 @@ uint16_t period = 1000;     //period used for the idle function
 uint8_t modeflag = 0;   //mode flag for selecting adjusting alignment
 uint64_t address = 0;   //address byte used to recognize incommoding data
 uint8_t testflag = 0;   //test flag used to check if a test is requested
-uint16_t releaseval = 250;  //angle *2 at which and IC will be released
-uint16_t pickval = 74;  //angle at which an IC will be picked up
+uint16_t releaseval = releasevalINIT;  //angle *2 at which and IC will be released
+uint16_t pickval = pickupINIT;  //angle at which an IC will be picked up
 uint8_t ICADVVal[10];   //used to average out the IC bucket reading
 uint8_t GUIDEADCVal[10];    //used to average out the guide reading
 uint8_t ADCCounter = 0;
 uint8_t DeliverxMany = 0;   //amount to dispense
 uint8_t task = 0;       //task number used for task management
 uint8_t jamorempty = 0;
+uint8_t RXBuffer[6];
 
 
 //function definitions
+uint8_t checksumcal(uint8_t *values);
 void Ready();
 void delay(uint16_t time);
 void AlignTaskMng();
 void Calibration();
 void SerialMonitor(void(*FNCName)());
+void Decode();
+void sendReport(uint8_t report);
+uint8_t checksumcal(uint8_t *values);
 #ifdef _ROLLER_
 void TaskManager();
 void initTask();
@@ -80,6 +85,7 @@ void ModeSelect();
 void debuginput();
 void echo();
 #endif
+void FillBuffer();
 
 int main(void)
 {
@@ -91,6 +97,7 @@ int main(void)
     ADCsInit();
 #ifdef _ROLLER_
     ServoInit(pickval);
+    ServoSet(pickval);
 #ifdef _DEBUG_
     USART2Init();
     printBIN(address);
@@ -101,13 +108,12 @@ int main(void)
 
     while(1)
     {
-        SerialMonitor(echo);
+        SerialMonitor(Decode);
         //watchdog
         Idler(period);
 #ifdef _DEBUG_
         IntervalHandle(Test,200,1);
 #endif
-        //IntervalHandle(ADCtest,200,4);
         uint8_t tempmode = modeflag;
         ModeSelect();
         if(modeflag != tempmode){
@@ -180,38 +186,68 @@ void Calibration(){
     uint16_t counterval = TIM_GetCounter(TIM14);
     uint16_t sum = counterval - Stamp[3];
     if(sum <= 15000){
-        ADC1->CHSELR = ADC_CHSELR_CHSEL0; // select channel 0
-        delay(200);
-        ADC1->CR |= ADC_CR_ADSTART;
-        // wait for end of conversion: EOC == 1. Not necessary to clear EOC as we read from DR
-        while((ADC1->ISR & ADC_ISR_EOC) == 0);
-        uint8_t val = ADC1->DR/4;
-        if(val > 32){
-            val -= 32;
-            releaseval = 250 + val;
-        }else if(val == 32){
-            val = 0;
-        }else{
-            val = 31 - val;
-            releaseval = 250 - val;
+        uint16_t sum2 = counterval - Stamp[4];
+        if(sum2 >= 40){
+        ICADVVal[ADCCounter] = GetADCVal(channel0);
+        ADCCounter++;
+            if(ADCCounter >= 10){
+                ADCCounter = 0;
+                int i;
+                uint16_t ICSum = 0;
+                for(i = 0; i < 10; i++){
+                    ICSum += ICADVVal[i];
+                }
+                ICSum = (ICSum/10)/2;
+            #ifdef _EXTRA_
+                print16bits(ICSum,0x41,3);
+            #endif
+
+                if(ICSum > 64){
+                    ICSum -= 32;
+                    releaseval = releasevalINIT + ICSum;
+                }else if(ICSum == 64){
+                    ICSum = 0;
+                }else{
+                    ICSum = 31 - ICSum;
+                    releaseval = releasevalINIT - ICSum;
+                }
+            }
         }
+        #ifdef _DEBUG_
+        print16bits(releaseval,0x52,3);
+        #endif
         ServoSet(releaseval);
     }else if(sum <= 30000){
-        ADC1->CHSELR = ADC_CHSELR_CHSEL0; // select channel 0
-        delay(200);
-        ADC1->CR |= ADC_CR_ADSTART;
-        // wait for end of conversion: EOC == 1. Not necessary to clear EOC as we read from DR
-        while((ADC1->ISR & ADC_ISR_EOC) == 0);
-        uint8_t val = ADC1->DR/4;
-        if(val > 32){
-            val -= 32;
-            pickval = 74 + val;
-        }else if(val == 32){
-            val = 0;
-        }else{
-            val = 31 - val;
-            pickval = 74 - val;
+        uint16_t sum2 = counterval - Stamp[4];
+        if(sum2 >= 40){
+        ICADVVal[ADCCounter] = GetADCVal(channel0);
+        ADCCounter++;
+            if(ADCCounter >= 10){
+                ADCCounter = 0;
+                int i;
+                uint16_t ICSum = 0;
+                for(i = 0; i < 10; i++){
+                    ICSum += ICADVVal[i];
+                }
+                ICSum = (ICSum/10)/2;
+            #ifdef _EXTRA_
+                print16bits(ICSum,0x41,3);
+            #endif
+
+                if(ICSum > 64){
+                    ICSum -= 32;
+                    pickval = pickupINIT + ICSum;
+                }else if(ICSum == 64){
+                    ICSum = 0;
+                }else{
+                    ICSum = 31 - ICSum;
+                    pickval = pickupINIT - ICSum;
+                }
+            }
         }
+        #ifdef _DEBUG_
+        print16bits(pickval,0x50,3);
+        #endif
         ServoSet(pickval);
     }else{
         task++;
@@ -225,11 +261,57 @@ void SerialMonitor(void(*FNCName)()){
         Stamp[7] = counterval;
     }
     uint16_t sum = counterval - Stamp[7];
-    if((sum >= 100) && (RXFlag != 2)){
+    if((sum >= 1) && (RXFlag != 2)){
         FNCName();
+        echo();
         RXFlag = 2;
     }
 }
+//Message Decoder from master
+void Decode(){
+    if(buffercount - bufferreadcount == 6){
+        int i;
+        for(i = 0; i < 6 ; i++){
+            RXBuffer[i] = Serialdata[bufferreadcount++];
+        }
+        uint8_t check = checksumcal(RXBuffer);
+        if((RXBuffer[0] == 0xA1) && (RXBuffer[1] == address) && (RXBuffer[4] == check)){
+            switch(RXBuffer[2]){
+                case 0xB1:{
+                    break;
+                }
+                case 0xB3:{
+                    task = 1;
+                    DeliverxMany = RXBuffer[3];
+                    break;
+                }
+                case 0xB5:{
+                    break;
+                }
+                default:{
+                    #ifdef _DEBUG_
+                    printbyte(0x46);
+                    #endif
+                    break;
+                }
+            }
+        }
+    }
+}
+//checksum calculator
+uint8_t checksumcal(uint8_t *values){
+	uint8_t check = *values++;
+	check = (check + *values++) & 0xFF;
+	check = (check + *values++) & 0xFF;
+	check = (check + *values++) & 0xFF;
+	return check;
+}
+
+//reports to send back to master
+void sendReport(uint8_t report){
+
+}
+
 //function used if roller is being used
 #ifdef _ROLLER_
 //tasks
@@ -475,6 +557,7 @@ void CheckIC2(){
                     //report jam
                     #ifdef _DEBUG_
                     printbyte(0x4A);
+                    if(DeliverxMany == 1)printbyte(0x53);;
                     #endif
                     jamorempty = 1;
                     task = 0xFF;
@@ -482,6 +565,7 @@ void CheckIC2(){
                     //report empty
                     #ifdef _DEBUG_
                     printbyte(0x45);
+                    if(DeliverxMany == 1)printbyte(0x53);
                     #endif
                     jamorempty = 1;
                     task = 0xFF;
@@ -618,7 +702,7 @@ debug input function
 */
 void debuginput(){
     if(GPIO_ReadInputDataBit(GPIOB, GPIO_Pin_7)){
-        DeliverxMany = 3;
+        DeliverxMany = 1;
         task = 1;
     }else if(!GPIO_ReadInputDataBit(GPIOB, GPIO_Pin_7)){
         //task = 0;
@@ -634,6 +718,7 @@ void USART2_IRQHandler(){
     //USART_ClearFlag(USART2,USART_FLAG_RXNE);
 }
 
+//echo test to test usarts rolling buffer and serial monitor function
 void echo(){
     while(bufferreadcount != buffercount){
         USART_SendData(USART2, Serialdata[bufferreadcount]);
@@ -645,9 +730,20 @@ void echo(){
     USART_SendData(USART2, 0x0A);
     /* Loop until the end of transmission */
     while (USART_GetFlagStatus(USART2, USART_FLAG_TC) == RESET){}
+    #ifdef _EXTRA_
     print16bits(buffercount,0x41,3);
+    #endif
 }
 #endif
+
+//communications management
+
+//usart 1 Interrupt handler
+void USART1_IRQHandler(){
+    Serialdata[buffercount] = USART1->RDR;
+    buffercount++;
+    RXFlag = 1;
+}
 
 
 

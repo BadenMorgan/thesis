@@ -49,15 +49,18 @@ void USART1Init()
     /* Enable USART3 */
     USART_Cmd(USART1, ENABLE);
 
-    //enable USART interrupt
-    NVIC_EnableIRQ(USART1_IRQn);
-}
+    //enable USART interrupt on receive
+    USART_ITConfig(USART1,USART_IT_RXNE,ENABLE);
+    //NVIC_EnableIRQ(USART2_IRQn);
 
-/*
-USART incoming data handler
-*/
-void USART1_IRQHandler(){
-
+    NVIC_InitTypeDef NVIC_InitStructure;
+    /* Enable USART1 IRQ channel in the NVIC controller.
+    When the USART1 interrupt is generated (in this example when
+    data is received) the USART1_IRQHandler will be served */
+    NVIC_InitStructure.NVIC_IRQChannel = USART1_IRQn;
+    NVIC_InitStructure.NVIC_IRQChannelPriority = 0;
+    NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+    NVIC_Init(&NVIC_InitStructure);
 }
 
 

@@ -139,6 +139,8 @@
 		<h2><center><font face="Helvetica">Components:</font></center></h2>
 		<hr>
 
+		<form class="form" id="form1" action="request.php" method="post">
+
 		<!--this is where the items to order will go-->
 		<!--first line-->
 		<p><center><b><font face = "Helvetica"><span style="margin-right: 260px;">555 Timer</span><span style="margin-right: 260px;">LM311</span>LM393</font></center></p>
@@ -150,11 +152,8 @@
 		<a href="datasheets\ne555.pdf"><font face = "Helvetica">Datasheet</font></a>
 		<font face = "Helvetica"> |quantity:</font>
 		
-		<select name="IC1">		
-		    <?php for ($i = 0; $i <= $partlimit; $i++) : ?>
-		        <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
-		    <?php endfor; ?>
-		</select>
+		<input type="number" name="IC1" max=<?php echo $partlimit; ?> min="0" value="0">
+
 		<span style="margin-right: 130px;"></span>		
 
 		<a href="datasheets\lm311n.pdf"><font face = "Helvetica">Datasheet</font></a>
@@ -289,7 +288,7 @@
 		<p>&nbsp;</p>
 		<!---->
 
-		<form class="form" id="form1">
+		
 		      
 		      <p class="student">
 		        <input name="student" type="text" class="validate[required,custom[onlyLetter],length[0,100]] feedback-input" placeholder="*Student Number" id="student" required="" />

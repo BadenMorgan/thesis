@@ -3,7 +3,7 @@
 
 <html>
 <head>
-        <link rel="stylesheet" href="style.css" type="text/css" media="screen" />
+     <link rel="stylesheet" href="style.css" type="text/css" media="screen" />
     </head>
     <?php
     include($_SERVER['DOCUMENT_ROOT']."/includes/variables.php");
@@ -117,7 +117,7 @@
 		<!--this is where the contact form will go-->
 		<div id="form-main">
 		  <div id="form-div">
-		    <form class="form" id="form1">
+		    <form class="form" id="form1" action="contactUs.php" method="post">
 		      
 		      <p class="name">
 		        <input name="name" type="text" class="validate[required,custom[onlyLetter],length[0,100]] feedback-input" placeholder="*Name" id="name" required="" />
