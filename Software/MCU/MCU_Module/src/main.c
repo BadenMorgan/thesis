@@ -20,6 +20,7 @@
 //#define _EXTRA_
 #define _DEBUG_
 #define _ROLLER_
+#define _LCD_
 
 //Libraries
 #include "stm32f0xx_conf.h"
@@ -33,9 +34,13 @@
 #include "Debug.h"
 #endif
 
+#ifdef _LCD_
+#include "lcd.h"
+#endif
+
 
 //global variables
-uint16_t Stamp[32];     //stamps used for timing 0: idler 1:test 2:taskmanager 3:alignment 4:taskmanager 5: delay 6: wiggle 7:debug coms
+uint16_t Stamp[32];     //stamps used for timing 0: idler 1:test 2:taskmanager 3:alignment 4:taskmanager 5: delay 6: wiggle 7:debug coms 8:scrolling 9defaulting lcd
 uint8_t status = 0;     //status to display on the sysled
 uint8_t Serialdata[256];    //serial data buffer
 uint8_t buffercount = 0;
@@ -54,18 +59,24 @@ uint8_t DeliverxMany = 0;   //amount to dispense
 uint8_t task = 0;       //task number used for task management
 uint8_t jamorempty = 0;
 uint8_t RXBuffer[6];
+#ifdef _LCD_
+uint8_t ScrollDir = 0;
+uint16_t Scrollwait = 200;
+uint8_t ScrollCount = 0;
+uint8_t ScrollIndex = 0;
+char ScrollBuffer[256];
+#endif
 
 
 //function definitions
-uint8_t checksumcal(uint8_t *values);
 void Ready();
 void delay(uint16_t time);
 void AlignTaskMng();
 void Calibration();
 void SerialMonitor(void(*FNCName)());
 void Decode();
-void sendReport(uint8_t report);
-uint8_t checksumcal(uint8_t *values);
+void sendReport(uint8_t ReportCode);
+uint8_t checksumcal(uint8_t *values, uint8_t checkpos);
 #ifdef _ROLLER_
 void TaskManager();
 void initTask();
@@ -98,13 +109,26 @@ int main(void)
 #ifdef _ROLLER_
     ServoInit(pickval);
     ServoSet(pickval);
+    delay(1000);
+    ServoZero();
 #ifdef _DEBUG_
     USART2Init();
     printBIN(address);
-    input();
+    //input();
+#endif
+#ifdef _LCD_
+    lcd_init(); // set up LCD lines and send initialisation commands
+    lcd_command(LCD_CLEAR_DISPLAY);
+    lcd_string("UCT VM Rev 1");
+    lcd_command(LCD_GOTO_LINE_2); // go to lower line
+    lcd_string("Nice To Meet");
 #endif
 
     Ready();
+
+#ifdef _LCD_
+    PopulateBuffer("Please Swipe Your Student Card Below");
+#endif
 
     while(1)
     {
@@ -114,6 +138,10 @@ int main(void)
 #ifdef _DEBUG_
         IntervalHandle(Test,200,1);
 #endif
+#ifdef _LCD_
+    LCDScroll();
+    DefaultLCD();
+#endif
         uint8_t tempmode = modeflag;
         ModeSelect();
         if(modeflag != tempmode){
@@ -121,7 +149,7 @@ int main(void)
             task = 0;
         }
 #ifdef _DEBUG_
-        debuginput();
+        //debuginput();
 #endif
         if(modeflag){
             AlignTaskMng();
@@ -261,7 +289,7 @@ void SerialMonitor(void(*FNCName)()){
         Stamp[7] = counterval;
     }
     uint16_t sum = counterval - Stamp[7];
-    if((sum >= 1) && (RXFlag != 2)){
+    if((sum >= 10) && (RXFlag != 2)){
         FNCName();
         RXFlag = 2;
     }
@@ -273,18 +301,21 @@ void Decode(){
         for(i = 0; i < 6 ; i++){
             RXBuffer[i] = Serialdata[bufferreadcount++];
         }
-        uint8_t check = checksumcal(RXBuffer);
-        if((RXBuffer[0] == 0xA1) && (RXBuffer[1] == address) && (RXBuffer[4] == check)){
+        uint8_t check = checksumcal(RXBuffer,4);
+        if((RXBuffer[0] == StartByte) && (RXBuffer[1] == address) && (RXBuffer[4] == check) && (RXBuffer[5] == EndByte)){
+            print16bits(RXBuffer[4],0x41,3);
+            print16bits(check,0x42,3);
             switch(RXBuffer[2]){
-                case 0xB1:{
+                case CALL:{
                     break;
                 }
-                case 0xB3:{
+                case DISPENSE:{
                     task = 1;
                     DeliverxMany = RXBuffer[3];
                     break;
                 }
-                case 0xB5:{
+                case FREE:{
+                    jamorempty = 0;
                     break;
                 }
                 default:{
@@ -296,19 +327,68 @@ void Decode(){
             }
         }
     }
+    #ifdef _LCD_
+    else{
+        uint8_t lcdbuffer = buffercount - bufferreadcount;
+        uint8_t NewSCroll = lcdbuffer - 5;
+        char UpdateToo[NewSCroll];
+        int i;
+        for(i = 0; i < lcdbuffer ; i++){
+            //printbyte(Serialdata[bufferreadcount]);
+            RXBuffer[i] = Serialdata[bufferreadcount++];
+
+            if(i > 2 && i < lcdbuffer - 2){
+                printbyte(RXBuffer[i]);
+                UpdateToo[i - 3] = RXBuffer[i];
+                printbyte(UpdateToo[i-3]);
+                UpdateToo[i - 2] = 0;
+            }
+
+        }
+        uint8_t check = checksumcal(RXBuffer,lcdbuffer - 2);
+        if((RXBuffer[0] == StartByte) && (RXBuffer[1] == address) && (RXBuffer[2] == LCDPRINT) && (RXBuffer[lcdbuffer - 1] == EndByte)){//(RXBuffer[lcdbuffer - 2] == check) &&
+            PopulateBuffer(UpdateToo);
+            sendReport(SUCCESS);
+        }
+    }
+    #endif
 }
 //checksum calculator
-uint8_t checksumcal(uint8_t *values){
-	uint8_t check = *values++;
-	check = (check + *values++) & 0xFF;
-	check = (check + *values++) & 0xFF;
-	check = (check + *values++) & 0xFF;
+uint8_t checksumcal(uint8_t *values, uint8_t checkpos){
+	uint8_t check = 0;
+	int i;
+	for(i = 0 ; i < checkpos ; i++){
+        check = (check + *values++) & 0xFF;
+	}
 	return check;
 }
 
 //reports to send back to master
-void sendReport(uint8_t report){
+void sendReport(uint8_t ReportCode){
+    USART_SendData(USART1, 0xE1);//start byte
+    /* Loop until the end of transmission */
+    while (USART_GetFlagStatus(USART1, USART_FLAG_TC) == RESET){}
 
+    USART_SendData(USART1, address);
+    /* Loop until the end of transmission */
+    while (USART_GetFlagStatus(USART1, USART_FLAG_TC) == RESET){}
+
+    USART_SendData(USART1, ReportCode);
+    /* Loop until the end of transmission */
+    while (USART_GetFlagStatus(USART1, USART_FLAG_TC) == RESET){}
+
+    uint8_t check = 0;
+    check = (check + 0xE1) & 0xFF;
+    check = (check + address) & 0xFF;
+    check = (check + ReportCode) & 0xFF;
+
+    USART_SendData(USART1, check);
+    /* Loop until the end of transmission */
+    while (USART_GetFlagStatus(USART1, USART_FLAG_TC) == RESET){}
+
+    USART_SendData(USART1, 0xE1);//stop byte
+    /* Loop until the end of transmission */
+    while (USART_GetFlagStatus(USART1, USART_FLAG_TC) == RESET){}
 }
 
 //function used if roller is being used
@@ -617,6 +697,7 @@ void FinishTask(){
     GPIO_WriteBit(GPIOB,IRLED2,0);
     task = 0;
     period = 1000;
+    ServoZero();
 }
 
 //wiggle the servo by the specified amount
@@ -744,7 +825,89 @@ void USART1_IRQHandler(){
     RXFlag = 1;
 }
 
+#ifdef _LCD_
+//lcd scrolling function
+void LCDScroll(){
+    uint16_t counterval = TIM_GetCounter(TIM14);
+    uint16_t sum = counterval - Stamp[8];
+    if(sum >= Scrollwait){
+        Scrollwait = 500;
+        if(ScrollDir == 0){
+            ScrollIndex = ScrollIndex + 1;
+            if(ScrollIndex == ScrollCount - 32){
+                ScrollDir = 1;
+                Scrollwait = 2000;
+            }
+        }else{
+            ScrollIndex = ScrollIndex - 1;
+            if(ScrollIndex == 0){
+                ScrollDir = 0;
+                Scrollwait = 2000;
+            }
+        }
+        char lineone[16];
+        char linetwo[16];
+        int i;
+        for(i = 0; i < 16; i++){
+            lineone[i] = ScrollBuffer[ScrollIndex + i];
+        }
+        for(i = 0; i < 16; i++){
+            linetwo[i] = ScrollBuffer[ScrollIndex + 16 + i];
+        }
+        if(ScrollCount <= 32){
+            for(i = 0; i < 16; i++){
+                lineone[i] = ScrollBuffer[i];
+                linetwo[i] = ScrollBuffer[16 + i];
+            }
+        }
+        lcd_command(LCD_CLEAR_DISPLAY);
+        lcd_string(lineone);
+        lcd_command(LCD_GOTO_LINE_2);
+        lcd_string(linetwo);
+        Stamp[8] = counterval;
+    }
+}
 
+//insert into scrolling buffer
+void PopulateBuffer(uint8_t *String_to_insert){
+
+    ScrollIndex = 0;
+    ScrollDir = 0;
+    Stamp[8] = TIM_GetCounter(TIM14);
+    Stamp[9] = TIM_GetCounter(TIM14);
+    int i;
+    for(i = 0; i < 256; i ++){
+        ScrollBuffer[i] = 0x20;
+    }
+    uint32_t counter=0;
+    while (String_to_insert[counter] != 0) {
+        ScrollBuffer[counter] = String_to_insert[counter];
+        counter = counter + 1;
+        ScrollCount = counter;
+    }
+
+    char lineone[16];
+    char linetwo[16];
+    for(i = 0; i < 16; i++){
+        lineone[i] = ScrollBuffer[i];
+        linetwo[i] = ScrollBuffer[16 + i];
+    }
+    lcd_command(LCD_CLEAR_DISPLAY);
+    lcd_string(lineone);
+    lcd_command(LCD_GOTO_LINE_2);
+    lcd_string(linetwo);
+    Scrollwait = 2000;
+}
+
+void DefaultLCD(){
+    uint16_t counterval = TIM_GetCounter(TIM14);
+    uint16_t sum = counterval - Stamp[9];
+    if(sum >= 60000){
+        PopulateBuffer("Please Swipe Your Student Card Below");
+        Stamp[9] = counterval;
+    }
+}
+#endif
 
 
 

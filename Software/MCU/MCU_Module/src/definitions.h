@@ -11,6 +11,10 @@
 #define CALL 0xB1
 #define DISPENSE 0xB3
 #define FREE 0xB5
+#define LCDPRINT 0xB7
+
+#define StartByte 0xA1
+#define EndByte 0xF1
 
 //program macros
 #define Wait 550    //Time between each dispensary task

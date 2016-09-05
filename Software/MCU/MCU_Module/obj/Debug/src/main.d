@@ -11,4 +11,4 @@ obj\debug\src\main.o: src\main.c inc/stm32f0xx_conf.h \
  SPL\inc/stm32f0xx_rtc.h SPL\inc/stm32f0xx_spi.h SPL\inc/stm32f0xx_tim.h \
  SPL\inc/stm32f0xx_usart.h SPL\inc/stm32f0xx_wwdg.h \
  SPL\inc/stm32f0xx_misc.h src\SerialMonitor.h src\Timers.h src\GPIOLib.h \
- src\definitions.h src\Servo.h src\Debug.h
+ src\definitions.h src\Servo.h src\Debug.h src\lcd.h

@@ -192,12 +192,12 @@
 	"stm32f0xx_wwdg.h"
 	"stm32f0xx_rcc.h"
 
-1471605651 source:c:\google drive\thesis\software\mcu\mcu_module\src\startup_stm32f0xx.s
+1473094073 source:c:\google drive\thesis\software\mcu\mcu_module\src\startup_stm32f0xx.s
 
 1471605651 source:c:\google drive\thesis\software\mcu\mcu_module\src\system_stm32f0xx.c
 	"stm32f0xx.h"
 
-1472472304 source:c:\google drive\thesis\software\mcu\mcu_module\src\main.c
+1473110884 source:c:\google drive\thesis\software\mcu\mcu_module\src\main.c
 	"stm32f0xx_conf.h"
 	"SerialMonitor.h"
 	"Timers.h"
@@ -205,6 +205,7 @@
 	"Servo.h"
 	"definitions.h"
 	"Debug.h"
+	"lcd.h"
 
 1471788855 c:\google drive\thesis\software\mcu\mcu_module\src\serialmonitor1.h
 
@@ -231,10 +232,10 @@
 	"stm32f0xx_conf.h"
 	"definitions.h"
 
-1472114444 c:\google drive\thesis\software\mcu\mcu_module\src\servo.h
+1472910212 c:\google drive\thesis\software\mcu\mcu_module\src\servo.h
 	"stm32f0xx_conf.h"
 
-1472114445 source:c:\google drive\thesis\software\mcu\mcu_module\src\servo.c
+1472910188 source:c:\google drive\thesis\software\mcu\mcu_module\src\servo.c
 	"Servo.h"
 
 1472416855 source:c:\google drive\thesis\software\mcu\mcu_module\src\debug.c
@@ -248,7 +249,14 @@
 	"Servo.h"
 	"definitions.h"
 
-1472411561 c:\google drive\thesis\software\mcu\mcu_module\src\definitions.h
+1472910087 c:\google drive\thesis\software\mcu\mcu_module\src\definitions.h
 
 1472118017 c:\google drive\thesis\software\mcu\mcu_module\src\globalvariables.h
+
+1472925182 c:\google drive\thesis\software\mcu\mcu_module\src\lcd.h
+	<stdint.h>
+	"stm32f0xx.h"
+
+1472925258 source:c:\google drive\thesis\software\mcu\mcu_module\src\lcd.c
+	"lcd.h"
 

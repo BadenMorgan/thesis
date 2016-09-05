@@ -35,3 +35,7 @@ void ServoSet(uint16_t angle){
     TIM2->CCR4 = 90 + angle;
 }
 
+void ServoZero(){
+    TIM2->CCR4 = 0;
+}
+
