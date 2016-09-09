@@ -52,7 +52,7 @@ void GPIOInit(){
     GPIO_InitStructure.GPIO_Pin = RE;
     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
     GPIO_Init(GPIOA, &GPIO_InitStructure);
-    GPIO_WriteBit(GPIOA,RE,1);
+    GPIO_WriteBit(GPIOA,RE,0);
 }
 
 //ADRESS setup

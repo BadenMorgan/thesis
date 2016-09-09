@@ -1,0 +1,19 @@
+\begin{thenomenclature} 
+
+ \nomgroup{A}
+
+  \item [{HAT}]\begingroup Hardware Attached onTop\nomeqref {0}
+		\nompageref{6}
+  \item [{I2C}]\begingroup Inter-integrated Circuit\nomeqref {0}
+		\nompageref{2}
+  \item [{PCB}]\begingroup Printed Circuit Board\nomeqref {0}
+		\nompageref{5}
+  \item [{RFID}]\begingroup Radio Frequency Identification\nomeqref {0}
+		\nompageref{3}
+  \item [{RX}]\begingroup Receiver Number x\nomeqref {0}\nompageref{3}
+  \item [{TX}]\begingroup Transmitter number x\nomeqref {0}
+		\nompageref{3}
+  \item [{UART}]\begingroup Universal Asynchronous Receiver/Transmitter\nomeqref {0}
+		\nompageref{3}
+
+\end{thenomenclature}

@@ -10,7 +10,7 @@
 \usepackage{graphicx}
 \graphicspath{{C:/"Google Drive"/thesis/Document/Pictures/}}
 \usepackage[margin=2cm]{geometry}
-\usepackage{hyperref}
+\usepackage[hidelinks]{hyperref}
 
 	% commands
 \newcommand{\sign}[1]{%      
@@ -26,6 +26,9 @@
   \end{tabular}%
 }
 
+\usepackage{amsmath}
+\numberwithin{figure}{section}
+
 \usepackage{titlesec}
 %title formatting
 \titleformat*{\section}{\center\Huge\bfseries}
@@ -35,15 +38,21 @@
 \titleformat*{\paragraph}{\large\bfseries}
 \titleformat*{\subparagraph}{\large\bfseries}
 
-\begin{document}
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1em}
 
+\usepackage{nomencl}
+\makenomenclature
+
+\begin{document}
 	% title page
 \begin{titlepage}
 	\centering
+	\setlength{\parskip}{0em}
 	{\Huge\bfseries\underline{White Lab Component Vending Machine}\par}
-	\vspace{1cm}
+	\vspace{5mm}
 	{\huge Design and Build Report of a Component Vending Machine for the Undergraduates for White 	Lab\par}
-	\vspace{1cm}
+	\vspace{5mm}
 	\includegraphics[scale=0.2]{{UCTLogo}.jpg}
 	\vfill
 	Prepared by:\par
@@ -130,6 +139,14 @@
 	\listoftables
 	\newpage
 	
+	%nomanclature 
+	\mbox{}
+	 	 
+	\printnomenclature	
+	
+		
+	\newpage
+	
 	% new section
 	\pagenumbering{arabic}
 	\newpage
@@ -152,33 +169,92 @@
 	\subsection{Plan of Development}	
 		blah blah
 	\newpage
-
+\setlength{\parskip}{1em}
 	% literature review
 \section{Literature Review}
-	some more stuff
-	\newpage
+	introduction to chapter here
+\subsection{Communication between devices}
+Because it was decided to have each delivery mechanism act independently from one another, and potentially a master device, a means of communicating between each device or from master to slaves was needed. 
+
+\subsubsection{I2C}
+I2C is communications protocol that is easy to use with most micro-controllers having build in hardware to deal with I2C. The main hurdle with using I2C would be failed communication due to noise. Some examples of noises would be switching noise from power supplies or the environment itself \cite{I2C} and signal generators like the ones present in UCT's White Lab.
+
+In order to improve reliability and noise immunity one way would be to use an external RC filter as suggested in the White Paper from Lattice Semiconductors. One of the hurdles with such a filter on a I2C lines is finding a balance between loading and filtering. The higher the time constant ($\tau = RC$) the slower the rising edges of the line and the greater the driving load on the IO of the micro-controller. Below is an image of a recommended filter from the White Paper with a good balance between loading and filtering. The values set at $R_{pullup} = 1800 \Omega, R_{s1} = 130 \Omega, R_{s2} = 51, \Omega, C_f = 180 Pf$ \cite{I2C}.
+
+\nomenclature{I2C}{Inter-integrated Circuit}
+
+	\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.4]{{I2CRCFilter}.jpg}
+	\caption{External Low Pass Noise Filter Circuit\cite{I2C}}
+	\end{figure} 
+
+
+\subsubsection{RS-485/TIA-485}
+RS485 was considered as it is a industry standard as it can operate over long distances (up to 120 meters at 100kbps \cite{rs485}), and in noisy environments. This is ideal for the vending machine as it will most likely be placed in White Lab at UCT where there are multiple devices capable of interfering with the communications bus and potentially corrupting the data as discussed in the above section. 
+
+The network topology is similar to that of I2C were each device is "daisy chained" to one another making what is called a bus for communications. It is common to use a IC such as a bus transceiver to facilitate the RS485 standard where the hardware does not support it and use UART with CTS and RTS pins if available \cite{rs485}. UART can not be used alone even with shielded cables because both devices on the bus hold their TX lines high as shown in the picture below. This makes it impossible for a 3 device to connect and potentially corrupting the bus entirely. 
+
+\nomenclature{UART}{Universal Asynchronous Receiver/Transmitter}
+\nomenclature{RX}{Receiver Number x}
+\nomenclature{TX}{Transmitter number x} 
 	
+	\begin{figure}[h]
+	\centering
+	\includegraphics[scale=2]{{MaximSoftUartFig1}.jpg}
+	\caption{When idle one can see the line is held high, this is seen before data is sent and after \cite{UART}.}
+	\end{figure} 
+
+Although with CTS and RTS pins one could use the UART in RS-232 mode this requires two extra pins to run on your bus. Using the RS-485 standard would alleviate this problem as it is designed to work on 2 lines with a differential signals when using it in a half duplex configuration. This gives RS-485 a great advantage against noise immunity as it is not susceptible to all kinds of noise. Noise in a system can be split into common-mode and single-ended noise of which RS-485 is immune to common-mode noise unlike standard UART or I2C. This makes single-ended noise which comes from improper transmission line termination from mismatched resistance on the output, transmission line and input. This can be solved by using a terminating resistor on each node of the bus which matches the resistance of the line impedance. In addition to proper termination twisted shielded pairs are recommended making the bus less susceptible to interference \cite{dif}. 
+
+\subsection{RFID Reader}
+In order for students to be identified when requesting components from the vending machine their student cards will be utilized to match them with their order. 
+
+\nomenclature{RFID}{Radio Frequency Identification}
+\subsubsection{System Specification}
+There are 3 different classes for the operating frequency of RFID systems (low frequency, high frequency and ultra high frequency), and 3 classes of device systems related to how they are powered (active, passive and battery assisted passive) \cite{rfidsys}. The system that will be used for the vending machine will be a low frequency system with an RFID Reader and Passive tag. In RFID tags are refereed to as the item to be tracked or the identifier in this case the student card. The tag has on on board antenna and a "tag-chip" which contains an ID that can either be factory set, programmable or write once. The antenna is used to power the tag, by receiving power from he reader when in range, and transmit data to the reader. The reader also has an antenna which is used to transmit power to the tag and receive the data being transmitted by the tag \cite{rfidhow}.
+
+\subsubsection{UCT's RFID Solution}
+Since an understanding of the fundamentals was attained the physical reader was then reviewed. The reader to be used is a solution put together in house at UCT using the existing RDM 6300 module and MCP2200 FTDI Chip \cite{justin}.
+
+The RDM 6300 is a 125KHz low frequency card reader for 125KHz compatible tags like the ones used by UCT for student cards. It supports an external antenna with a range of about 50mm \cite{RDM}. This is a fairly popular module in the maker community as it is relatively cheap, at about \$12.50,  compared to commercial equivalents. It is also popular because of the many resources associated with the maker community and its widespread adoption meaning any problems will be easy to troubleshoot through this community if needed. Below is a picture of the above mentioned RDM 6300 with an external antenna attached:
+
+	\begin{figure}[h]
+	\centering
+	\includegraphics[scale=1]{{125KhzUART}.jpg}
+	\caption{The RDM 6300 Module with an external antena connected directly to the module \cite{RDM}.}
+	\end{figure} 
+
+The MCP2200 is a USB2.0 to UART Protocol Converter when paired with the RDM module allows the RFID Reader to communicate with any computer with a USB port \cite{MCP}.
+
+\subsection{Web Hosting and Server}
+
+
+
+	\newpage
+
 	% design and prototyping
 \section{Design and Prototyping Methodology and Procedure}
-	In order to begin the design process a clear methodology was needed to proceed in order to get the best results. This included a set of rules to follow when designing and testing prototypes and more. This section aims to discuss these and elaborate on why it will make the design process more effective. 
+	In order to begin the design process a clear methodology was needed to proceed in order to get the best results. This included a set of rules to follow when designing and testing prototypes and more. This section aims to discuss these and elaborate on how the design was approached to meet the requirements set out in the introductory.
 
 \subsection{Design}
 The methodology behind the mechanical design will be reviewed first then circuit design, software design and and finally prototyping:
 \subsubsection{Mechanical Design}
-In order to make an effective design certain constraints were first laid out to limit the scope and complexity of the design:
-\begin{itemize}
-	\item The design should be simple to limit complex movements.
-	\item Although it should be simple, simplicity should not be the main priority where complexity is needed.
-	\item Reduce moving parts in order to limit mechanical failure.
-	\item Identify failure points and modes.
-	\item 	 
-\end{itemize}
+In order to make an effective design certain constraints were first laid out to limit the scope and complexity of the design.
+
+In order to limit the complexity a simple design approach was used where simplicity and the forward thinking of "how would it fail" were always a the first and ongoing design considerations. Once the simple idea was theorized details were added in order to make it more functional. Simplicity was not the main goal as complexity would be needed in some cases i.e. were functionality took priority. To reduce complexity the number of moving parts would be kept at a minimum in order to prevent failure of functionality and structure. 
+
+Design started out on paper as sketches with basic ideas until a practical idea was ready. Once ready the idea was designed in SolidWorks with above mentioned goals. Once the Model was fully defined in SolidWorks, the model was printed on a 3D printer to prototype and test the effectiveness of the design. If the design had flaws a redesign was done to change and eliminate those flaws and the model was printed again to further test and find any more potential flaws. This process was repeated until a reliable working prototype was produced.
 
 \subsubsection{Circuit Design Methodology}
-The circuit design although trivial needs some consideration before design can begin:
-\begin{itemize}
-	\item 	 
-\end{itemize}
+The basic idea behind the design of the PCB was to have it be versatile and able to adapt to the needs of the project by adding in features to allow for multiple configurations of mechanical delivery needs. This required a somewhat modular design.
+
+\nomenclature{PCB}{Printed Circuit Board}
+
+The circuit started with a sketch on paper detailing what would be needed in the final design and what type of configurations it should be able to handle. 3 configurations were considered as the mechanical system was to need a motor of some kind, so the design was to be able to handle a stepper motor, servo motor and simple DC motor, one at a time or all concurrently. Included in the design was a set of sensors needed to track the status of the delivery and contents of rails.
+A Raspberry Pi HAT was theorized that would be capable of connecting the power source to the pi and starting the bus for the RS-485 communications and power rails. This hat would be a fairly simple design to satisfy communication and power supply needs.
+
+\nomenclature{HAT}{Hardware Attached onTop}
 
 \subsubsection{Software Design Methodology}
 The software for the machine is one of the most important parts of consideration as it will impact each part of the design and how they interact, this and more must be considered when designing the software:
@@ -187,11 +263,15 @@ The software for the machine is one of the most important parts of consideration
 \end{itemize}
 
 \subsubsection{Prototyping Methodology and Procedure }
-Detailed planning and methodology was needed in order to test the viability of the prototypes for the final build:
+Detailed planning and methodology was needed in order to test the viability of the prototypes for the final build.:
 \begin{itemize}
 	\item 	 
 \end{itemize}
 
+\newpage
+
+\bibliographystyle{IEEEtran}
+\bibliography{References}
 
 	%the end
 \end{document}

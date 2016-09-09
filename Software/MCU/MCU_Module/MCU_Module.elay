@@ -6,7 +6,7 @@
 			<Cursor1 position="81112" topLine="1866" />
 		</Cursor>
 	</File>
-	<File name="src\Debug.c" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\Debug.c" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="2110" topLine="46" />
 		</Cursor>
@@ -16,17 +16,17 @@
 			<Cursor1 position="249" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="src\definitions.h" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\definitions.h" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="331" topLine="0" />
+			<Cursor1 position="118" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="src\GPIOLib.c" open="1" top="0" tabpos="14" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\GPIOLib.c" open="1" top="0" tabpos="13" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1862" topLine="0" />
+			<Cursor1 position="1857" topLine="27" />
 		</Cursor>
 	</File>
-	<File name="src\GPIOLib.h" open="1" top="0" tabpos="15" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\GPIOLib.h" open="1" top="0" tabpos="14" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="390" topLine="0" />
 		</Cursor>
@@ -36,40 +36,38 @@
 			<Cursor1 position="658" topLine="20" />
 		</Cursor>
 	</File>
-	<File name="src\main.c" open="1" top="1" tabpos="4" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
+	<File name="src\main.c" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="23453" topLine="261" />
+			<Cursor1 position="19607" topLine="230" />
 		</Cursor>
 		<Folding>
-			<Collapse line="153" />
-			<Collapse line="165" />
-			<Collapse line="183" />
-			<Collapse line="186" />
-			<Collapse line="191" />
-			<Collapse line="204" />
-			<Collapse line="212" />
-			<Collapse line="215" />
-			<Collapse line="284" />
-			<Collapse line="297" />
-			<Collapse line="340" />
-			<Collapse line="350" />
-			<Collapse line="358" />
-			<Collapse line="421" />
-			<Collapse line="433" />
-			<Collapse line="486" />
-			<Collapse line="528" />
-			<Collapse line="565" />
-			<Collapse line="619" />
-			<Collapse line="653" />
-			<Collapse line="664" />
-			<Collapse line="690" />
-			<Collapse line="703" />
-			<Collapse line="715" />
-			<Collapse line="726" />
-			<Collapse line="743" />
-			<Collapse line="753" />
+			<Collapse line="166" />
+			<Collapse line="184" />
+			<Collapse line="187" />
+			<Collapse line="192" />
+			<Collapse line="213" />
+			<Collapse line="285" />
+			<Collapse line="298" />
+			<Collapse line="363" />
+			<Collapse line="373" />
+			<Collapse line="418" />
+			<Collapse line="481" />
+			<Collapse line="494" />
+			<Collapse line="548" />
+			<Collapse line="591" />
+			<Collapse line="722" />
+			<Collapse line="736" />
 			<Collapse line="762" />
-			<Collapse line="782" />
+			<Collapse line="775" />
+			<Collapse line="787" />
+			<Collapse line="798" />
+			<Collapse line="815" />
+			<Collapse line="825" />
+			<Collapse line="834" />
+			<Collapse line="854" />
+			<Collapse line="862" />
+			<Collapse line="904" />
+			<Collapse line="934" />
 		</Folding>
 	</File>
 	<File name="src\SerialMonitor.c" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -77,24 +75,24 @@
 			<Cursor1 position="80" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="src\SerialMonitor.h" open="1" top="0" tabpos="13" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\SerialMonitor.h" open="1" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="117" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="src\Servo.c" open="1" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\Servo.c" open="1" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="958" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="src\Servo.h" open="1" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\Servo.h" open="1" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="175" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="src\startup_stm32f0xx.S" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\startup_stm32f0xx.S" open="1" top="1" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="6141" topLine="139" />
+			<Cursor1 position="6141" topLine="104" />
 		</Cursor>
 	</File>
 	<File name="src\system_stm32f0xx.c" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -102,12 +100,12 @@
 			<Cursor1 position="2365" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="src\Timers.c" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\Timers.c" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="0" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="src\Timers.h" open="1" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\Timers.h" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="54" topLine="0" />
 		</Cursor>

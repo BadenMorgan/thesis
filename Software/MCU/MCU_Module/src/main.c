@@ -40,7 +40,7 @@
 
 
 //global variables
-uint16_t Stamp[32];     //stamps used for timing 0: idler 1:test 2:taskmanager 3:alignment 4:taskmanager 5: delay 6: wiggle 7:debug coms 8:scrolling 9defaulting lcd
+uint16_t Stamp[32];     //stamps used for timing 0: idler 1:test 2:taskmanager 3:alignment 4:taskmanager 5: delay 6: wiggle 7:debug coms 8:scrolling 9defaulting lcd 9: timing
 uint8_t status = 0;     //status to display on the sysled
 uint8_t Serialdata[256];    //serial data buffer
 uint8_t buffercount = 0;
@@ -57,7 +57,7 @@ uint8_t GUIDEADCVal[10];    //used to average out the guide reading
 uint8_t ADCCounter = 0;
 uint8_t DeliverxMany = 0;   //amount to dispense
 uint8_t task = 0;       //task number used for task management
-uint8_t jamorempty = 0;
+uint8_t jam = 0;
 uint8_t RXBuffer[6];
 #ifdef _LCD_
 uint8_t ScrollDir = 0;
@@ -66,6 +66,7 @@ uint8_t ScrollCount = 0;
 uint8_t ScrollIndex = 0;
 char ScrollBuffer[256];
 #endif
+uint8_t ReportCode = SUCCESS;
 
 
 //function definitions
@@ -154,7 +155,7 @@ int main(void)
         if(modeflag){
             AlignTaskMng();
 #ifdef _DEBUG_
-            jamorempty = 0;
+            jam = 0;
 #endif
         }else if(!modeflag){
             TaskManager();
@@ -215,7 +216,7 @@ void Calibration(){
     uint16_t sum = counterval - Stamp[3];
     if(sum <= 15000){
         uint16_t sum2 = counterval - Stamp[4];
-        if(sum2 >= 40){
+        if(sum2 >= 20){
         ICADVVal[ADCCounter] = GetADCVal(channel0);
         ADCCounter++;
             if(ADCCounter >= 10){
@@ -247,7 +248,7 @@ void Calibration(){
         ServoSet(releaseval);
     }else if(sum <= 30000){
         uint16_t sum2 = counterval - Stamp[4];
-        if(sum2 >= 40){
+        if(sum2 >= 20){
         ICADVVal[ADCCounter] = GetADCVal(channel0);
         ADCCounter++;
             if(ADCCounter >= 10){
@@ -289,7 +290,7 @@ void SerialMonitor(void(*FNCName)()){
         Stamp[7] = counterval;
     }
     uint16_t sum = counterval - Stamp[7];
-    if((sum >= 10) && (RXFlag != 2)){
+    if((sum >= 5) && (RXFlag != 2)){
         FNCName();
         RXFlag = 2;
     }
@@ -303,19 +304,27 @@ void Decode(){
         }
         uint8_t check = checksumcal(RXBuffer,4);
         if((RXBuffer[0] == StartByte) && (RXBuffer[1] == address) && (RXBuffer[4] == check) && (RXBuffer[5] == EndByte)){
-            print16bits(RXBuffer[4],0x41,3);
-            print16bits(check,0x42,3);
             switch(RXBuffer[2]){
                 case CALL:{
+                    sendReport(0);
                     break;
                 }
                 case DISPENSE:{
-                    task = 1;
-                    DeliverxMany = RXBuffer[3];
+                    if(!jam){
+                        task = 1;
+                        DeliverxMany = RXBuffer[3];
+                        Stamp[9] = TIM_GetCounter(TIM14);
+                    }else{
+                        sendReport(JAM);
+                    }
                     break;
                 }
                 case FREE:{
-                    jamorempty = 0;
+                    jam = 0;
+                    ServoSet(pickval);
+                    sendReport(SUCCESS);
+                    delay(1000);
+                    ServoZero();
                     break;
                 }
                 default:{
@@ -334,19 +343,17 @@ void Decode(){
         char UpdateToo[NewSCroll];
         int i;
         for(i = 0; i < lcdbuffer ; i++){
-            //printbyte(Serialdata[bufferreadcount]);
             RXBuffer[i] = Serialdata[bufferreadcount++];
 
             if(i > 2 && i < lcdbuffer - 2){
-                printbyte(RXBuffer[i]);
                 UpdateToo[i - 3] = RXBuffer[i];
-                printbyte(UpdateToo[i-3]);
                 UpdateToo[i - 2] = 0;
             }
 
         }
         uint8_t check = checksumcal(RXBuffer,lcdbuffer - 2);
         if((RXBuffer[0] == StartByte) && (RXBuffer[1] == address) && (RXBuffer[2] == LCDPRINT) && (RXBuffer[lcdbuffer - 1] == EndByte)){//(RXBuffer[lcdbuffer - 2] == check) &&
+            uint8_t tempstamp =
             PopulateBuffer(UpdateToo);
             sendReport(SUCCESS);
         }
@@ -365,7 +372,12 @@ uint8_t checksumcal(uint8_t *values, uint8_t checkpos){
 
 //reports to send back to master
 void sendReport(uint8_t ReportCode){
-    USART_SendData(USART1, 0xE1);//start byte
+
+    GPIO_WriteBit(GPIOA,DE,1);
+
+    delay(10);
+
+    USART_SendData(USART1, 0xD1);//start byte
     /* Loop until the end of transmission */
     while (USART_GetFlagStatus(USART1, USART_FLAG_TC) == RESET){}
 
@@ -377,10 +389,15 @@ void sendReport(uint8_t ReportCode){
     /* Loop until the end of transmission */
     while (USART_GetFlagStatus(USART1, USART_FLAG_TC) == RESET){}
 
+    USART_SendData(USART1, 0x01);
+    /* Loop until the end of transmission */
+    while (USART_GetFlagStatus(USART1, USART_FLAG_TC) == RESET){}
+
     uint8_t check = 0;
-    check = (check + 0xE1) & 0xFF;
+    check = (check + 0xD1) & 0xFF;
     check = (check + address) & 0xFF;
     check = (check + ReportCode) & 0xFF;
+    check = (check + 0x01) & 0xFF;
 
     USART_SendData(USART1, check);
     /* Loop until the end of transmission */
@@ -389,6 +406,10 @@ void sendReport(uint8_t ReportCode){
     USART_SendData(USART1, 0xE1);//stop byte
     /* Loop until the end of transmission */
     while (USART_GetFlagStatus(USART1, USART_FLAG_TC) == RESET){}
+
+    delay(10);
+
+    GPIO_WriteBit(GPIOA,DE,0);
 }
 
 //function used if roller is being used
@@ -448,7 +469,7 @@ void TaskManager(){
                 break;
             }
 #ifdef _DEBUG_
-            if(!jamorempty){
+            if(!jam){
                 printbyte(0x53);
             }
 #endif
@@ -459,9 +480,10 @@ void TaskManager(){
 }
 //task 1 turn of receiver and turn on vibration motor
 void initTask(){
+    ReportCode = SUCCESS;
     ServoSet(pickval);  //remove this code for proper operation
     period = 100;
-    GPIO_WriteBit(GPIOA,RE,0);
+    GPIO_WriteBit(GPIOA,RE,1);
     GPIO_WriteBit(GPIOB,VBRMTR,1);
     GPIO_WriteBit(GPIOB,IRLED1,1);
     GPIO_WriteBit(GPIOB,IRLED2,1);
@@ -473,9 +495,9 @@ void initTask(){
 void CheckIC(){
     uint16_t counterval = TIM_GetCounter(TIM14);
     uint16_t sum = counterval - Stamp[2];
-    if(sum >= Wait - 150){
+    if(sum >= Wait){
         uint16_t sum2 = counterval - Stamp[4];
-        if(sum2 >= 40){
+        if(sum2 >= 20){
             ICADVVal[ADCCounter] = GetADCVal(channel8);
             GUIDEADCVal[ADCCounter] = GetADCVal(channel9);
             ADCCounter++;
@@ -504,7 +526,8 @@ void CheckIC(){
                     #ifdef _DEBUG_
                     printbyte(0x4A);
                     #endif
-                    jamorempty = 1;
+                    ReportCode = JAM;
+                    jam = 1;
                     DeliverxMany = 1;
                     task = 0xFF;
                 }else{  //tube is empty
@@ -512,7 +535,7 @@ void CheckIC(){
                     #ifdef _DEBUG_
                     printbyte(0x45);
                     #endif
-                    jamorempty = 1;
+                    ReportCode = EMPTY;
                     DeliverxMany = 1;
                     task = 0xFF;
                 }
@@ -526,9 +549,9 @@ void CheckIC(){
 void Release(){
     uint16_t counterval = TIM_GetCounter(TIM14);
     uint16_t sum = counterval - Stamp[2];
-    if(sum >= Wait - 250){
+    if(sum >= Wait){
         uint16_t sum2 = counterval - Stamp[4];
-        if(sum2 >= 40){
+        if(sum2 >= 20){
             ICADVVal[ADCCounter] = GetADCVal(channel8);
             ADCCounter++;
             if(ADCCounter >= 10){
@@ -555,7 +578,8 @@ void Release(){
 #ifdef _DEBUG_
                     printbyte(0x4A);
 #endif
-                    jamorempty = 1;
+                    ReportCode = JAM;
+                    jam = 1;
                     task = 0xFF;
                 }
             }
@@ -568,9 +592,9 @@ void Release(){
 void PickUp(){
     uint16_t counterval = TIM_GetCounter(TIM14);
     uint16_t sum = counterval - Stamp[2];
-    if(sum >= Wait - 150){
+    if(sum >= Wait){
         uint16_t sum2 = counterval - Stamp[4];
-        if(sum2 >= 40){
+        if(sum2 >= 20){
             ICADVVal[ADCCounter] = GetADCVal(channel8);
             GUIDEADCVal[ADCCounter] = GetADCVal(channel9);
             ADCCounter++;
@@ -605,9 +629,9 @@ void PickUp(){
 void CheckIC2(){
     uint16_t counterval = TIM_GetCounter(TIM14);
     uint16_t sum = counterval - Stamp[2];
-    if(sum >= Wait - 150){
+    if(sum >= Wait){
         uint16_t sum2 = counterval - Stamp[4];
-        if(sum2 >= 40){
+        if(sum2 >= 20){
             ICADVVal[ADCCounter] = GetADCVal(channel8);
             GUIDEADCVal[ADCCounter] = GetADCVal(channel9);
             ADCCounter++;
@@ -636,7 +660,8 @@ void CheckIC2(){
                     printbyte(0x4A);
                     if(DeliverxMany == 1)printbyte(0x53);;
                     #endif
-                    jamorempty = 1;
+                    ReportCode = JAM;
+                    jam = 1;
                     DeliverxMany = 1;
                     task = 0xFF;
                 }else{  //tube is empty
@@ -645,8 +670,12 @@ void CheckIC2(){
                     printbyte(0x45);
                     if(DeliverxMany == 1)printbyte(0x53);
                     #endif
-                    jamorempty = 1;
-                    DeliverxMany = 1;
+                    if(DeliverxMany == 1){
+                        ReportCode |= EMPTY;
+                    }else{
+                        ReportCode = EMPTY;
+                        DeliverxMany = 1;
+                    }
                     task = 0xFF;
                 }
             }
@@ -659,9 +688,9 @@ void CheckIC2(){
 void CheckLow(){
     uint16_t counterval = TIM_GetCounter(TIM14);
     uint16_t sum = counterval - Stamp[2];
-    if(sum >= Wait - 150){
+    if(sum >= Wait){
         uint16_t sum2 = counterval - Stamp[4];
-        if(sum2 >= 40){
+        if(sum2 >= 20){
             GUIDEADCVal[ADCCounter] = GetADCVal(channel9);
             ADCCounter++;
             if(ADCCounter >= 10){
@@ -682,6 +711,7 @@ void CheckLow(){
                     #ifdef _DEBUG_
                     printbyte(0x4C);
                     #endif
+                    ReportCode |= LOW;
                     task++;
                 }
             }
@@ -691,13 +721,16 @@ void CheckLow(){
 }
 //finish off the task and back to idle
 void FinishTask(){
-    GPIO_WriteBit(GPIOA,RE,1);
+    GPIO_WriteBit(GPIOA,RE,0);
     GPIO_WriteBit(GPIOB,VBRMTR,0);
     GPIO_WriteBit(GPIOB,IRLED1,0);
     GPIO_WriteBit(GPIOB,IRLED2,0);
     task = 0;
     period = 1000;
     ServoZero();
+    sendReport(ReportCode);
+    uint16_t timetaken = TIM_GetCounter(TIM14) - Stamp[9];
+    print16bits(timetaken,0x54,5);
 }
 
 //wiggle the servo by the specified amount
@@ -771,7 +804,7 @@ void Test(){
 #ifdef _EXTRA_
         print16bits(DeliverxMany,0x43,3);
 #endif
-        jamorempty = 0;
+        jam = 0;
         task = 1;
     }
 }
@@ -831,7 +864,7 @@ void LCDScroll(){
     uint16_t counterval = TIM_GetCounter(TIM14);
     uint16_t sum = counterval - Stamp[8];
     if(sum >= Scrollwait){
-        Scrollwait = 500;
+        Scrollwait = 350;
         if(ScrollDir == 0){
             ScrollIndex = ScrollIndex + 1;
             if(ScrollIndex == ScrollCount - 32){

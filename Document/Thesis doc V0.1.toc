@@ -6,9 +6,16 @@
 \contentsline {subsection}{\numberline {1.4}Scope and Limitations of the Research}{1}{subsection.1.4}
 \contentsline {subsection}{\numberline {1.5}Plan of Development}{1}{subsection.1.5}
 \contentsline {section}{\numberline {2}Literature Review}{2}{section.2}
-\contentsline {section}{\numberline {3}Design and Prototyping Methodology and Procedure}{3}{section.3}
-\contentsline {subsection}{\numberline {3.1}Design}{3}{subsection.3.1}
-\contentsline {subsubsection}{\numberline {3.1.1}Mechanical Design}{3}{subsubsection.3.1.1}
-\contentsline {subsubsection}{\numberline {3.1.2}Circuit Design Methodology}{3}{subsubsection.3.1.2}
-\contentsline {subsubsection}{\numberline {3.1.3}Software Design Methodology}{3}{subsubsection.3.1.3}
-\contentsline {subsubsection}{\numberline {3.1.4}Prototyping Methodology and Procedure }{3}{subsubsection.3.1.4}
+\contentsline {subsection}{\numberline {2.1}Communication between devices}{2}{subsection.2.1}
+\contentsline {subsubsection}{\numberline {2.1.1}I2C}{2}{subsubsection.2.1.1}
+\contentsline {subsubsection}{\numberline {2.1.2}RS-485/TIA-485}{2}{subsubsection.2.1.2}
+\contentsline {subsection}{\numberline {2.2}RFID Reader}{3}{subsection.2.2}
+\contentsline {subsubsection}{\numberline {2.2.1}System Specification}{3}{subsubsection.2.2.1}
+\contentsline {subsubsection}{\numberline {2.2.2}UCT's RFID Solution}{4}{subsubsection.2.2.2}
+\contentsline {subsection}{\numberline {2.3}Web Hosting and Server}{4}{subsection.2.3}
+\contentsline {section}{\numberline {3}Design and Prototyping Methodology and Procedure}{5}{section.3}
+\contentsline {subsection}{\numberline {3.1}Design}{5}{subsection.3.1}
+\contentsline {subsubsection}{\numberline {3.1.1}Mechanical Design}{5}{subsubsection.3.1.1}
+\contentsline {subsubsection}{\numberline {3.1.2}Circuit Design Methodology}{5}{subsubsection.3.1.2}
+\contentsline {subsubsection}{\numberline {3.1.3}Software Design Methodology}{6}{subsubsection.3.1.3}
+\contentsline {subsubsection}{\numberline {3.1.4}Prototyping Methodology and Procedure }{6}{subsubsection.3.1.4}

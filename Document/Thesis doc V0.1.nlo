@@ -1,0 +1,7 @@
+\nomenclatureentry{aI2C@[{I2C}]\begingroup Inter-integrated Circuit\nomeqref {0}|nompageref}{2}
+\nomenclatureentry{aUART@[{UART}]\begingroup Universal Asynchronous Receiver/Transmitter\nomeqref {0}|nompageref}{3}
+\nomenclatureentry{aRX@[{RX}]\begingroup Receiver Number x\nomeqref {0}|nompageref}{3}
+\nomenclatureentry{aTX@[{TX}]\begingroup Transmitter number x\nomeqref {0}|nompageref}{3}
+\nomenclatureentry{aRFID@[{RFID}]\begingroup Radio Frequency Identification\nomeqref {0}|nompageref}{3}
+\nomenclatureentry{aPCB@[{PCB}]\begingroup Printed Circuit Board\nomeqref {0}|nompageref}{5}
+\nomenclatureentry{aHAT@[{HAT}]\begingroup Hardware Attached onTop\nomeqref {0}|nompageref}{5}

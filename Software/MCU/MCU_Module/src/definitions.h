@@ -3,10 +3,9 @@
 
 //status bytes
 #define JAM 0xC1
-#define EMPTY 0xC3
-#define LOW 0xC5
-#define SUCCESS 0xC7
-#define LOWSUCCESS 0xC9
+#define EMPTY 0xC2
+#define LOW 0xC4
+#define SUCCESS 0xC8
 //command bytes
 #define CALL 0xB1
 #define DISPENSE 0xB3
@@ -17,7 +16,7 @@
 #define EndByte 0xF1
 
 //program macros
-#define Wait 550    //Time between each dispensary task
+#define Wait 250    //Time between each dispensary task
 #define GapThreshold 150
 
 #define channel0 0
