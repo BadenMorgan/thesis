@@ -35,6 +35,7 @@ void ServoSet(uint16_t angle){
     TIM2->CCR4 = 90 + angle;
 }
 
+//set the servo to zero to prevent holding current
 void ServoZero(){
     TIM2->CCR4 = 0;
 }

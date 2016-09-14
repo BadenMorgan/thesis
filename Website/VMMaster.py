@@ -15,6 +15,20 @@ import urllib.request
 import pymysql
 import sys
 from select import select
+import logging
+
+LOG_FILENAME = 'MasterLog.log'
+
+# Set up a specific logger with our desired output level
+logging.basicConfig(level=logging.DEBUG,
+                    format='%(asctime)s %(name)-12s %(levelname)-8s %(message)s',
+                    datefmt='%m-%d %H:%M',
+                    filename='MasterLog.log')
+                    # ,
+                    # filemode='w')
+
+logging.debug("=========================")
+logging.debug("Program Started")
 
 GPIO.setmode(GPIO.BCM)
 
@@ -65,8 +79,10 @@ exitFlag = 0
 tagLength = 14
 value = 0
 retries = 0
-maxretry = 5;
-DispenseStatus = 0;
+maxretry = 5
+DispenseStatus = 0
+# component limit
+complimit = 6
 
 # admins for the VM
 admins = ('MRGBAD001','01422682','Brendan')
@@ -290,6 +306,36 @@ def FlushDB():
 		FlushDate = currentdate
 		print("flushed")
 
+# makes sure there are only 6 components for each student no
+def ComponentNoCheck(ID):
+	global complimit
+	db = pymysql.connect("localhost", "root", "pimysql2016", "UCTVendingMachine")
+	cursor=db.cursor()
+
+	cursor.execute("""SELECT Quantity,ID from Orders WHERE StudentNo = %s""", (ID))
+	Order = cursor.fetchall()
+	OrderLen = len(Order)
+	i = 0
+	count = 0
+	while i < OrderLen:
+		if count < complimit:
+			tempcount = count + Order[i][0]
+			if tempcount > complimit:
+				quantity = complimit - count
+				count = complimit
+				cursor.execute("""UPDATE Orders SET Quantity = %s WHERE ID = %s""", (quantity,Order[i][1]))
+			else:
+				count = tempcount
+		else:
+			cursor.execute("""DELETE FROM Orders WHERE ID = %s""", (Order[i][1]))
+		i = i + 1
+	logmsg = "Checked Order Numbers for: " + ID
+	logging.debug(logmsg)
+	db.commit()
+	cursor.close()
+	db.close()
+
+
 # free up the jam empty status
 def Free():
 
@@ -415,6 +461,7 @@ while True:
 	# if rlist:		
 	# 	command = sys.stdin.readline()
 	# 	sys.stdin.flush()	
+	ComponentNoCheck("MRGBAD001")
 	command = input("enter g: ")
 	if command == 'g':
 		# RequestDispence('MRGBAD001')

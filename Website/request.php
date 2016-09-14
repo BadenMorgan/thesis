@@ -1,10 +1,12 @@
 <html>
 	<body>
 	<?php
+		include($_SERVER['DOCUMENT_ROOT']."/includes/variables.php");
 		$servername = "localhost";
 		$username = "root";
 		$password = "pimysql2016";
 		$dbname = "UCTVendingMachine";
+		$counter = 0;
 
 		$conn = new mysqli($servername, $username, $password,$dbname);
 
@@ -15,15 +17,26 @@
 		}
 
 		function checkIC($partname,$quantity){
-			if($quantity > 0){
-				$sql = "INSERT INTO Orders VALUES ('" . $_POST['student'] ."', '". $partname ."', " . $quantity.", '".date('Y-m-d')."', 0);";
-				global $conn;
-				if ( $conn->query($sql) === TRUE) {
-					echo "New record created successfully";
-				} else {
-					echo "Error: " . $sql . "<br>" .  $conn->error;
+			global $counter, $complimit;
+			if($quantity > 0 && $counter < $complimit){
+				$tempcount = $counter + $quantity;
+				if($tempcount > $complimit){
+					$quantity = $complimit - $counter;
+					$counter = $complimit;
+				}else{
+					$counter = $tempcount;
 				}
-				return $partname.": ".$quantity."\\n";
+				if($quantity > 0){
+					$randomno = mt_rand(1,65534);
+					$sql = "INSERT INTO Orders VALUES ('" . $_POST['student'] ."', '". $partname ."', " . $quantity.", '".date('Y-m-d')."', 0,".$randomno.");";
+					global $conn;
+					if ( $conn->query($sql) === TRUE) {
+						//echo "New record created successfully";
+					} else {
+						echo "Error: " . $sql . "<br>" .  $conn->error;
+					}
+					return $partname.": ".$quantity."\\n";
+				}
 			}else{
 				return '';
 			}

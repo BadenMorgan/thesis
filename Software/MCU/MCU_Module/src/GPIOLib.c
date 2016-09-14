@@ -7,6 +7,7 @@ irled 1 and 2, mode selection, re and de, ms 1,2 & 3,
 step direction and enable
 */
 
+//set up GPIO as input/output
 void GPIOInit(){
     GPIO_InitTypeDef GPIO_InitStructure;
 
@@ -121,6 +122,7 @@ void ADCsInit(){
     ADC1->CFGR1 |= ADC_CFGR1_RES_1;    // resolution to 8 bit
 }
 
+//fetch requested ADC value
 uint8_t GetADCVal(uint8_t Channel){
     if(Channel == channel0){
         ADC1->CHSELR = ADC_CHSELR_CHSEL0; // select channel 0

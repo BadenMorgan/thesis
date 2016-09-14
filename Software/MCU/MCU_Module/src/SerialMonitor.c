@@ -28,7 +28,7 @@ void USART1Init()
     GPIO_Init(GPIOA, &GPIO_InitStructure);
     /* USART configuration ***************************************/
     /* USART3 configured as follow:
-    - BaudRate = 115200 baud
+    - BaudRate = 9600 baud
     - Word Length = 8 Bits
     - One Stop Bit
     - No parity
