@@ -7,6 +7,8 @@
 		$password = "pimysql2016";
 		$dbname = "UCTVendingMachine";
 		$counter = 0;
+		//$complimit = 0;
+
 
 		$conn = new mysqli($servername, $username, $password,$dbname);
 
