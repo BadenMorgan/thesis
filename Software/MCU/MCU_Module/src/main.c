@@ -18,9 +18,14 @@
 **********************************************************************/
 //macros
 //#define _EXTRA_   //defined extra debugging
-//#define _DEBUG_     //debugging serial interface
+#define _DEBUG_     //debugging serial interface
 #define _ROLLER_    //roller code so it can be excluded for another variation of delivery mechanism
 #define _LCD_       //LCD code excluded for most delivery mechanisms, only used on first one
+
+//defines which package is being dispensed, important for wait times
+//#define _DIP8_
+#define _DIP1416_
+//#define _DIp20_
 
 //Libraries
 #include "stm32f0xx_conf.h"
@@ -592,7 +597,17 @@ void Release(){
     uint16_t counterval = TIM_GetCounter(TIM14);
     uint16_t sum = counterval - Stamp[2];
     //waits for system to settle
+#ifdef _DIP8_
     if(sum >= Wait){
+#endif
+
+#ifdef  _DIP1416_
+    if(sum >= Wait + 75){
+#endif
+
+#ifdef _DIP20_
+    if(sum >= Wait + 150){
+#endif
         uint16_t sum2 = counterval - Stamp[4];
         if(sum2 >= 20){
             ICADVVal[ADCCounter] = GetADCVal(channel8);
@@ -674,7 +689,15 @@ void PickUp(){
 void CheckIC2(){
     uint16_t counterval = TIM_GetCounter(TIM14);
     uint16_t sum = counterval - Stamp[2];
+#ifdef _DIP8_
     if(sum >= Wait){
+#endif
+#ifdef  _DIP1416_
+    if(sum >= Wait + 75){
+#endif
+#ifdef _DIP20_
+    if(sum >= Wait + 150){
+#endif
         uint16_t sum2 = counterval - Stamp[4];
         if(sum2 >= 20){
             ICADVVal[ADCCounter] = GetADCVal(channel8);

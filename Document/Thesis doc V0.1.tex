@@ -52,6 +52,7 @@
 \usepackage{pdflscape}
 
 \begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	% title page
 \begin{titlepage}
 	\centering
@@ -89,7 +90,7 @@
 	%\mbox{}
 	%\thispagestyle{empty}
 	%\newpage
-	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	% plagiarism declaration
 	\thispagestyle{empty}
 	{\huge Plagiarism Declaration \par}
@@ -116,7 +117,7 @@
 	%\mbox{}
 	%\thispagestyle{empty}
 	%\newpage	
-	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	%terms of reference
 	\pagenumbering{roman}	
 	
@@ -138,34 +139,41 @@ requirements increase
 	{\Large\bfseries{Area:}\par}
 	Electronics / Embedded Systems\par
 	\newpage
-	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	%acknowledgements
 	{\centering\Huge\bfseries\underline{Acknowledgments}\par}
+	Jason
+	Brandon
+	Justin
+	Family
+	Matty
+	All my freinds
 	\newpage
 	
 	% empty page
 	%\mbox{}
 	%\newpage
-	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	%abstract
 	{\centering\Huge\bfseries\underline{Abstract}\par}
 	\newpage	
-	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	% insert the table of contents
 	\tableofcontents
 	\newpage
-		
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	% list of figures here
 	\listoffigures
 	\newpage
- 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  	%list of tables here
 	\listoftables
 	\newpage
 	
 	%nomanclature 
 	\mbox{}
-	 	 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%nomenclature
 	\printnomenclature[2cm]	
 	
 	\nomenclature{I2C}{Inter-integrated Circuit}
@@ -190,10 +198,12 @@ requirements increase
 	\newpage
 	\pagenumbering{arabic}
 	\newpage
+	
 \hypersetup{%
   colorlinks=false,% hyperlinks will be black
   pdfborderstyle={/S/U/W 1}% border style will be underline of width 1pt
 }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	% introduction
 \section{Introduction}
 	Well, and here begins my lovely article.
@@ -211,8 +221,11 @@ requirements increase
 		something something	
 	\subsection{Plan of Development}	
 		blah blah
+	\subsubsection{Note For Reader}
+	For convenience to the reader, if this document is being read on a computer or digital device that support the pdf format, take note of underlined citations which are in light green, cross-referencing within the document which are in red and links in the referencing which are in light blue. This underlining indicates a clickable link which will direct you to the referenced item.
 	\newpage
 \setlength{\parskip}{1em}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	% literature review
 \section{Literature Review}
 	introduction to chapter here
@@ -289,19 +302,49 @@ If the site is directed to a PHP file or a file it sees contains PHP syntax it w
 MySQL is a database platform built to run independently. It manages data by storing in databases with separate tables each with its own rows and columns. It is able to relate certain data from one table to another by using use defined rules making operation and navigation fast when used properly. MySQL also helps protect the databases with proper protection giving access to users defined during configuration, making it a secure way to store sensitive data. MySQL uses the ANSI/ISO standard SQL (Structured Query Language) which enables easy access when permitted. The SQL standard and access to MySQL works on a query base when an SQL statement is constructed and sent to the MySQL. Once the query has been interpreted the relevant data pertaining to the request is returned \cite{mysql}.  
 
 	\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%system specifications
 \section{System Specifications}
-In order to begin designing the Vending Machine the specifications needed to be more defined in detail in order to know what the designs should focus on. In the design and discussion of this report there will be three major sections. Those will be; the mechanical design including the delivery mechanism and enclosure, the PCB design of both controller for the delivery mechanism and the Raspberry pi module plugin, The software for the master program i.e. the Raspberry Pi, the control boards and the website. A mind map was created to assist defining the specifications and can be seen below. It shows the relevant specifications for each three sections and each and how they interact and will also be discussed in detail below:
+In order to begin designing the Vending Machine the specifications needed to be more defined in detail in order to know what the designs should focus on. In the design and discussion of this report there will be three major sections. Those will be; the mechanical design including the delivery mechanism and enclosure, the PCB design of both controller for the delivery mechanism, which will be called the MCU module from now on, and the Raspberry pi module plugin, The software for the master program i.e. the Raspberry Pi, the MCU modules and the website. A mind map was created to assist defining the specifications and can be seen below. It shows the relevant specifications for each three sections and each and how they interact and will also be discussed in detail below:
 
 	\begin{figure}[h]
 	\centering
-	\includegraphics[scale=0.15]{{VMDEF}.jpg}
+	\includegraphics[scale=0.15]{{SpecDef}.jpg}
 	\caption{Mind map used to help assist the definition of the topic, system specifications and design of the Vending Machine.}
 	\end{figure}
 	
 A mind map is also included in Appendix \fullref{sec:resmm} which was created on commencing this research to better define the topic and help decide on a direction to take. This mind map is a precursor to the mind map above but not as relevant to this section.
+
+\subsection{Mechanical Specifications}
+The mechanical Specifications and requirements will be discussed in more detail below.
+\subsubsection{Delivery Mechanism}
+The main objective of the delivery mechanism needs to be stated as being able to deliver one component at a time in a reliable manner. The delivery mechanism needed to be very reliable with a success rate of 95\% or above. It was set high because a failure in the system would mean human intervention to correct the error breaking the autonomous nature the Vending machine was to have. This autonomy was another specification as the Vending Machine was to operate at potentially late hours of the night when no authority to amend a failure would be around. To improve autonomy Component tubes, pictured below, would need to be held in the machine and fed into the delivery mechanism to give the Vending Machine a large capacity.
+
+	\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.13]{{ComponentTubes}.jpg}
+	\caption{Two tubes of components, the top full of DIP IC Holders and the bottom one being full of DIP 8 Components.}
+	\end{figure}
+
+\subsubsection{Enclosure}
+The enclosures priority specification is to be able to hold all the modules of the Vending Machine. The enclosure also needs to be able to have space for expansion for future needs that may arise after the completion of this research to keep the project as a whole alive. It should also be able to prevent people from sticking their hands into the machine and interfering with the operation of the Vending Machine. Lastly the enclosure should be able to present the dispensed components in a manner easy for the person ordering to retrieve. 
+\subsection{PCB Specifications}
+The PCB requirements and specifications will be discussed in more detail below.
+\subsubsection{Raspberry Pi}
+The main purpose of a PCB to interface with the Raspberry Pi is to be able to power the Pi and create a starting point for communications bus. This module should also be able to sense if the door of the enclosure is open. This is to prevent the machine dispensing components or moving parts when someone could potentially have their finger in the mechanism to try and fix a fault. 
+\subsubsection{MCU Modules}
+The MCU module has many small specifications all coming together to serve the the main purpose of being modular and interchangeable for different types of delivery systems that may be needed. It would need to operate a DC motor, stepper motor, and servo motor either all at the same time or at once. Gap sensors to be able to detect an empty load for delivery or a jam, or a low cartridge or tube. Operate and LCD if needed in order to relay messages to someone using the Vending Machine i.e. to communicate a problem with the machine. A micro-controller capable of handling the specifications of the MCU Module with a crystal designed to the micro-controllers specifications. A communications and power bus that can be daisy chained to addition modules adding expansion for more than one module on the same bus. Calibration controls to adjust and fine tune the operation of the devise. This will allow small imperfects in manufacturing and building to be worked around by changing set limits in the code.
+\subsection{Software Specifications}
+The specifications of the Software requirements and specifications will be discussed below.
+\subsubsection{Master Program for the Raspberry Pi}
+The main function of the master program must be to recognize student cards and the student number attached to them and communicate with the MCU modules. This communication will allow the Master program to control the actions of each MCU module when needed. The master program must also manage the data base and make sure the orders are not invalid. Another feature the Master program must have is admin control in order to be able to induce addition admin features on the each MCU module for maintenance and purposes. To do all this the Master program must be able to interface with a database but it must not record any user ID's or information taken from a student.
+\subsubsection{MCU Module}
+The specification for the program were set out to make sure the program ran reliably. To ensure this one of the first requirements were that the MCU would use very few delays and instead use a task manager. The task manager must enable to MCU module to operate without delays when dispensing components so the system will not be held up by any one task. In addition to the task manager motor control for the 3 kinds of motors must be present. Detection for empty load and low cartridge/tube. An address storage system must be in place so the device will now when it is being commanded over the communications bus. Finally the MCU module must have a task to calibrate the device and save the newly set values.
+\subsubsection{Website}
+The website is a proof of concept in order to show the device is capable of interacting with the information saved by a website. The web page must be easy to use for users wishing to make orders from the Vending Machine. There should be a comments section of some form so Users can give feedback or report problems with the Vending Machine. The website should also be able to interface with the database to store and read data from it.
+
 \newpage
-
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	% design and prototyping
 \section{Design and Prototyping Methodology and Procedure}
 	In order to begin the design process a clear methodology was needed to proceed in order to get the best results. This included a set of rules to follow when designing and testing prototypes and more. This section aims to discuss these and elaborate on how the design was approached to meet the requirements set out in the introductory.
@@ -319,8 +362,6 @@ As for the enclosure a similar process was followed as the delivery mechanism ho
 
 \subsubsection{Circuit Design Methodology}
 The basic idea behind the design of the PCB was to have it be versatile and able to adapt to the needs of the project by adding in features to allow for multiple configurations of mechanical delivery needs. This required a somewhat modular design.
-
-
 
 The circuit started with a sketch on paper detailing what would be needed in the final design and what type of configurations it should be able to handle. 3 configurations were considered as the mechanical system was to need a motor of some kind, so the design was to be able to handle a stepper motor, servo motor and simple DC motor, one at a time or all concurrently. Included in the design was a set of sensors needed to track the status of the delivery and contents of rails.
 A Raspberry Pi HAT was theorized that would be capable of connecting the power source to the Raspberry pi and starting the bus for the RS-485 communications and power rails. This hat would be a fairly simple design to satisfy communication and power supply needs.
@@ -344,14 +385,28 @@ Detailed planning and methodology was needed in order to test the viability of t
 In order to test the viability of the mechanical design of the delivery mechanism a structure for testing and guidelines were drawn up to make sure each test was comparable to the following tests. This was done by making sure the tests were repeatable by eliminating external variables and a test method that could be used for all test cases. Also a recording structure was made with data that would be recorded from test to test. Notes were also taken with each test to add contexts and additional information of the success or failure of the tests.
 \newpage
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%system design and prototyping
 \section{System Design and Prototyping}
 \newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%system assembly
 \section{System Assembly}
 \newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%build review, results and disussion
 \section{Build Review, Results and Discussion}
 \newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%conclusion
 \section{Conclusion}
 \newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%recommendations
 \section{Recommendations}
 Apache is losing market share which could mean its counter part may become the leader in the future. More time should be invested in researching the benefits of using Nginx over Apache
 \newpage

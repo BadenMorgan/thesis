@@ -6,6 +6,7 @@
 \contentsline {subsubsection}{\numberline {1.3.2}Purpose of this study}{1}{subsubsection.1.3.2}
 \contentsline {subsection}{\numberline {1.4}Scope and Limitations of the Research}{1}{subsection.1.4}
 \contentsline {subsection}{\numberline {1.5}Plan of Development}{1}{subsection.1.5}
+\contentsline {subsubsection}{\numberline {1.5.1}Note For Reader}{1}{subsubsection.1.5.1}
 \contentsline {section}{\numberline {2}Literature Review}{2}{section.2}
 \contentsline {subsection}{\numberline {2.1}Communication between devices}{2}{subsection.2.1}
 \contentsline {subsubsection}{\numberline {2.1.1}I2C}{2}{subsubsection.2.1.1}
@@ -18,15 +19,25 @@
 \contentsline {subsubsection}{\numberline {2.3.2}The Scripting Language: PHP}{5}{subsubsection.2.3.2}
 \contentsline {subsubsection}{\numberline {2.3.3}The Database: MySQL}{6}{subsubsection.2.3.3}
 \contentsline {section}{\numberline {3}System Specifications}{7}{section.3}
-\contentsline {section}{\numberline {4}Design and Prototyping Methodology and Procedure}{8}{section.4}
-\contentsline {subsection}{\numberline {4.1}Design}{8}{subsection.4.1}
-\contentsline {subsubsection}{\numberline {4.1.1}Mechanical Design}{8}{subsubsection.4.1.1}
-\contentsline {subsubsection}{\numberline {4.1.2}Circuit Design Methodology}{8}{subsubsection.4.1.2}
-\contentsline {subsubsection}{\numberline {4.1.3}Software Design Methodology}{9}{subsubsection.4.1.3}
-\contentsline {subsubsection}{\numberline {4.1.4}Prototyping Methodology and Procedure }{9}{subsubsection.4.1.4}
-\contentsline {section}{\numberline {5}System Design and Prototyping}{10}{section.5}
-\contentsline {section}{\numberline {6}System Assembly}{11}{section.6}
-\contentsline {section}{\numberline {7}Build Review, Results and Discussion}{12}{section.7}
-\contentsline {section}{\numberline {8}Conclusion}{13}{section.8}
-\contentsline {section}{\numberline {9}Recommendations}{14}{section.9}
-\contentsline {section}{\numberline {A}Research Mind Map}{16}{Appendix.1.A}
+\contentsline {subsection}{\numberline {3.1}Mechanical Specifications}{7}{subsection.3.1}
+\contentsline {subsubsection}{\numberline {3.1.1}Delivery Mechanism}{7}{subsubsection.3.1.1}
+\contentsline {subsubsection}{\numberline {3.1.2}Enclosure}{8}{subsubsection.3.1.2}
+\contentsline {subsection}{\numberline {3.2}PCB Specifications}{8}{subsection.3.2}
+\contentsline {subsubsection}{\numberline {3.2.1}Raspberry Pi}{8}{subsubsection.3.2.1}
+\contentsline {subsubsection}{\numberline {3.2.2}MCU Modules}{8}{subsubsection.3.2.2}
+\contentsline {subsection}{\numberline {3.3}Software Specifications}{9}{subsection.3.3}
+\contentsline {subsubsection}{\numberline {3.3.1}Master Program for the Raspberry Pi}{9}{subsubsection.3.3.1}
+\contentsline {subsubsection}{\numberline {3.3.2}MCU Module}{9}{subsubsection.3.3.2}
+\contentsline {subsubsection}{\numberline {3.3.3}Website}{9}{subsubsection.3.3.3}
+\contentsline {section}{\numberline {4}Design and Prototyping Methodology and Procedure}{10}{section.4}
+\contentsline {subsection}{\numberline {4.1}Design}{10}{subsection.4.1}
+\contentsline {subsubsection}{\numberline {4.1.1}Mechanical Design}{10}{subsubsection.4.1.1}
+\contentsline {subsubsection}{\numberline {4.1.2}Circuit Design Methodology}{10}{subsubsection.4.1.2}
+\contentsline {subsubsection}{\numberline {4.1.3}Software Design Methodology}{11}{subsubsection.4.1.3}
+\contentsline {subsubsection}{\numberline {4.1.4}Prototyping Methodology and Procedure }{11}{subsubsection.4.1.4}
+\contentsline {section}{\numberline {5}System Design and Prototyping}{12}{section.5}
+\contentsline {section}{\numberline {6}System Assembly}{13}{section.6}
+\contentsline {section}{\numberline {7}Build Review, Results and Discussion}{14}{section.7}
+\contentsline {section}{\numberline {8}Conclusion}{15}{section.8}
+\contentsline {section}{\numberline {9}Recommendations}{16}{section.9}
+\contentsline {section}{\numberline {A}Research Mind Map}{18}{Appendix.1.A}

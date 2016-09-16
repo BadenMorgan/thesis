@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9) (preloaded format=pdflatex 2016.7.1)  13 SEP 2016 23:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9) (preloaded format=pdflatex 2016.7.1)  14 SEP 2016 22:17
 entering extended mode
 **"./Thesis doc V0.1.tex"
 ("Thesis doc V0.1.tex"
@@ -385,18 +385,18 @@ LaTeX Info: Redefining \nameref on input line 54.
 \openout4 = `"Thesis doc V0.1.out"'.
 
 
-Overfull \hbox (167.51419pt too wide) in paragraph at lines 59--59
+Overfull \hbox (167.51419pt too wide) in paragraph at lines 60--60
  []$[]$ 
  []
 
 
-<C:/"Google Drive"/thesis/Document/Pictures/UCTLogo.jpg, id=131, 1347.0325pt x 
+<C:/"Google Drive"/thesis/Document/Pictures/UCTLogo.jpg, id=175, 1347.0325pt x 
 1363.0925pt>
 File: C:/"Google Drive"/thesis/Document/Pictures/UCTLogo.jpg Graphic file (type
  jpg)
  <use C:/"Google Drive"/thesis/Document/Pictures/UCTLogo.jpg>
 Package pdftex.def Info: C:/"Google Drive"/thesis/Document/Pictures/UCTLogo.jpg
- used on input line 63.
+ used on input line 64.
 (pdftex.def)             Requested size: 269.40173pt x 272.61366pt.
 
 [1
@@ -413,15 +413,15 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.113 	\newpage
+l.114 	\newpage
                 [1]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 131.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 132.
 
  ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 131.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 132.
  [1] [2] [3] ("Thesis doc V0.1.toc" [4])
 \tf@toc=\write5
 \openout5 = `"Thesis doc V0.1.toc"'.
@@ -438,73 +438,85 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
  [7] ("Thesis doc V0.1.nls") [8]
 
 Package hyperref Warning: Option `colorlinks' has already been used,
-(hyperref)                setting the option has no effect on input line 196.
+(hyperref)                setting the option has no effect on input line 205.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.214 	\newpage
+l.226 	\newpage
                 [1]
-<C:/"Google Drive"/thesis/Document/Pictures/I2CRCFilter.jpg, id=239, 1142.2675p
+<C:/"Google Drive"/thesis/Document/Pictures/I2CRCFilter.jpg, id=297, 1142.2675p
 t x 467.7475pt>
 File: C:/"Google Drive"/thesis/Document/Pictures/I2CRCFilter.jpg Graphic file (
 type jpg)
 
 <use C:/"Google Drive"/thesis/Document/Pictures/I2CRCFilter.jpg>
 Package pdftex.def Info: C:/"Google Drive"/thesis/Document/Pictures/I2CRCFilter
-.jpg used on input line 229.
+.jpg used on input line 242.
 (pdftex.def)             Requested size: 456.89891pt x 187.09567pt.
  [2 <C:/Google Drive/thesis/Document/Pictures/I2CRCFilter.jpg>]
-<C:/"Google Drive"/thesis/Document/Pictures/MaximSoftUartFig1.jpg, id=251, 180.
+<C:/"Google Drive"/thesis/Document/Pictures/MaximSoftUartFig1.jpg, id=309, 180.
 675pt x 93.2283pt>
 File: C:/"Google Drive"/thesis/Document/Pictures/MaximSoftUartFig1.jpg Graphic 
 file (type jpg)
 
 <use C:/"Google Drive"/thesis/Document/Pictures/MaximSoftUartFig1.jpg>
 Package pdftex.def Info: C:/"Google Drive"/thesis/Document/Pictures/MaximSoftUa
-rtFig1.jpg used on input line 243.
+rtFig1.jpg used on input line 256.
 (pdftex.def)             Requested size: 361.34909pt x 186.45615pt.
  [3 <C:/Google Drive/thesis/Document/Pictures/MaximSoftUartFig1.jpg>]
-<C:/"Google Drive"/thesis/Document/Pictures/125KhzUART.jpg, id=266, 252.945pt x
+<C:/"Google Drive"/thesis/Document/Pictures/125KhzUART.jpg, id=324, 252.945pt x
  189.70876pt>
 File: C:/"Google Drive"/thesis/Document/Pictures/125KhzUART.jpg Graphic file (t
 ype jpg)
  <use C:/"Google Drive"/thesis/Document/Pictures/125KhzUART.jpg>
 Package pdftex.def Info: C:/"Google Drive"/thesis/Document/Pictures/125KhzUART.
-jpg used on input line 262.
+jpg used on input line 275.
 (pdftex.def)             Requested size: 252.94438pt x 189.70828pt.
 
 [4 <C:/Google Drive/thesis/Document/Pictures/125KhzUART.jpg>]
-<C:/"Google Drive"/thesis/Document/Pictures/NetcraftSurvey.jpg, id=280, 724.707
+<C:/"Google Drive"/thesis/Document/Pictures/NetcraftSurvey.jpg, id=338, 724.707
 5pt x 344.28625pt>
 File: C:/"Google Drive"/thesis/Document/Pictures/NetcraftSurvey.jpg Graphic fil
 e (type jpg)
 
 <use C:/"Google Drive"/thesis/Document/Pictures/NetcraftSurvey.jpg>
 Package pdftex.def Info: C:/"Google Drive"/thesis/Document/Pictures/NetcraftSur
-vey.jpg used on input line 277.
+vey.jpg used on input line 290.
 (pdftex.def)             Requested size: 507.2918pt x 240.99872pt.
 
-Overfull \hbox (23.59492pt too wide) in paragraph at lines 277--278
+Overfull \hbox (23.59492pt too wide) in paragraph at lines 290--291
  [][] 
  []
 
 [5 <C:/Google Drive/thesis/Document/Pictures/NetcraftSurvey.jpg>] [6]
-<C:/"Google Drive"/thesis/Document/Pictures/VMDEF.jpg, id=296, 2790.425pt x 217
-3.11874pt>
-File: C:/"Google Drive"/thesis/Document/Pictures/VMDEF.jpg Graphic file (type j
-pg)
- <use C:/"Google Drive"/thesis/Document/Pictures/VMDEF.jpg>
-Package pdftex.def Info: C:/"Google Drive"/thesis/Document/Pictures/VMDEF.jpg u
-sed on input line 297.
-(pdftex.def)             Requested size: 418.5457pt x 325.95375pt.
+<C:/"Google Drive"/thesis/Document/Pictures/SpecDef.jpg, id=354, 2928.9425pt x 
+1504.62125pt>
+File: C:/"Google Drive"/thesis/Document/Pictures/SpecDef.jpg Graphic file (type
+ jpg)
+ <use C:/"Google Drive"/thesis/Document/Pictures/SpecDef.jpg>
+Package pdftex.def Info: C:/"Google Drive"/thesis/Document/Pictures/SpecDef.jpg
+ used on input line 312.
+(pdftex.def)             Requested size: 439.32242pt x 225.68344pt.
 
 
-Package hyperref Warning: No autoref name for `Appendix' on input line 301.
+Package hyperref Warning: No autoref name for `Appendix' on input line 316.
 
-[7 <C:/Google Drive/thesis/Document/Pictures/VMDEF.jpg>] [8] [9] [10] [11]
-[12] [13] [14] ("Thesis doc V0.1.bbl"
+
+<C:/"Google Drive"/thesis/Document/Pictures/ComponentTubes.jpg, id=356, 3703.83
+75pt x 391.4625pt>
+File: C:/"Google Drive"/thesis/Document/Pictures/ComponentTubes.jpg Graphic fil
+e (type jpg)
+
+<use C:/"Google Drive"/thesis/Document/Pictures/ComponentTubes.jpg>
+Package pdftex.def Info: C:/"Google Drive"/thesis/Document/Pictures/ComponentTu
+bes.jpg used on input line 325.
+(pdftex.def)             Requested size: 481.51578pt x 50.8919pt.
+ [7 <C:/Google Drive/thesis/Document/Pictures/SpecDef.jpg>] [8 <C:/Google Drive
+/thesis/Document/Pictures/ComponentTubes.jpg>] [9] [10] [11] [12] [13] [14] [15
+] [16]
+("Thesis doc V0.1.bbl"
 Underfull \hbox (badness 10000) in paragraph at lines 25--28
 []\OT1/cmr/m/n/10.95 L. Semi-con-duc-tor, ``Im-prov-ing noise im-mu-nity for se
 -rial in-ter-face,'' []$http :
@@ -540,40 +552,40 @@ Underfull \hbox (badness 4353) in paragraph at lines 30--33
 RT-[]in-[]software$[], 2007, [Ac-cessed: Sept.
  []
 
-) [15]
-<C:/"Google Drive"/thesis/Document/Pictures/RMM.jpg, id=359, 3237.09375pt x 165
+) [17]
+<C:/"Google Drive"/thesis/Document/Pictures/RMM.jpg, id=426, 3237.09375pt x 165
 4.18pt>
 File: C:/"Google Drive"/thesis/Document/Pictures/RMM.jpg Graphic file (type jpg
 )
  <use C:/"Google Drive"/thesis/Document/Pictures/RMM.jpg>
 Package pdftex.def Info: C:/"Google Drive"/thesis/Document/Pictures/RMM.jpg use
-d on input line 369.
+d on input line 424.
 (pdftex.def)             Requested size: 776.9184pt x 397.0113pt.
 
-Overfull \hbox (45.68256pt too wide) in paragraph at lines 369--370
+Overfull \hbox (45.68256pt too wide) in paragraph at lines 424--425
  [] 
  []
 
-[16
+[18
 
  <C:/Google Drive/thesis/Document/Pictures/RMM.jpg>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 373.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 373.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 428.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 428.
  ("Thesis doc V0.1.aux")
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 373.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 373.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 428.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 428.
 Package rerunfilecheck Info: File `"Thesis doc V0.1".out' has not changed.
-(rerunfilecheck)             Checksum: DC05CEBFA7E6C2BDB8AA19B8C0A017A1;2349.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 373.
+(rerunfilecheck)             Checksum: 53434653D7856C70498D3FD40ED73F61;3173.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 428.
  ) 
 Here is how much of TeX's memory you used:
- 6802 strings out of 493335
- 99969 string characters out of 3136681
+ 6832 strings out of 493335
+ 100694 string characters out of 3136681
  196858 words of memory out of 3000000
- 10159 multiletter control sequences out of 15000+200000
+ 10174 multiletter control sequences out of 15000+200000
  12638 words of font info for 45 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 29i,7n,32p,999b,437s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 29i,7n,32p,1032b,437s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb>
 <C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C
 :/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/
@@ -585,9 +597,9 @@ s (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files (x
 86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86
 )/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files (x86)/M
 iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on "Thesis doc V0.1.pdf" (26 pages, 2233331 bytes).
+Output written on "Thesis doc V0.1.pdf" (28 pages, 2802477 bytes).
 PDF statistics:
- 419 PDF objects out of 1000 (max. 8388607)
- 81 named destinations out of 1000 (max. 500000)
- 292 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 488 PDF objects out of 1000 (max. 8388607)
+ 95 named destinations out of 1000 (max. 500000)
+ 385 words of extra memory for PDF output out of 10000 (max. 10000000)
 

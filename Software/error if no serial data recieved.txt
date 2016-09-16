@@ -1,0 +1,9 @@
+
+Displayed Successfully
+Failed Dispense
+Traceback (most recent call last):
+  File "/var/www/html/VMMaster.py", line 470, in <module>
+    DispenceIC(1,0xB3,3)
+  File "/var/www/html/VMMaster.py", line 179, in DispenceIC
+    check = value[0]
+KeyError: 0
