@@ -21,41 +21,59 @@
 \providecommand{\BIBdecl}{\relax}
 \BIBdecl
 
+\bibitem{PORTU}
+\BIBentryALTinterwordspacing
+{Portland State University, Maseh College of Engineering \& Computer Science:
+  Electrical \& Computer Engineering}. Engineering parts vending machine.
+  [Accessed: Sept. 2016]. [Online]. Available:
+  \url{https://www.pdx.edu/ece/engineering-parts-vending-machine}
+\BIBentrySTDinterwordspacing
+
+\bibitem{vend}
+\BIBentryALTinterwordspacing
+M.~G. Gusso. (August 4th, 2014) Late-night component cravings? [Accessed: Sept.
+  2016]. [Online]. Available:
+  \url{http://www.latticesemi.com/~/media/LatticeSemi/Documents/WhitePapers/HM/ImprovingNoiseImmunityforSerialInterface.pdf?document_id=50728}
+\BIBentrySTDinterwordspacing
+
+\bibitem{med1}
+S.~G. Patil and T.~J. Gale, ``Preliminary design of remotely used and monitored
+  medication dispenser,'' in \emph{Engineering in Medicine and Biology Society,
+  2006. EMBS '06. 28th Annual International Conference of the IEEE}, Aug 2006,
+  pp. 3616--3619.
+
+\bibitem{med2}
+V.~Q. Ho, T.~J. Gale, and C.~R. Stack, ``Medication dispenser for narcotic
+  rehabilitation patients,'' in \emph{2009 Annual International Conference of
+  the IEEE Engineering in Medicine and Biology Society}, Sept 2009, pp.
+  1742--1745.
+
 \bibitem{I2C}
-L.~Semiconductor, ``Improving noise immunity for serial interface,''
-  \url{http://www.latticesemi.com/~/media/LatticeSemi/Documents/WhitePapers/HM/ImprovingNoiseImmunityforSerialInterface.pdf?document_id=50728},
-  2014, pp. 2, [Accessed: Sept. 2016].
-
-\bibitem{UART}
-A.~Minor, ``Implementing your mcu-based system's serial uart in software,''
-  \url{http://www.embedded.com/design/other/4025995/Implementing-your-MCU-based-system-s-serial-UART-in-software},
-  2007, [Accessed: Sept. 2016].
-
-\bibitem{RDM}
-Seedwiki. (2016) 125khz rfid module - uart.
-  \url{http://wiki.seeedstudio.com/wiki/125Khz_RFID_module_-_UART}. [Accessed:
-  Sept. 2016].
-
-\bibitem{Apache}
-Netcraft, ``August 2016 web server survey,''
-  \url{https://news.netcraft.com/archives/2016/08/24/august-2016-web-server-survey.html},
-  2016, [Accessed: Sept. 2016].
+{Lattice Semiconductor}, ``White paper: Improving noise immunity for serial
+  interface,'' 2014, pp. 2.
 
 \bibitem{rs485}
-T.~Kugelstadt, ``The rs-485 design guide,''
-  \url{http://www.ti.com/lit/an/slla272b/slla272b.pdf}, 2008, [Accessed: Sept.
-  2016].
+T.~K. {Texas Instruments}, ``Application report: The rs-485 design guide,''
+  2008, pp. 1 - 4.
+
+\bibitem{UART}
+\BIBentryALTinterwordspacing
+A.~Minor. (2007) Implementing your mcu-based system's serial uart in software.
+  [Accessed: Sept. 2016]. [Online]. Available:
+  \url{http://www.embedded.com/design/other/4025995/Implementing-your-MCU-based-system-s-serial-UART-in-software}
+\BIBentrySTDinterwordspacing
 
 \bibitem{dif}
-J.~Goldie, ``Low-voltage differential signaling yields megatransfers per second
-  with milliwatts of power,''
-  \url{http://www.ti.com/lit/an/snla156/snla156.pdf}, 1996, pp. 3, [Accessed:
-  Sept. 2016].
+J.~G. {Texas Instruments}, ``Literature report: Low-voltage differential
+  signaling yields megatransfers per second with milliwatts of power,'' 1996,
+  pp. 3.
 
 \bibitem{rfidsys}
-IMPINJ, ``The different typres of rfid systems,''
-  \url{http://www.impinj.com//resources/about-rfid/the-different-types-of-rfid-systems/},
-  2016, [Accessed: Sept. 2016].
+\BIBentryALTinterwordspacing
+IMPINJ. (2016) The different typres of rfid systems. [Accessed: Sept. 2016].
+  [Online]. Available:
+  \url{http://www.impinj.com//resources/about-rfid/the-different-types-of-rfid-systems/}
+\BIBentrySTDinterwordspacing
 
 \bibitem{rfidhow}
 IMPINJ. (2016) How do rfid systems work?
@@ -66,10 +84,16 @@ IMPINJ. (2016) How do rfid systems work?
 J. Pead. (Sept. 2016). Principal Technical Officer [Online].Available e-mail:
   justin.pead@uct.ac.za, Message: RFID Documentation.
 
+\bibitem{RDM}
+Seedwiki. (2016) 125khz rfid module - uart.
+  \url{http://wiki.seeedstudio.com/wiki/125Khz_RFID_module_-_UART}. [Accessed:
+  Sept. 2016].
+
 \bibitem{MCP}
-Microchip, ``Mcp2200 datasheet,''
-  \url{http://ww1.microchip.com/downloads/en/DeviceDoc/22228B.pdf}, 2011,
-  [Accessed: Sept. 2016].
+\BIBentryALTinterwordspacing
+Microchip. (2011) Mcp2200 datasheet. [Accessed: Sept. 2016]. [Online].
+  Available: \url{http://ww1.microchip.com/downloads/en/DeviceDoc/22228B.pdf}
+\BIBentrySTDinterwordspacing
 
 \bibitem{LAMP}
 J.~V. Jay~Versluis, \emph{LAMP Stack for Humans: How to turn a laptop into a
@@ -77,9 +101,18 @@ J.~V. Jay~Versluis, \emph{LAMP Stack for Humans: How to turn a laptop into a
   Versluis(Self Published), 2015.
 
 \bibitem{Nginx}
-O.~Garret, ``Nginx vs. apache: Our view of a decade-old question,''
-  \url{https://www.nginx.com/blog/nginx-vs-apache-our-view/}, October 9, 2015,
-  [Accessed: Sept. 2016].
+\BIBentryALTinterwordspacing
+O.~Garret. (October 9, 2015) Nginx vs. apache: Our view of a decade-old
+  question. [Accessed: Sept. 2016]. [Online]. Available:
+  \url{https://www.nginx.com/blog/nginx-vs-apache-our-view/}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Apache}
+\BIBentryALTinterwordspacing
+Netcraft. (2016) August 2016 web server survey. [Accessed: Sept. 2016].
+  [Online]. Available:
+  \url{https://news.netcraft.com/archives/2016/08/24/august-2016-web-server-survey.html}
+\BIBentrySTDinterwordspacing
 
 \bibitem{apachebook1}
 S.~S. Ben~Laurie, Peter~Laurie, \emph{"Apache: The Definitive Guide" 3rd
@@ -91,8 +124,39 @@ M.~M. Antum~Peicevic, \emph{Apache HTTP Server introduction}.\hskip 1em plus
   0.5em minus 0.4em\relax Geek University Press, 2016. pp. 4-6.
 
 \bibitem{mysql}
-O.~C. and/or~its affiliates, ``What is mysql?''
-  \url{https://dev.mysql.com/doc/refman/5.7/en/what-is-mysql.html}, [Accessed:
-  Sept. 2016].
+\BIBentryALTinterwordspacing
+O.~C. and/or~its affiliates. What is mysql? [Accessed: Sept. 2016]. [Online].
+  Available: \url{https://dev.mysql.com/doc/refman/5.7/en/what-is-mysql.html}
+\BIBentrySTDinterwordspacing
+
+\bibitem{mantech}
+\BIBentryALTinterwordspacing
+Mantech. (September 2016) Mantech electronics. [Online]. Available:
+  \url{http://www.mantech.co.za/}
+\BIBentrySTDinterwordspacing
+
+\bibitem{verttest1p1}
+\BIBentryALTinterwordspacing
+B.~Morgan. (September 2016) Vertical roller v 1 test part 1. [Online].
+  Available: \url{https://youtu.be/nNe5YlRPoKM}
+\BIBentrySTDinterwordspacing
+
+\bibitem{verttest1p2}
+\BIBentryALTinterwordspacing
+B.~Morgan. (September 2016) Vertical roller v 1 test part 2. [Online].
+  Available: \url{https://youtu.be/4hIJvzhvt88}
+\BIBentrySTDinterwordspacing
+
+\bibitem{vertv2}
+\BIBentryALTinterwordspacing
+B.~Morgan. (September 2016) Vertical roller v 2 test. [Online]. Available:
+  \url{https://youtu.be/DLGEwFN1RbM}
+\BIBentrySTDinterwordspacing
+
+\bibitem{newhor}
+\BIBentryALTinterwordspacing
+B.~Morgan. (September 2016) New horizontal roller test. [Online]. Available:
+  \url{https://youtu.be/_Ol1D7sp83Q}
+\BIBentrySTDinterwordspacing
 
 \end{thebibliography}
