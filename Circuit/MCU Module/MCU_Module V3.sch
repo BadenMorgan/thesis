@@ -15854,13 +15854,13 @@ Source: http://www.bourns.com/data/global/PDFs/3223.PDF</description>
 <text x="48" y="61" size="1.778" layer="94">with a modular layout so it can adapt to the</text>
 <text x="48" y="58" size="1.778" layer="94">multiple needs of the vending machine</text>
 <text x="103" y="64" size="2.54" layer="94">Baden David Morgan</text>
-<text x="50.8" y="182.88" size="1.778" layer="91">RS485 BUS TRANSIEVER</text>
+<text x="50.8" y="182.88" size="1.778" layer="91">RS485 DIFFERENTIAL BUS TRANSCEIVER</text>
 <text x="-99.06" y="142.24" size="1.778" layer="91" rot="R90">SERVO HEADER</text>
 <text x="-50.8" y="96.52" size="1.778" layer="91">VIBRATION MOTOR HEADER</text>
 <text x="-83.82" y="96.52" size="1.778" layer="91">INDICATOR LEDS</text>
 <text x="-66.04" y="165.1" size="1.778" layer="91" rot="R90">ADRESS SELECTOR</text>
-<text x="22.86" y="86.36" size="1.778" layer="91">GAP SENSOR HEADERS</text>
-<text x="22.86" y="83.82" size="1.778" layer="91">GAP SENSOR IS AN IR LED AND PHOTOTRANSITOR</text>
+<text x="55.88" y="86.36" size="1.778" layer="91">GAP SENSOR HEADERS</text>
+<text x="40.64" y="83.82" size="1.778" layer="91">GAP SENSOR IS AN IR LED AND PHOTOTRANSITOR</text>
 <text x="101.6" y="160.02" size="1.778" layer="91" rot="R270">LINE TERMINATION</text>
 <text x="-55.88" y="55.88" size="1.778" layer="91">STEPPER MOTOR DRIVER</text>
 <text x="10.16" y="55.88" size="1.778" layer="91">STEPPER MOTOR HEADER</text>

@@ -23,53 +23,91 @@
 \BOOKMARK [3][-]{subsubsection.2.4.1}{The Web server: Apache vs. Nginx }{subsection.2.4}% 23
 \BOOKMARK [3][-]{subsubsection.2.4.2}{The Scripting Language: PHP}{subsection.2.4}% 24
 \BOOKMARK [3][-]{subsubsection.2.4.3}{The Database: MySQL}{subsection.2.4}% 25
-\BOOKMARK [1][-]{section.3}{System Specifications}{}% 26
-\BOOKMARK [2][-]{subsection.3.1}{Mechanical Specifications}{section.3}% 27
-\BOOKMARK [3][-]{subsubsection.3.1.1}{DIP Specifications}{subsection.3.1}% 28
-\BOOKMARK [3][-]{subsubsection.3.1.2}{Delivery Mechanism}{subsection.3.1}% 29
-\BOOKMARK [3][-]{subsubsection.3.1.3}{Enclosure}{subsection.3.1}% 30
-\BOOKMARK [2][-]{subsection.3.2}{PCB Specifications}{section.3}% 31
-\BOOKMARK [3][-]{subsubsection.3.2.1}{Raspberry Pi}{subsection.3.2}% 32
-\BOOKMARK [3][-]{subsubsection.3.2.2}{MCU Modules}{subsection.3.2}% 33
-\BOOKMARK [2][-]{subsection.3.3}{Software Specifications}{section.3}% 34
-\BOOKMARK [3][-]{subsubsection.3.3.1}{Master Program for the Raspberry Pi}{subsection.3.3}% 35
-\BOOKMARK [3][-]{subsubsection.3.3.2}{MCU Module}{subsection.3.3}% 36
-\BOOKMARK [3][-]{subsubsection.3.3.3}{Website}{subsection.3.3}% 37
-\BOOKMARK [1][-]{section.4}{Design and Prototyping Methodology and Procedure}{}% 38
-\BOOKMARK [2][-]{subsection.4.1}{Design}{section.4}% 39
-\BOOKMARK [3][-]{subsubsection.4.1.1}{Mechanical Design Methodology}{subsection.4.1}% 40
-\BOOKMARK [3][-]{subsubsection.4.1.2}{Circuit Design Methodology}{subsection.4.1}% 41
-\BOOKMARK [3][-]{subsubsection.4.1.3}{Software Design Methodology}{subsection.4.1}% 42
-\BOOKMARK [2][-]{subsection.4.2}{Prototyping Methodology and Procedure}{section.4}% 43
-\BOOKMARK [1][-]{section.5}{Component and Material Selection}{}% 44
-\BOOKMARK [1][-]{section.6}{System Design and Prototyping}{}% 45
-\BOOKMARK [2][-]{subsection.6.1}{Guide For Component Tubes}{section.6}% 46
-\BOOKMARK [3][-]{subsubsection.6.1.1}{IC Guide Version 1}{subsection.6.1}% 47
-\BOOKMARK [3][-]{subsubsection.6.1.2}{IC Guide Version 2}{subsection.6.1}% 48
-\BOOKMARK [3][-]{subsubsection.6.1.3}{IC Guide final}{subsection.6.1}% 49
-\BOOKMARK [2][-]{subsection.6.2}{Delivery Mechanism}{section.6}% 50
-\BOOKMARK [3][-]{subsubsection.6.2.1}{Vertical Roller Version 1}{subsection.6.2}% 51
-\BOOKMARK [3][-]{subsubsection.6.2.2}{Prototyping Vertical Roller Version 1}{subsection.6.2}% 52
-\BOOKMARK [3][-]{subsubsection.6.2.3}{Vertical Roller Version 2}{subsection.6.2}% 53
-\BOOKMARK [3][-]{subsubsection.6.2.4}{Prototyping Vertical Roller Version 2}{subsection.6.2}% 54
-\BOOKMARK [3][-]{subsubsection.6.2.5}{Horizontal Roller Version 1}{subsection.6.2}% 55
-\BOOKMARK [3][-]{subsubsection.6.2.6}{Prototyping Horizontal Roller Version 1}{subsection.6.2}% 56
-\BOOKMARK [3][-]{subsubsection.6.2.7}{Horizontal Roller Final Version}{subsection.6.2}% 57
-\BOOKMARK [1][-]{section.7}{System Assembly}{}% 58
-\BOOKMARK [2][-]{subsection.7.1}{Enclosure Assembly}{section.7}% 59
-\BOOKMARK [2][-]{subsection.7.2}{PCB Assembly}{section.7}% 60
-\BOOKMARK [2][-]{subsection.7.3}{Delivery Mechanism Assembly}{section.7}% 61
-\BOOKMARK [1][-]{section.8}{Build Review, Results and Discussion}{}% 62
-\BOOKMARK [1][-]{section.9}{Conclusion}{}% 63
-\BOOKMARK [1][-]{section.10}{Recommendations}{}% 64
-\BOOKMARK [1][-]{Appendix.1.A}{Research Mind Map}{}% 65
-\BOOKMARK [1][-]{Appendix.1.B}{Detailed Drawings}{}% 66
-\BOOKMARK [2][-]{subsection.1.B.1}{IC Guide DIP Components}{Appendix.1.B}% 67
-\BOOKMARK [2][-]{subsection.1.B.2}{IC Guide DIP Holder}{Appendix.1.B}% 68
-\BOOKMARK [2][-]{subsection.1.B.3}{Vertical Roller \046 Housing Version 1 \046 2}{Appendix.1.B}% 69
-\BOOKMARK [2][-]{subsection.1.B.4}{Horizontal Roller \046 Housing Version 1}{Appendix.1.B}% 70
-\BOOKMARK [2][-]{subsection.1.B.5}{Horizontal Roller \046 Housing Final Version}{Appendix.1.B}% 71
-\BOOKMARK [2][-]{subsection.1.B.6}{Horizontal Roller Final Version}{Appendix.1.B}% 72
-\BOOKMARK [1][-]{Appendix.1.C}{Drawing Templates}{}% 73
-\BOOKMARK [1][-]{Appendix.1.D}{Programming guide}{}% 74
-\BOOKMARK [1][-]{Appendix.1.E}{Ethics Forms}{}% 75
+\BOOKMARK [2][-]{subsection.2.5}{ATX Specification}{section.2}% 26
+\BOOKMARK [1][-]{section.3}{System Specifications}{}% 27
+\BOOKMARK [2][-]{subsection.3.1}{Mechanical Specifications}{section.3}% 28
+\BOOKMARK [3][-]{subsubsection.3.1.1}{DIP Specifications}{subsection.3.1}% 29
+\BOOKMARK [3][-]{subsubsection.3.1.2}{Delivery Mechanism}{subsection.3.1}% 30
+\BOOKMARK [3][-]{subsubsection.3.1.3}{Enclosure}{subsection.3.1}% 31
+\BOOKMARK [2][-]{subsection.3.2}{PCB Specifications}{section.3}% 32
+\BOOKMARK [3][-]{subsubsection.3.2.1}{Raspberry Pi}{subsection.3.2}% 33
+\BOOKMARK [3][-]{subsubsection.3.2.2}{MCU Modules}{subsection.3.2}% 34
+\BOOKMARK [2][-]{subsection.3.3}{Software Specifications}{section.3}% 35
+\BOOKMARK [3][-]{subsubsection.3.3.1}{Master Program for the Raspberry Pi}{subsection.3.3}% 36
+\BOOKMARK [3][-]{subsubsection.3.3.2}{MCU Module}{subsection.3.3}% 37
+\BOOKMARK [3][-]{subsubsection.3.3.3}{Website}{subsection.3.3}% 38
+\BOOKMARK [1][-]{section.4}{Design and Prototyping Methodology and Procedure}{}% 39
+\BOOKMARK [2][-]{subsection.4.1}{Design}{section.4}% 40
+\BOOKMARK [3][-]{subsubsection.4.1.1}{Mechanical Design Methodology}{subsection.4.1}% 41
+\BOOKMARK [3][-]{subsubsection.4.1.2}{Circuit Design Methodology}{subsection.4.1}% 42
+\BOOKMARK [3][-]{subsubsection.4.1.3}{Software Design Methodology}{subsection.4.1}% 43
+\BOOKMARK [2][-]{subsection.4.2}{Prototyping Methodology and Procedure}{section.4}% 44
+\BOOKMARK [1][-]{section.5}{Component and Material Selection}{}% 45
+\BOOKMARK [2][-]{subsection.5.1}{Communications bus}{section.5}% 46
+\BOOKMARK [2][-]{subsection.5.2}{Servo Motor}{section.5}% 47
+\BOOKMARK [2][-]{subsection.5.3}{Stepper motor and Driver}{section.5}% 48
+\BOOKMARK [2][-]{subsection.5.4}{Power Supply}{section.5}% 49
+\BOOKMARK [2][-]{subsection.5.5}{Microcontroller}{section.5}% 50
+\BOOKMARK [2][-]{subsection.5.6}{Delivery Mechanism Housing}{section.5}% 51
+\BOOKMARK [2][-]{subsection.5.7}{Enclosure Frame}{section.5}% 52
+\BOOKMARK [2][-]{subsection.5.8}{Enclosure Casing}{section.5}% 53
+\BOOKMARK [2][-]{subsection.5.9}{Enclosure Shelving}{section.5}% 54
+\BOOKMARK [1][-]{section.6}{System Design and Prototyping}{}% 55
+\BOOKMARK [2][-]{subsection.6.1}{Guide For Component Tubes}{section.6}% 56
+\BOOKMARK [3][-]{subsubsection.6.1.1}{IC Guide Version 1}{subsection.6.1}% 57
+\BOOKMARK [3][-]{subsubsection.6.1.2}{IC Guide Version 2}{subsection.6.1}% 58
+\BOOKMARK [3][-]{subsubsection.6.1.3}{IC Guide final}{subsection.6.1}% 59
+\BOOKMARK [2][-]{subsection.6.2}{Delivery Mechanism}{section.6}% 60
+\BOOKMARK [3][-]{subsubsection.6.2.1}{Vertical Roller Version 1}{subsection.6.2}% 61
+\BOOKMARK [3][-]{subsubsection.6.2.2}{Prototyping Vertical Roller Version 1}{subsection.6.2}% 62
+\BOOKMARK [3][-]{subsubsection.6.2.3}{Vertical Roller Version 2}{subsection.6.2}% 63
+\BOOKMARK [3][-]{subsubsection.6.2.4}{Prototyping Vertical Roller Version 2}{subsection.6.2}% 64
+\BOOKMARK [3][-]{subsubsection.6.2.5}{Horizontal Roller Version 1}{subsection.6.2}% 65
+\BOOKMARK [3][-]{subsubsection.6.2.6}{Prototyping Horizontal Roller Version 1}{subsection.6.2}% 66
+\BOOKMARK [3][-]{subsubsection.6.2.7}{Horizontal Roller Final Version}{subsection.6.2}% 67
+\BOOKMARK [3][-]{subsubsection.6.2.8}{Untested design: Feed Up}{subsection.6.2}% 68
+\BOOKMARK [2][-]{subsection.6.3}{Enclosure}{section.6}% 69
+\BOOKMARK [2][-]{subsection.6.4}{Enclosure Redesign}{section.6}% 70
+\BOOKMARK [2][-]{subsection.6.5}{RFID Coil Cover}{section.6}% 71
+\BOOKMARK [2][-]{subsection.6.6}{PCB Design}{section.6}% 72
+\BOOKMARK [3][-]{subsubsection.6.6.1}{Raspberry Pi HAT}{subsection.6.6}% 73
+\BOOKMARK [3][-]{subsubsection.6.6.2}{MCU Module}{subsection.6.6}% 74
+\BOOKMARK [3][-]{subsubsection.6.6.3}{LCD Breakout Board}{subsection.6.6}% 75
+\BOOKMARK [2][-]{subsection.6.7}{Software Design}{section.6}% 76
+\BOOKMARK [3][-]{subsubsection.6.7.1}{Software overview}{subsection.6.7}% 77
+\BOOKMARK [3][-]{subsubsection.6.7.2}{API}{subsection.6.7}% 78
+\BOOKMARK [3][-]{subsubsection.6.7.3}{Web design}{subsection.6.7}% 79
+\BOOKMARK [3][-]{subsubsection.6.7.4}{Raspberry Pi Master Program}{subsection.6.7}% 80
+\BOOKMARK [3][-]{subsubsection.6.7.5}{Microntroller Software}{subsection.6.7}% 81
+\BOOKMARK [1][-]{section.7}{System Assembly}{}% 82
+\BOOKMARK [2][-]{subsection.7.1}{Enclosure Assembly}{section.7}% 83
+\BOOKMARK [2][-]{subsection.7.2}{PCB Assembly}{section.7}% 84
+\BOOKMARK [2][-]{subsection.7.3}{Delivery Mechanism Assembly}{section.7}% 85
+\BOOKMARK [1][-]{section.8}{Build Review, Results and Discussion}{}% 86
+\BOOKMARK [1][-]{section.9}{Conclusion}{}% 87
+\BOOKMARK [1][-]{section.10}{Recommendations}{}% 88
+\BOOKMARK [1][-]{Appendix.1.A}{Research Mind Map}{}% 89
+\BOOKMARK [1][-]{Appendix.1.B}{Detailed Drawings}{}% 90
+\BOOKMARK [2][-]{subsection.1.B.1}{IC Guide DIP Components}{Appendix.1.B}% 91
+\BOOKMARK [2][-]{subsection.1.B.2}{IC Guide DIP Holder}{Appendix.1.B}% 92
+\BOOKMARK [2][-]{subsection.1.B.3}{Vertical Roller \046 Housing Version 1 \046 2}{Appendix.1.B}% 93
+\BOOKMARK [2][-]{subsection.1.B.4}{Horizontal Roller \046 Housing Version 1}{Appendix.1.B}% 94
+\BOOKMARK [2][-]{subsection.1.B.5}{Horizontal Roller \046 Housing Final Version}{Appendix.1.B}% 95
+\BOOKMARK [2][-]{subsection.1.B.6}{Horizontal Roller Final Version}{Appendix.1.B}% 96
+\BOOKMARK [2][-]{subsection.1.B.7}{RFID Coil Cover}{Appendix.1.B}% 97
+\BOOKMARK [1][-]{Appendix.1.C}{PCB Diagrams}{}% 98
+\BOOKMARK [2][-]{subsection.1.C.1}{PI HAT Diagram}{Appendix.1.C}% 99
+\BOOKMARK [2][-]{subsection.1.C.2}{MCU Module Diagram}{Appendix.1.C}% 100
+\BOOKMARK [2][-]{subsection.1.C.3}{LCD Breakout Diagram}{Appendix.1.C}% 101
+\BOOKMARK [1][-]{Appendix.1.D}{Drawing Templates}{}% 102
+\BOOKMARK [2][-]{subsection.1.D.1}{Material Request Forms}{Appendix.1.D}% 103
+\BOOKMARK [1][-]{Appendix.1.E}{Website}{}% 104
+\BOOKMARK [2][-]{subsection.1.E.1}{Components Store Page}{Appendix.1.E}% 105
+\BOOKMARK [2][-]{subsection.1.E.2}{Contacts Page}{Appendix.1.E}% 106
+\BOOKMARK [2][-]{subsection.1.E.3}{Laser Cutting Templates}{Appendix.1.E}% 107
+\BOOKMARK [3][-]{subsubsection.1.E.3.1}{DIP 8 Template}{subsection.1.E.3}% 108
+\BOOKMARK [3][-]{subsubsection.1.E.3.2}{DIP 14 or 16 Template}{subsection.1.E.3}% 109
+\BOOKMARK [3][-]{subsubsection.1.E.3.3}{DIP 20 Template}{subsection.1.E.3}% 110
+\BOOKMARK [2][-]{subsection.1.E.4}{Drawings for Assembly: Enclosure}{Appendix.1.E}% 111
+\BOOKMARK [1][-]{Appendix.1.F}{Programming guide}{}% 112
+\BOOKMARK [1][-]{Appendix.1.G}{Ethics Forms}{}% 113

@@ -259,6 +259,8 @@ def UpdateLCD(StringToPrint):
 				if retries < maxretry:
 					retries = retries + 1
 					UpdateLCD(StringToPrint)
+				else:
+					retries = 0
 		except:
 			logging.warning("Communications failure, LCD")
 
@@ -270,7 +272,7 @@ def UpdateLCD(StringToPrint):
 		logging.debug("Flushed")
 
 	else:
-		logging.debug("retrying")
+		logging.debug("retrying LCD")
 		if retries < maxretry:
 			retries = retries + 1
 			UpdateLCD(StringToPrint)
@@ -423,6 +425,89 @@ def UpdateJEL(JEL, address):
 	except:
 		logging.warning("failed to Update database on jam, empty or low status")
 
+def callModules():
+	# try:
+	global retries
+	global maxretry
+	db = pymysql.connect("localhost", "root", "pimysql2016", "UCTVendingMachine")
+	cursor=db.cursor()
+	cursor.execute("""SELECT Address from Components""")
+	Address = cursor.fetchall()
+	i = 0
+	LenAddress = len(Address)
+	while i < LenAddress:
+		TXBuffer[1] = Address[i][0]
+		TXBuffer[2] = 0xB1
+		TXBuffer[3] = 0
+		TXBuffer[4] = checksumcal()
+
+		GPIO.output(RE, GPIO.HIGH)
+		GPIO.output(DE, GPIO.HIGH)
+		time.sleep(0.1)
+		ser1.write(TXBuffer)
+		time.sleep(0.1)
+		GPIO.output(DE, GPIO.LOW)
+		GPIO.output(RE, GPIO.LOW)
+
+		time.sleep(0.5)
+		
+		value = {}
+		if(ser1.inWaiting() > 0):
+			value = ser1.read(6)
+			# logging.debug("Reading response:")
+			# logging.debug(value[2])
+			
+
+			while(ser1.inWaiting() > 0):
+				logging.debug("Flushing extra reads...")
+				ser1.read(ser1.inWaiting()) #flushing the system.
+				logging.debug("Done!")
+			try:
+				check = value[0]
+				check = (check + value[1]) & 0xFF
+				check = (check + value[2]) & 0xFF
+				check = (check + value[3]) & 0xFF
+				if value[0] == 0xD1 and value[1] == Address[i] and value[3] == 1 and value[4] == check and value[5] == 0xE1:
+					if value[2] == 0xC8:
+						logging.debug("Successfuly called " + Address[0])
+						retries = 0
+						i = i + 1
+				else:
+					logging.debug("failed to call")
+					if retries < maxretry:
+						retries = retries + 1
+					else:
+						cursor.execute("""UPDATE Components SET Empty = 1 WHERE Address = %s""", Address[i][0])
+						retries = 0
+						i = i + 1
+			except:
+				logging.warning("Communications failure, calling")
+
+		elif (ser1.inWaiting() > 6):
+			logging.debug("Too much data in buffer - flushing")
+			time.sleep(2)
+			logging.debug(ser1.inWaiting())
+			logging.debug(ser1.read(ser1.inWaiting())) #flushing the system.
+			logging.debug("Flushed")
+
+		else:
+			logging.debug("retrying call")
+			if retries < maxretry:
+				retries = retries + 1
+			else:
+				retries = 0
+				cursor.execute("""UPDATE Components SET Empty = 1 WHERE Address = %s""", Address[i][0])
+				i = i + 1
+
+		
+
+	db.commit()
+	cursor.close()
+	db.close()
+	logging.debug("Finished calling")
+	# except:
+	# 	logging.warning("failed to call modules one by one")
+
 # connect to uct db and reqeust student number
 # def RequestStNo(ID):
 # 	logging.debug("searching db")
@@ -448,9 +533,10 @@ def UpdateJEL(JEL, address):
 
 # msg = bytearray([0x48,0x45,0x4C,0x4C,0x4F,0x0A])
 # ser1.write('hello\n')
-logging.debug('hello')
 
 # try:
+# time.sleep(5)
+callModules()
 while True:
 	# try:
 	# if(ser.inWaiting()>0):

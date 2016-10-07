@@ -336,7 +336,7 @@ void Decode(){
             switch(RXBuffer[2]){
                 //send black response to master
                 case CALL:{
-                    sendReport(0);
+                    sendReport(SUCCESS);
                     break;
                 }
                 //start dispensing

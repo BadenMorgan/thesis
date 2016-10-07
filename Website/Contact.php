@@ -7,28 +7,6 @@
     </head>
     <?php
     include($_SERVER['DOCUMENT_ROOT']."/includes/variables.php");
-	$servername = "localhost";
-	$username = "root";
-	$password = "pimysql2016";
-
-	// Create connection
-	$conn = new mysqli($servername, $username, $password);
-
-	// Check connection
-	if ($conn->connect_error) {
-	    die("Connection failed: " . $conn->connect_error);
-	} 
-	
-	$to = "bmorgan.noodles@gmail.com";
-	$subject = "oh snap";
-	$txt = "UCT's Vending Machine is watching you";
-	$headers = "From: uctvendingmachine@gmail.com";
-
-	//mail($to,$subject,$txt,$headers);
-	function test(){
-		echo "this is a test";
-	}
-	
 	?>
 	<body style="background-color:#CFCFCF;">
 		
@@ -106,7 +84,6 @@
 		<center><ul>
 		  <li><a href="HomePage.php"><font face="Helvetica">Home</font></a></li>
 		  <li><a class="active"><font face="Helvetica">Contact</font></a></li>
-		  <li><a href="About.php"><font face="Helvetica">About</font></a></li>
 		  <li><a href="http://www.uct.ac.za/"><font face="Helvetica">UCT</font></a></
 		</ul></center>
 

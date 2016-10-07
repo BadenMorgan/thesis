@@ -5829,36 +5829,32 @@ W = angled&lt;p&gt;
 <packages>
 </packages>
 <symbols>
-<symbol name="A4L-LOC">
-<wire x1="256.54" y1="3.81" x2="256.54" y2="8.89" width="0.1016" layer="94"/>
-<wire x1="256.54" y1="8.89" x2="256.54" y2="13.97" width="0.1016" layer="94"/>
-<wire x1="256.54" y1="13.97" x2="256.54" y2="19.05" width="0.1016" layer="94"/>
-<wire x1="256.54" y1="19.05" x2="256.54" y2="24.13" width="0.1016" layer="94"/>
-<wire x1="161.29" y1="3.81" x2="161.29" y2="24.13" width="0.1016" layer="94"/>
-<wire x1="161.29" y1="24.13" x2="215.265" y2="24.13" width="0.1016" layer="94"/>
-<wire x1="215.265" y1="24.13" x2="256.54" y2="24.13" width="0.1016" layer="94"/>
-<wire x1="246.38" y1="3.81" x2="246.38" y2="8.89" width="0.1016" layer="94"/>
-<wire x1="246.38" y1="8.89" x2="256.54" y2="8.89" width="0.1016" layer="94"/>
-<wire x1="246.38" y1="8.89" x2="215.265" y2="8.89" width="0.1016" layer="94"/>
-<wire x1="215.265" y1="8.89" x2="215.265" y2="3.81" width="0.1016" layer="94"/>
-<wire x1="215.265" y1="8.89" x2="215.265" y2="13.97" width="0.1016" layer="94"/>
-<wire x1="215.265" y1="13.97" x2="256.54" y2="13.97" width="0.1016" layer="94"/>
-<wire x1="215.265" y1="13.97" x2="215.265" y2="19.05" width="0.1016" layer="94"/>
-<wire x1="215.265" y1="19.05" x2="256.54" y2="19.05" width="0.1016" layer="94"/>
-<wire x1="215.265" y1="19.05" x2="215.265" y2="24.13" width="0.1016" layer="94"/>
-<text x="217.17" y="15.24" size="2.54" layer="94">&gt;DRAWING_NAME</text>
-<text x="217.17" y="10.16" size="2.286" layer="94">&gt;LAST_DATE_TIME</text>
-<text x="230.505" y="5.08" size="2.54" layer="94">&gt;SHEET</text>
-<text x="216.916" y="4.953" size="2.54" layer="94">Sheet:</text>
-<frame x1="0" y1="0" x2="260.35" y2="179.07" columns="6" rows="4" layer="94"/>
+<symbol name="A5L-LOC">
+<wire x1="85.09" y1="3.81" x2="85.09" y2="24.13" width="0.1016" layer="94"/>
+<wire x1="85.09" y1="24.13" x2="139.065" y2="24.13" width="0.1016" layer="94"/>
+<wire x1="139.065" y1="24.13" x2="180.34" y2="24.13" width="0.1016" layer="94"/>
+<wire x1="170.18" y1="3.81" x2="170.18" y2="8.89" width="0.1016" layer="94"/>
+<wire x1="170.18" y1="8.89" x2="180.34" y2="8.89" width="0.1016" layer="94"/>
+<wire x1="170.18" y1="8.89" x2="139.065" y2="8.89" width="0.1016" layer="94"/>
+<wire x1="139.065" y1="8.89" x2="139.065" y2="3.81" width="0.1016" layer="94"/>
+<wire x1="139.065" y1="8.89" x2="139.065" y2="13.97" width="0.1016" layer="94"/>
+<wire x1="139.065" y1="13.97" x2="180.34" y2="13.97" width="0.1016" layer="94"/>
+<wire x1="139.065" y1="13.97" x2="139.065" y2="19.05" width="0.1016" layer="94"/>
+<wire x1="139.065" y1="19.05" x2="180.34" y2="19.05" width="0.1016" layer="94"/>
+<wire x1="139.065" y1="19.05" x2="139.065" y2="24.13" width="0.1016" layer="94"/>
+<text x="140.97" y="15.24" size="2.54" layer="94">&gt;DRAWING_NAME</text>
+<text x="140.97" y="10.16" size="2.286" layer="94">&gt;LAST_DATE_TIME</text>
+<text x="154.305" y="5.08" size="2.54" layer="94">&gt;SHEET</text>
+<text x="140.716" y="4.953" size="2.54" layer="94">Sheet:</text>
+<frame x1="0" y1="0" x2="184.15" y2="133.35" columns="4" rows="4" layer="94"/>
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="A4L-LOC" prefix="FRAME" uservalue="yes">
+<deviceset name="DINA5_L" prefix="FRAME" uservalue="yes">
 <description>&lt;b&gt;FRAME&lt;/b&gt;&lt;p&gt;
-DIN A4, landscape with location and doc. field</description>
+DIN A5, landscape with doc field</description>
 <gates>
-<gate name="G$1" symbol="A4L-LOC" x="0" y="0"/>
+<gate name="G$1" symbol="A5L-LOC" x="0" y="0"/>
 </gates>
 <devices>
 <device name="">
@@ -9278,21 +9274,21 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <part name="R1" library="resistor" deviceset="R-US_" device="R0805" value="150"/>
 <part name="PI_HAT" library="con-lsta" deviceset="FE20-2" device=""/>
 <part name="R2" library="resistor" deviceset="R-US_" device="R0805" value="120"/>
-<part name="FRAME1" library="frames" deviceset="A4L-LOC" device=""/>
 <part name="R3" library="rcl" deviceset="R-US_" device="0817/7V" value="10"/>
 <part name="R4" library="rcl" deviceset="R-US_" device="0817/7V" value="10"/>
 <part name="R5" library="rcl" deviceset="R-US_" device="0817/7V" value="10"/>
 <part name="DOOR" library="switch-dil" deviceset="SD4-01" device=""/>
 <part name="R6" library="resistor" deviceset="R-US_" device="R0805" value="2k"/>
 <part name="R7" library="resistor" deviceset="R-US_" device="R0805" value="3k6"/>
+<part name="FRAME2" library="frames" deviceset="DINA5_L" device=""/>
 </parts>
 <sheets>
 <sheet>
 <plain>
-<text x="128.27" y="-53.594" size="2.54" layer="94">Baden David Morgan</text>
-<text x="73.406" y="-52.578" size="1.778" layer="94">A Pi Hat that will function as the base for</text>
-<text x="73.152" y="-55.626" size="1.778" layer="94">the connection for power and communication</text>
-<text x="73.152" y="-58.42" size="1.778" layer="94">between the modules and the Pi itself</text>
+<text x="90.17" y="-33.274" size="2.54" layer="94">Baden David Morgan</text>
+<text x="35.306" y="-32.258" size="1.778" layer="94">A Pi Hat that will function as the base for</text>
+<text x="35.052" y="-35.306" size="1.778" layer="94">the connection for power and communication</text>
+<text x="35.052" y="-38.1" size="1.778" layer="94">between the modules and the Pi itself</text>
 </plain>
 <instances>
 <instance part="ATX" gate="-1" x="55.88" y="40.64"/>
@@ -9327,13 +9323,13 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <instance part="R1" gate="G$1" x="27.94" y="20.32"/>
 <instance part="PI_HAT" gate="G$1" x="2.54" y="-5.08" rot="R90"/>
 <instance part="R2" gate="G$1" x="106.68" y="0" rot="R90"/>
-<instance part="FRAME1" gate="G$1" x="-88.9" y="-73.66"/>
 <instance part="R3" gate="G$1" x="17.78" y="38.1" rot="R90"/>
 <instance part="R4" gate="G$1" x="25.4" y="38.1" rot="R90"/>
 <instance part="R5" gate="G$1" x="33.02" y="38.1" rot="R90"/>
 <instance part="DOOR" gate="1" x="27.94" y="10.16" rot="R90"/>
 <instance part="R6" gate="G$1" x="48.26" y="-5.08" rot="R180"/>
 <instance part="R7" gate="G$1" x="43.18" y="-12.7" rot="R270"/>
+<instance part="FRAME2" gate="G$1" x="-50.8" y="-53.34"/>
 </instances>
 <busses>
 </busses>

@@ -9,7 +9,6 @@
 		$counter = 0;
 		//$complimit = 0;
 
-
 		$conn = new mysqli($servername, $username, $password,$dbname);
 
 		// Check connection
@@ -44,7 +43,7 @@
 			}
 		}
 
-		$parts = checkIC('555',$_POST['IC1']).checkIC('LM311',$_POST['IC2']).checkIC('LM393',$_POST['IC3']).checkIC('LM741',$_POST['IC4']).checkIC('LM358',$_POST['IC5']).checkIC('LM339',$_POST['IC6']).checkIC('LM324',$_POST['IC7']).checkIC('unkown',$_POST['IC8']).checkIC('unkown',$_POST['IC9']).checkIC('L7805',$_POST['IC10']).checkIC('LM317',$_POST['IC11']);		
+		$parts = checkIC('555',$_POST['IC1']).checkIC('LM311',$_POST['IC2']).checkIC('LM393',$_POST['IC3']).checkIC('LM741',$_POST['IC4']).checkIC('LM358',$_POST['IC5']).checkIC('LM339',$_POST['IC6']).checkIC('LM324',$_POST['IC7']).checkIC('unkown',$_POST['IC8']).checkIC('unkown',$_POST['IC9']).checkIC('DIP8HOLD',$_POST['IC10']).checkIC('DIP14HOLD',$_POST['IC11']).checkIC('DIP16HOLD',$_POST['IC12']).checkIC('DIP20HOLD',$_POST['IC13']);		
 	?>
 		<script type="text/javascript">
 			alert('Parts Ordered for:\n' + '<?php echo $_POST["student"]; ?>' + '\nList of cart:\n' + '<?php echo $parts; ?>')

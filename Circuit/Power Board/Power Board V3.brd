@@ -83,10 +83,12 @@
 <text x="16.51" y="33.53" size="1.016" layer="21">A</text>
 <text x="16.51" y="31.02" size="1.016" layer="21">B</text>
 <text x="46.5" y="44" size="1.778" layer="25">MRGBAD001</text>
-<text x="46.5" y="46.5" size="1.778" layer="25">Power Pi Hat V2</text>
+<text x="46.5" y="46.5" size="1.778" layer="25">Power Pi Hat V1</text>
 <text x="46.5" y="41.5" size="1.778" layer="25">UCT 2016</text>
 <dimension x1="0" y1="60" x2="0" y2="0" x3="-8" y3="30" textsize="1.778" layer="27"/>
 <dimension x1="66.5" y1="60" x2="0" y2="60" x3="33.25" y3="63.5" textsize="1.778" layer="27"/>
+<dimension x1="0" y1="60" x2="0" y2="0" x3="-4" y3="30" textsize="1.778" layer="20"/>
+<dimension x1="66.5" y1="60" x2="0" y2="60" x3="33.25" y3="-3.2" textsize="1.778" layer="20"/>
 </plain>
 <libraries>
 <library name="con-molex">

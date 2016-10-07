@@ -23,6 +23,7 @@
 \contentsline {subsubsection}{\numberline {2.4.1}The Web server: Apache vs. Nginx }{7}{subsubsection.2.4.1}
 \contentsline {subsubsection}{\numberline {2.4.2}The Scripting Language: PHP}{8}{subsubsection.2.4.2}
 \contentsline {subsubsection}{\numberline {2.4.3}The Database: MySQL}{8}{subsubsection.2.4.3}
+\contentsline {subsection}{\numberline {2.5}ATX Specification}{9}{subsection.2.5}
 \contentsline {section}{\numberline {3}System Specifications}{10}{section.3}
 \contentsline {subsection}{\numberline {3.1}Mechanical Specifications}{10}{subsection.3.1}
 \contentsline {subsubsection}{\numberline {3.1.1}DIP Specifications}{10}{subsubsection.3.1.1}
@@ -34,42 +35,79 @@
 \contentsline {subsection}{\numberline {3.3}Software Specifications}{12}{subsection.3.3}
 \contentsline {subsubsection}{\numberline {3.3.1}Master Program for the Raspberry Pi}{12}{subsubsection.3.3.1}
 \contentsline {subsubsection}{\numberline {3.3.2}MCU Module}{12}{subsubsection.3.3.2}
-\contentsline {subsubsection}{\numberline {3.3.3}Website}{12}{subsubsection.3.3.3}
-\contentsline {section}{\numberline {4}Design and Prototyping Methodology and Procedure}{13}{section.4}
-\contentsline {subsection}{\numberline {4.1}Design}{13}{subsection.4.1}
-\contentsline {subsubsection}{\numberline {4.1.1}Mechanical Design Methodology}{13}{subsubsection.4.1.1}
-\contentsline {subsubsection}{\numberline {4.1.2}Circuit Design Methodology}{13}{subsubsection.4.1.2}
-\contentsline {subsubsection}{\numberline {4.1.3}Software Design Methodology}{14}{subsubsection.4.1.3}
-\contentsline {subsection}{\numberline {4.2}Prototyping Methodology and Procedure}{14}{subsection.4.2}
-\contentsline {section}{\numberline {5}Component and Material Selection}{15}{section.5}
-\contentsline {section}{\numberline {6}System Design and Prototyping}{15}{section.6}
-\contentsline {subsection}{\numberline {6.1}Guide For Component Tubes}{15}{subsection.6.1}
-\contentsline {subsubsection}{\numberline {6.1.1}IC Guide Version 1}{15}{subsubsection.6.1.1}
-\contentsline {subsubsection}{\numberline {6.1.2}IC Guide Version 2}{16}{subsubsection.6.1.2}
-\contentsline {subsubsection}{\numberline {6.1.3}IC Guide final}{16}{subsubsection.6.1.3}
-\contentsline {subsection}{\numberline {6.2}Delivery Mechanism}{17}{subsection.6.2}
-\contentsline {subsubsection}{\numberline {6.2.1}Vertical Roller Version 1}{17}{subsubsection.6.2.1}
-\contentsline {subsubsection}{\numberline {6.2.2}Prototyping Vertical Roller Version 1}{18}{subsubsection.6.2.2}
-\contentsline {subsubsection}{\numberline {6.2.3}Vertical Roller Version 2}{19}{subsubsection.6.2.3}
-\contentsline {subsubsection}{\numberline {6.2.4}Prototyping Vertical Roller Version 2}{20}{subsubsection.6.2.4}
-\contentsline {subsubsection}{\numberline {6.2.5}Horizontal Roller Version 1}{20}{subsubsection.6.2.5}
-\contentsline {subsubsection}{\numberline {6.2.6}Prototyping Horizontal Roller Version 1}{21}{subsubsection.6.2.6}
-\contentsline {subsubsection}{\numberline {6.2.7}Horizontal Roller Final Version}{22}{subsubsection.6.2.7}
-\contentsline {section}{\numberline {7}System Assembly}{25}{section.7}
-\contentsline {subsection}{\numberline {7.1}Enclosure Assembly}{25}{subsection.7.1}
-\contentsline {subsection}{\numberline {7.2}PCB Assembly}{25}{subsection.7.2}
-\contentsline {subsection}{\numberline {7.3}Delivery Mechanism Assembly}{25}{subsection.7.3}
-\contentsline {section}{\numberline {8}Build Review, Results and Discussion}{26}{section.8}
-\contentsline {section}{\numberline {9}Conclusion}{27}{section.9}
-\contentsline {section}{\numberline {10}Recommendations}{28}{section.10}
-\contentsline {section}{\numberline {A}Research Mind Map}{31}{Appendix.1.A}
-\contentsline {section}{\numberline {B}Detailed Drawings}{32}{Appendix.1.B}
-\contentsline {subsection}{\numberline {B.1}IC Guide DIP Components}{32}{subsection.1.B.1}
-\contentsline {subsection}{\numberline {B.2}IC Guide DIP Holder}{33}{subsection.1.B.2}
-\contentsline {subsection}{\numberline {B.3}Vertical Roller \& Housing Version 1 \& 2}{34}{subsection.1.B.3}
-\contentsline {subsection}{\numberline {B.4}Horizontal Roller \& Housing Version 1}{35}{subsection.1.B.4}
-\contentsline {subsection}{\numberline {B.5}Horizontal Roller \& Housing Final Version}{36}{subsection.1.B.5}
-\contentsline {subsection}{\numberline {B.6}Horizontal Roller Final Version}{37}{subsection.1.B.6}
-\contentsline {section}{\numberline {C}Drawing Templates}{38}{Appendix.1.C}
-\contentsline {section}{\numberline {D}Programming guide}{39}{Appendix.1.D}
-\contentsline {section}{\numberline {E}Ethics Forms}{40}{Appendix.1.E}
+\contentsline {subsubsection}{\numberline {3.3.3}Website}{13}{subsubsection.3.3.3}
+\contentsline {section}{\numberline {4}Design and Prototyping Methodology and Procedure}{14}{section.4}
+\contentsline {subsection}{\numberline {4.1}Design}{14}{subsection.4.1}
+\contentsline {subsubsection}{\numberline {4.1.1}Mechanical Design Methodology}{14}{subsubsection.4.1.1}
+\contentsline {subsubsection}{\numberline {4.1.2}Circuit Design Methodology}{14}{subsubsection.4.1.2}
+\contentsline {subsubsection}{\numberline {4.1.3}Software Design Methodology}{15}{subsubsection.4.1.3}
+\contentsline {subsection}{\numberline {4.2}Prototyping Methodology and Procedure}{15}{subsection.4.2}
+\contentsline {section}{\numberline {5}Component and Material Selection}{16}{section.5}
+\contentsline {subsection}{\numberline {5.1}Communications bus}{16}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}Servo Motor}{16}{subsection.5.2}
+\contentsline {subsection}{\numberline {5.3}Stepper motor and Driver}{16}{subsection.5.3}
+\contentsline {subsection}{\numberline {5.4}Power Supply}{17}{subsection.5.4}
+\contentsline {subsection}{\numberline {5.5}Microcontroller}{17}{subsection.5.5}
+\contentsline {subsection}{\numberline {5.6}Delivery Mechanism Housing}{17}{subsection.5.6}
+\contentsline {subsection}{\numberline {5.7}Enclosure Frame}{17}{subsection.5.7}
+\contentsline {subsection}{\numberline {5.8}Enclosure Casing}{17}{subsection.5.8}
+\contentsline {subsection}{\numberline {5.9}Enclosure Shelving}{18}{subsection.5.9}
+\contentsline {section}{\numberline {6}System Design and Prototyping}{19}{section.6}
+\contentsline {subsection}{\numberline {6.1}Guide For Component Tubes}{19}{subsection.6.1}
+\contentsline {subsubsection}{\numberline {6.1.1}IC Guide Version 1}{19}{subsubsection.6.1.1}
+\contentsline {subsubsection}{\numberline {6.1.2}IC Guide Version 2}{20}{subsubsection.6.1.2}
+\contentsline {subsubsection}{\numberline {6.1.3}IC Guide final}{20}{subsubsection.6.1.3}
+\contentsline {subsection}{\numberline {6.2}Delivery Mechanism}{21}{subsection.6.2}
+\contentsline {subsubsection}{\numberline {6.2.1}Vertical Roller Version 1}{21}{subsubsection.6.2.1}
+\contentsline {subsubsection}{\numberline {6.2.2}Prototyping Vertical Roller Version 1}{22}{subsubsection.6.2.2}
+\contentsline {subsubsection}{\numberline {6.2.3}Vertical Roller Version 2}{23}{subsubsection.6.2.3}
+\contentsline {subsubsection}{\numberline {6.2.4}Prototyping Vertical Roller Version 2}{24}{subsubsection.6.2.4}
+\contentsline {subsubsection}{\numberline {6.2.5}Horizontal Roller Version 1}{24}{subsubsection.6.2.5}
+\contentsline {subsubsection}{\numberline {6.2.6}Prototyping Horizontal Roller Version 1}{25}{subsubsection.6.2.6}
+\contentsline {subsubsection}{\numberline {6.2.7}Horizontal Roller Final Version}{26}{subsubsection.6.2.7}
+\contentsline {subsubsection}{\numberline {6.2.8}Untested design: Feed Up}{28}{subsubsection.6.2.8}
+\contentsline {subsection}{\numberline {6.3}Enclosure}{28}{subsection.6.3}
+\contentsline {subsection}{\numberline {6.4}Enclosure Redesign}{30}{subsection.6.4}
+\contentsline {subsection}{\numberline {6.5}RFID Coil Cover}{31}{subsection.6.5}
+\contentsline {subsection}{\numberline {6.6}PCB Design}{31}{subsection.6.6}
+\contentsline {subsubsection}{\numberline {6.6.1}Raspberry Pi HAT}{31}{subsubsection.6.6.1}
+\contentsline {subsubsection}{\numberline {6.6.2}MCU Module}{32}{subsubsection.6.6.2}
+\contentsline {subsubsection}{\numberline {6.6.3}LCD Breakout Board}{33}{subsubsection.6.6.3}
+\contentsline {subsection}{\numberline {6.7}Software Design}{34}{subsection.6.7}
+\contentsline {subsubsection}{\numberline {6.7.1}Software overview}{34}{subsubsection.6.7.1}
+\contentsline {subsubsection}{\numberline {6.7.2}API}{35}{subsubsection.6.7.2}
+\contentsline {subsubsection}{\numberline {6.7.3}Web design}{36}{subsubsection.6.7.3}
+\contentsline {subsubsection}{\numberline {6.7.4}Raspberry Pi Master Program}{37}{subsubsection.6.7.4}
+\contentsline {subsubsection}{\numberline {6.7.5}Microntroller Software}{38}{subsubsection.6.7.5}
+\contentsline {section}{\numberline {7}System Assembly}{39}{section.7}
+\contentsline {subsection}{\numberline {7.1}Enclosure Assembly}{39}{subsection.7.1}
+\contentsline {subsection}{\numberline {7.2}PCB Assembly}{39}{subsection.7.2}
+\contentsline {subsection}{\numberline {7.3}Delivery Mechanism Assembly}{39}{subsection.7.3}
+\contentsline {section}{\numberline {8}Build Review, Results and Discussion}{40}{section.8}
+\contentsline {section}{\numberline {9}Conclusion}{41}{section.9}
+\contentsline {section}{\numberline {10}Recommendations}{42}{section.10}
+\contentsline {section}{\numberline {A}Research Mind Map}{45}{Appendix.1.A}
+\contentsline {section}{\numberline {B}Detailed Drawings}{46}{Appendix.1.B}
+\contentsline {subsection}{\numberline {B.1}IC Guide DIP Components}{46}{subsection.1.B.1}
+\contentsline {subsection}{\numberline {B.2}IC Guide DIP Holder}{47}{subsection.1.B.2}
+\contentsline {subsection}{\numberline {B.3}Vertical Roller \& Housing Version 1 \& 2}{48}{subsection.1.B.3}
+\contentsline {subsection}{\numberline {B.4}Horizontal Roller \& Housing Version 1}{49}{subsection.1.B.4}
+\contentsline {subsection}{\numberline {B.5}Horizontal Roller \& Housing Final Version}{50}{subsection.1.B.5}
+\contentsline {subsection}{\numberline {B.6}Horizontal Roller Final Version}{51}{subsection.1.B.6}
+\contentsline {subsection}{\numberline {B.7}RFID Coil Cover}{52}{subsection.1.B.7}
+\contentsline {section}{\numberline {C}PCB Diagrams}{53}{Appendix.1.C}
+\contentsline {subsection}{\numberline {C.1}PI HAT Diagram}{53}{subsection.1.C.1}
+\contentsline {subsection}{\numberline {C.2}MCU Module Diagram}{54}{subsection.1.C.2}
+\contentsline {subsection}{\numberline {C.3}LCD Breakout Diagram}{55}{subsection.1.C.3}
+\contentsline {section}{\numberline {D}Drawing Templates}{56}{Appendix.1.D}
+\contentsline {subsection}{\numberline {D.1}Material Request Forms}{56}{subsection.1.D.1}
+\contentsline {section}{\numberline {E}Website}{63}{Appendix.1.E}
+\contentsline {subsection}{\numberline {E.1}Components Store Page}{63}{subsection.1.E.1}
+\contentsline {subsection}{\numberline {E.2}Contacts Page}{65}{subsection.1.E.2}
+\contentsline {subsection}{\numberline {E.3}Laser Cutting Templates}{66}{subsection.1.E.3}
+\contentsline {subsubsection}{\numberline {E.3.1}DIP 8 Template}{66}{subsubsection.1.E.3.1}
+\contentsline {subsubsection}{\numberline {E.3.2}DIP 14 or 16 Template}{67}{subsubsection.1.E.3.2}
+\contentsline {subsubsection}{\numberline {E.3.3}DIP 20 Template}{68}{subsubsection.1.E.3.3}
+\contentsline {subsection}{\numberline {E.4}Drawings for Assembly: Enclosure}{69}{subsection.1.E.4}
+\contentsline {section}{\numberline {F}Programming guide}{70}{Appendix.1.F}
+\contentsline {section}{\numberline {G}Ethics Forms}{71}{Appendix.1.G}

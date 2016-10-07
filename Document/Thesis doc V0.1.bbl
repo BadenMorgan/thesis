@@ -129,10 +129,38 @@ O.~C. and/or~its affiliates. What is mysql? [Accessed: Sept. 2016]. [Online].
   Available: \url{https://dev.mysql.com/doc/refman/5.7/en/what-is-mysql.html}
 \BIBentrySTDinterwordspacing
 
+\bibitem{ATX}
+I.~Corporation, ``Atx specification version 2.1,'' June 2002.
+
+\bibitem{ATXON}
+\BIBentryALTinterwordspacing
+E.~Tutorials. (September 2016) Convert atx psu to bench supply. [Online].
+  Available:
+  \url{http://www.electronics-tutorials.ws/blog/convert-atx-psu-to-bench-supply.html}
+\BIBentrySTDinterwordspacing
+
 \bibitem{mantech}
 \BIBentryALTinterwordspacing
 Mantech. (September 2016) Mantech electronics. [Online]. Available:
   \url{http://www.mantech.co.za/}
+\BIBentrySTDinterwordspacing
+
+\bibitem{hobbyking}
+\BIBentryALTinterwordspacing
+H.~King. (September 2016) Hobbyking. [Online]. Available:
+  \url{http://www.hobbyking.com/hobbyking/store/index.asp}
+\BIBentrySTDinterwordspacing
+
+\bibitem{reprap}
+\BIBentryALTinterwordspacing
+A.~Bowyer. (September 2016) Reprap. [Online]. Available:
+  \url{http://reprap.org/}
+\BIBentrySTDinterwordspacing
+
+\bibitem{rsonline}
+\BIBentryALTinterwordspacing
+R.~C. (SA). (September 2016) Rs-online. [Online]. Available:
+  \url{http://za.rs-online.com/}
 \BIBentrySTDinterwordspacing
 
 \bibitem{verttest1p1}

@@ -4,20 +4,37 @@
 <html>
 <head>
         <link rel="stylesheet" href="style.css" type="text/css" media="screen" />
+        <link rel="icon" href="website pictures/uct-logo.ico">
     </head>
     <?php
      include($_SERVER['DOCUMENT_ROOT']."/includes/variables.php");
 	$servername = "localhost";
-	$username = "root";
-	$password = "pimysql2016";
+		$username = "root";
+		$password = "pimysql2016";
+		$dbname = "UCTVendingMachine";
 
 	// Create connection
-	$conn = new mysqli($servername, $username, $password);
+	$conn = new mysqli($servername, $username, $password,$dbname);
 
 	// Check connection
 	if ($conn->connect_error) {
 	    die("Connection failed: " . $conn->connect_error);
 	} 
+
+	$components = array();
+
+	$sql = "SELECT * FROM Components";
+
+	$args = $conn->query($sql);
+
+	if (mysqli_num_rows($args) > 0) {
+	    // output data of each row
+	    while($row = mysqli_fetch_assoc($args)) {
+	        array_push($components, $row["PartName"], $row["Empty"]);
+	    }
+	   
+	}
+	mysqli_close($conn);
 	?>
 	<body style="background-color:#CFCFCF;">
 		
@@ -110,14 +127,13 @@
 		<center><ul>
 		  <li><a class="active"><font face="Helvetica">Home</font></a></li>
 		  <li><a href="Contact.php"><font face="Helvetica">Contact</font></a></li>
-		  <li><a href="About.php"><font face="Helvetica">About</font></a></li>
 		  <li><a href="http://www.uct.ac.za/"><font face="Helvetica">UCT</font></a></li>
 		</ul></center>
 
 		<!--Page title and description-->
 		<h1><b><center><font face="Helvetica">UCT White Lab Vending Machine</font></center></b></h1>
 		
-		<p style="margin-right: 230px;"><center><font face="Helvetica"><b>How to use:</b> Simply use the drop down boxes to select the quantity of components you want of each type(maximim of 
+		<center><div style="max-width:1000px;"><p"><font face="Helvetica"><b>How to use:</b> Simply use the drop down boxes to select the quantity of components you want of each type(maximim of 
 		 <?php 
 			echo "<font face='Helvetica'>" . $complimit ."</font>";
 		 ?>
@@ -125,14 +141,21 @@
 		 <?php 
 			echo "<font face='Helvetica'>" . $complimit ."</font>";
 		 ?>
-		 you pick, the rest will be ignored). Once you have selected your components enter your student number in the field at the bottom of the page and hit submit(Double check it, if it is incorrect you will not get your components). Once sumbitted procceed to the Vending Machine in White lab and swipe your student card on the same day as ordering to collect your components. Note orders are reset at mindnight each day.</font></center></p>
+		 you pick, the rest will be ignored). Once you have selected your components enter your student number in the field at the bottom of the page and hit submit(Double check it, if it is incorrect you will not get your components). Once sumbitted procceed to the Vending Machine in White lab and swipe your student card on the same day as ordering to collect your components. Note orders are reset at mindnight each day.</font></p></p"></div></center>
 
-		<p><center><font face="Helvetica">Please note you  are limited to 
+		<center><div style="max-width:1000px;"><p><center><font face="Helvetica">Please note you  are limited to 
 
 		<?php 
 		echo "<font face='Helvetica'>" . $partlimit ."</font>";
 		?>
-		 parts from each component every 24h.</font></center></p>
+
+		components of the same type per order, and 
+
+		<?php 
+		echo "<font face='Helvetica'>" . $complimit ."</font>";
+		?>
+
+		 components in total per order every 24h.</font></center></p></div></center>
 		 
 		<hr>
 		<!--Page title and description-->
@@ -150,23 +173,74 @@
 		<center>
 
 		<a href="datasheets\ne555.pdf"><font face = "Helvetica">Datasheet</font></a>
-		<font face = "Helvetica"> |quantity:</font>
-		
-		<input type="number" name="IC1" max=<?php echo $partlimit; ?> min="0" value="0">
 
-		<span style="margin-right: 130px;"></span>		
+		<?php
+			if (in_array('555', $components)) {
+				$count  = 0;
+				while($count < sizeof($components)){
+					if($components[$count] == '555'){
+						if($components[$count+1] == 0){
+							echo '<font face = "Helvetica"> |quantity:</font>';
+						    echo '<input type="number" name="IC1" max='.$partlimit. 'min="0" value="0" style="width:4em">';
+						}else{
+							echo '<font face = "Helvetica"> |Out of Stock</font>';
+						}
+					}
+					$count = $count + 2;
+				}
+			    
+			} else {
+				echo '<font face = "Helvetica"> |Out of Stock</font>';				
+			}
+		?>	
+
+		<span style="margin-right: 110px;"></span>		
 
 		<a href="datasheets\lm311n.pdf"><font face = "Helvetica">Datasheet</font></a>
-		<font face = "Helvetica"> |quantity:</font>
+		
+		<?php
+			if (in_array('LM311', $components)) {
+				$count  = 0;
+				while($count < sizeof($components)){
+					if($components[$count] == 'LM311'){
+						if($components[$count+1] == 0){
+							echo '<font face = "Helvetica"> |quantity:</font>';
+						    echo '<input type="number" name="IC2" max='.$partlimit. 'min="0" value="0" style="width:4em">';
+						}else{
+							echo '<font face = "Helvetica"> |Out of Stock</font>';
+						}
+					}
+					$count = $count + 2;
+				}
+			    
+			} else {
+				echo '<font face = "Helvetica"> |Out of Stock</font>';				
+			}
+		?>
 
-		<input type="number" name="IC2" max=<?php echo $partlimit; ?> min="0" value="0">
-
-		<span style="margin-right: 130px;"></span>		
+		<span style="margin-right: 110px;"></span>		
 
 		<a href="datasheets\LM393-D.PDF"><font face = "Helvetica">Datasheet</font></a>
-		<font face = "Helvetica"> |quantity:</font>
-
-		<input type="number" name="IC3" max=<?php echo $partlimit; ?> min="0" value="0">
+		
+		<?php
+			if (in_array('LM393', $components)) {
+				$count  = 0;
+				while($count < sizeof($components)){
+					if($components[$count] == 'LM393'){
+						if($components[$count+1] == 0){
+							echo '<font face = "Helvetica"> |quantity:</font>';
+						    echo '<input type="number" name="IC3" max='.$partlimit. 'min="0" value="0" style="width:4em">';
+						}else{
+							echo '<font face = "Helvetica"> |Out of Stock</font>';
+						}
+					}
+					$count = $count + 2;
+				}
+			    
+			} else {
+				echo '<font face = "Helvetica"> |Out of Stock</font>';				
+			}
+		?>
 
 		<p>&nbsp;</p>
 		<!---->
@@ -179,23 +253,74 @@
 		<center>
 
 		<a href="datasheets\LM741.pdf"><font face = "Helvetica">Datasheet</font></a>
-		<font face = "Helvetica"> |quantity:</font>
+		
+		<?php
+			if (in_array('LM741', $components)) {
+				$count  = 0;
+				while($count < sizeof($components)){
+					if($components[$count] == 'LM741'){
+						if($components[$count+1] == 0){
+							echo '<font face = "Helvetica"> |quantity:</font>';
+						    echo '<input type="number" name="IC4" max='.$partlimit. 'min="0" value="0" style="width:4em">';
+						}else{
+							echo '<font face = "Helvetica"> |Out of Stock</font>';
+						}
+					}
+					$count = $count + 2;
+				}
+			    
+			} else {
+				echo '<font face = "Helvetica"> |Out of Stock</font>';				
+			}
+		?>
 
-		 <input type="number" name="IC4" max=<?php echo $partlimit; ?> min="0" value="0">
-
-		<span style="margin-right: 130px;"></span>		
+		<span style="margin-right: 110px;"></span>		
 
 		<a href="datasheets\LM358-D.PDF"><font face = "Helvetica">Datasheet</font></a>
-		<font face = "Helvetica"> |quantity:</font>
+		
+		<?php
+			if (in_array('LM358', $components)) {
+				$count  = 0;
+				while($count < sizeof($components)){
+					if($components[$count] == 'LM358'){
+						if($components[$count+1] == 0){
+							echo '<font face = "Helvetica"> |quantity:</font>';
+						    echo '<input type="number" name="IC5" max='.$partlimit. 'min="0" value="0" style="width:4em">';
+						}else{
+							echo '<font face = "Helvetica"> |Out of Stock</font>';
+						}
+					}
+					$count = $count + 2;
+				}
+			    
+			} else {
+				echo '<font face = "Helvetica"> |Out of Stock</font>';				
+			}
+		?>
 
-		<input type="number" name="IC5" max=<?php echo $partlimit; ?> min="0" value="0">
-
-		<span style="margin-right: 130px;"></span>		
+		<span style="margin-right: 110px;"></span>		
 
 		<a href="datasheets\LM339A.pdf"><font face = "Helvetica">Datasheet</font></a>
-		<font face = "Helvetica"> |quantity:</font>
-
-		<input type="number" name="IC6" max=<?php echo $partlimit; ?> min="0" value="0">
+		
+		<?php
+			if (in_array('LM339', $components)) {
+				$count  = 0;
+				while($count < sizeof($components)){
+					if($components[$count] == 'LM339'){
+						if($components[$count+1] == 0){
+							echo '<font face = "Helvetica"> |quantity:</font>';
+						    echo '<input type="number" name="IC6" max='.$partlimit. 'min="0" value="0" style="width:4em">';
+						}else{
+							echo '<font face = "Helvetica"> |Out of Stock</font>';
+						}
+					}
+					$count = $count + 2;
+				}
+			    
+			} else {
+				echo '<font face = "Helvetica"> |Out of Stock</font>';				
+			}
+		?>
 
 		<p>&nbsp;</p>
 		<!---->
@@ -208,49 +333,182 @@
 		<center>
 
 		<a href="datasheets\lm324-n.pdf"><font face = "Helvetica">Datasheet</font></a>
-		<font face = "Helvetica"> |quantity:</font>
+		
+		<?php
+			if (in_array('LM324', $components)) {
+				$count  = 0;
+				while($count < sizeof($components)){
+					if($components[$count] == 'LM324'){
+						if($components[$count+1] == 0){
+							echo '<font face = "Helvetica"> |quantity:</font>';
+						    echo '<input type="number" name="IC7" max='.$partlimit. 'min="0" value="0" style="width:4em">';
+						}else{
+							echo '<font face = "Helvetica"> |Out of Stock</font>';
+						}
+					}
+					$count = $count + 2;
+				}
+			    
+			} else {
+				echo '<font face = "Helvetica"> |Out of Stock</font>';				
+			}
+		?>
 
-		<input type="number" name="IC7" max=<?php echo $partlimit; ?> min="0" value="0">
-
-		<span style="margin-right: 130px;"></span>		
+		<span style="margin-right: 110px;"></span>		
 
 		<a href="#null"><font face = "Helvetica">Datasheet</font></a>
-		<font face = "Helvetica"> |quantity:</font>
+		
+		<?php
+			if (in_array('unkown', $components)) {
+				$count  = 0;
+				while($count < sizeof($components)){
+					if($components[$count] == 'unkown'){
+						if($components[$count+1] == 0){
+							echo '<font face = "Helvetica"> |quantity:</font>';
+						    echo '<input type="number" name="IC8" max='.$partlimit. 'min="0" value="0" style="width:4em">';
+						}else{
+							echo '<font face = "Helvetica"> |Out of Stock</font>';
+						}
+					}
+					$count = $count + 2;
+				}
+			    
+			} else {
+				echo '<font face = "Helvetica"> |Out of Stock</font>';				
+			}
+		?>
 
-		<input type="number" name="IC8" max=<?php echo $partlimit; ?> min="0" value="0">
-
-		<span style="margin-right: 130px;"></span>		
+		<span style="margin-right: 110px;"></span>		
 
 		<a href="#null"><font face = "Helvetica">Datasheet</font></a>
-		<font face = "Helvetica"> |quantity:</font>
-
-		<input type="number" name="IC9" max=<?php echo $partlimit; ?> min="0" value="0">
+		
+		<?php
+			if (in_array('unkown', $components)) {
+				$count  = 0;
+				while($count < sizeof($components)){
+					if($components[$count] == 'unkown'){
+						if($components[$count+1] == 0){
+							echo '<font face = "Helvetica"> |quantity:</font>';
+						    echo '<input type="number" name="IC9" max='.$partlimit. 'min="0" value="0" style="width:4em">';
+						}else{
+							echo '<font face = "Helvetica"> |Out of Stock</font>';
+						}
+					}
+					$count = $count + 2;
+				}
+			    
+			} else {
+				echo '<font face = "Helvetica"> |Out of Stock</font>';				
+			}
+		?>
 
 		<p>&nbsp;</p>
 		<!---->
 
-		<!--fourth line-->		
-		<p><center><b><font face = "Helvetica"><span style="margin-right: 260px;">L7805</span>LM317</font></center></p>
+		<!--third line-->
+		<p><center><b><font face = "Helvetica"><span style="margin-right: 200px;">DIP 8 IC Holder</span><span style="margin-right: 200px;">DIP 14 IC Holder</span>DIP 16 IC Holder</font></center></p>
 
-		<p><center><img src="website pictures\to220.jpg" hspace="20"><img src="website pictures\to220.jpg" hspace="20" ></center></p>
+		<p><center><img src="website pictures\dip 8 IC.jpg" hspace="20"><img src="website pictures\dip 14 IC.jpg" hspace="20"><img src="website pictures\dip 16 IC.jpg" hspace="20" ></center></p>
 
 		<center>
+		
+		<?php
+			if (in_array('DIP8HOLD', $components)) {
+				$count  = 0;
+				while($count < sizeof($components)){
+					if($components[$count] == 'DIP8HOLD'){
+						if($components[$count+1] == 0){
+							echo '<font face = "Helvetica"> quantity:</font>';
+						    echo '<input type="number" name="IC10" max='.$partlimit. 'min="0" value="0" style="width:4em">';
+						}else{
+							echo '<font face = "Helvetica"> Out of Stock</font>';
+						}
+					}
+					$count = $count + 2;
+				}
+			    
+			} else {
+				echo '<font face = "Helvetica"> Out of Stock</font>';				
+			}
+		?>
 
-		<a href="datasheets\L7805.pdf"><font face = "Helvetica">Datasheet</font></a>
-		<font face = "Helvetica"> |quantity:</font>
+		<span style="margin-right: 225px;"></span>		
+		
+		<?php
+			if (in_array('DIP14HOLD', $components)) {
+				$count  = 0;
+				while($count < sizeof($components)){
+					if($components[$count] == 'DIP14HOLD'){
+						if($components[$count+1] == 0){
+							echo '<font face = "Helvetica">quantity:</font>';
+						    echo '<input type="number" name="IC11" max='.$partlimit. 'min="0" value="0" style="width:4em">';
+						}else{
+							echo '<font face = "Helvetica"> Out of Stock</font>';
+						}
+					}
+					$count = $count + 2;
+				}
+			    
+			} else {
+				echo '<font face = "Helvetica"> Out of Stock</font>';				
+			}
+		?>
 
-		<input type="number" name="IC10" max=<?php echo $partlimit; ?> min="0" value="0">
-
-		<span style="margin-right: 130px;"></span>		
-
-		<a href="datasheets\lm317.pdf"><font face = "Helvetica">Datasheet</font></a>
-		<font face = "Helvetica"> |quantity:</font>
-
-		<input type="number" name="IC11" max=<?php echo $partlimit; ?> min="0" value="0">
+		<span style="margin-right: 225px;"></span>		
+		
+		<?php
+			if (in_array('DIP16HOLD', $components)) {
+				$count  = 0;
+				while($count < sizeof($components)){
+					if($components[$count] == 'DIP16HOLD'){
+						if($components[$count+1] == 0){
+							echo '<font face = "Helvetica"> quantity:</font>';
+						    echo '<input type="number" name="IC12" max='.$partlimit. 'min="0" value="0" style="width:4em">';
+						}else{
+							echo '<font face = "Helvetica"> Out of Stock</font>';
+						}
+					}
+					$count = $count + 2;
+				}
+			    
+			} else {
+				echo '<font face = "Helvetica"> Out of Stock</font>';				
+			}
+		?>
 
 		<p>&nbsp;</p>
 		<!---->
+		<!---->
 
+		<!--third line-->
+		<p><center><b><font face = "Helvetica">DIP 20 IC Holder</font></center></p>
+
+		<p><center><img src="website pictures\dip 20 IC.jpg" hspace="20"></center></p>
+
+		<center>
+		
+		<?php
+			if (in_array('DIP20HOLD', $components)) {
+				$count  = 0;
+				while($count < sizeof($components)){
+					if($components[$count] == 'DIP20HOLD'){
+						if($components[$count+1] == 0){
+							echo '<font face = "Helvetica"> quantity:</font>';
+						    echo '<input type="number" name="IC13" max='.$partlimit. 'min="0" value="0" style="width:4em">';
+						}else{
+							echo '<font face = "Helvetica"> Out of Stock</font>';
+						}
+					}
+					$count = $count + 2;
+				}
+			    
+			} else {
+				echo '<font face = "Helvetica"> Out of Stock</font>';				
+			}
+		?>
+
+
+		<p>&nbsp;</p>
 		
 		      
 		      <p class="student">

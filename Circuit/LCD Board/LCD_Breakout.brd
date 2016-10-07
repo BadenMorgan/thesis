@@ -71,10 +71,10 @@
 </layers>
 <board>
 <plain>
-<wire x1="0" y1="0" x2="160" y2="0" width="0" layer="20"/>
-<wire x1="160" y1="0" x2="160" y2="100" width="0" layer="20"/>
-<wire x1="160" y1="100" x2="0" y2="100" width="0" layer="20"/>
-<wire x1="0" y1="100" x2="0" y2="0" width="0" layer="20"/>
+<wire x1="15.24" y1="26.67" x2="63.48" y2="26.67" width="0" layer="20"/>
+<wire x1="63.48" y1="26.67" x2="63.48" y2="59.36" width="0" layer="20"/>
+<wire x1="63.48" y1="59.36" x2="15.24" y2="59.36" width="0" layer="20"/>
+<wire x1="15.24" y1="59.36" x2="15.24" y2="26.67" width="0" layer="20"/>
 <text x="36.83" y="34.29" size="1.778" layer="16" rot="MR270">GND</text>
 <text x="39.37" y="34.29" size="1.778" layer="16" rot="MR270">5V</text>
 <text x="41.91" y="34.29" size="1.778" layer="16" rot="MR270">RS</text>
@@ -83,6 +83,8 @@
 <text x="49.53" y="34.29" size="1.778" layer="16" rot="MR270">D5</text>
 <text x="52.07" y="34.29" size="1.778" layer="16" rot="MR270">D6</text>
 <text x="54.61" y="34.29" size="1.778" layer="16" rot="MR270">D7</text>
+<dimension x1="15.24" y1="59.36" x2="15.24" y2="26.67" x3="12.7" y3="43.015" textsize="1.778" layer="20"/>
+<dimension x1="15.24" y1="26.67" x2="63.48" y2="26.67" x3="39.36" y3="22.86" textsize="1.778" layer="20"/>
 </plain>
 <libraries>
 <library name="con-molex">
@@ -620,7 +622,7 @@ design rules under a new name.</description>
 </pass>
 </autorouter>
 <elements>
-<element name="J1" library="con-molex" package="7395-08" value="22-05-7088-08" x="45.72" y="48.26">
+<element name="J1" library="con-molex" package="7395-08" value="INTERFACE" x="45.72" y="48.26">
 <attribute name="MPN" value="" x="45.72" y="48.26" size="1.778" layer="27" display="off"/>
 <attribute name="MF" value="" x="45.72" y="48.26" size="1.778" layer="27" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="45.72" y="48.26" size="1.778" layer="27" display="off"/>

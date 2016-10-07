@@ -2,32 +2,36 @@
 
  \nomgroup{A}
 
+  \item [{ABS}]\begingroup Acrylonitrile Butadiene Styrene\nomeqref {0}
+		\nompageref{xi}
+  \item [{ADC}]\begingroup Analog to Digital Converter\nomeqref {0}
+		\nompageref{xi}
   \item [{API}]\begingroup Application Programming Interface\nomeqref {0}
-		\nompageref{ix}
-  \item [{ECE}]\begingroup Electrical and Computer Engineering\nomeqref {0}
-		\nompageref{ix}
+		\nompageref{xi}
+  \item [{ECE}]\begingroup Electrical \& Computer Engineering\nomeqref {0}
+		\nompageref{xi}
   \item [{HAT}]\begingroup Hardware Attached onTop\nomeqref {0}
-		\nompageref{ix}
+		\nompageref{xi}
   \item [{HTML}]\begingroup Hypertext Markup Language\nomeqref {0}
-		\nompageref{ix}
+		\nompageref{xi}
   \item [{HTTP}]\begingroup Hypertext Transfer Protocol\nomeqref {0}
-		\nompageref{ix}
+		\nompageref{xi}
   \item [{I2C}]\begingroup Inter-integrated Circuit\nomeqref {0}
-		\nompageref{ix}
-  \item [{IP}]\begingroup Internet Protocol\nomeqref {0}\nompageref{ix}
+		\nompageref{xi}
+  \item [{IP}]\begingroup Internet Protocol\nomeqref {0}\nompageref{xi}
   \item [{PCB}]\begingroup Printed Circuit Board\nomeqref {0}
-		\nompageref{ix}
+		\nompageref{xi}
   \item [{PHP}]\begingroup Hypertext Preprocessor\nomeqref {0}
-		\nompageref{ix}
-  \item [{PLA}]\begingroup Polylactic Acid\nomeqref {0}\nompageref{ix}
+		\nompageref{xi}
+  \item [{PLA}]\begingroup Polylactic Acid\nomeqref {0}\nompageref{xi}
   \item [{RFID}]\begingroup Radio Frequency Identification\nomeqref {0}
-		\nompageref{ix}
-  \item [{RX}]\begingroup Receiver Number x\nomeqref {0}\nompageref{ix}
+		\nompageref{xi}
+  \item [{RX}]\begingroup Receiver Number x\nomeqref {0}\nompageref{xi}
   \item [{TX}]\begingroup Transmitter number x\nomeqref {0}
-		\nompageref{ix}
+		\nompageref{xi}
   \item [{UART}]\begingroup Universal Asynchronous Receiver/Transmitter\nomeqref {0}
-		\nompageref{ix}
+		\nompageref{xi}
   \item [{URL}]\begingroup Uniform Resource Locator\nomeqref {0}
-		\nompageref{ix}
+		\nompageref{xi}
 
 \end{thenomenclature}
