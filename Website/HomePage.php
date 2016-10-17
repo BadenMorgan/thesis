@@ -326,7 +326,7 @@
 		<!---->
 
 		<!--third line-->
-		<p><center><b><font face = "Helvetica"><span style="margin-right: 260px;">LM324</span><span style="margin-right: 260px;">unkown</span>unkown</font></center></p>
+		<p><center><b><font face = "Helvetica"><span style="margin-right: 260px;">LM324</span><span style="margin-right: 260px;">SN7475</span>T74LS241B1</font></center></p>
 
 		<p><center><img src="website pictures\dip 14.jpg" hspace="20"><img src="website pictures\dip 16.jpg" hspace="20"><img src="website pictures\dip 20.jpg" hspace="20" ></center></p>
 

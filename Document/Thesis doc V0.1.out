@@ -80,34 +80,40 @@
 \BOOKMARK [3][-]{subsubsection.6.7.4}{Raspberry Pi Master Program}{subsection.6.7}% 80
 \BOOKMARK [3][-]{subsubsection.6.7.5}{Microntroller Software}{subsection.6.7}% 81
 \BOOKMARK [1][-]{section.7}{System Assembly}{}% 82
-\BOOKMARK [2][-]{subsection.7.1}{Enclosure Assembly}{section.7}% 83
-\BOOKMARK [2][-]{subsection.7.2}{PCB Assembly}{section.7}% 84
-\BOOKMARK [2][-]{subsection.7.3}{Delivery Mechanism Assembly}{section.7}% 85
-\BOOKMARK [1][-]{section.8}{Build Review, Results and Discussion}{}% 86
-\BOOKMARK [1][-]{section.9}{Conclusion}{}% 87
-\BOOKMARK [1][-]{section.10}{Recommendations}{}% 88
-\BOOKMARK [1][-]{Appendix.1.A}{Research Mind Map}{}% 89
-\BOOKMARK [1][-]{Appendix.1.B}{Detailed Drawings}{}% 90
-\BOOKMARK [2][-]{subsection.1.B.1}{IC Guide DIP Components}{Appendix.1.B}% 91
-\BOOKMARK [2][-]{subsection.1.B.2}{IC Guide DIP Holder}{Appendix.1.B}% 92
-\BOOKMARK [2][-]{subsection.1.B.3}{Vertical Roller \046 Housing Version 1 \046 2}{Appendix.1.B}% 93
-\BOOKMARK [2][-]{subsection.1.B.4}{Horizontal Roller \046 Housing Version 1}{Appendix.1.B}% 94
-\BOOKMARK [2][-]{subsection.1.B.5}{Horizontal Roller \046 Housing Final Version}{Appendix.1.B}% 95
-\BOOKMARK [2][-]{subsection.1.B.6}{Horizontal Roller Final Version}{Appendix.1.B}% 96
-\BOOKMARK [2][-]{subsection.1.B.7}{RFID Coil Cover}{Appendix.1.B}% 97
-\BOOKMARK [1][-]{Appendix.1.C}{PCB Diagrams}{}% 98
-\BOOKMARK [2][-]{subsection.1.C.1}{PI HAT Diagram}{Appendix.1.C}% 99
-\BOOKMARK [2][-]{subsection.1.C.2}{MCU Module Diagram}{Appendix.1.C}% 100
-\BOOKMARK [2][-]{subsection.1.C.3}{LCD Breakout Diagram}{Appendix.1.C}% 101
-\BOOKMARK [1][-]{Appendix.1.D}{Drawing Templates}{}% 102
-\BOOKMARK [2][-]{subsection.1.D.1}{Material Request Forms}{Appendix.1.D}% 103
-\BOOKMARK [1][-]{Appendix.1.E}{Website}{}% 104
-\BOOKMARK [2][-]{subsection.1.E.1}{Components Store Page}{Appendix.1.E}% 105
-\BOOKMARK [2][-]{subsection.1.E.2}{Contacts Page}{Appendix.1.E}% 106
-\BOOKMARK [2][-]{subsection.1.E.3}{Laser Cutting Templates}{Appendix.1.E}% 107
-\BOOKMARK [3][-]{subsubsection.1.E.3.1}{DIP 8 Template}{subsection.1.E.3}% 108
-\BOOKMARK [3][-]{subsubsection.1.E.3.2}{DIP 14 or 16 Template}{subsection.1.E.3}% 109
-\BOOKMARK [3][-]{subsubsection.1.E.3.3}{DIP 20 Template}{subsection.1.E.3}% 110
-\BOOKMARK [2][-]{subsection.1.E.4}{Drawings for Assembly: Enclosure}{Appendix.1.E}% 111
-\BOOKMARK [1][-]{Appendix.1.F}{Programming guide}{}% 112
-\BOOKMARK [1][-]{Appendix.1.G}{Ethics Forms}{}% 113
+\BOOKMARK [2][-]{subsection.7.1}{Software Assembly: Server}{section.7}% 83
+\BOOKMARK [2][-]{subsection.7.2}{Enclosure Assembly}{section.7}% 84
+\BOOKMARK [2][-]{subsection.7.3}{PCB Assembly}{section.7}% 85
+\BOOKMARK [3][-]{subsubsection.7.3.1}{Pi HAT}{subsection.7.3}% 86
+\BOOKMARK [3][-]{subsubsection.7.3.2}{MCU Module}{subsection.7.3}% 87
+\BOOKMARK [3][-]{subsubsection.7.3.3}{LCD Breakout Board}{subsection.7.3}% 88
+\BOOKMARK [2][-]{subsection.7.4}{Delivery Mechanism Assembly}{section.7}% 89
+\BOOKMARK [1][-]{section.8}{Results and Discussion}{}% 90
+\BOOKMARK [1][-]{section.9}{Conclusion}{}% 91
+\BOOKMARK [1][-]{section.10}{Recommendations}{}% 92
+\BOOKMARK [1][-]{Appendix.1.A}{Research Mind Map}{}% 93
+\BOOKMARK [1][-]{Appendix.1.B}{Detailed Drawings}{}% 94
+\BOOKMARK [2][-]{subsection.1.B.1}{IC Guide DIP Components}{Appendix.1.B}% 95
+\BOOKMARK [2][-]{subsection.1.B.2}{IC Guide DIP Holder}{Appendix.1.B}% 96
+\BOOKMARK [2][-]{subsection.1.B.3}{Vertical Roller \046 Housing Version 1 \046 2}{Appendix.1.B}% 97
+\BOOKMARK [2][-]{subsection.1.B.4}{Horizontal Roller \046 Housing Version 1}{Appendix.1.B}% 98
+\BOOKMARK [2][-]{subsection.1.B.5}{Horizontal Roller \046 Housing Final Version}{Appendix.1.B}% 99
+\BOOKMARK [2][-]{subsection.1.B.6}{Horizontal Roller Final Version}{Appendix.1.B}% 100
+\BOOKMARK [2][-]{subsection.1.B.7}{RFID Coil Cover}{Appendix.1.B}% 101
+\BOOKMARK [1][-]{Appendix.1.C}{PCB Diagrams}{}% 102
+\BOOKMARK [2][-]{subsection.1.C.1}{PI HAT Diagram}{Appendix.1.C}% 103
+\BOOKMARK [2][-]{subsection.1.C.2}{MCU Module Diagram}{Appendix.1.C}% 104
+\BOOKMARK [2][-]{subsection.1.C.3}{LCD Breakout Diagram}{Appendix.1.C}% 105
+\BOOKMARK [1][-]{Appendix.1.D}{Drawing Templates}{}% 106
+\BOOKMARK [2][-]{subsection.1.D.1}{Material Request Forms}{Appendix.1.D}% 107
+\BOOKMARK [1][-]{Appendix.1.E}{Website}{}% 108
+\BOOKMARK [2][-]{subsection.1.E.1}{Components Store Page}{Appendix.1.E}% 109
+\BOOKMARK [2][-]{subsection.1.E.2}{Contacts Page}{Appendix.1.E}% 110
+\BOOKMARK [2][-]{subsection.1.E.3}{Laser Cutting Templates}{Appendix.1.E}% 111
+\BOOKMARK [3][-]{subsubsection.1.E.3.1}{DIP 8 Template}{subsection.1.E.3}% 112
+\BOOKMARK [3][-]{subsubsection.1.E.3.2}{DIP 14 or 16 Template}{subsection.1.E.3}% 113
+\BOOKMARK [3][-]{subsubsection.1.E.3.3}{DIP 20 Template}{subsection.1.E.3}% 114
+\BOOKMARK [2][-]{subsection.1.E.4}{Drawings for Assembly: Enclosure}{Appendix.1.E}% 115
+\BOOKMARK [1][-]{Appendix.1.F}{Manuals and Guides}{}% 116
+\BOOKMARK [2][-]{subsection.1.F.1}{Programming Guide}{Appendix.1.F}% 117
+\BOOKMARK [1][-]{Appendix.1.G}{Terminal Commands}{}% 118
+\BOOKMARK [1][-]{Appendix.1.H}{Ethics Forms}{}% 119

@@ -48,6 +48,12 @@ V.~Q. Ho, T.~J. Gale, and C.~R. Stack, ``Medication dispenser for narcotic
   the IEEE Engineering in Medicine and Biology Society}, Sept 2009, pp.
   1742--1745.
 
+\bibitem{med3}
+C.~K. Toh, S.~L.~J. Ng, and Y.~O. Tan, ``Three dimensional adjustable cavity
+  for flexible singulation of multiple medications in an automated medication
+  dispenser,'' in \emph{2012 IEEE International Conference on Automation
+  Science and Engineering (CASE)}, Aug 2012, pp. 347--352.
+
 \bibitem{I2C}
 {Lattice Semiconductor}, ``White paper: Improving noise immunity for serial
   interface,'' 2014, pp. 2.
@@ -123,6 +129,11 @@ S.~S. Ben~Laurie, Peter~Laurie, \emph{"Apache: The Definitive Guide" 3rd
 M.~M. Antum~Peicevic, \emph{Apache HTTP Server introduction}.\hskip 1em plus
   0.5em minus 0.4em\relax Geek University Press, 2016. pp. 4-6.
 
+\bibitem{PHP}
+R.~Nixon, \emph{Learning PHP, MySQL \& JavaScript: With jQuery, CSS \& HTML5
+  (Learning Php, Mysql, Javascript, Css \& Html5) 4th edition}.\hskip 1em plus
+  0.5em minus 0.4em\relax O'Reilly Media, Inc., 2015. pp 35-37.
+
 \bibitem{mysql}
 \BIBentryALTinterwordspacing
 O.~C. and/or~its affiliates. What is mysql? [Accessed: Sept. 2016]. [Online].
@@ -185,6 +196,18 @@ B.~Morgan. (September 2016) Vertical roller v 2 test. [Online]. Available:
 \BIBentryALTinterwordspacing
 B.~Morgan. (September 2016) New horizontal roller test. [Online]. Available:
   \url{https://youtu.be/_Ol1D7sp83Q}
+\BIBentrySTDinterwordspacing
+
+\bibitem{raspbian}
+\BIBentryALTinterwordspacing
+R.~P. Foundation. (october 2016) Raspbian download. [Online]. Available:
+  \url{https://www.raspberrypi.org/downloads/raspbian/}
+\BIBentrySTDinterwordspacing
+
+\bibitem{diskimage}
+\BIBentryALTinterwordspacing
+J.~D. Tobin~Davis. (october 2016) Win32 disk imager. [Online]. Available:
+  \url{https://sourceforge.net/projects/win32diskimager/}
 \BIBentrySTDinterwordspacing
 
 \end{thebibliography}
