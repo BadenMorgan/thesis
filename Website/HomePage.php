@@ -359,10 +359,10 @@
 		<a href="#null"><font face = "Helvetica">Datasheet</font></a>
 		
 		<?php
-			if (in_array('unkown', $components)) {
+			if (in_array('SN7475', $components)) {
 				$count  = 0;
 				while($count < sizeof($components)){
-					if($components[$count] == 'unkown'){
+					if($components[$count] == 'SN7475'){
 						if($components[$count+1] == 0){
 							echo '<font face = "Helvetica"> |quantity:</font>';
 						    echo '<input type="number" name="IC8" max='.$partlimit. 'min="0" value="0" style="width:4em">';
@@ -383,10 +383,10 @@
 		<a href="#null"><font face = "Helvetica">Datasheet</font></a>
 		
 		<?php
-			if (in_array('unkown', $components)) {
+			if (in_array('T74LS241B1', $components)) {
 				$count  = 0;
 				while($count < sizeof($components)){
-					if($components[$count] == 'unkown'){
+					if($components[$count] == 'T74LS241B1'){
 						if($components[$count+1] == 0){
 							echo '<font face = "Helvetica"> |quantity:</font>';
 						    echo '<input type="number" name="IC9" max='.$partlimit. 'min="0" value="0" style="width:4em">';

@@ -1,4 +1,4 @@
-%Report on The Design of a White Lab Component Vending Machine
+ %Report on The Design of a White Lab Component Vending Machine
 %Undergratuate Engineering Thesis
 %Author: Baden David Morgan
 %Supervisor: Justin Pead
@@ -67,6 +67,7 @@ numbersep=25pt,
 xleftmargin=1in,
 xrightmargin=1in}
 
+\usepackage{placeins}
 
 \begin{document}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -821,6 +822,7 @@ The cover can be seen in \halfref{fig:rfid} from the back and the front view. Th
 This section present the designs that made the electronics of the vending machine. The PCB designed in this section were made in Eagle CAD.
 
 \subsubsection{Raspberry Pi HAT}
+\label{subsubsec:rasppides}
 The Raspberry Pi HAT was designed using measurements of the Raspberry Pi so it would be able to fit on top of the Pi with standoff bolts allowing for a more compact design. A schematic of the circuit needed was initially designed in order to add the required components. This schematic can be seen in \fullref{subsec:pihat}.
 
 	\begin{figure}[ht]	
@@ -1018,7 +1020,7 @@ The alpha version of this program was tested on a prototype setup using prototyp
 
 	\begin{figure}[!ht]	
 	\centering
-	\includegraphics[scale=1]{{taskmanager}.jpg}
+	\includegraphics[scale=1.2]{{taskmanager}.jpg}
 	\caption{A simplified logic diagram of the task manager and how it will function. \label{fig:taskman}}
 	\end{figure}
 
@@ -1058,82 +1060,145 @@ The bill of materials for the servo can be seen in \autoref{tab:bomserv}. All th
 	\end{table}	
 
 \subsection{Enclosure Assembly}
+Assembly of the enclosure began with cutting the steel L and flat bars to length for the frame only. The frame was then welded using stick welding. Initially the the base and top of the frame were welded, then the columns in the corners. The walls of the frame, made of 2mm aluminium sheets, were then cut using a gulatine. The walls were clamped to the frame and holes were drilled through the walls and the frame. The walls were drilled one by one until the 4 walls, 2 sides back and top, were all drilled and attached using bolts for removal if needed. A picture of the enclosure at this stage of the build can be seen in \autoref{fig:enfrwal}.
 
-	bill of materials
+	\begin{figure}[!ht]	
+	\centering
+	\includegraphics[scale=0.2]{{enfrwal}.jpg}
+	\caption{Pictures of the enclosure frame with the walls bolted on. \label{fig:enfrwal}}
+	\end{figure}
+	\FloatBarrier
+
+Holes and openings were drilled in the front door plate and rear plate to accomedate the PSU, Ethernet cable, LCD and RFID cover. Next the drop plate was bent using a bending machine. The height of the drop plate was marked inside the frame and the piece to hold the wooden shelves was welded onto the frame. A strip was also welded onto these pieces, which would hold up the shelves, to bolt the drop plate in place. The drop plate and frame were drilled and bolts were placed to secure it in place. The front door panel was placed on the frame and marked with the hinges in place. Holes for the hinges in the frame and aluminum were drilled and the hinges were secured with countersunk bolts and nuts. Next the holes for the lock were drilled and the lock was also attached with countersunk bolts and nuts. Finally the frame was brushed and painted to give it a nice finish. A picture of the enclosure at this stage of the build can be seen in \autoref{fig:endone}. All the materials used are listed in the \autoref{tab:bomen}.
+
+	\begin{figure}[!ht]	
+	\centering
+	\includegraphics[scale=0.2]{{enfrwal}.jpg}
+	\caption{Pictures of the enclosure frame with the walls bolted on. \label{fig:endone}}
+	\end{figure}
+
+
+
 	\begin{table}[ht]
 	\centering		
 	\begin{tabular}{| m{8cm} | m{4cm}| m{3cm} |}
 	\hline
 	\textbf{Part Name} & \textbf{Cost} & \textbf{Quantity} \\
 	\hline
-	
-	
+	Steal Bar & R & \\
+	\hline
+	Steal L bar & R & \\
+	\hline	
+	Aluminium sheets & R & \\
+	\hline	
+	M6 bolts and nuts & R * & 42 \\
+	\hline
+	M5 bolts and nuts & R * & 8 \\
+	\hline
+	M4 bolt, nuts and washers & R & 12\\	
+	\hline
+	Wood & R * & \\
+	\hline	
+	Flush Aluminium hinge x 2 & R 77.00 ** & 1 \\
+	\hline
+	Hasplock 75mm & R 81.00 ** & 1 \\
+	\hline
 	\end{tabular}
+	
+	 * Obtained from UCT
+	 ** Obtained from a hardware store
 	\caption{Bill of materials for the enclosure. \label{tab:bomen}}
 	\end{table}	
 
 \subsection{PCB Assembly}
-Multiple PCBs were assembled, the process of this assembly for the Pi HAT, MCU Module and LCD breakout board are documented below.
+Multiple PCBs were assembled, the process of this assembly for the Pi HAT, MCU Module and LCD breakout board are documented below. The PiHAT and MCU Module PCB were manufacturer through Trax. As most of the components selected were selected for the reason that they would be readily available at UCT, the acquisition of all the components was quick. This made assembly begin as soon as PCBs arrived while also reducing the external costs of the project.
 
 \subsubsection{Pi HAT}
+
+Once all parts had been acquired the assembly of the PiHAT began. First the ATX connector was soldered on and the voltages on important pins like the power pin for the Raspberry Pi were measured with the power supply plugged in. After the correct voltage levels were observed the remaining components were soldered as specified in the design in \autoref{subsubsec:rasppides}. A Picture of the finished PCB can be seen in \autoref{fig:pihatpcb}. As can be seen in the picture, some components were not soldered as they were not necessary. The 120 $\Omega$ termination resistor was left out as the communications worked without it. The power resistors, R3 to R5, were left out as the PSU worked without them. These resistors were a precaution in case the PSU needed to be tricked to supply a regulated voltage. A bill of materials for the PCB is listed in \autoref{tab:bompi}, including those excluded from the build for the purpose of this report.
+	
+	\begin{figure}[!ht]	
+	\centering
+	\includegraphics[scale=0.3]{{pihatpcb}.jpg}
+	\caption{Pictures of the PiHAT PCB by istelf, on the left, on the Raspberry Pi, on the right. \label{fig:pihatpcb}}
+	\end{figure}
+
 	\begin{table}[ht]
 	\centering		
 	\begin{tabular}{| m{8cm} | m{4cm}| m{3cm} |}
 	\hline
 	\textbf{Part Name} & \textbf{Cost  (Unit Cost)} & \textbf{Quantity} \\
+	\hline
+	PCB & R * & 1 \\
 	\hline
 	Molex MINI-FIT JR. Series 5556 20 way & R 18.30 & 1 \\
 	\hline
 	SN75176B & R 8.97 & 1 \\
 	\hline
-	6 way 2.54mm header friction lock & R 3.64 & 1 \\
+	6 way 2.54mm header friction lock & R 3.64 * & 1 \\
 	\hline
 	Red LED 1206 & R 0.94 & 1 \\
 	\hline
-	805 150$\Omega$ & R 0.94 & 1 \\
+	805 150$\Omega$ & R 0.94 * & 1 \\
 	\hline
-	805 120$\Omega$ & R 0.94 & 1 \\
-	\hline
-	20 way 2.54mm socket & R 22.71 & 1 \\
+	20 way 2.54mm socket & R 22.71 * & 1 \\
 	\hline
 	M3 metal standoff & R 5.40 (R 1.80) & 3 \\
 	\hline
 	Reed switch & R * & 1 \\
 	\hline
-	SPST Rocker Switch & R 11.56 & 1\\
+	SPST Rocker Switch & R 6.13 & 1\\
+	\hline
+	805 120$\Omega$ & R 0.94 * & 1 \\
+	\hline
+	Axial Resistor 15 $\Omega$ 2W & R 5.76 (R 1.92) & 3 \\
 	\hline
 	\end{tabular}
 	
-	 * Acquired at UCT 
+	 * Obtained from UCT 
 	\caption{Bill of materials for the Pi HAT. \label{tab:bompi}}
 	\end{table}	
+	\FloatBarrier
 	
 \subsubsection{MCU Module}
+
+To begin assembly the STM microcontroller was first soldered. The IC was then tested for heat or static damage by connecting it to power without any programming or external oscillator. Next the external 8Mhz oscillator was attached with the stabilizing capacitors. Again the microcontroller was tested and code was uploaded to test proper operation. After successful tests were run the remainder of the components were soldered to complete the PCB. in total 6 board were ordered. Initially 3 were soldered for testing purposes and further debugging of the code. The idea was to test the code with more than one module on the system.
+
+There were two configurations made. One for the primary device at address 1 with an LCD and 2 without the LCD plugins. The plugins entailed a 4 way terminal on the EN, MS1, MS2, MS3 through holes of the PCB and a two way terminal for the STEP and DIR through hole of the PCB. Those through holes mentioned relate to the stepper module for future expansion and yet to be designed delivery mechanisms. A picture of both version build for this report can be seen in \autoref{fig:mcumodpcb}. The remaining 3 PCBs were intended to be soldered for the purpose of the final build but were not complete as of compiling this report. A complete bill of materials can be seen in \autoref{tab:bommcu}. 
+
+	\begin{figure}[!ht]	
+	\centering
+	\includegraphics[scale=0.32]{{mcumodpcb}.jpg}
+	\caption{Pictures of the MCU Module PCB, with the LCD plugin on the left, without the pcb plugin on the right. \label{fig:mcumodpcb}}
+	\end{figure}
+
 	\begin{table}[ht]
 	\centering		
 	\begin{tabular}{| m{8cm} | m{4cm}| m{3cm} |}
 	\hline
 	\textbf{Part Name} & \textbf{Cost  (Unit Cost)} & \textbf{Quantity} \\
 	\hline
-	STM32F051C6 & R 34.64 & 1 \\
+	PCB & R * & 1 \\
+	\hline
+	STM32F051C6 & R 34.64 * & 1 \\
 	\hline
 	SN75176B & R 8.97 & 1 \\
 	\hline
-	8MHZ HC-49 SMD & R 4.36 & 1 \\
+	8MHZ HC-49 SMD & R 4.36 * & 1 \\
 	\hline
-	805 10pf & R 0.34 (R 0.17)  & 2 \\
+	805 10pf & R 0.34 (R 0.17) *  & 2 \\
 	\hline
-	805 1M$\Omega$ & R 0.94 & 1 \\
+	805 1M$\Omega$ & R 0.94 * & 1 \\
 	\hline
 	General Purpose Diode SOD80 SMD & R 0.42 & 1 \\ 
 	\hline
-	NPN 200ma rating SOT23 & R 2.05   & 1\\
+	NPN 200ma rating SOT23 & R 2.05 * & 1\\
 	\hline
 	DIP Switch & R 7.70 & 1 \\
 	\hline
-	805 120$\Omega$ & R3.76 (R 0.94) & 4 \\
+	805 120$\Omega$ & R3.76 (R 0.94) * & 4 \\
 	\hline
-	805 150$\Omega$ & R 1.88 (R 0.94) & 2 \\
+	805 150$\Omega$ & R 1.88 (R 0.94) * & 2 \\
 	\hline
 	Red LED 1206 & R 0.94 & 1 \\
 	\hline
@@ -1141,32 +1206,35 @@ Multiple PCBs were assembled, the process of this assembly for the Pi HAT, MCU M
 	\hline
 	Yellow LED 1206 & R 1.04 & 1 \\
 	\hline
-	805 3K6$\Omega$ & R 0.94 & 1 \\
+	805 3K6$\Omega$ & R 0.94 * & 1 \\
 	\hline
-	805 2K $\Omega$ & R 2.82 (R 0.94) & 3 \\
+	805 2K $\Omega$ & R 2.82 (R 0.94) * & 3 \\
 	\hline
-	805 1K$\Omega$ & R 2.82 (R 0.94) & 3 \\
+	805 1K$\Omega$ & R 2.82 (R 0.94) * & 3 \\
 	\hline
-	805 10K$\Omega$ & R 2.82 (R 0.94) & 3 \\
+	805 10K$\Omega$ & R 2.82 (R 0.94) * & 3 \\
 	\hline
-	3 way 2.54mm header & R 0.51 & 1 \\
+	3 way 2.54mm header & R 0.51 * & 1 \\
 	\hline
-	4 way 2.54mm header friction lock & R 4.84 (R 2.42) & 2 \\
+	4 way 2.54mm header friction lock & R 4.84 (R 2.42) * & 2 \\
 	\hline
-	6 way 2.54mm header friction lock & R 10.92 (R 3.64) & 3 \\
+	6 way 2.54mm header friction lock & R 10.92 (R 3.64) * & 3 \\
 	\hline
-	2 way 2.54mm header & R 0.38 & 1 \\
+	2 way 2.54mm header & R 0.38 * & 1 \\
 	\hline
-	5K$\Omega$ Potentiometerv & R 5.40 & 1 \\
+	5K$\Omega$ Potentiometerv & R 5.40 * & 1 \\
 	\hline
 	M3 metal standoff & R 5.40 (R 1.80) & 3 \\
 	\hline
-	805 75$\Omega$ & R 1.88 (R 0.94) & 2 \\ 
+	805 75$\Omega$ & R 1.88 (R 0.94) * & 2 \\ 
 	\hline
 	  
 	\end{tabular}
+	
+	 * Obtained from UCT
 	\caption{Bill of materials for the MCU module. \label{tab:bommcu}}
 	\end{table}	
+	\FloatBarrier
 \newpage
 \subsubsection{LCD Breakout Board}
 The LCD breakout board was made using a method called the toner transfer method. This method requires very little resources and can be done without professional equipment reducing the manufacturing cost of PCB making. 
@@ -1206,27 +1274,24 @@ The \autoref{fig:lcdassem} illustrates the assembly process at varies stages. To
 	\end{table}	
 
 \subsection{Delivery Mechanism Assembly}
-To begin assembly of a delivery mechanism the perspex was ordered and cut as per of one of the templates in \fullref{subsec:templates}. The Roller was 3D printed using PLA. Once all the parts had been acquired assembly could begin.
+To begin assembly of a delivery mechanism the perspex was ordered and cut as per of one of the templates in \fullref{subsec:templates}. The Roller and IC guide were 3D printed using PLA. Once all the parts had been acquired assembly could begin.
 
 	\begin{figure}[!ht]	
 	\centering
-	\includegraphics[scale=0.48]{{lcdbreakassem}.jpg}
+	\includegraphics[scale=7]{{3dprintsv2}.jpg}
 	\caption{Picture of the 3D printed IC guide and roller after assembly. \label{fig:3Dprints}}
 	\end{figure}
 	
+Once the 3D printed IC guide were done printing the bolts and washers were placed in the designated holes. Next the two IR LEDs and two phototransistors had wires soldered to the leads. A pair of IR LED and phototransitor were glued into the designated slots making sure to line them up with the intended component to minimize false readings. The Vibration motor was then placed inside the cavity made for it and leads soldered to it. Finally the servo worn was lined up with the foothold and a small amount of glue was used to secure it. The finished product for one of the IC guides and rollers can be seen in \autoref{fig:3Dprints}.
+
+Next the housing structure was assembled. The structure was assembled according to the drawings in \autoref{subsec:h3} using tensol adhesive to secure the structure. The servo motor was placed inside the housing structure during assembly. The 3D prints that where assembled and described above where then fixed to the housing structure with bolts, nuts and a screw for the servo horn. The final product of this assembly can be seen in \autoref{fig:housing}.
+
 	\begin{figure}[!ht]	
 	\centering
-	\includegraphics[scale=0.48]{{lcdbreakassem}.jpg}
-	\caption{Picture the housing structure for the delivery mechanism. \label{fig:lcdassem}}
-	\end{figure}
-	
-	\begin{figure}[!ht]	
-	\centering
-	\includegraphics[scale=0.48]{{lcdbreakassem}.jpg}
-	\caption{Picture of the finished assembly of the delivery mechanism. \label{fig:lcdassem}}
+	\includegraphics[scale=7]{{delivassem}.jpg}
+	\caption{Picture the housing structure for the delivery mechanism. \label{fig:housing}}
 	\end{figure}
 
-	bill of materials
 	\begin{table}[ht]
 	\centering		
 	\begin{tabular}{| m{8cm} | m{4cm}| m{3cm} |}
@@ -1237,12 +1302,21 @@ To begin assembly of a delivery mechanism the perspex was ordered and cut as per
 	\hline
 	3D Printed parts & ~R 20.00 ** & 1 \\
 	\hline
-	IR LED + Phototransistor sensor & * & 2 \\
+	IR LED + Phototransistor sensor & R * & 2 \\
+	\hline
+	M4 bolt and nut & R * & 4 \\
+	\hline 
+	M4 washer & R * & 4 \\
+	\hline	
+	M3 bolt & R * & 2 \\
+	\hline
+	DS-339MG Digital servo & \euro{} 8.04 *** & 1 \\
 	\hline
 	\end{tabular}
 	
 	 * Obtained from UCT
 	 ** Estimated by weight
+	 *** Pricing from Hobby King, Obtained from UCT
 	\caption{Estimated Bill of Materials for the Delivery mechanism. \label{tab:bomdel}}
 	\end{table}	
 	
@@ -1274,6 +1348,8 @@ To begin assembly of a delivery mechanism the perspex was ordered and cut as per
 	%recommendations
 \section{Recommendations}
 %Apache is losing market share which could mean its counter part may become the leader in the future. More time should be invested in researching the benefits of using Nginx over Apache
+
+%a mistake was made when soldering to sensor molex connectors in reverse this should be corrected for future boards and sensor molex pins, it didnt cause any porblems with the delivery mechanism but could cause confusion for someone assembling it without prior knowledge of this mistake.
 \newpage
 
 

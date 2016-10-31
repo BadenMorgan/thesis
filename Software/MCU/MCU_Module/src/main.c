@@ -20,12 +20,12 @@
 //#define _EXTRA_   //defined extra debugging
 #define _DEBUG_     //debugging serial interface
 #define _ROLLER_    //roller code so it can be excluded for another variation of delivery mechanism
-#define _LCD_       //LCD code excluded for most delivery mechanisms, only used on first one
+//#define _LCD_       //LCD code excluded for most delivery mechanisms, only used on first one
 
 //defines which package is being dispensed, important for wait times
 //#define _DIP8_
-#define _DIP1416_
-//#define _DIp20_
+//#define _DIP1416_
+#define _DIP20_
 
 //Libraries
 #include "stm32f0xx_conf.h"
@@ -72,7 +72,15 @@ uint8_t ScrollIndex = 0;                //index to where lcd must scroll too
 char ScrollBuffer[256];                 //buffer containing string to scroll on the lcd
 #endif
 uint8_t ReportCode = SUCCESS;           //used to record how a dispense went so it can be relayed to the master
-
+#ifdef _DIP8_
+uint16_t Wait = Waitt;
+#endif
+#ifdef _DIP1416_
+uint16_t Wait = WaitT + 75;
+#endif
+#ifdef _DIP20_
+uint16_t Wait = WaitT + 150;
+#endif
 
 //function definitions
 void Ready();
@@ -315,7 +323,7 @@ void SerialMonitor(void(*FNCName)()){
         Stamp[7] = counterval;
     }
     uint16_t sum = counterval - Stamp[7];
-    if((sum >= 5) && (RXFlag != 2)){
+    if((sum >= 10) && (RXFlag != 2)){
         FNCName();
         RXFlag = 2;
     }
@@ -323,6 +331,7 @@ void SerialMonitor(void(*FNCName)()){
 //Message Decoder from master
 void Decode(){
     //if only 6 values in buffer it is a command code
+    print16bits(buffercount - bufferreadcount, 0x4d,3);
     if(buffercount - bufferreadcount == 6){
         int i;
         //transfer from serial buffer to rx reading buffer
@@ -389,6 +398,18 @@ void Decode(){
         if((RXBuffer[0] == StartByte) && (RXBuffer[1] == address) && (RXBuffer[2] == LCDPRINT) && (RXBuffer[lcdbuffer - 1] == EndByte)){//(RXBuffer[lcdbuffer - 2] == check) &&
             PopulateBuffer(UpdateToo);
             sendReport(SUCCESS);
+        }
+    }
+    #else
+    else{   //if buffer contains more than 6 bytes then LCD command
+        printbyte(0x4C);
+        printbyte(0x43);
+        printbyte(0x44);
+        uint8_t lcdbuffer = buffercount - bufferreadcount;
+        //transferring serial data the rx buffer then string to print into a separate buffer
+        int i;
+        for(i = 0; i < lcdbuffer ; i++){
+            bufferreadcount++; //flush the buffer
         }
     }
     #endif
@@ -597,17 +618,7 @@ void Release(){
     uint16_t counterval = TIM_GetCounter(TIM14);
     uint16_t sum = counterval - Stamp[2];
     //waits for system to settle
-#ifdef _DIP8_
     if(sum >= Wait){
-#endif
-
-#ifdef  _DIP1416_
-    if(sum >= Wait + 75){
-#endif
-
-#ifdef _DIP20_
-    if(sum >= Wait + 150){
-#endif
         uint16_t sum2 = counterval - Stamp[4];
         if(sum2 >= 20){
             ICADVVal[ADCCounter] = GetADCVal(channel8);
@@ -689,15 +700,7 @@ void PickUp(){
 void CheckIC2(){
     uint16_t counterval = TIM_GetCounter(TIM14);
     uint16_t sum = counterval - Stamp[2];
-#ifdef _DIP8_
     if(sum >= Wait){
-#endif
-#ifdef  _DIP1416_
-    if(sum >= Wait + 75){
-#endif
-#ifdef _DIP20_
-    if(sum >= Wait + 150){
-#endif
         uint16_t sum2 = counterval - Stamp[4];
         if(sum2 >= 20){
             ICADVVal[ADCCounter] = GetADCVal(channel8);
@@ -887,7 +890,7 @@ void Test(){
     uint8_t tempbit = testflag;
     testflag = GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_7);
     if(tempbit != testflag){
-        DeliverxMany = 2;
+        DeliverxMany = 10;
 #ifdef _EXTRA_
         print16bits(DeliverxMany,0x43,3);
 #endif

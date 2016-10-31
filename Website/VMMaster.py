@@ -36,7 +36,7 @@ GPIO.setmode(GPIO.BCM)
 ser1 = serial.Serial(
               
                port='/dev/ttyAMA0',
-               baudrate = 9600,
+               baudrate = 115200,
                parity=serial.PARITY_NONE,
                stopbits=serial.STOPBITS_ONE,
                bytesize=serial.EIGHTBITS,
@@ -129,8 +129,8 @@ def DispenceIC(addressbyte,commandbyte,valuebyte):
 		else:
 			global retries
 			global maxretry
-			if valuebyte != 0:
-				UpdateLCD("Dispensing      Components")
+			# if valuebyte != 0:
+				# UpdateLCD("Dispensing      Components")
 			TXBuffer[1] = addressbyte
 			TXBuffer[2] = commandbyte
 			TXBuffer[3] = valuebyte
@@ -185,9 +185,13 @@ def DispenceIC(addressbyte,commandbyte,valuebyte):
 					logging.debug("Failed Dispense")
 			try:
 				check = value[0]
+				print(check)
 				check = (check + value[1]) & 0xFF
+				print(check)
 				check = (check + value[2]) & 0xFF
+				print(check)
 				check = (check + value[3]) & 0xFF
+				print(check)
 				if value[0] == 0xD1 and value[1] == addressbyte and value[3] == 1 and value[4] == check and value[5] == 0xE1:
 					retries = 0
 					if value[2] & 0x01:
@@ -599,15 +603,17 @@ while True:
 	# 	command = sys.stdin.readline()
 	# 	sys.stdin.flush()
 
-	ComponentNoCheck("MRGBAD001")
+	# ComponentNoCheck("MRGBAD001")
 	command = input("enter g: ")
 	if command == 'g':
+		# Free()
 		# RequestDispence('MRGBAD001')
 		# RequestStNo('81607133871')
 		# logging.debug("despensing")
 		DispenceIC(1,0xB3,3)
-		FinalMsg()
+		# FinalMsg()
 		# 
+		DispenceIC(1,0xB5,0)
 		command = ''
 	if command == 'f':
 		Free();
