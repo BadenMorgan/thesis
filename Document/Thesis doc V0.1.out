@@ -88,32 +88,35 @@
 \BOOKMARK [3][-]{subsubsection.7.3.3}{LCD Breakout Board}{subsection.7.3}% 88
 \BOOKMARK [2][-]{subsection.7.4}{Delivery Mechanism Assembly}{section.7}% 89
 \BOOKMARK [1][-]{section.8}{Results and Discussion}{}% 90
-\BOOKMARK [1][-]{section.9}{Conclusion}{}% 91
-\BOOKMARK [1][-]{section.10}{Recommendations}{}% 92
-\BOOKMARK [1][-]{Appendix.1.A}{Research Mind Map}{}% 93
-\BOOKMARK [1][-]{Appendix.1.B}{Detailed Drawings}{}% 94
-\BOOKMARK [2][-]{subsection.1.B.1}{IC Guide DIP Components}{Appendix.1.B}% 95
-\BOOKMARK [2][-]{subsection.1.B.2}{IC Guide DIP Holder}{Appendix.1.B}% 96
-\BOOKMARK [2][-]{subsection.1.B.3}{Vertical Roller \046 Housing Version 1 \046 2}{Appendix.1.B}% 97
-\BOOKMARK [2][-]{subsection.1.B.4}{Horizontal Roller \046 Housing Version 1}{Appendix.1.B}% 98
-\BOOKMARK [2][-]{subsection.1.B.5}{Horizontal Roller \046 Housing Final Version}{Appendix.1.B}% 99
-\BOOKMARK [2][-]{subsection.1.B.6}{Horizontal Roller Final Version}{Appendix.1.B}% 100
-\BOOKMARK [2][-]{subsection.1.B.7}{RFID Coil Cover}{Appendix.1.B}% 101
-\BOOKMARK [1][-]{Appendix.1.C}{PCB Diagrams}{}% 102
-\BOOKMARK [2][-]{subsection.1.C.1}{PI HAT Diagram}{Appendix.1.C}% 103
-\BOOKMARK [2][-]{subsection.1.C.2}{MCU Module Diagram}{Appendix.1.C}% 104
-\BOOKMARK [2][-]{subsection.1.C.3}{LCD Breakout Diagram}{Appendix.1.C}% 105
-\BOOKMARK [1][-]{Appendix.1.D}{Drawing Templates}{}% 106
-\BOOKMARK [2][-]{subsection.1.D.1}{Material Request Forms}{Appendix.1.D}% 107
-\BOOKMARK [1][-]{Appendix.1.E}{Website}{}% 108
-\BOOKMARK [2][-]{subsection.1.E.1}{Components Store Page}{Appendix.1.E}% 109
-\BOOKMARK [2][-]{subsection.1.E.2}{Contacts Page}{Appendix.1.E}% 110
-\BOOKMARK [2][-]{subsection.1.E.3}{Laser Cutting Templates}{Appendix.1.E}% 111
-\BOOKMARK [3][-]{subsubsection.1.E.3.1}{DIP 8 Template}{subsection.1.E.3}% 112
-\BOOKMARK [3][-]{subsubsection.1.E.3.2}{DIP 14 or 16 Template}{subsection.1.E.3}% 113
-\BOOKMARK [3][-]{subsubsection.1.E.3.3}{DIP 20 Template}{subsection.1.E.3}% 114
-\BOOKMARK [2][-]{subsection.1.E.4}{Drawings for Assembly: Enclosure}{Appendix.1.E}% 115
-\BOOKMARK [1][-]{Appendix.1.F}{Manuals and Guides}{}% 116
-\BOOKMARK [2][-]{subsection.1.F.1}{Programming Guide}{Appendix.1.F}% 117
-\BOOKMARK [1][-]{Appendix.1.G}{Terminal Commands}{}% 118
-\BOOKMARK [1][-]{Appendix.1.H}{Ethics Forms}{}% 119
+\BOOKMARK [2][-]{subsection.8.1}{Prototyping Tests}{section.8}% 91
+\BOOKMARK [2][-]{subsection.8.2}{Comparison test}{section.8}% 92
+\BOOKMARK [2][-]{subsection.8.3}{Final Build Stress Tests}{section.8}% 93
+\BOOKMARK [1][-]{section.9}{Conclusion}{}% 94
+\BOOKMARK [1][-]{section.10}{Recommendations}{}% 95
+\BOOKMARK [1][-]{Appendix.1.A}{Research Mind Map}{}% 96
+\BOOKMARK [1][-]{Appendix.1.B}{Detailed Drawings}{}% 97
+\BOOKMARK [2][-]{subsection.1.B.1}{IC Guide DIP Components}{Appendix.1.B}% 98
+\BOOKMARK [2][-]{subsection.1.B.2}{IC Guide DIP Holder}{Appendix.1.B}% 99
+\BOOKMARK [2][-]{subsection.1.B.3}{Vertical Roller \046 Housing Version 1 \046 2}{Appendix.1.B}% 100
+\BOOKMARK [2][-]{subsection.1.B.4}{Horizontal Roller \046 Housing Version 1}{Appendix.1.B}% 101
+\BOOKMARK [2][-]{subsection.1.B.5}{Horizontal Roller \046 Housing Final Version}{Appendix.1.B}% 102
+\BOOKMARK [2][-]{subsection.1.B.6}{Horizontal Roller Final Version}{Appendix.1.B}% 103
+\BOOKMARK [2][-]{subsection.1.B.7}{RFID Coil Cover}{Appendix.1.B}% 104
+\BOOKMARK [1][-]{Appendix.1.C}{PCB Diagrams}{}% 105
+\BOOKMARK [2][-]{subsection.1.C.1}{PI HAT Diagram}{Appendix.1.C}% 106
+\BOOKMARK [2][-]{subsection.1.C.2}{MCU Module Diagram}{Appendix.1.C}% 107
+\BOOKMARK [2][-]{subsection.1.C.3}{LCD Breakout Diagram}{Appendix.1.C}% 108
+\BOOKMARK [1][-]{Appendix.1.D}{Drawing Templates}{}% 109
+\BOOKMARK [2][-]{subsection.1.D.1}{Material Request Forms}{Appendix.1.D}% 110
+\BOOKMARK [1][-]{Appendix.1.E}{Website}{}% 111
+\BOOKMARK [2][-]{subsection.1.E.1}{Components Store Page}{Appendix.1.E}% 112
+\BOOKMARK [2][-]{subsection.1.E.2}{Contacts Page}{Appendix.1.E}% 113
+\BOOKMARK [1][-]{Appendix.1.F}{Templates \046 Drawings for Assembly}{}% 114
+\BOOKMARK [2][-]{subsection.1.F.1}{DIP 8 Template}{Appendix.1.F}% 115
+\BOOKMARK [2][-]{subsection.1.F.2}{DIP 14 or 16 Template}{Appendix.1.F}% 116
+\BOOKMARK [2][-]{subsection.1.F.3}{DIP 20 Template}{Appendix.1.F}% 117
+\BOOKMARK [2][-]{subsection.1.F.4}{Exploded Enclosure View}{Appendix.1.F}% 118
+\BOOKMARK [1][-]{Appendix.1.G}{Manuals and Guides}{}% 119
+\BOOKMARK [2][-]{subsection.1.G.1}{Programming Guide}{Appendix.1.G}% 120
+\BOOKMARK [1][-]{Appendix.1.H}{Terminal Commands}{}% 121
+\BOOKMARK [1][-]{Appendix.1.I}{Ethics Forms}{}% 122

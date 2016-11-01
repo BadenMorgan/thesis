@@ -73,7 +73,7 @@ char ScrollBuffer[256];                 //buffer containing string to scroll on 
 #endif
 uint8_t ReportCode = SUCCESS;           //used to record how a dispense went so it can be relayed to the master
 #ifdef _DIP8_
-uint16_t Wait = Waitt;
+uint16_t Wait = WaitT+25;
 #endif
 #ifdef _DIP1416_
 uint16_t Wait = WaitT + 75;
@@ -331,7 +331,7 @@ void SerialMonitor(void(*FNCName)()){
 //Message Decoder from master
 void Decode(){
     //if only 6 values in buffer it is a command code
-    print16bits(buffercount - bufferreadcount, 0x4d,3);
+    //print16bits(buffercount - bufferreadcount, 0x4d,3);
     if(buffercount - bufferreadcount == 6){
         int i;
         //transfer from serial buffer to rx reading buffer
@@ -402,9 +402,9 @@ void Decode(){
     }
     #else
     else{   //if buffer contains more than 6 bytes then LCD command
-        printbyte(0x4C);
-        printbyte(0x43);
-        printbyte(0x44);
+        //printbyte(0x4C);
+        //printbyte(0x43);
+        //printbyte(0x44);
         uint8_t lcdbuffer = buffercount - bufferreadcount;
         //transferring serial data the rx buffer then string to print into a separate buffer
         int i;
@@ -426,7 +426,7 @@ uint8_t checksumcal(uint8_t *values, uint8_t checkpos){
 
 //reports to send back to master
 void sendReport(uint8_t ReportCode){
-    GPIO_WriteBit(GPIOA,RE,1);//disable receiving of data
+    //GPIO_WriteBit(GPIOA,RE,1);//disable receiving of data
     GPIO_WriteBit(GPIOA,DE,1);//enable sending on the rs485 bus
 
     delay(10);
@@ -548,7 +548,7 @@ void initTask(){
     ReportCode = SUCCESS;               //set report code to default value
     ServoSet(pickval);                  //set servo to pickup value
     period = 100;                       //set led blik period to 100ms
-    GPIO_WriteBit(GPIOA,RE,1);          //turn off ability to read from rs485 bus
+    //GPIO_WriteBit(GPIOA,RE,1);          //turn off ability to read from rs485 bus
     GPIO_WriteBit(GPIOB,VBRMTR,1);      //turn on vibration mtr
     GPIO_WriteBit(GPIOB,IRLED1,1);      //turn on IR LED
     GPIO_WriteBit(GPIOB,IRLED2,1);      //turn on IR LED
@@ -579,7 +579,7 @@ void CheckIC(){
                 }
                 ICSum = ICSum/10;
                 GuideSum = GuideSum/10;
-#ifdef _EXTRA_
+#ifdef _DEBUG_
                 print16bits(ICSum,0x41,3);
                 print16bits(GuideSum,0x42,3);
 #endif
@@ -679,7 +679,7 @@ void PickUp(){
                 }
                 ICSum = ICSum/10;
                 GuideSum = GuideSum/10;
-#ifdef _EXTRA_
+#ifdef _DEBUG_
                 print16bits(ICSum,0x41,3);
 #endif
                 if(ICSum < GapThreshold){   //is there IC in bucket
@@ -890,7 +890,7 @@ void Test(){
     uint8_t tempbit = testflag;
     testflag = GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_7);
     if(tempbit != testflag){
-        DeliverxMany = 10;
+        DeliverxMany = deliverytest;
 #ifdef _EXTRA_
         print16bits(DeliverxMany,0x43,3);
 #endif

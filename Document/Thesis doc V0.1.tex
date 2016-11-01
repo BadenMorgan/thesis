@@ -1064,20 +1064,20 @@ Assembly of the enclosure began with cutting the steel L and flat bars to length
 
 	\begin{figure}[!ht]	
 	\centering
-	\includegraphics[scale=0.2]{{enfrwal}.jpg}
+	\includegraphics[scale=0.172]{{enfrwal}.jpg}
 	\caption{Pictures of the enclosure frame with the walls bolted on. \label{fig:enfrwal}}
 	\end{figure}
-	\FloatBarrier
 
-Holes and openings were drilled in the front door plate and rear plate to accomedate the PSU, Ethernet cable, LCD and RFID cover. Next the drop plate was bent using a bending machine. The height of the drop plate was marked inside the frame and the piece to hold the wooden shelves was welded onto the frame. A strip was also welded onto these pieces, which would hold up the shelves, to bolt the drop plate in place. The drop plate and frame were drilled and bolts were placed to secure it in place. The front door panel was placed on the frame and marked with the hinges in place. Holes for the hinges in the frame and aluminum were drilled and the hinges were secured with countersunk bolts and nuts. Next the holes for the lock were drilled and the lock was also attached with countersunk bolts and nuts. Finally the frame was brushed and painted to give it a nice finish. A picture of the enclosure at this stage of the build can be seen in \autoref{fig:endone}. All the materials used are listed in the \autoref{tab:bomen}.
+Holes and openings were drilled in the front door plate and rear plate to accomedate the PSU, Ethernet cable, LCD and RFID cover. Next the drop plate was bent using a bending machine. The height of the drop plate was marked inside the frame and the piece to hold the wooden shelves was welded onto the frame. A strip was also welded onto these pieces, which would hold up the shelves, to bolt the drop plate in place. The drop plate and frame were drilled and bolts were placed to secure it in place. The front door panel was placed on the frame and marked with the hinges in place. Holes for the hinges in the frame and aluminium were drilled and the hinges were secured with countersunk bolts and nuts. Next the holes for the lock were drilled and the lock was also attached with countersunk bolts and nuts. It was intended that the frame would be brushed and painted to give it a nice finish but was not done before the compilation of this report. A picture of the enclosure at this stage of the build can be seen in \autoref{fig:endone}. All the materials used are listed in the \autoref{tab:bomen}.
 
 	\begin{figure}[!ht]	
 	\centering
-	\includegraphics[scale=0.2]{{enfrwal}.jpg}
+	\includegraphics[scale=0.25]{{enfin}.jpg}
 	\caption{Pictures of the enclosure frame with the walls bolted on. \label{fig:endone}}
 	\end{figure}
+	\FloatBarrier
 
-
+Additionally, a small plate was fashioned in order to mount to Raspberry Pi perpendicular to the rear wall instead of against it to allow for the Ethernet port to be exposed from back. This was not specified in the design but was added to reduce additional costs to allow for the Raspberry Pi to connect to the internet via CAT5 cable. A piece of wood was cut for the shelve and is included in the overall assembly of the project. 
 
 	\begin{table}[ht]
 	\centering		
@@ -1274,7 +1274,7 @@ The \autoref{fig:lcdassem} illustrates the assembly process at varies stages. To
 	\end{table}	
 
 \subsection{Delivery Mechanism Assembly}
-To begin assembly of a delivery mechanism the perspex was ordered and cut as per of one of the templates in \fullref{subsec:templates}. The Roller and IC guide were 3D printed using PLA. Once all the parts had been acquired assembly could begin.
+To begin assembly of a delivery mechanism the perspex was ordered and cut as per one of the templates in \fullref{subsec:templates}. The Roller and IC guide were 3D printed using PLA. Once all the parts had been acquired assembly could begin.
 
 	\begin{figure}[!ht]	
 	\centering
@@ -1325,18 +1325,43 @@ Next the housing structure was assembled. The structure was assembled according 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	%build review, results and disussion
 \section{Results and Discussion}
-	%\begin{table}[ht]
-  	%\centering
- 	% \begin{tabular}{| l | l | l | l | l |}
-    %\hline
-    %Round & Success & Half Load Error & Load Error & Dispense Error \\ 
-    %\hline
-    %\end{tabular}
-  	%\caption{Testing Variables to be recorded.}
-  	%\label{tab:myfirsttable}
-	%\end{table}
+Results from various tests were recorded during the process of the project. Some results have been stated in relevant sections prior to this one but will be discussed in more detail in this section. The three major categories tests fell under were; Prototyping tests, Comparison test and finally Final build stress tests. These tests and results will be presented in this section.
 
-%The table above shows the variables to be recorded during testing of prototypes and the final build. A success constitutes a proper load and dispense. The term load in this table refers to when a component is dropped into the delivery mechanism. Half load errors occur when a component doesn't load at first but after fail safe movements a successful load and dispense occur. A load error is if a component completely fails to load. Finally a dispense error is when a component load is successful but the component fails the fall from the delivery mechanism.
+\subsection{Prototyping Tests}
+
+The prototyping tests were done in order to validate the design to make sure it was a viable design. This was done to make sure a ineffective design was not used for the final build. The Test were structured in a way to produce comparable results. Each Dispensary test was done with 100 or more individual dispenses to produce a sample to grade the reliability of the design. The actions that were recorded were; a "Success" meant the dispensary action completed without an error, a "Half Load Error" which meant the component to be dispensed caught on the lip of the bucket, a "Full Load Error" meant the component to be dispensed caught halfway down the bucket while loading, a "Release Error" meant the component to be dispensed was caught in the bucket while trying to release. The results can be seen in \autoref{fig:prototest}. Videos of the tests can be seen at \cite{verttest1p1,verttest1p2,vertv2,newhor}.
+
+	\begin{figure}[!ht]	
+	\centering
+	\includegraphics[scale=4]{{prototest}.jpg}
+	\caption{Graph showing the results of the protoyping tests done during the design phase of the project. \label{fig:prototest}}
+	\end{figure}
+	
+Comparing results, one can see that with each version of the roller the reliability rating improved until it met the required 95\% rating or above. A major failure in the earliest version of the roller was the full load error. This was a catastrophic failure which causes concern as it could damage components and was present in both version of the vertical roller. Even with sensors this problem was present due to the design of the roller. This error was mitigated in the horizontal roller while also greatly reducing the chance of other failure modes leading to the choice in using it as the final design.
+
+\subsection{Comparison test}
+A comparison test was done to compare the reliability of the horizontal roller with a vibration motor and, without a vibration motor. This was done to validate the use of a vibration motor to assist loading and releasing of components in the bucket. Each test consisted of 105 individual dispenses to get a rough sample of the reliability under each circumstance. The same actions as the prototype testing were used to determine failure modes. The idea was that a vibration motor would help increase the reliability rating of the delivery mechanism, this test was set out to test this theory. The results of the test can be seen \autoref{fig:comptest}. A video of the test can bee seen at \cite{horvbr,hornovbr}.
+
+	\begin{figure}[!ht]	
+	\centering
+	\includegraphics[scale=4]{{comptest}.jpg}
+	\caption{Graph showing the results of the protoyping tests done to compare the reliability rating with and without a vibration motor. \label{fig:comptest}}
+	\end{figure}
+		
+As can be seen in the graph, the run with the vibration motor was more reliable that without a vibration motor as expected. The vibration motor helped with loading an releasing increasing the reliability to 100\%. This caused design on the delivery mechanism to stop as it proved the design was successful.
+
+\subsection{Final Build Stress Tests}
+Stress tests were done on the assembled delivery mechanism to validate they worked as intended. The test was set up to be repeatable on future delivery mechanism to validate them before deployment. The tests entailed 20 rounds of 10 components dispensed per round, this amounted to a total of 200 individual dispenses. This was done in order to thoroughly test assembled delivery mechanism before it was deployed in the White Lab Vending Machine. To reduce external errors the MCU board was programmed to dispense all 10 components with a manual switch of the 8 address bit on the DIP switch. Only three failure modes were recorded as a half load was no longer focus of the test. The actions recorded were; a "Success" meant the dispensary action completed without an error, a "Load Error" meant the component to be dispensed failed to fall in the bucket properly, a "Release Error" meant the component to be dispensed  failed to vacate from the bucket when being released. The results from the test done on the assembled delivery mechanism can be seen in \autoref{fig:fintest}. A time-lapse video of the testing can be seen at \cite{stresstest}. 
+
+	\begin{figure}[!ht]	
+	\centering
+	\includegraphics[scale=4]{{finaltest}.jpg}
+	\caption{Graph showing the results of the stress tests done on all the assembled delivery mechanism for the final build. \label{fig:fintest}}
+	\end{figure}
+	\FloatBarrier
+
+As can bee seen in the results, all the delivery mechanism displayed a reliability rating that exceeded expectations and requirements. All achieved a reliability rating of 100\% with the exception of the DIP 20 delivery mechanism, with a rating of 99\%. The failure in the DIP 20 delivery mechanism was due to the height of the bucket and the component, to be loaded in the next cycle, catching on the filleted slope of the bucket. 
+	
 \newpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1350,6 +1375,11 @@ Next the housing structure was assembled. The structure was assembled according 
 %Apache is losing market share which could mean its counter part may become the leader in the future. More time should be invested in researching the benefits of using Nginx over Apache
 
 %a mistake was made when soldering to sensor molex connectors in reverse this should be corrected for future boards and sensor molex pins, it didnt cause any porblems with the delivery mechanism but could cause confusion for someone assembling it without prior knowledge of this mistake.
+
+%redesign dip20 dispenser to compensate for height of components.
+
+%dip holder sensor should be placed flat as low as possible
+
 \newpage
 
 
@@ -1475,9 +1505,9 @@ Next the housing structure was assembled. The structure was assembled according 
 	\end{changemargin}
 
 \newpage
-\subsection{Laser Cutting Templates}
+\section{Templates \& Drawings for Assembly}
 \label{subsec:templates}
-	\subsubsection{DIP 8 Template}
+\subsection{DIP 8 Template}
 	\begin{changemargin}{-1cm}{-1cm}
 	\begin{center}
 	\includegraphics[scale=7.4]{{DIP8TEMPv2}.jpg}
@@ -1485,14 +1515,14 @@ Next the housing structure was assembled. The structure was assembled according 
 	\end{changemargin}	
 	
 
-\subsubsection{DIP 14 or 16 Template}
+\subsection{DIP 14 or 16 Template}
 	\begin{changemargin}{-1cm}{-1cm}
 	\begin{center}	
 	\includegraphics[scale=7.4]{{DIP1416TEMPv2}.jpg}
 	\end{center}
 	\end{changemargin}
 	
-	\subsubsection{DIP 20 Template}
+\subsection{DIP 20 Template}
 	\begin{changemargin}{-1cm}{-1cm}
 	\begin{center}
 	\includegraphics[scale=7.4]{{DIP20TEMPv2}.jpg}
@@ -1500,10 +1530,12 @@ Next the housing structure was assembled. The structure was assembled according 
 	\end{changemargin}
 \newpage
 
-\subsection{Drawings for Assembly: Enclosure}
+\subsection{Exploded Enclosure View}
 \label{subsec:enctemplates}
 
-
+	\begin{center}
+	\includegraphics[scale=5.35]{{explodedenclosure}.jpg}
+	\end{center}
 
 	
 \newpage
@@ -1584,34 +1616,52 @@ CREATE TABLE Components (Address TINYINT UNSIGNED NOT NULL, PartName TINYTEXT NO
 \end{lstlisting}
 Press CTRL+C to exit the MySQL shell. Download the Github repository containing the code needed to run the website and redirect the Apache web server to the new HomePage:
 \begin{lstlisting}[firstnumber=16]
-cd /var/www/html/
-sudo rm index.php
 cd /var/www/
+sudo rm -r html
 sudo git clone https://github.com/BadenMorgan/VMWebsite.git html
 sudo nano /etc/apache2/apache2.conf
 \end{lstlisting}
 Add the following to the bottom of this configuration file:
-\begin{lstlisting}[firstnumber=21]
+\begin{lstlisting}[firstnumber=20]
 <IfModule mod_dir.c>
 DirectoryIndex HomePage.php
 </IfModule>
 \end{lstlisting}
 CTRL+X then Y and Enter to save and exit. Go to the IP in your browser and play around with the website, try to test if it inputs into the databases. Now to install the mail server to enable admin notifications via email:
-\begin{lstlisting}[firstnumber=24]
+\begin{lstlisting}[firstnumber=23]
 sudo apt-get install exim4
 sudo dpkg-reconfigure exim4-config
 \end{lstlisting}
 Follow the on screen instructions. First select "mail sent by smarthost; received via SMTP or fetchmail". Leave system mail name as "raspberrypi". Leave IP as "127.0.0.1 ; ::1". Leave the next field at "raspberrypi" and the next blank. For outgoing smarthost type "smtp.gmail.com:587". Hide local mail name: no. Keep number of DNS: no. Delivery method: "Maildir format in home directory". Split configuration files: no. Root and postmaster mail recipient: "pi". Now update the email credentials:
-\begin{lstlisting}[firstnumber=26]
+\begin{lstlisting}[firstnumber=25]
 sudo nano /etc/exim4/passwd.client
 \end{lstlisting}
 Add the following to the bottom of the file:
-\begin{lstlisting}[firstnumber=27]
+\begin{lstlisting}[firstnumber=26]
 gmail-smtp.l.google.com:uctvendingmachine@gmail.com:uctvm2016
 *.google.com:uctvendingmachine@gmail.com:uctvm2016
 smtp.gmail.com:uctvendingmachine@gmail.com:uctvm2016
 \end{lstlisting}
-Ctrl+x then Y and enter to save and exit. Send a test email on the contacts page of the website.
+Ctrl+x then Y and enter to save and exit. Send a test email on the contacts page of the website. Add the required python libraries and change the permissions for the python script:
+\begin{lstlisting}[firstnumber=29]
+sudo apt-get install python3-dev
+sudo apt-get install freetds-dev
+sudo pip3 install PyMySQL pymssql httplib2
+sudo chmod 775 /var/www/html/VMMaster.py
+\end{lstlisting}
+Move the boot time script that will run the python script at start up and give it the proper permissions. Next configure the Systemmd to run the boot time script. Reboot to test the script:
+\begin{lstlisting}[firstnumber=33]
+sudo mv /var/www/html/myscript.service /lib/systemd/system/myscript.service
+sudo systemctl daemon-reload
+sudo systemctl enable myscript.service
+sudo reboot now
+\end{lstlisting}
+Check the status of the task and the python scripts log file:
+\begin{lstlisting}[firstnumber=37]
+sudo systemctl status myscript.service
+tail /var/www/html/MasterLog.log
+\end{lstlisting}
+
 \newpage
 
 \section{Ethics Forms}

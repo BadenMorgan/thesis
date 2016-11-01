@@ -82,38 +82,41 @@
 \contentsline {section}{\numberline {7}System Assembly}{43}{section.7}
 \contentsline {subsection}{\numberline {7.1}Software Assembly: Server}{43}{subsection.7.1}
 \contentsline {subsection}{\numberline {7.2}Enclosure Assembly}{43}{subsection.7.2}
-\contentsline {subsection}{\numberline {7.3}PCB Assembly}{44}{subsection.7.3}
+\contentsline {subsection}{\numberline {7.3}PCB Assembly}{45}{subsection.7.3}
 \contentsline {subsubsection}{\numberline {7.3.1}Pi HAT}{45}{subsubsection.7.3.1}
 \contentsline {subsubsection}{\numberline {7.3.2}MCU Module}{46}{subsubsection.7.3.2}
-\contentsline {subsubsection}{\numberline {7.3.3}LCD Breakout Board}{48}{subsubsection.7.3.3}
+\contentsline {subsubsection}{\numberline {7.3.3}LCD Breakout Board}{47}{subsubsection.7.3.3}
 \contentsline {subsection}{\numberline {7.4}Delivery Mechanism Assembly}{48}{subsection.7.4}
 \contentsline {section}{\numberline {8}Results and Discussion}{50}{section.8}
-\contentsline {section}{\numberline {9}Conclusion}{51}{section.9}
-\contentsline {section}{\numberline {10}Recommendations}{52}{section.10}
-\contentsline {section}{\numberline {A}Research Mind Map}{55}{Appendix.1.A}
-\contentsline {section}{\numberline {B}Detailed Drawings}{56}{Appendix.1.B}
-\contentsline {subsection}{\numberline {B.1}IC Guide DIP Components}{56}{subsection.1.B.1}
-\contentsline {subsection}{\numberline {B.2}IC Guide DIP Holder}{57}{subsection.1.B.2}
-\contentsline {subsection}{\numberline {B.3}Vertical Roller \& Housing Version 1 \& 2}{58}{subsection.1.B.3}
-\contentsline {subsection}{\numberline {B.4}Horizontal Roller \& Housing Version 1}{59}{subsection.1.B.4}
-\contentsline {subsection}{\numberline {B.5}Horizontal Roller \& Housing Final Version}{60}{subsection.1.B.5}
-\contentsline {subsection}{\numberline {B.6}Horizontal Roller Final Version}{61}{subsection.1.B.6}
-\contentsline {subsection}{\numberline {B.7}RFID Coil Cover}{62}{subsection.1.B.7}
-\contentsline {section}{\numberline {C}PCB Diagrams}{63}{Appendix.1.C}
-\contentsline {subsection}{\numberline {C.1}PI HAT Diagram}{63}{subsection.1.C.1}
-\contentsline {subsection}{\numberline {C.2}MCU Module Diagram}{64}{subsection.1.C.2}
-\contentsline {subsection}{\numberline {C.3}LCD Breakout Diagram}{65}{subsection.1.C.3}
-\contentsline {section}{\numberline {D}Drawing Templates}{66}{Appendix.1.D}
-\contentsline {subsection}{\numberline {D.1}Material Request Forms}{66}{subsection.1.D.1}
-\contentsline {section}{\numberline {E}Website}{73}{Appendix.1.E}
-\contentsline {subsection}{\numberline {E.1}Components Store Page}{73}{subsection.1.E.1}
-\contentsline {subsection}{\numberline {E.2}Contacts Page}{75}{subsection.1.E.2}
-\contentsline {subsection}{\numberline {E.3}Laser Cutting Templates}{76}{subsection.1.E.3}
-\contentsline {subsubsection}{\numberline {E.3.1}DIP 8 Template}{76}{subsubsection.1.E.3.1}
-\contentsline {subsubsection}{\numberline {E.3.2}DIP 14 or 16 Template}{77}{subsubsection.1.E.3.2}
-\contentsline {subsubsection}{\numberline {E.3.3}DIP 20 Template}{78}{subsubsection.1.E.3.3}
-\contentsline {subsection}{\numberline {E.4}Drawings for Assembly: Enclosure}{79}{subsection.1.E.4}
-\contentsline {section}{\numberline {F}Manuals and Guides}{80}{Appendix.1.F}
-\contentsline {subsection}{\numberline {F.1}Programming Guide}{80}{subsection.1.F.1}
-\contentsline {section}{\numberline {G}Terminal Commands}{81}{Appendix.1.G}
-\contentsline {section}{\numberline {H}Ethics Forms}{83}{Appendix.1.H}
+\contentsline {subsection}{\numberline {8.1}Prototyping Tests}{50}{subsection.8.1}
+\contentsline {subsection}{\numberline {8.2}Comparison test}{51}{subsection.8.2}
+\contentsline {subsection}{\numberline {8.3}Final Build Stress Tests}{51}{subsection.8.3}
+\contentsline {section}{\numberline {9}Conclusion}{53}{section.9}
+\contentsline {section}{\numberline {10}Recommendations}{54}{section.10}
+\contentsline {section}{\numberline {A}Research Mind Map}{57}{Appendix.1.A}
+\contentsline {section}{\numberline {B}Detailed Drawings}{58}{Appendix.1.B}
+\contentsline {subsection}{\numberline {B.1}IC Guide DIP Components}{58}{subsection.1.B.1}
+\contentsline {subsection}{\numberline {B.2}IC Guide DIP Holder}{59}{subsection.1.B.2}
+\contentsline {subsection}{\numberline {B.3}Vertical Roller \& Housing Version 1 \& 2}{60}{subsection.1.B.3}
+\contentsline {subsection}{\numberline {B.4}Horizontal Roller \& Housing Version 1}{61}{subsection.1.B.4}
+\contentsline {subsection}{\numberline {B.5}Horizontal Roller \& Housing Final Version}{62}{subsection.1.B.5}
+\contentsline {subsection}{\numberline {B.6}Horizontal Roller Final Version}{63}{subsection.1.B.6}
+\contentsline {subsection}{\numberline {B.7}RFID Coil Cover}{64}{subsection.1.B.7}
+\contentsline {section}{\numberline {C}PCB Diagrams}{65}{Appendix.1.C}
+\contentsline {subsection}{\numberline {C.1}PI HAT Diagram}{65}{subsection.1.C.1}
+\contentsline {subsection}{\numberline {C.2}MCU Module Diagram}{66}{subsection.1.C.2}
+\contentsline {subsection}{\numberline {C.3}LCD Breakout Diagram}{67}{subsection.1.C.3}
+\contentsline {section}{\numberline {D}Drawing Templates}{68}{Appendix.1.D}
+\contentsline {subsection}{\numberline {D.1}Material Request Forms}{68}{subsection.1.D.1}
+\contentsline {section}{\numberline {E}Website}{75}{Appendix.1.E}
+\contentsline {subsection}{\numberline {E.1}Components Store Page}{75}{subsection.1.E.1}
+\contentsline {subsection}{\numberline {E.2}Contacts Page}{77}{subsection.1.E.2}
+\contentsline {section}{\numberline {F}Templates \& Drawings for Assembly}{78}{Appendix.1.F}
+\contentsline {subsection}{\numberline {F.1}DIP 8 Template}{78}{subsection.1.F.1}
+\contentsline {subsection}{\numberline {F.2}DIP 14 or 16 Template}{79}{subsection.1.F.2}
+\contentsline {subsection}{\numberline {F.3}DIP 20 Template}{80}{subsection.1.F.3}
+\contentsline {subsection}{\numberline {F.4}Exploded Enclosure View}{81}{subsection.1.F.4}
+\contentsline {section}{\numberline {G}Manuals and Guides}{82}{Appendix.1.G}
+\contentsline {subsection}{\numberline {G.1}Programming Guide}{82}{subsection.1.G.1}
+\contentsline {section}{\numberline {H}Terminal Commands}{83}{Appendix.1.H}
+\contentsline {section}{\numberline {I}Ethics Forms}{85}{Appendix.1.I}

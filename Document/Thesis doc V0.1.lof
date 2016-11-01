@@ -40,9 +40,12 @@
 \contentsline {figure}{\numberline {6.27}{\ignorespaces State Machine Diagram for MCU software. }}{41}{figure.6.27}
 \contentsline {figure}{\numberline {6.28}{\ignorespaces A simplified logic diagram of the task manager and how it will function. }}{42}{figure.6.28}
 \contentsline {figure}{\numberline {7.1}{\ignorespaces Pictures of the enclosure frame with the walls bolted on. }}{44}{figure.7.1}
-\contentsline {figure}{\numberline {7.2}{\ignorespaces Pictures of the enclosure frame with the walls bolted on. }}{45}{figure.7.2}
-\contentsline {figure}{\numberline {7.3}{\ignorespaces Pictures of the PiHAT PCB by istelf, on the left, on the Raspberry Pi, on the right. }}{46}{figure.7.3}
-\contentsline {figure}{\numberline {7.4}{\ignorespaces Pictures of the MCU Module PCB, with the LCD plugin on the left, without the pcb plugin on the right. }}{47}{figure.7.4}
-\contentsline {figure}{\numberline {7.5}{\ignorespaces Pictures from the etching proccess to make the LCD breakout baord. }}{48}{figure.7.5}
-\contentsline {figure}{\numberline {7.6}{\ignorespaces Picture of the 3D printed IC guide and roller after assembly. }}{49}{figure.7.6}
+\contentsline {figure}{\numberline {7.2}{\ignorespaces Pictures of the enclosure frame with the walls bolted on. }}{44}{figure.7.2}
+\contentsline {figure}{\numberline {7.3}{\ignorespaces Pictures of the PiHAT PCB by istelf, on the left, on the Raspberry Pi, on the right. }}{45}{figure.7.3}
+\contentsline {figure}{\numberline {7.4}{\ignorespaces Pictures of the MCU Module PCB, with the LCD plugin on the left, without the pcb plugin on the right. }}{46}{figure.7.4}
+\contentsline {figure}{\numberline {7.5}{\ignorespaces Pictures from the etching proccess to make the LCD breakout baord. }}{47}{figure.7.5}
+\contentsline {figure}{\numberline {7.6}{\ignorespaces Picture of the 3D printed IC guide and roller after assembly. }}{48}{figure.7.6}
 \contentsline {figure}{\numberline {7.7}{\ignorespaces Picture the housing structure for the delivery mechanism. }}{49}{figure.7.7}
+\contentsline {figure}{\numberline {8.1}{\ignorespaces Graph showing the results of the protoyping tests done during the design phase of the project. }}{50}{figure.8.1}
+\contentsline {figure}{\numberline {8.2}{\ignorespaces Graph showing the results of the protoyping tests done to compare the reliability rating with and without a vibration motor. }}{51}{figure.8.2}
+\contentsline {figure}{\numberline {8.3}{\ignorespaces Graph showing the results of the stress tests done on all the assembled delivery mechanism for the final build. }}{52}{figure.8.3}

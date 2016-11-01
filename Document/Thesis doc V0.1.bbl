@@ -210,4 +210,22 @@ J.~D. Tobin~Davis. (october 2016) Win32 disk imager. [Online]. Available:
   \url{https://sourceforge.net/projects/win32diskimager/}
 \BIBentrySTDinterwordspacing
 
+\bibitem{horvbr}
+\BIBentryALTinterwordspacing
+B.~Morgan. (September 2016) Horizontal roller dip 8 variant test with vibration
+  motor. [Online]. Available: \url{https://youtu.be/JkFqaCLoxYs}
+\BIBentrySTDinterwordspacing
+
+\bibitem{hornovbr}
+\BIBentryALTinterwordspacing
+B.~Morgan. (September 2016) Horizontal roller dip 8 test no vibration motor.
+  [Online]. Available: \url{https://youtu.be/PZypj8374xY}
+\BIBentrySTDinterwordspacing
+
+\bibitem{stresstest}
+\BIBentryALTinterwordspacing
+B.~Morgan. (October 2016) Final build stress tests. [Online]. Available:
+  \url{https://youtu.be/CHXiJHn9fzM}
+\BIBentrySTDinterwordspacing
+
 \end{thebibliography}
