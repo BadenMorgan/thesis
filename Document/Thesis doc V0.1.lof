@@ -1,51 +1,56 @@
-\contentsline {figure}{\numberline {2.1}{\ignorespaces The Portlands State Universitys' component Vending Machine and how components are presented \cite {vend}.}}{2}{figure.2.1}
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Proposed design of medication dispenser from the group at UT \cite {med1}. }}{3}{figure.2.2}
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Dispensing mechanism for Medication dispensor for narcotic rehabilitation with cover removed \cite {med2}. }}{4}{figure.2.3}
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Picture of an (a) isometric and (b) cross sectional view of the tablet bucket and its different compartments. \cite {med3}. }}{5}{figure.2.4}
-\contentsline {figure}{\numberline {2.5}{\ignorespaces Picture of the 3DAC with the rods (a) unextended and (b) extended. \cite {med3}. }}{5}{figure.2.5}
-\contentsline {figure}{\numberline {2.6}{\ignorespaces An illustration of the dispensary action of the 3DAC. \cite {med3}. }}{6}{figure.2.6}
-\contentsline {figure}{\numberline {2.7}{\ignorespaces External Low Pass Noise Filter Circuit\cite {I2C}}}{7}{figure.2.7}
-\contentsline {figure}{\numberline {2.8}{\ignorespaces When idle one can see the line is held high, this is seen before data is sent and after \cite {UART}. }}{7}{figure.2.8}
-\contentsline {figure}{\numberline {2.9}{\ignorespaces The RDM 6300 Module with an external antena connected directly to the module \cite {RDM}. }}{9}{figure.2.9}
-\contentsline {figure}{\numberline {2.10}{\ignorespaces Graph showing active websites and their backend web server being used \cite {Apache}. }}{10}{figure.2.10}
-\contentsline {figure}{\numberline {2.11}{\ignorespaces ATX 20 pin connection layout \cite {ATX}. }}{11}{figure.2.11}
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Mind map used to help assist the definition of the topic, system specifications and design of the Vending Machine. }}{12}{figure.3.1}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Two tubes of components, the top full of DIP IC Holders and the bottom one being full of DIP 8 Components.}}{13}{figure.3.2}
-\contentsline {figure}{\numberline {6.1}{\ignorespaces IC Guide (a) detailed diagram and (b) isometric view. }}{21}{figure.6.1}
-\contentsline {figure}{\numberline {6.2}{\ignorespaces Comparison between Version 1 and Version 2 of the IC Guide. }}{22}{figure.6.2}
-\contentsline {figure}{\numberline {6.3}{\ignorespaces Comparison between Version 1 and Version 2 of the IC Guide. }}{22}{figure.6.3}
-\contentsline {figure}{\numberline {6.4}{\ignorespaces Rectangular IC guide for DIP IC holder tubes. }}{23}{figure.6.4}
-\contentsline {figure}{\numberline {6.5}{\ignorespaces Vertical Roller and Housing Delivery mechanism. }}{23}{figure.6.5}
-\contentsline {figure}{\numberline {6.6}{\ignorespaces Vertical Roller (a) cross section (b) isometric view (c) view to help explain loading.}}{24}{figure.6.6}
-\contentsline {figure}{\numberline {6.7}{\ignorespaces Prototype of Delivery mechanism using the Vertical roller.}}{25}{figure.6.7}
-\contentsline {figure}{\numberline {6.8}{\ignorespaces Common jam action that occurs with vertical roller.}}{25}{figure.6.8}
-\contentsline {figure}{\numberline {6.9}{\ignorespaces Changes made to the Vertical Roller for version 2.}}{26}{figure.6.9}
-\contentsline {figure}{\numberline {6.10}{\ignorespaces Horizontal Roller and Housing Delivery mechanism. }}{26}{figure.6.10}
-\contentsline {figure}{\numberline {6.11}{\ignorespaces Labeled isometric view of the Horizontal roller. }}{27}{figure.6.11}
-\contentsline {figure}{\numberline {6.12}{\ignorespaces Picture of the protype Delivery mechanism with the horizontal roller. }}{28}{figure.6.12}
-\contentsline {figure}{\numberline {6.13}{\ignorespaces Final design of the horizontal roller and housing. }}{28}{figure.6.13}
-\contentsline {figure}{\numberline {6.14}{\ignorespaces Comparison between version 1 and final version of horizontal roller }}{29}{figure.6.14}
-\contentsline {figure}{\numberline {6.15}{\ignorespaces All rollers to dispense DIP 8, 14 or 16 and 20 for comparison. }}{29}{figure.6.15}
-\contentsline {figure}{\numberline {6.16}{\ignorespaces Feed up design with cutaway and top view to illustrate how it operates. }}{30}{figure.6.16}
-\contentsline {figure}{\numberline {6.17}{\ignorespaces Frame of the enclosure illustrating the upper and lower compartments. }}{31}{figure.6.17}
-\contentsline {figure}{\numberline {6.18}{\ignorespaces A detailed drawing of the sloped plate. }}{31}{figure.6.18}
-\contentsline {figure}{\numberline {6.19}{\ignorespaces Isometric and top view of the enclosure with the case on interior. }}{32}{figure.6.19}
-\contentsline {figure}{\numberline {6.20}{\ignorespaces Isometric view of the redesign. }}{32}{figure.6.20}
-\contentsline {figure}{\numberline {6.21}{\ignorespaces Isometric back and front views of the RFID coil cover. }}{33}{figure.6.21}
-\contentsline {figure}{\numberline {6.22}{\ignorespaces PCB layout of the Raspberry Pi HAT, top and bottom layer. }}{34}{figure.6.22}
-\contentsline {figure}{\numberline {6.23}{\ignorespaces PCB layout of the MCU Module, top and bottom layer. }}{35}{figure.6.23}
-\contentsline {figure}{\numberline {6.24}{\ignorespaces LCD breakout board PCB layout, Bottom layer with silkscreen of top layer overlayed. }}{35}{figure.6.24}
-\contentsline {figure}{\numberline {6.25}{\ignorespaces LCD breakout board PCB layout, Bottom layer with silkscreen of top layer overlayed. }}{36}{figure.6.25}
-\contentsline {figure}{\numberline {6.26}{\ignorespaces LCD breakout board PCB layout, Bottom layer with silkscreen of top layer overlayed. }}{39}{figure.6.26}
-\contentsline {figure}{\numberline {6.27}{\ignorespaces State Machine Diagram for MCU software. }}{41}{figure.6.27}
-\contentsline {figure}{\numberline {6.28}{\ignorespaces A simplified logic diagram of the task manager and how it will function. }}{42}{figure.6.28}
-\contentsline {figure}{\numberline {7.1}{\ignorespaces Pictures of the enclosure frame with the walls bolted on. }}{44}{figure.7.1}
-\contentsline {figure}{\numberline {7.2}{\ignorespaces Pictures of the enclosure frame with the walls bolted on. }}{44}{figure.7.2}
-\contentsline {figure}{\numberline {7.3}{\ignorespaces Pictures of the PiHAT PCB by istelf, on the left, on the Raspberry Pi, on the right. }}{45}{figure.7.3}
-\contentsline {figure}{\numberline {7.4}{\ignorespaces Pictures of the MCU Module PCB, with the LCD plugin on the left, without the pcb plugin on the right. }}{46}{figure.7.4}
-\contentsline {figure}{\numberline {7.5}{\ignorespaces Pictures from the etching proccess to make the LCD breakout baord. }}{47}{figure.7.5}
-\contentsline {figure}{\numberline {7.6}{\ignorespaces Picture of the 3D printed IC guide and roller after assembly. }}{48}{figure.7.6}
-\contentsline {figure}{\numberline {7.7}{\ignorespaces Picture the housing structure for the delivery mechanism. }}{49}{figure.7.7}
-\contentsline {figure}{\numberline {8.1}{\ignorespaces Graph showing the results of the protoyping tests done during the design phase of the project. }}{50}{figure.8.1}
-\contentsline {figure}{\numberline {8.2}{\ignorespaces Graph showing the results of the protoyping tests done to compare the reliability rating with and without a vibration motor. }}{51}{figure.8.2}
-\contentsline {figure}{\numberline {8.3}{\ignorespaces Graph showing the results of the stress tests done on all the assembled delivery mechanism for the final build. }}{52}{figure.8.3}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces The Portlands State Universitys' component Vending Machine and how components are presented \cite {vend}.}}{4}{figure.2.1}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Proposed design of medication dispenser from the group at UT \cite {med1}. }}{5}{figure.2.2}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Dispensing mechanism for Medication dispensor for narcotic rehabilitation with cover removed \cite {med2}. }}{6}{figure.2.3}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Picture of an (a) isometric and (b) cross sectional view of the tablet bucket and its different compartments. \cite {med3}. }}{7}{figure.2.4}
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Picture of the 3DAC with the rods (a) unextended and (b) extended. \cite {med3}. }}{7}{figure.2.5}
+\contentsline {figure}{\numberline {2.6}{\ignorespaces An illustration of the dispensary action of the 3DAC. \cite {med3}. }}{8}{figure.2.6}
+\contentsline {figure}{\numberline {2.7}{\ignorespaces External Low Pass Noise Filter Circuit\cite {I2C}}}{9}{figure.2.7}
+\contentsline {figure}{\numberline {2.8}{\ignorespaces When idle one can see the line is held high, this is seen before data is sent and after \cite {UART}. }}{9}{figure.2.8}
+\contentsline {figure}{\numberline {2.9}{\ignorespaces The RDM 6300 Module with an external antena connected directly to the module \cite {RDM}. }}{11}{figure.2.9}
+\contentsline {figure}{\numberline {2.10}{\ignorespaces Graph showing active websites and their backend web server being used \cite {Apache}. }}{12}{figure.2.10}
+\contentsline {figure}{\numberline {2.11}{\ignorespaces ATX 20 pin connection layout \cite {ATX}. }}{13}{figure.2.11}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Mind map used to help assist the definition of the topic, system specifications and design of the Vending Machine. }}{14}{figure.3.1}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Two tubes of components, the top full of DIP IC Holders and the bottom one being full of DIP 8 Components.}}{15}{figure.3.2}
+\contentsline {figure}{\numberline {6.1}{\ignorespaces IC Guide (a) detailed diagram and (b) isometric view. }}{23}{figure.6.1}
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Comparison between Version 1 and Version 2 of the IC Guide. }}{24}{figure.6.2}
+\contentsline {figure}{\numberline {6.3}{\ignorespaces Comparison between Version 1 and Version 2 of the IC Guide. }}{24}{figure.6.3}
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Rectangular IC guide for DIP IC holder tubes. }}{25}{figure.6.4}
+\contentsline {figure}{\numberline {6.5}{\ignorespaces Vertical Roller and Housing Delivery mechanism. }}{25}{figure.6.5}
+\contentsline {figure}{\numberline {6.6}{\ignorespaces Vertical Roller (a) cross section (b) isometric view (c) view to help explain loading.}}{26}{figure.6.6}
+\contentsline {figure}{\numberline {6.7}{\ignorespaces Prototype of Delivery mechanism using the Vertical roller.}}{27}{figure.6.7}
+\contentsline {figure}{\numberline {6.8}{\ignorespaces Common jam action that occurs with vertical roller.}}{27}{figure.6.8}
+\contentsline {figure}{\numberline {6.9}{\ignorespaces Changes made to the Vertical Roller for version 2.}}{28}{figure.6.9}
+\contentsline {figure}{\numberline {6.10}{\ignorespaces Horizontal Roller and Housing Delivery mechanism. }}{28}{figure.6.10}
+\contentsline {figure}{\numberline {6.11}{\ignorespaces Labeled isometric view of the Horizontal roller. }}{29}{figure.6.11}
+\contentsline {figure}{\numberline {6.12}{\ignorespaces Picture of the protype Delivery mechanism with the horizontal roller. }}{30}{figure.6.12}
+\contentsline {figure}{\numberline {6.13}{\ignorespaces Final design of the horizontal roller and housing. }}{30}{figure.6.13}
+\contentsline {figure}{\numberline {6.14}{\ignorespaces Comparison between version 1 and final version of horizontal roller }}{31}{figure.6.14}
+\contentsline {figure}{\numberline {6.15}{\ignorespaces All rollers to dispense DIP 8, 14 or 16 and 20 for comparison. }}{31}{figure.6.15}
+\contentsline {figure}{\numberline {6.16}{\ignorespaces Feed up design with cutaway and top view to illustrate how it operates. }}{32}{figure.6.16}
+\contentsline {figure}{\numberline {6.17}{\ignorespaces Frame of the enclosure illustrating the upper and lower compartments. }}{33}{figure.6.17}
+\contentsline {figure}{\numberline {6.18}{\ignorespaces A detailed drawing of the sloped plate. }}{33}{figure.6.18}
+\contentsline {figure}{\numberline {6.19}{\ignorespaces Isometric and top view of the enclosure with the case on interior. }}{34}{figure.6.19}
+\contentsline {figure}{\numberline {6.20}{\ignorespaces Isometric view of the redesign. }}{34}{figure.6.20}
+\contentsline {figure}{\numberline {6.21}{\ignorespaces Isometric back and front views of the RFID coil cover. }}{35}{figure.6.21}
+\contentsline {figure}{\numberline {6.22}{\ignorespaces PCB layout of the Raspberry Pi HAT, top and bottom layer. }}{36}{figure.6.22}
+\contentsline {figure}{\numberline {6.23}{\ignorespaces PCB layout of the MCU Module, top and bottom layer. }}{37}{figure.6.23}
+\contentsline {figure}{\numberline {6.24}{\ignorespaces LCD breakout board PCB layout, Bottom layer with silkscreen of top layer overlayed. }}{37}{figure.6.24}
+\contentsline {figure}{\numberline {6.25}{\ignorespaces LCD breakout board PCB layout, Bottom layer with silkscreen of top layer overlayed. }}{38}{figure.6.25}
+\contentsline {figure}{\numberline {6.26}{\ignorespaces LCD breakout board PCB layout, Bottom layer with silkscreen of top layer overlayed. }}{41}{figure.6.26}
+\contentsline {figure}{\numberline {6.27}{\ignorespaces State Machine Diagram for MCU software. }}{43}{figure.6.27}
+\contentsline {figure}{\numberline {6.28}{\ignorespaces A simplified logic diagram of the task manager and how it will function. }}{44}{figure.6.28}
+\contentsline {figure}{\numberline {7.1}{\ignorespaces Pictures of the enclosure frame with the walls bolted on. }}{46}{figure.7.1}
+\contentsline {figure}{\numberline {7.2}{\ignorespaces Pictures of the enclosure frame all the internal elements in place. }}{46}{figure.7.2}
+\contentsline {figure}{\numberline {7.3}{\ignorespaces Pictures of the PiHAT PCB by istelf, on the left, on the Raspberry Pi, on the right. }}{48}{figure.7.3}
+\contentsline {figure}{\numberline {7.4}{\ignorespaces Pictures of the MCU Module PCB, with the LCD plugin on the left, without the pcb plugin on the right. }}{49}{figure.7.4}
+\contentsline {figure}{\numberline {7.5}{\ignorespaces Pictures from the etching proccess to make the LCD breakout baord. }}{50}{figure.7.5}
+\contentsline {figure}{\numberline {7.6}{\ignorespaces Picture of the 3D printed IC guide and roller after assembly. }}{51}{figure.7.6}
+\contentsline {figure}{\numberline {7.7}{\ignorespaces Picture the housing structure for the delivery mechanism. }}{51}{figure.7.7}
+\contentsline {figure}{\numberline {7.8}{\ignorespaces Picture of the sensor tester circuit schematic on the left and the physical circuit on the right. }}{52}{figure.7.8}
+\contentsline {figure}{\numberline {7.9}{\ignorespaces Picture from the rear of the shelf, top image, and the front, bottom image. }}{53}{figure.7.9}
+\contentsline {figure}{\numberline {7.10}{\ignorespaces Picture of the back and front of the RFID antenna cover. }}{53}{figure.7.10}
+\contentsline {figure}{\numberline {7.11}{\ignorespaces Picture of the finished Component Vending Machine. }}{54}{figure.7.11}
+\contentsline {figure}{\numberline {8.1}{\ignorespaces Graph showing the results of the protoyping tests done during the design phase of the project. }}{55}{figure.8.1}
+\contentsline {figure}{\numberline {8.2}{\ignorespaces Graph showing the results of the protoyping tests done to compare the reliability rating with and without a vibration motor. }}{56}{figure.8.2}
+\contentsline {figure}{\numberline {8.3}{\ignorespaces Graph showing the results of the stress tests done on all the assembled delivery mechanism for the final build. }}{57}{figure.8.3}
+\contentsline {figure}{\numberline {8.4}{\ignorespaces Common mode noise observed on the transmission lines. }}{57}{figure.8.4}

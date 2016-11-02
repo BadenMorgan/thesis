@@ -1811,6 +1811,8 @@ Discarded input sections
                 0x00000000       0x40 obj\debug\spl\src\stm32f0xx_rcc.o
  .text.RCC_BackupResetCmd
                 0x00000000       0x40 obj\debug\spl\src\stm32f0xx_rcc.o
+ .text.RCC_APB1PeriphClockCmd
+                0x00000000       0x3c obj\debug\spl\src\stm32f0xx_rcc.o
  .text.RCC_AHBPeriphResetCmd
                 0x00000000       0x3c obj\debug\spl\src\stm32f0xx_rcc.o
  .text.RCC_APB2PeriphResetCmd
@@ -2795,7 +2797,11 @@ Discarded input sections
  .text          0x00000000        0x0 obj\debug\src\debug.o
  .data          0x00000000        0x0 obj\debug\src\debug.o
  .bss           0x00000000        0x0 obj\debug\src\debug.o
+ .text.USART2Init
+                0x00000000       0xf4 obj\debug\src\debug.o
  .text.input    0x00000000       0x30 obj\debug\src\debug.o
+ .text.printBIN
+                0x00000000       0x90 obj\debug\src\debug.o
  .text.ADCtest  0x00000000       0x94 obj\debug\src\debug.o
  .debug_macro   0x00000000      0x81a obj\debug\src\debug.o
  .debug_macro   0x00000000       0x8c obj\debug\src\debug.o
@@ -3025,9 +3031,11 @@ Discarded input sections
  .text          0x00000000        0x0 obj\debug\src\main.o
  .data          0x00000000        0x0 obj\debug\src\main.o
  .bss           0x00000000        0x0 obj\debug\src\main.o
- .text.debuginput
-                0x00000000       0x3c obj\debug\src\main.o
- .text.echo     0x00000000       0x74 obj\debug\src\main.o
+ .text.IntervalHandle
+                0x00000000       0x68 obj\debug\src\main.o
+ .text.Test     0x00000000       0x60 obj\debug\src\main.o
+ .text.sendfakeReport
+                0x00000000       0xe4 obj\debug\src\main.o
  .debug_macro   0x00000000      0x81a obj\debug\src\main.o
  .debug_macro   0x00000000       0x8c obj\debug\src\main.o
  .debug_macro   0x00000000       0x34 obj\debug\src\main.o
@@ -3376,7 +3384,7 @@ LOAD c:/program files (x86)/embitz/0.42/share/em_armgcc/bin/../lib/gcc/arm-none-
                 0x00000000                __HEAP_SIZE = 0x0
                 0x00000100                __STACK_SIZE = 0x100
 
-.text           0x08000000     0x2ff4
+.text           0x08000000     0x2ca4
  *(.isr_vector)
  .isr_vector    0x08000000       0xc4 obj\debug\src\startup_stm32f0xx.o
                 0x08000000                __isr_vector
@@ -3427,210 +3435,194 @@ LOAD c:/program files (x86)/embitz/0.42/share/em_armgcc/bin/../lib/gcc/arm-none-
  .text.RCC_APB2PeriphClockCmd
                 0x080007dc       0x3c obj\debug\spl\src\stm32f0xx_rcc.o
                 0x080007dc                RCC_APB2PeriphClockCmd
- .text.RCC_APB1PeriphClockCmd
-                0x08000818       0x3c obj\debug\spl\src\stm32f0xx_rcc.o
-                0x08000818                RCC_APB1PeriphClockCmd
  .text.TIM_TimeBaseInit
-                0x08000854       0xf0 obj\debug\spl\src\stm32f0xx_tim.o
-                0x08000854                TIM_TimeBaseInit
+                0x08000818       0xf0 obj\debug\spl\src\stm32f0xx_tim.o
+                0x08000818                TIM_TimeBaseInit
  .text.TIM_GetCounter
-                0x08000944       0x14 obj\debug\spl\src\stm32f0xx_tim.o
-                0x08000944                TIM_GetCounter
- .text.TIM_Cmd  0x08000958       0x40 obj\debug\spl\src\stm32f0xx_tim.o
-                0x08000958                TIM_Cmd
+                0x08000908       0x14 obj\debug\spl\src\stm32f0xx_tim.o
+                0x08000908                TIM_GetCounter
+ .text.TIM_Cmd  0x0800091c       0x40 obj\debug\spl\src\stm32f0xx_tim.o
+                0x0800091c                TIM_Cmd
  .text.USART_Init
-                0x08000998      0x174 obj\debug\spl\src\stm32f0xx_usart.o
-                0x08000998                USART_Init
+                0x0800095c      0x174 obj\debug\spl\src\stm32f0xx_usart.o
+                0x0800095c                USART_Init
  .text.USART_Cmd
-                0x08000b0c       0x3c obj\debug\spl\src\stm32f0xx_usart.o
-                0x08000b0c                USART_Cmd
+                0x08000ad0       0x3c obj\debug\spl\src\stm32f0xx_usart.o
+                0x08000ad0                USART_Cmd
  .text.USART_SendData
-                0x08000b48       0x24 obj\debug\spl\src\stm32f0xx_usart.o
-                0x08000b48                USART_SendData
+                0x08000b0c       0x24 obj\debug\spl\src\stm32f0xx_usart.o
+                0x08000b0c                USART_SendData
  .text.USART_ITConfig
-                0x08000b6c       0x84 obj\debug\spl\src\stm32f0xx_usart.o
-                0x08000b6c                USART_ITConfig
+                0x08000b30       0x84 obj\debug\spl\src\stm32f0xx_usart.o
+                0x08000b30                USART_ITConfig
  .text.USART_GetFlagStatus
-                0x08000bf0       0x3c obj\debug\spl\src\stm32f0xx_usart.o
-                0x08000bf0                USART_GetFlagStatus
- .text.USART2Init
-                0x08000c2c       0xf4 obj\debug\src\debug.o
-                0x08000c2c                USART2Init
- .text.printBIN
-                0x08000d20       0x90 obj\debug\src\debug.o
-                0x08000d20                printBIN
+                0x08000bb4       0x3c obj\debug\spl\src\stm32f0xx_usart.o
+                0x08000bb4                USART_GetFlagStatus
  .text.print16bits
-                0x08000db0      0x1b8 obj\debug\src\debug.o
-                0x08000db0                print16bits
+                0x08000bf0      0x1b8 obj\debug\src\debug.o
+                0x08000bf0                print16bits
  .text.printbyte
-                0x08000f68       0x54 obj\debug\src\debug.o
-                0x08000f68                printbyte
+                0x08000da8       0x54 obj\debug\src\debug.o
+                0x08000da8                printbyte
  .text.GPIOInit
-                0x08000fbc      0x170 obj\debug\src\gpiolib.o
-                0x08000fbc                GPIOInit
+                0x08000dfc      0x170 obj\debug\src\gpiolib.o
+                0x08000dfc                GPIOInit
  .text.InitAdress
-                0x0800112c      0x144 obj\debug\src\gpiolib.o
-                0x0800112c                InitAdress
+                0x08000f6c      0x144 obj\debug\src\gpiolib.o
+                0x08000f6c                InitAdress
  .text.ADCsInit
-                0x08001270       0x94 obj\debug\src\gpiolib.o
-                0x08001270                ADCsInit
+                0x080010b0       0x94 obj\debug\src\gpiolib.o
+                0x080010b0                ADCsInit
  .text.GetADCVal
-                0x08001304       0x68 obj\debug\src\gpiolib.o
-                0x08001304                GetADCVal
- .text.main     0x0800136c      0x10c obj\debug\src\main.o
-                0x0800136c                main
- .text.Ready    0x08001478       0xb8 obj\debug\src\main.o
-                0x08001478                Ready
- .text.delay    0x08001530       0x70 obj\debug\src\main.o
-                0x08001530                delay
+                0x08001144       0x68 obj\debug\src\gpiolib.o
+                0x08001144                GetADCVal
+ .text.main     0x080011ac       0xf4 obj\debug\src\main.o
+                0x080011ac                main
+ .text.Ready    0x080012a0       0xb8 obj\debug\src\main.o
+                0x080012a0                Ready
+ .text.delay    0x08001358       0x70 obj\debug\src\main.o
+                0x08001358                delay
  .text.AlignTaskMng
-                0x080015a0       0x6c obj\debug\src\main.o
-                0x080015a0                AlignTaskMng
+                0x080013c8       0x6c obj\debug\src\main.o
+                0x080013c8                AlignTaskMng
  .text.Calibration
-                0x0800160c      0x280 obj\debug\src\main.o
-                0x0800160c                Calibration
+                0x08001434      0x264 obj\debug\src\main.o
+                0x08001434                Calibration
  .text.SerialMonitor
-                0x0800188c       0x70 obj\debug\src\main.o
-                0x0800188c                SerialMonitor
- .text.Decode   0x080018fc      0x160 obj\debug\src\main.o
-                0x080018fc                Decode
+                0x08001698       0x70 obj\debug\src\main.o
+                0x08001698                SerialMonitor
+ .text.Decode   0x08001708      0x188 obj\debug\src\main.o
+                0x08001708                Decode
  .text.checksumcal
-                0x08001a5c       0x50 obj\debug\src\main.o
-                0x08001a5c                checksumcal
+                0x08001890       0x50 obj\debug\src\main.o
+                0x08001890                checksumcal
  .text.sendReport
-                0x08001aac      0x168 obj\debug\src\main.o
-                0x08001aac                sendReport
+                0x080018e0      0x154 obj\debug\src\main.o
+                0x080018e0                sendReport
  .text.TaskManager
-                0x08001c14       0xcc obj\debug\src\main.o
-                0x08001c14                TaskManager
+                0x08001a34       0xbc obj\debug\src\main.o
+                0x08001a34                TaskManager
  .text.initTask
-                0x08001ce0       0x84 obj\debug\src\main.o
-                0x08001ce0                initTask
- .text.CheckIC  0x08001d64      0x1d0 obj\debug\src\main.o
-                0x08001d64                CheckIC
- .text.Release  0x08001f34      0x184 obj\debug\src\main.o
-                0x08001f34                Release
- .text.PickUp   0x080020b8      0x178 obj\debug\src\main.o
-                0x080020b8                PickUp
+                0x08001af0       0x84 obj\debug\src\main.o
+                0x08001af0                initTask
+ .text.CheckIC  0x08001b74      0x1a4 obj\debug\src\main.o
+                0x08001b74                CheckIC
+ .text.Release  0x08001d18      0x17c obj\debug\src\main.o
+                0x08001d18                Release
+ .text.PickUp   0x08001e94      0x168 obj\debug\src\main.o
+                0x08001e94                PickUp
  .text.CheckIC2
-                0x08002230      0x1d8 obj\debug\src\main.o
-                0x08002230                CheckIC2
+                0x08001ffc      0x1b0 obj\debug\src\main.o
+                0x08001ffc                CheckIC2
  .text.CheckLow
-                0x08002408      0x128 obj\debug\src\main.o
-                0x08002408                CheckLow
+                0x080021ac      0x120 obj\debug\src\main.o
+                0x080021ac                CheckLow
  .text.FinishTask
-                0x08002530       0xa4 obj\debug\src\main.o
-                0x08002530                FinishTask
+                0x080022cc       0x84 obj\debug\src\main.o
+                0x080022cc                FinishTask
  .text.ServoWiggle
-                0x080025d4      0x168 obj\debug\src\main.o
-                0x080025d4                ServoWiggle
- .text.Idler    0x0800273c       0x90 obj\debug\src\main.o
-                0x0800273c                Idler
- .text.IntervalHandle
-                0x080027cc       0x68 obj\debug\src\main.o
-                0x080027cc                IntervalHandle
+                0x08002350      0x168 obj\debug\src\main.o
+                0x08002350                ServoWiggle
+ .text.Idler    0x080024b8       0xc0 obj\debug\src\main.o
+                0x080024b8                Idler
  .text.ModeSelect
-                0x08002834       0x58 obj\debug\src\main.o
-                0x08002834                ModeSelect
- .text.Test     0x0800288c       0x58 obj\debug\src\main.o
-                0x0800288c                Test
- .text.USART2_IRQHandler
-                0x080028e4       0x3c obj\debug\src\main.o
-                0x080028e4                USART2_IRQHandler
+                0x08002578       0x58 obj\debug\src\main.o
+                0x08002578                ModeSelect
  .text.USART1_IRQHandler
-                0x08002920       0x3c obj\debug\src\main.o
-                0x08002920                USART1_IRQHandler
+                0x080025d0       0x3c obj\debug\src\main.o
+                0x080025d0                USART1_IRQHandler
  .text.InitWatchdog
-                0x0800295c       0x28 obj\debug\src\main.o
-                0x0800295c                InitWatchdog
+                0x0800260c       0x28 obj\debug\src\main.o
+                0x0800260c                InitWatchdog
  .text.USART1Init
-                0x08002984       0xf4 obj\debug\src\serialmonitor.o
-                0x08002984                USART1Init
+                0x08002634       0xf4 obj\debug\src\serialmonitor.o
+                0x08002634                USART1Init
  .text.ServoInit
-                0x08002a78       0xb0 obj\debug\src\servo.o
-                0x08002a78                ServoInit
+                0x08002728       0xb0 obj\debug\src\servo.o
+                0x08002728                ServoInit
  .text.ServoSet
-                0x08002b28       0x20 obj\debug\src\servo.o
-                0x08002b28                ServoSet
+                0x080027d8       0x20 obj\debug\src\servo.o
+                0x080027d8                ServoSet
  .text.ServoZero
-                0x08002b48       0x10 obj\debug\src\servo.o
-                0x08002b48                ServoZero
- .text          0x08002b58       0xa0 obj\debug\src\startup_stm32f0xx.o
-                0x08002b58                Reset_Handler
-                0x08002ba2                NMI_Handler
-                0x08002ba4                HardFault_Handler
-                0x08002ba6                SVC_Handler
-                0x08002ba8                PendSV_Handler
-                0x08002baa                SysTick_Handler
-                0x08002bac                Default_Handler
-                0x08002bae                WWDG_IRQHandler
-                0x08002bb0                PVD_IRQHandler
-                0x08002bb2                RTC_IRQHandler
-                0x08002bb4                FLASH_IRQHandler
-                0x08002bb6                RCC_IRQHandler
-                0x08002bb8                EXTI0_1_IRQHandler
-                0x08002bba                EXTI2_3_IRQHandler
-                0x08002bbc                EXTI4_15_IRQHandler
-                0x08002bbe                TS_IRQHandler
-                0x08002bc0                DMA1_Channel1_IRQHandler
-                0x08002bc2                DMA1_Channel2_3_IRQHandler
-                0x08002bc4                DMA1_Channel4_5_IRQHandler
-                0x08002bc6                ADC1_COMP_IRQHandler
-                0x08002bc8                TIM1_BRK_UP_TRG_COM_IRQHandler
-                0x08002bca                TIM1_CC_IRQHandler
-                0x08002bcc                TIM2_IRQHandler
-                0x08002bce                TIM3_IRQHandler
-                0x08002bd0                TIM6_DAC_IRQHandler
-                0x08002bd2                TIM7_IRQHandler
-                0x08002bd4                TIM14_IRQHandler
-                0x08002bd6                TIM15_IRQHandler
-                0x08002bd8                TIM16_IRQHandler
-                0x08002bda                TIM17_IRQHandler
-                0x08002bdc                I2C1_IRQHandler
-                0x08002bde                I2C2_IRQHandler
-                0x08002be0                SPI1_IRQHandler
-                0x08002be2                SPI2_IRQHandler
-                0x08002be8                USART3_4_IRQHandler
-                0x08002bea                CEC_IRQHandler
-                0x08002bec                USB_IRQHandler
-                0x08002bee                BootRAM
+                0x080027f8       0x10 obj\debug\src\servo.o
+                0x080027f8                ServoZero
+ .text          0x08002808       0xa0 obj\debug\src\startup_stm32f0xx.o
+                0x08002808                Reset_Handler
+                0x08002852                NMI_Handler
+                0x08002854                HardFault_Handler
+                0x08002856                SVC_Handler
+                0x08002858                PendSV_Handler
+                0x0800285a                SysTick_Handler
+                0x0800285c                Default_Handler
+                0x0800285e                WWDG_IRQHandler
+                0x08002860                PVD_IRQHandler
+                0x08002862                RTC_IRQHandler
+                0x08002864                FLASH_IRQHandler
+                0x08002866                RCC_IRQHandler
+                0x08002868                EXTI0_1_IRQHandler
+                0x0800286a                EXTI2_3_IRQHandler
+                0x0800286c                EXTI4_15_IRQHandler
+                0x0800286e                TS_IRQHandler
+                0x08002870                DMA1_Channel1_IRQHandler
+                0x08002872                DMA1_Channel2_3_IRQHandler
+                0x08002874                DMA1_Channel4_5_IRQHandler
+                0x08002876                ADC1_COMP_IRQHandler
+                0x08002878                TIM1_BRK_UP_TRG_COM_IRQHandler
+                0x0800287a                TIM1_CC_IRQHandler
+                0x0800287c                TIM2_IRQHandler
+                0x0800287e                TIM3_IRQHandler
+                0x08002880                TIM6_DAC_IRQHandler
+                0x08002882                TIM7_IRQHandler
+                0x08002884                TIM14_IRQHandler
+                0x08002886                TIM15_IRQHandler
+                0x08002888                TIM16_IRQHandler
+                0x0800288a                TIM17_IRQHandler
+                0x0800288c                I2C1_IRQHandler
+                0x0800288e                I2C2_IRQHandler
+                0x08002890                SPI1_IRQHandler
+                0x08002892                SPI2_IRQHandler
+                0x08002896                USART2_IRQHandler
+                0x08002898                USART3_4_IRQHandler
+                0x0800289a                CEC_IRQHandler
+                0x0800289c                USB_IRQHandler
+                0x0800289e                BootRAM
  .text.SystemInit
-                0x08002bf8       0x8c obj\debug\src\system_stm32f0xx.o
-                0x08002bf8                SystemInit
+                0x080028a8       0x8c obj\debug\src\system_stm32f0xx.o
+                0x080028a8                SystemInit
  .text.SetSysClock
-                0x08002c84       0xe0 obj\debug\src\system_stm32f0xx.o
+                0x08002934       0xe0 obj\debug\src\system_stm32f0xx.o
  .text.TIM14Init
-                0x08002d64       0x58 obj\debug\src\timers.o
-                0x08002d64                TIM14Init
- .text          0x08002dbc       0x9c c:/program files (x86)/embitz/0.42/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\libgcc.a(_udivsi3.o)
-                0x08002dbc                __aeabi_uidiv
-                0x08002dbc                __udivsi3
-                0x08002e44                __aeabi_uidivmod
- .text          0x08002e58       0xc0 c:/program files (x86)/embitz/0.42/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\libgcc.a(_divsi3.o)
-                0x08002e58                __divsi3
-                0x08002e58                __aeabi_idiv
-                0x08002f04                __aeabi_idivmod
- .text          0x08002f18        0x4 c:/program files (x86)/embitz/0.42/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\libgcc.a(_dvmd_tls.o)
-                0x08002f18                __aeabi_idiv0
-                0x08002f18                __aeabi_ldiv0
- .text.exit     0x08002f1c       0x2c c:/program files (x86)/embitz/0.42/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_n.a(lib_a-exit.o)
-                0x08002f1c                exit
+                0x08002a14       0x58 obj\debug\src\timers.o
+                0x08002a14                TIM14Init
+ .text          0x08002a6c       0x9c c:/program files (x86)/embitz/0.42/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\libgcc.a(_udivsi3.o)
+                0x08002a6c                __aeabi_uidiv
+                0x08002a6c                __udivsi3
+                0x08002af4                __aeabi_uidivmod
+ .text          0x08002b08       0xc0 c:/program files (x86)/embitz/0.42/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\libgcc.a(_divsi3.o)
+                0x08002b08                __divsi3
+                0x08002b08                __aeabi_idiv
+                0x08002bb4                __aeabi_idivmod
+ .text          0x08002bc8        0x4 c:/program files (x86)/embitz/0.42/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\libgcc.a(_dvmd_tls.o)
+                0x08002bc8                __aeabi_idiv0
+                0x08002bc8                __aeabi_ldiv0
+ .text.exit     0x08002bcc       0x2c c:/program files (x86)/embitz/0.42/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_n.a(lib_a-exit.o)
+                0x08002bcc                exit
  .text.__libc_init_array
-                0x08002f48       0x4c c:/program files (x86)/embitz/0.42/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_n.a(lib_a-init.o)
-                0x08002f48                __libc_init_array
- .text.memset   0x08002f94       0x10 c:/program files (x86)/embitz/0.42/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_n.a(lib_a-memset.o)
-                0x08002f94                memset
- .text          0x08002fa4        0x2 c:/program files (x86)/embitz/0.42/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libnosys_s.a(_exit.o)
-                0x08002fa4                _exit
+                0x08002bf8       0x4c c:/program files (x86)/embitz/0.42/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_n.a(lib_a-init.o)
+                0x08002bf8                __libc_init_array
+ .text.memset   0x08002c44       0x10 c:/program files (x86)/embitz/0.42/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_n.a(lib_a-memset.o)
+                0x08002c44                memset
+ .text          0x08002c54        0x2 c:/program files (x86)/embitz/0.42/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libnosys_s.a(_exit.o)
+                0x08002c54                _exit
  *(.init)
- *fill*         0x08002fa6        0x2 
- .init          0x08002fa8        0x4 c:/program files (x86)/embitz/0.42/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crti.o
-                0x08002fa8                _init
- .init          0x08002fac        0x8 c:/program files (x86)/embitz/0.42/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtn.o
+ *fill*         0x08002c56        0x2 
+ .init          0x08002c58        0x4 c:/program files (x86)/embitz/0.42/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crti.o
+                0x08002c58                _init
+ .init          0x08002c5c        0x8 c:/program files (x86)/embitz/0.42/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtn.o
  *(.fini)
- .fini          0x08002fb4        0x4 c:/program files (x86)/embitz/0.42/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crti.o
-                0x08002fb4                _fini
- .fini          0x08002fb8        0x8 c:/program files (x86)/embitz/0.42/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtn.o
+ .fini          0x08002c64        0x4 c:/program files (x86)/embitz/0.42/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crti.o
+                0x08002c64                _fini
+ .fini          0x08002c68        0x8 c:/program files (x86)/embitz/0.42/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtn.o
  *crtbegin.o(.ctors)
  *crtbegin?.o(.ctors)
  *(EXCLUDE_FILE(*crtend.o *crtend?.o) .ctors)
@@ -3643,46 +3635,46 @@ LOAD c:/program files (x86)/embitz/0.42/share/em_armgcc/bin/../lib/gcc/arm-none-
  *(.dtors)
  *(.rodata*)
  .rodata.TaskManager
-                0x08002fc0       0x28 obj\debug\src\main.o
+                0x08002c70       0x28 obj\debug\src\main.o
  .rodata.str1.1
-                0x08002fe8        0x2 c:/program files (x86)/embitz/0.42/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_n.a(lib_a-impure.o)
- *fill*         0x08002fea        0x2 
+                0x08002c98        0x2 c:/program files (x86)/embitz/0.42/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_n.a(lib_a-impure.o)
+ *fill*         0x08002c9a        0x2 
  .rodata._global_impure_ptr
-                0x08002fec        0x4 c:/program files (x86)/embitz/0.42/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_n.a(lib_a-impure.o)
-                0x08002fec                _global_impure_ptr
+                0x08002c9c        0x4 c:/program files (x86)/embitz/0.42/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_n.a(lib_a-impure.o)
+                0x08002c9c                _global_impure_ptr
  *(.eh_frame*)
- .eh_frame      0x08002ff0        0x0 c:/program files (x86)/embitz/0.42/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtbegin.o
- .eh_frame      0x08002ff0        0x4 c:/program files (x86)/embitz/0.42/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtend.o
+ .eh_frame      0x08002ca0        0x0 c:/program files (x86)/embitz/0.42/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtbegin.o
+ .eh_frame      0x08002ca0        0x4 c:/program files (x86)/embitz/0.42/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtend.o
 
-.glue_7         0x08002ff4        0x0
+.glue_7         0x08002ca4        0x0
  .glue_7        0x00000000        0x0 linker stubs
 
-.glue_7t        0x08002ff4        0x0
+.glue_7t        0x08002ca4        0x0
  .glue_7t       0x00000000        0x0 linker stubs
 
-.vfp11_veneer   0x08002ff4        0x0
+.vfp11_veneer   0x08002ca4        0x0
  .vfp11_veneer  0x00000000        0x0 linker stubs
 
-.v4_bx          0x08002ff4        0x0
+.v4_bx          0x08002ca4        0x0
  .v4_bx         0x00000000        0x0 linker stubs
 
-.iplt           0x08002ff4        0x0
+.iplt           0x08002ca4        0x0
  .iplt          0x00000000        0x0 c:/program files (x86)/embitz/0.42/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtbegin.o
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x08002ff4                __exidx_start = .
+                0x08002ca4                __exidx_start = .
 
-.ARM.exidx      0x08002ff4        0x8
+.ARM.exidx      0x08002ca4        0x8
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
- .ARM.exidx     0x08002ff4        0x8 c:/program files (x86)/embitz/0.42/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m/crt0.o
-                0x08002ffc                __exidx_end = .
-                0x08002ffc                __etext = .
+ .ARM.exidx     0x08002ca4        0x8 c:/program files (x86)/embitz/0.42/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m/crt0.o
+                0x08002cac                __exidx_end = .
+                0x08002cac                __etext = .
 
-.rel.dyn        0x08002ffc        0x0
+.rel.dyn        0x08002cac        0x0
  .rel.iplt      0x00000000        0x0 c:/program files (x86)/embitz/0.42/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtbegin.o
 
-.data           0x20000000       0x84 load address 0x08002ffc
+.data           0x20000000       0x84 load address 0x08002cac
                 0x20000000                __data_start__ = .
  *(vtable)
  *(.data*)
@@ -3725,13 +3717,13 @@ LOAD c:/program files (x86)/embitz/0.42/share/em_armgcc/bin/../lib/gcc/arm-none-
                 0x20000084                . = ALIGN (0x4)
                 0x20000084                __data_end__ = .
 
-.jcr            0x20000084        0x0 load address 0x08003080
+.jcr            0x20000084        0x0 load address 0x08002d30
  .jcr           0x20000084        0x0 c:/program files (x86)/embitz/0.42/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtbegin.o
 
-.igot.plt       0x20000084        0x0 load address 0x08003080
+.igot.plt       0x20000084        0x0 load address 0x08002d30
  .igot.plt      0x00000000        0x0 c:/program files (x86)/embitz/0.42/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtbegin.o
 
-.bss            0x20000088      0x162 load address 0x08003088
+.bss            0x20000088      0x162 load address 0x08002d38
                 0x20000088                __bss_start__ = .
  *(.bss*)
  .bss           0x20000088       0x1c c:/program files (x86)/embitz/0.42/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m/crtbegin.o
@@ -3902,7 +3894,7 @@ OUTPUT(bin\Debug\MCU_Module.elf elf32-littlearm)
  .comment       0x00000000       0x47 obj\debug\src\system_stm32f0xx.o
  .comment       0x00000000       0x47 obj\debug\src\timers.o
 
-.debug_info     0x00000000     0x6acd
+.debug_info     0x00000000     0x6b02
  .debug_info    0x00000000      0x5d7 obj\debug\spl\src\stm32f0xx_gpio.o
  .debug_info    0x000005d7      0x21b obj\debug\spl\src\stm32f0xx_iwdg.o
  .debug_info    0x000007f2      0x372 obj\debug\spl\src\stm32f0xx_misc.o
@@ -3911,14 +3903,14 @@ OUTPUT(bin\Debug\MCU_Module.elf elf32-littlearm)
  .debug_info    0x000031fb      0xe4e obj\debug\spl\src\stm32f0xx_usart.o
  .debug_info    0x00004049      0x723 obj\debug\src\debug.o
  .debug_info    0x0000476c      0x4ec obj\debug\src\gpiolib.o
- .debug_info    0x00004c58      0xd17 obj\debug\src\main.o
- .debug_info    0x0000596f      0x53d obj\debug\src\serialmonitor.o
- .debug_info    0x00005eac      0x4c1 obj\debug\src\servo.o
- .debug_info    0x0000636d       0x6d obj\debug\src\startup_stm32f0xx.o
- .debug_info    0x000063da      0x2f7 obj\debug\src\system_stm32f0xx.o
- .debug_info    0x000066d1      0x3fc obj\debug\src\timers.o
+ .debug_info    0x00004c58      0xd4c obj\debug\src\main.o
+ .debug_info    0x000059a4      0x53d obj\debug\src\serialmonitor.o
+ .debug_info    0x00005ee1      0x4c1 obj\debug\src\servo.o
+ .debug_info    0x000063a2       0x6d obj\debug\src\startup_stm32f0xx.o
+ .debug_info    0x0000640f      0x2f7 obj\debug\src\system_stm32f0xx.o
+ .debug_info    0x00006706      0x3fc obj\debug\src\timers.o
 
-.debug_abbrev   0x00000000     0x11ad
+.debug_abbrev   0x00000000     0x11d1
  .debug_abbrev  0x00000000      0x1a0 obj\debug\spl\src\stm32f0xx_gpio.o
  .debug_abbrev  0x000001a0      0x111 obj\debug\spl\src\stm32f0xx_iwdg.o
  .debug_abbrev  0x000002b1      0x148 obj\debug\spl\src\stm32f0xx_misc.o
@@ -3927,14 +3919,14 @@ OUTPUT(bin\Debug\MCU_Module.elf elf32-littlearm)
  .debug_abbrev  0x0000077b      0x161 obj\debug\spl\src\stm32f0xx_usart.o
  .debug_abbrev  0x000008dc      0x166 obj\debug\src\debug.o
  .debug_abbrev  0x00000a42      0x14a obj\debug\src\gpiolib.o
- .debug_abbrev  0x00000b8c      0x23c obj\debug\src\main.o
- .debug_abbrev  0x00000dc8       0xfe obj\debug\src\serialmonitor.o
- .debug_abbrev  0x00000ec6       0xca obj\debug\src\servo.o
- .debug_abbrev  0x00000f90       0x14 obj\debug\src\startup_stm32f0xx.o
- .debug_abbrev  0x00000fa4      0x139 obj\debug\src\system_stm32f0xx.o
- .debug_abbrev  0x000010dd       0xd0 obj\debug\src\timers.o
+ .debug_abbrev  0x00000b8c      0x260 obj\debug\src\main.o
+ .debug_abbrev  0x00000dec       0xfe obj\debug\src\serialmonitor.o
+ .debug_abbrev  0x00000eea       0xca obj\debug\src\servo.o
+ .debug_abbrev  0x00000fb4       0x14 obj\debug\src\startup_stm32f0xx.o
+ .debug_abbrev  0x00000fc8      0x139 obj\debug\src\system_stm32f0xx.o
+ .debug_abbrev  0x00001101       0xd0 obj\debug\src\timers.o
 
-.debug_aranges  0x00000000      0x938
+.debug_aranges  0x00000000      0x928
  .debug_aranges
                 0x00000000       0x80 obj\debug\spl\src\stm32f0xx_gpio.o
  .debug_aranges
@@ -3952,19 +3944,19 @@ OUTPUT(bin\Debug\MCU_Module.elf elf32-littlearm)
  .debug_aranges
                 0x00000748       0x38 obj\debug\src\gpiolib.o
  .debug_aranges
-                0x00000780       0xf0 obj\debug\src\main.o
+                0x00000780       0xe0 obj\debug\src\main.o
  .debug_aranges
-                0x00000870       0x20 obj\debug\src\serialmonitor.o
+                0x00000860       0x20 obj\debug\src\serialmonitor.o
  .debug_aranges
-                0x00000890       0x38 obj\debug\src\servo.o
+                0x00000880       0x38 obj\debug\src\servo.o
  .debug_aranges
-                0x000008c8       0x20 obj\debug\src\startup_stm32f0xx.o
+                0x000008b8       0x20 obj\debug\src\startup_stm32f0xx.o
  .debug_aranges
-                0x000008e8       0x30 obj\debug\src\system_stm32f0xx.o
+                0x000008d8       0x30 obj\debug\src\system_stm32f0xx.o
  .debug_aranges
-                0x00000918       0x20 obj\debug\src\timers.o
+                0x00000908       0x20 obj\debug\src\timers.o
 
-.debug_ranges   0x00000000      0x848
+.debug_ranges   0x00000000      0x838
  .debug_ranges  0x00000000       0x70 obj\debug\spl\src\stm32f0xx_gpio.o
  .debug_ranges  0x00000070       0x40 obj\debug\spl\src\stm32f0xx_iwdg.o
  .debug_ranges  0x000000b0       0x20 obj\debug\spl\src\stm32f0xx_misc.o
@@ -3973,13 +3965,13 @@ OUTPUT(bin\Debug\MCU_Module.elf elf32-littlearm)
  .debug_ranges  0x00000510      0x190 obj\debug\spl\src\stm32f0xx_usart.o
  .debug_ranges  0x000006a0       0x38 obj\debug\src\debug.o
  .debug_ranges  0x000006d8       0x28 obj\debug\src\gpiolib.o
- .debug_ranges  0x00000700       0xe0 obj\debug\src\main.o
- .debug_ranges  0x000007e0       0x10 obj\debug\src\serialmonitor.o
- .debug_ranges  0x000007f0       0x28 obj\debug\src\servo.o
- .debug_ranges  0x00000818       0x20 obj\debug\src\system_stm32f0xx.o
- .debug_ranges  0x00000838       0x10 obj\debug\src\timers.o
+ .debug_ranges  0x00000700       0xd0 obj\debug\src\main.o
+ .debug_ranges  0x000007d0       0x10 obj\debug\src\serialmonitor.o
+ .debug_ranges  0x000007e0       0x28 obj\debug\src\servo.o
+ .debug_ranges  0x00000808       0x20 obj\debug\src\system_stm32f0xx.o
+ .debug_ranges  0x00000828       0x10 obj\debug\src\timers.o
 
-.debug_macro    0x00000000     0x25f1
+.debug_macro    0x00000000     0x25e1
  .debug_macro   0x00000000      0x172 obj\debug\spl\src\stm32f0xx_gpio.o
  .debug_macro   0x00000172      0x17f obj\debug\spl\src\stm32f0xx_gpio.o
  .debug_macro   0x000002f1      0x17e obj\debug\spl\src\stm32f0xx_iwdg.o
@@ -3996,13 +3988,13 @@ OUTPUT(bin\Debug\MCU_Module.elf elf32-littlearm)
  .debug_macro   0x00001c43       0x82 obj\debug\src\debug.o
  .debug_macro   0x00001cc5       0x34 obj\debug\src\debug.o
  .debug_macro   0x00001cf9      0x180 obj\debug\src\gpiolib.o
- .debug_macro   0x00001e79      0x1ba obj\debug\src\main.o
- .debug_macro   0x00002033      0x172 obj\debug\src\serialmonitor.o
- .debug_macro   0x000021a5      0x172 obj\debug\src\servo.o
- .debug_macro   0x00002317      0x168 obj\debug\src\system_stm32f0xx.o
- .debug_macro   0x0000247f      0x172 obj\debug\src\timers.o
+ .debug_macro   0x00001e79      0x1aa obj\debug\src\main.o
+ .debug_macro   0x00002023      0x172 obj\debug\src\serialmonitor.o
+ .debug_macro   0x00002195      0x172 obj\debug\src\servo.o
+ .debug_macro   0x00002307      0x168 obj\debug\src\system_stm32f0xx.o
+ .debug_macro   0x0000246f      0x172 obj\debug\src\timers.o
 
-.debug_line     0x00000000     0x4e49
+.debug_line     0x00000000     0x4e16
  .debug_line    0x00000000      0x52f obj\debug\spl\src\stm32f0xx_gpio.o
  .debug_line    0x0000052f      0x47a obj\debug\spl\src\stm32f0xx_iwdg.o
  .debug_line    0x000009a9      0x43a obj\debug\spl\src\stm32f0xx_misc.o
@@ -4011,14 +4003,14 @@ OUTPUT(bin\Debug\MCU_Module.elf elf32-littlearm)
  .debug_line    0x000021c1      0x80b obj\debug\spl\src\stm32f0xx_usart.o
  .debug_line    0x000029cc      0x559 obj\debug\src\debug.o
  .debug_line    0x00002f25      0x4ba obj\debug\src\gpiolib.o
- .debug_line    0x000033df      0x8de obj\debug\src\main.o
- .debug_line    0x00003cbd      0x42f obj\debug\src\serialmonitor.o
- .debug_line    0x000040ec      0x443 obj\debug\src\servo.o
- .debug_line    0x0000452f       0x99 obj\debug\src\startup_stm32f0xx.o
- .debug_line    0x000045c8      0x474 obj\debug\src\system_stm32f0xx.o
- .debug_line    0x00004a3c      0x40d obj\debug\src\timers.o
+ .debug_line    0x000033df      0x8ab obj\debug\src\main.o
+ .debug_line    0x00003c8a      0x42f obj\debug\src\serialmonitor.o
+ .debug_line    0x000040b9      0x443 obj\debug\src\servo.o
+ .debug_line    0x000044fc       0x99 obj\debug\src\startup_stm32f0xx.o
+ .debug_line    0x00004595      0x474 obj\debug\src\system_stm32f0xx.o
+ .debug_line    0x00004a09      0x40d obj\debug\src\timers.o
 
-.debug_str      0x00000000    0x414f8
+.debug_str      0x00000000    0x414e4
  .debug_str     0x00000000    0x3f026 obj\debug\spl\src\stm32f0xx_gpio.o
                               0x3f1be (size before relaxing)
  .debug_str     0x0003f026      0x112 obj\debug\spl\src\stm32f0xx_iwdg.o
@@ -4031,22 +4023,22 @@ OUTPUT(bin\Debug\MCU_Module.elf elf32-littlearm)
                               0x3fb91 (size before relaxing)
  .debug_str     0x000404e8      0x7ec obj\debug\spl\src\stm32f0xx_usart.o
                               0x3f7d2 (size before relaxing)
- .debug_str     0x00040cd4      0x459 obj\debug\src\debug.o
+ .debug_str     0x00040cd4      0x45f obj\debug\src\debug.o
                               0x3f5bd (size before relaxing)
- .debug_str     0x0004112d       0x53 obj\debug\src\gpiolib.o
+ .debug_str     0x00041133       0x53 obj\debug\src\gpiolib.o
                               0x3f2fc (size before relaxing)
- .debug_str     0x00041180      0x271 obj\debug\src\main.o
-                              0x3f46e (size before relaxing)
- .debug_str     0x000413f1       0x1f obj\debug\src\serialmonitor.o
+ .debug_str     0x00041186      0x257 obj\debug\src\main.o
+                              0x3f458 (size before relaxing)
+ .debug_str     0x000413dd       0x1f obj\debug\src\serialmonitor.o
                               0x3f373 (size before relaxing)
- .debug_str     0x00041410       0x43 obj\debug\src\servo.o
+ .debug_str     0x000413fc       0x43 obj\debug\src\servo.o
                               0x3f063 (size before relaxing)
- .debug_str     0x00041453       0x78 obj\debug\src\system_stm32f0xx.o
+ .debug_str     0x0004143f       0x78 obj\debug\src\system_stm32f0xx.o
                               0x3efc5 (size before relaxing)
- .debug_str     0x000414cb       0x2d obj\debug\src\timers.o
+ .debug_str     0x000414b7       0x2d obj\debug\src\timers.o
                               0x3f094 (size before relaxing)
 
-.debug_frame    0x00000000     0x20e4
+.debug_frame    0x00000000     0x20ac
  .debug_frame   0x00000000      0x1b0 obj\debug\spl\src\stm32f0xx_gpio.o
  .debug_frame   0x000001b0       0xe8 obj\debug\spl\src\stm32f0xx_iwdg.o
  .debug_frame   0x00000298       0x70 obj\debug\spl\src\stm32f0xx_misc.o
@@ -4055,14 +4047,14 @@ OUTPUT(bin\Debug\MCU_Module.elf elf32-littlearm)
  .debug_frame   0x000013dc      0x630 obj\debug\spl\src\stm32f0xx_usart.o
  .debug_frame   0x00001a0c       0xd0 obj\debug\src\debug.o
  .debug_frame   0x00001adc       0x90 obj\debug\src\gpiolib.o
- .debug_frame   0x00001b6c      0x350 obj\debug\src\main.o
- .debug_frame   0x00001ebc       0x30 obj\debug\src\serialmonitor.o
- .debug_frame   0x00001eec       0x88 obj\debug\src\servo.o
- .debug_frame   0x00001f74       0x6c obj\debug\src\system_stm32f0xx.o
- .debug_frame   0x00001fe0       0x30 obj\debug\src\timers.o
- .debug_frame   0x00002010       0x20 c:/program files (x86)/embitz/0.42/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\libgcc.a(_udivsi3.o)
- .debug_frame   0x00002030       0x20 c:/program files (x86)/embitz/0.42/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\libgcc.a(_divsi3.o)
- .debug_frame   0x00002050       0x28 c:/program files (x86)/embitz/0.42/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_n.a(lib_a-exit.o)
- .debug_frame   0x00002078       0x2c c:/program files (x86)/embitz/0.42/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_n.a(lib_a-init.o)
- .debug_frame   0x000020a4       0x20 c:/program files (x86)/embitz/0.42/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_n.a(lib_a-memset.o)
- .debug_frame   0x000020c4       0x20 c:/program files (x86)/embitz/0.42/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libnosys_s.a(_exit.o)
+ .debug_frame   0x00001b6c      0x318 obj\debug\src\main.o
+ .debug_frame   0x00001e84       0x30 obj\debug\src\serialmonitor.o
+ .debug_frame   0x00001eb4       0x88 obj\debug\src\servo.o
+ .debug_frame   0x00001f3c       0x6c obj\debug\src\system_stm32f0xx.o
+ .debug_frame   0x00001fa8       0x30 obj\debug\src\timers.o
+ .debug_frame   0x00001fd8       0x20 c:/program files (x86)/embitz/0.42/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\libgcc.a(_udivsi3.o)
+ .debug_frame   0x00001ff8       0x20 c:/program files (x86)/embitz/0.42/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/armv6-m\libgcc.a(_divsi3.o)
+ .debug_frame   0x00002018       0x28 c:/program files (x86)/embitz/0.42/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_n.a(lib_a-exit.o)
+ .debug_frame   0x00002040       0x2c c:/program files (x86)/embitz/0.42/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_n.a(lib_a-init.o)
+ .debug_frame   0x0000206c       0x20 c:/program files (x86)/embitz/0.42/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libg_n.a(lib_a-memset.o)
+ .debug_frame   0x0000208c       0x20 c:/program files (x86)/embitz/0.42/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv6-m\libnosys_s.a(_exit.o)

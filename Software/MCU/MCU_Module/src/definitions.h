@@ -33,8 +33,8 @@
 //#define releasevalINIT 113  //servo position to set the release
 //#define pickupINIT 274      //servo value to set the pickup
 //address 2
-//#define releasevalINIT 153  //servo position to set the release
-//#define pickupINIT 307      //servo value to set the pickup
+#define releasevalINIT 153  //servo position to set the release
+#define pickupINIT 307      //servo value to set the pickup
 //address 3
 //#define releasevalINIT 123  //servo position to set the release
 //#define pickupINIT 280      //servo value to set the pickup
@@ -45,8 +45,8 @@
 //#define releasevalINIT 123  //servo position to set the release
 //#define pickupINIT 284      //servo value to set the pickup
 //address 6
-#define releasevalINIT 135  //servo position to set the release
-#define pickupINIT 280      //servo value to set the pickup
+//#define releasevalINIT 135  //servo position to set the release
+//#define pickupINIT 280      //servo value to set the pickup
 
 #define deliverytest 10 //how many components to delivery on a switching address bit 8
 

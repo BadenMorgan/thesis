@@ -36,7 +36,7 @@ GPIO.setmode(GPIO.BCM)
 ser1 = serial.Serial(
               
                port='/dev/ttyAMA0',
-               baudrate = 115200,
+               baudrate = 9600,
                parity=serial.PARITY_NONE,
                stopbits=serial.STOPBITS_ONE,
                bytesize=serial.EIGHTBITS,
@@ -57,7 +57,6 @@ DE = 23
 RE = 24
 door1 = 20
 door2 = 21
-
 GPIO.setwarnings(False)
 GPIO.setup(DE, GPIO.OUT)
 GPIO.setup(RE, GPIO.OUT)
@@ -136,17 +135,16 @@ def DispenceIC(addressbyte,commandbyte,valuebyte):
 			TXBuffer[3] = valuebyte
 			TXBuffer[4] = checksumcal()
 
-			GPIO.output(RE, GPIO.HIGH)
 			GPIO.output(DE, GPIO.HIGH)
 			time.sleep(0.1)
 			ser1.write(TXBuffer)
 			time.sleep(0.1)
 			GPIO.output(DE, GPIO.LOW)
-			GPIO.output(RE, GPIO.LOW)
 
 			time.sleep(1.9*valuebyte)
 			value = {}
 			if(ser1.inWaiting() > 0):
+				ser1.read(6)
 				value = ser1.read(6)
 				# logging.debug("Reading response:")
 				# logging.debug(value[2])
@@ -185,13 +183,13 @@ def DispenceIC(addressbyte,commandbyte,valuebyte):
 					logging.debug("Failed Dispense")
 			try:
 				check = value[0]
-				print(check)
+				# print(check)
 				check = (check + value[1]) & 0xFF
-				print(check)
+				# print(check)
 				check = (check + value[2]) & 0xFF
-				print(check)
+				# print(check)
 				check = (check + value[3]) & 0xFF
-				print(check)
+				# print(check)
 				if value[0] == 0xD1 and value[1] == addressbyte and value[3] == 1 and value[4] == check and value[5] == 0xE1:
 					retries = 0
 					if value[2] & 0x01:
@@ -225,35 +223,52 @@ def UpdateLCD(StringToPrint):
 	global retries
 	global maxretry
 
+	discard = len(StringToPrint) + 5
+
 	LCDBuffer = bytearray([0xA1,0x01,0xB7])
 	LCDBuffer.extend(bytearray(map(ord,StringToPrint)))
 	LCDBuffer.extend([0x04,0xF1])
 	
-	GPIO.output(RE, GPIO.HIGH)
+	# GPIO.output(RE, GPIO.HIGH)
 	GPIO.output(DE, GPIO.HIGH)
 	time.sleep(0.1)
 	ser1.write(LCDBuffer)
 	time.sleep(0.1)
 	GPIO.output(DE, GPIO.LOW)
-	GPIO.output(RE, GPIO.LOW)
+	# GPIO.output(RE, GPIO.LOW)
 
-	time.sleep(1.2)
+	time.sleep(3)
 	value = {}
+	value2 = {}
 	if(ser1.inWaiting() > 0):
+		value2 = ser1.read(discard)
 		value = ser1.read(6)
 		# logging.debug("Reading response:")
 		# logging.debug(value[2])
-		
+		print(value2)
+		print(value)
 
 		while(ser1.inWaiting() > 0):
 			logging.debug("Flushing extra reads...")
 			ser1.read(ser1.inWaiting()) #flushing the system.
 			logging.debug("Done!")
 		try:
+			# gprint("checking")
 			check = value[0]
+			# print(check)
 			check = (check + value[1]) & 0xFF
+			# print(check)
 			check = (check + value[2]) & 0xFF
+			# print(check)
 			check = (check + value[3]) & 0xFF
+			# print(check)
+			# print('wtf')
+			# print(value[0])
+			# print(value[1])
+			# print(value[2])
+			# print(value[3])
+			# print(value[4])
+			# print(value[5])
 			if value[0] == 0xD1 and value[1] == 1 and value[3] == 1 and value[4] == check and value[5] == 0xE1:
 				if value[2] & 0x08:
 					logging.debug("Displayed Successfully")
@@ -465,13 +480,12 @@ def callModules():
 		TXBuffer[3] = 0
 		TXBuffer[4] = checksumcal()
 
-		GPIO.output(RE, GPIO.HIGH)
+
 		GPIO.output(DE, GPIO.HIGH)
 		time.sleep(0.1)
 		ser1.write(TXBuffer)
 		time.sleep(0.1)
 		GPIO.output(DE, GPIO.LOW)
-		GPIO.output(RE, GPIO.LOW)
 
 		time.sleep(0.5)
 		
@@ -558,78 +572,80 @@ def callModules():
 # msg = bytearray([0x48,0x45,0x4C,0x4C,0x4F,0x0A])
 # ser1.write('hello\n')
 
-# try:
+try:
 # time.sleep(5)
 # callModules()
-while True:
-	# try:
-	# if(ser.inWaiting()>0):
-	# 	currentTimeout = timeout;
-	# if(ser.inWaiting()%tagLength == 0):
-	# 	value = ser.read(tagLength)
-	# 	logging.debug("Reading card...")
-	# 	value = value.decode("utf-8")
-	# 	value = int(value[1:-3],16)
+	while True:
+		# try:
+		# if(ser.inWaiting()>0):
+		# 	currentTimeout = timeout;
+		# if(ser.inWaiting()%tagLength == 0):
+		# 	value = ser.read(tagLength)
+		# 	logging.debug("Reading card...")
+		# 	value = value.decode("utf-8")
+		# 	value = int(value[1:-3],16)
 
-	# 	while(ser.inWaiting() > 0):
-	# 		logging.debug("Flushing extra reads...")
-	# 		ser.read(ser.inWaiting()) #flushing the system.
-	# 		logging.debug("Done!")
-		
-	# 	RequestStNo(value)			
-	# elif (ser.inWaiting() > tagLength):
-	# 	logging.debug("Too much data in buffer - flushing")
-	# 	time.sleep(2)
-	# 	logging.debug(ser.inWaiting())
-	# 	logging.debug(ser.read(ser.inWaiting())) #flushing the system.
-	# 	logging.debug("Flushed")
+		# 	while(ser.inWaiting() > 0):
+		# 		logging.debug("Flushing extra reads...")
+		# 		ser.read(ser.inWaiting()) #flushing the system.
+		# 		logging.debug("Done!")
+			
+		# 	RequestStNo(value)			
+		# elif (ser.inWaiting() > tagLength):
+		# 	logging.debug("Too much data in buffer - flushing")
+		# 	time.sleep(2)
+		# 	logging.debug(ser.inWaiting())
+		# 	logging.debug(ser.read(ser.inWaiting())) #flushing the system.
+		# 	logging.debug("Flushed")
 
-	# else:
-	# 	time.sleep(1)
-	# 	currentTimeout-=1;	
-	# except KeyboardInterrupt:
-	# 	logging.debug("keyboard out!")
-	# 	sys.exit()
-	# except:
-	# 	logging.debug('ERROR')
-
-
+		# else:
+		# 	time.sleep(1)
+		# 	currentTimeout-=1;	
+		# except KeyboardInterrupt:
+		# 	logging.debug("keyboard out!")
+		# 	sys.exit()
+		# except:
+		# 	logging.debug('ERROR')
 
 
 
-	# FlushDB()
-	# rlist, _, _ = select([sys.stdin], [], [], 1)
-	# if rlist:		
-	# 	command = sys.stdin.readline()
-	# 	sys.stdin.flush()
 
-	# ComponentNoCheck("MRGBAD001")
-	command = input("enter g: ")
-	if command == 'g':
-		# Free()
-		# RequestDispence('MRGBAD001')
-		# RequestStNo('81607133871')
-		# logging.debug("despensing")
-		DispenceIC(1,0xB3,3)
-		# FinalMsg()
-		# 
-		DispenceIC(1,0xB5,0)
-		command = ''
-	if command == 'f':
-		Free();
-	if command == 'e':
-		mailadmin(6,0)
-		# i = 0
-		# for i in range (0, len(admins)):
-		# 	logging.debug(admins[i])
-		# 	if 'MRGBAD001' == admins[i]:
-					
-		# 		command = ''
-		# 	i = i + 1
 
-# except KeyboardInterrupt:
-# 	logging.debug("keyboard out!")
-# except:
-# 	logging.warning("Unkown Error")
-# finally:
-# 	GPIO.cleanup()
+		# FlushDB()
+		# rlist, _, _ = select([sys.stdin], [], [], 1)
+		# if rlist:		
+		# 	command = sys.stdin.readline()
+		# 	sys.stdin.flush()
+
+		# ComponentNoCheck("MRGBAD001")
+		command = input("enter g: ")
+		if command == 'g':
+			# Free()
+			# RequestDispence('MRGBAD001')
+			# RequestStNo('81607133871')
+			# logging.debug("despensing")
+			DispenceIC(1,0xB3,3)
+			time.sleep(2)
+			DispenceIC(2,0xB3,3)
+			# FinalMsg()
+			# 
+			# DispenceIC(1,0xB5,0)
+			command = ''
+		if command == 'f':
+			Free();
+		if command == 'e':
+			mailadmin(6,0)
+			# i = 0
+			# for i in range (0, len(admins)):
+			# 	logging.debug(admins[i])
+			# 	if 'MRGBAD001' == admins[i]:
+						
+			# 		command = ''
+			# 	i = i + 1
+
+except KeyboardInterrupt:
+	logging.debug("keyboard out!")
+except:
+	logging.warning("Unkown Error")
+finally:
+	GPIO.cleanup()

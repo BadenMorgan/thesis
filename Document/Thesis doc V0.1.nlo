@@ -1,21 +1,21 @@
-\nomenclatureentry{aI2C@[{I2C}]\begingroup Inter-integrated Circuit - A hardware level communications protocol using a clock\nomeqref {0}|nompageref}{xii}
-\nomenclatureentry{aUART@[{UART}]\begingroup Universal Asynchronous Receiver/Transmitter - A hardware level communication protocol without a clock\nomeqref {0}|nompageref}{xii}
-\nomenclatureentry{aRX@[{RX}]\begingroup Receiver Number x - Relates to the receive pin of a communications protocol, typically UART\nomeqref {0}|nompageref}{xii}
-\nomenclatureentry{aTX@[{TX}]\begingroup Transmitter number x - Relates to the transmit pin of a communications protocol, typically UART\nomeqref {0}|nompageref}{xii}
-\nomenclatureentry{aRFID@[{RFID}]\begingroup Radio Frequency Identification - A protocol using near field communications technology\nomeqref {0}|nompageref}{xii}
-\nomenclatureentry{aURL@[{URL}]\begingroup Uniform Resource Locator - A name relating to a address on the internet given by a DNS\nomeqref {0}|nompageref}{xii}
-\nomenclatureentry{aHTTP@[{HTTP}]\begingroup Hypertext Transfer Protocol - The protocol used to communicate over the internet and make and receive requests\nomeqref {0}|nompageref}{xii}
-\nomenclatureentry{aPHP@[{PHP}]\begingroup Hypertext Preprocessor - A language used to help make dynamic content on websites\nomeqref {0}|nompageref}{xii}
-\nomenclatureentry{aIP@[{IP}]\begingroup Internet Protocol - The protocol used to identify servers on the internet\nomeqref {0}|nompageref}{xii}
-\nomenclatureentry{aHAT@[{HAT}]\begingroup Hardware Attached onTop - A common name given to a piece of hardware that interfaces with a Raspberry Pi\nomeqref {0}|nompageref}{xii}
-\nomenclatureentry{aPCB@[{PCB}]\begingroup Printed Circuit Board - A board that has a conductive metal printed on it to make electronic products\nomeqref {0}|nompageref}{xii}
-\nomenclatureentry{aHTML@[{HTML}]\begingroup Hypertext Markup Language - The language used to generate static content on a website\nomeqref {0}|nompageref}{xii}
-\nomenclatureentry{aAPI@[{API}]\begingroup Application Programming Interface - A method used to great a system specific communications specification\nomeqref {0}|nompageref}{xii}
-\nomenclatureentry{aECE@[{ECE}]\begingroup Electrical \& Computer Engineering - A type of engineering\nomeqref {0}|nompageref}{xii}
-\nomenclatureentry{aPLA@[{PLA}]\begingroup Polylactic Acid - A common plastic used in 3D printing\nomeqref {0}|nompageref}{xii}
-\nomenclatureentry{aABS@[{ABS}]\begingroup Acrylonitrile Butadiene Styrene - A common plastic used in 3D printing\nomeqref {0}|nompageref}{xii}
-\nomenclatureentry{aADC@[{ADC}]\begingroup Analog to Digital Converter - A hardware component that enables a digital device to be able to sample analog signals\nomeqref {0}|nompageref}{xii}
-\nomenclatureentry{aMCU@[{MCU}]\begingroup Microntroller Unit - A digital logic device that is programmable\nomeqref {0}|nompageref}{xii}
-\nomenclatureentry{aIC@[{IC}]\begingroup Integrated Circuit - A circuit that was integrated into a small package, like the DIP package\nomeqref {0}|nompageref}{xii}
-\nomenclatureentry{aDNS@[{DNS}]\begingroup Domain Name System - A server type that enables a network to assign URL names to a specific IP\nomeqref {0}|nompageref}{xii}
-\nomenclatureentry{aASCII@[{ASCII}]\begingroup American Standard Code for Information Interchange - A standard set out to relate numbers to symbols and letters for using in computer science and engineering\nomeqref {0}|nompageref}{xii}
+\nomenclatureentry{aI2C@[{I2C}]\begingroup Inter-integrated Circuit - A hardware level communications protocol using a clock\nomeqref {0}|nompageref}{xiii}
+\nomenclatureentry{aUART@[{UART}]\begingroup Universal Asynchronous Receiver/Transmitter - A hardware level communication protocol without a clock\nomeqref {0}|nompageref}{xiii}
+\nomenclatureentry{aRX@[{RX}]\begingroup Receiver Number x - Relates to the receive pin of a communications protocol, typically UART\nomeqref {0}|nompageref}{xiii}
+\nomenclatureentry{aTX@[{TX}]\begingroup Transmitter number x - Relates to the transmit pin of a communications protocol, typically UART\nomeqref {0}|nompageref}{xiii}
+\nomenclatureentry{aRFID@[{RFID}]\begingroup Radio Frequency Identification - A protocol using near field communications technology\nomeqref {0}|nompageref}{xiii}
+\nomenclatureentry{aURL@[{URL}]\begingroup Uniform Resource Locator - A name relating to a address on the internet given by a DNS\nomeqref {0}|nompageref}{xiii}
+\nomenclatureentry{aHTTP@[{HTTP}]\begingroup Hypertext Transfer Protocol - The protocol used to communicate over the internet and make and receive requests\nomeqref {0}|nompageref}{xiii}
+\nomenclatureentry{aPHP@[{PHP}]\begingroup Hypertext Preprocessor - A language used to help make dynamic content on websites\nomeqref {0}|nompageref}{xiii}
+\nomenclatureentry{aIP@[{IP}]\begingroup Internet Protocol - The protocol used to identify servers on the internet\nomeqref {0}|nompageref}{xiii}
+\nomenclatureentry{aHAT@[{HAT}]\begingroup Hardware Attached onTop - A common name given to a piece of hardware that interfaces with a Raspberry Pi\nomeqref {0}|nompageref}{xiii}
+\nomenclatureentry{aPCB@[{PCB}]\begingroup Printed Circuit Board - A board that has a conductive metal printed on it to make electronic products\nomeqref {0}|nompageref}{xiii}
+\nomenclatureentry{aHTML@[{HTML}]\begingroup Hypertext Markup Language - The language used to generate static content on a website\nomeqref {0}|nompageref}{xiii}
+\nomenclatureentry{aAPI@[{API}]\begingroup Application Programming Interface - A method used to great a system specific communications specification\nomeqref {0}|nompageref}{xiii}
+\nomenclatureentry{aECE@[{ECE}]\begingroup Electrical \& Computer Engineering - A type of engineering\nomeqref {0}|nompageref}{xiii}
+\nomenclatureentry{aPLA@[{PLA}]\begingroup Polylactic Acid - A common plastic used in 3D printing\nomeqref {0}|nompageref}{xiii}
+\nomenclatureentry{aABS@[{ABS}]\begingroup Acrylonitrile Butadiene Styrene - A common plastic used in 3D printing\nomeqref {0}|nompageref}{xiii}
+\nomenclatureentry{aADC@[{ADC}]\begingroup Analog to Digital Converter - A hardware component that enables a digital device to be able to sample analog signals\nomeqref {0}|nompageref}{xiii}
+\nomenclatureentry{aMCU@[{MCU}]\begingroup Microntroller Unit - A digital logic device that is programmable\nomeqref {0}|nompageref}{xiii}
+\nomenclatureentry{aIC@[{IC}]\begingroup Integrated Circuit - A circuit that was integrated into a small package, like the DIP package\nomeqref {0}|nompageref}{xiii}
+\nomenclatureentry{aDNS@[{DNS}]\begingroup Domain Name System - A server type that enables a network to assign URL names to a specific IP\nomeqref {0}|nompageref}{xiii}
+\nomenclatureentry{aASCII@[{ASCII}]\begingroup American Standard Code for Information Interchange - A standard set out to relate numbers to symbols and letters for using in computer science and engineering\nomeqref {0}|nompageref}{xiii}

@@ -236,22 +236,39 @@ requirements increase
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	% introduction
 \section{Introduction}
-	%Well, and here begins my lovely article.
+	%Well, and here begins my lovely report.
 	\subsection{Subject and motivation for the Research}
-		%meh
-	\subsection{Background to the Research}
-		%adding it here
-	\subsection{ Objectives of this Research}
-		%adding more
+The White Lab is a hub for the electrical engineering students of UCT to interact with one another and work on assignments and projects. The White Lab has many facilities to help students with these assignments and projects including supplies such as wiring, verobaord and components. The White Lab can be very busy during the day and night. On a busy day students can be seen lining up to collect components from the White Lab component store or be seen waiting for it to re-open. At night however they do not have the luxury of the component store besides a selection of resistors on the wall outside the component store. Not being able to acquire components from the White Lab component store during specific times can cause delays in students assignment and projects especially over night. The proposed solution to this problem of acquisition is a White Lab Component Vending Machine. This Vending Machine would be operational 24 hours a day 7 days a week, with an online store for ordering components in bulk and the physical Vending Machine were students can collect components. 
+
+The components to be dispensed are those most requested by students. A list of commonly ordered components was compiled, prior to the investigation of this report, by the head of the White Lab Component Store. With this list the most common components observed were seen to be in packages such as DIP and TO packages. This information was compiled by the Principal Technical Officer of White Lab, Justin Pead, and the manager of the White Lab Component Store, Brendon Daniels. These packages brought about the hypothesis that a mechanism could be design to cater to them specifically. By doing so this would deuce the need for lines at the Component Store and allow student s to acquire components at night when the store was closed. These packages were universal meaning a design for a package was to be the focus of this research. It also meant that if a design for package could be achieved multiple different purposed components could be dispensed.
+
+This report documents the research, design, build process and assembly of the White lab Component Vending Machine. 
+	\subsection{Objectives of this Research}
+The main objectives of this report are to investigate the mechanical and software design of a Component Vending Machine. The Vending Machine needed:
+\begin{enumerate}
+\item to be able to reliably dispense individual components on a regular basis.
+\item to connect to the internet for remote component ordering and control.
+\item to be self contained and user friendly.
+\item to be able to stock components in a manner that they could be dispensed and restocked easily.
+\end{enumerate}
+
 		\subsubsection{Problems to be investigated}
-			%a little here
-		\subsubsection{Purpose of this study}
-			%a little here
+The above mentioned basic requirements of the Vending Machine can be formalized and investigation problems formed, these are listed below:
+\begin{itemize}
+\item \textbf{Internet Viability:} Investigate the possibility of connecting such a device to the internet and what software and hardware is required. A test case should be examined and constructed to prove the possibility of an internet connected Vending Machine.
+\item \textbf{Mechanical Delivery Mechanism:} One of the main focuses of this research will be to investigate designs of prior such projects. Once information on prior projects is acquired a solution will be designed to meet the requirements of the single component delivery mechanism. These delivery mechanism should be modular to promote expansion.
+\item \textbf{Enclosure design:} An enclosure will be needed in order to house the delivery mechanism and stock of components. The enclosure should be big enough to house the planned delivery mechanism to be built for this report and future delivery mechanism
+\item \textbf{PCB and Circuit design:} PCBs will be needed to control each delivery mechanism. This should be designed to meet the specification of the designed delivery mechanism. Challenges to be investigated are communication due to a noisy environment and microcontroller selection and designing a circuit around it. The circuit should accommodate a modular design for future expansion.
+\item \textbf{Software requirements:} On top of software needed to facilitate an online connection, software will be needed in order to control the delivery mechanisms and the Vending Machine itself. This will require some embedded software design and software development. 
+\item \textbf{Assembly:} The assembly of the Vending Machine will be documented in order to find problems and assess the viability of the design proposed in this report. Each element of the design will be address individually.
+\end{itemize}
+		\subsubsection{Purpose of this Research}
+The purpose of this research and report is to assess the overall viability of a 24 hour Component Vending Machine and all the components that make it. The design and research is to help current and future UCT students by giving them an extra method of acquiring components in the White Lab and extending the times they may do so. It is intended that this design be a in place solution for this problem or a prototype that can be used to build a more commercial product. The Aim of this research is not to replace the White Lab Components Store immediately but rather an extension of it.
 	\subsection{Scope and Limitations of the Research}
-		%something something	
+The scope of this project is defined only by the components supplied by the White Lab but was narrowed down in order to focus on the overall objectives. The scope of the overall objectives defined that an entire Vending Machine be designed from the ground up. This meant compromised need to be made. The scope of the internet connection was limited to a test case of specifically designed website to prove the viability of having the Vending Machine operate in conjunction with a web based store. The current component store stocks a plethora of components that student can request. To design for all cases would not be viable and ineffective as not all components are requested as often as others. To this point the scope of the design was limited to DIP package components, those being the most commonly requested components, information obtained from the current White Lab Component Store. It is intended that recommendations be given on other component packages but no designs will be specifically discussed. 
 	\subsection{Plan of Development}	
-		%blah blah
-	\subsubsection{Note For Reader}
+The report begins with investigations and research in prior work similar to that of the intended research of this report. Next research into theory and practical work which pertains to certain aspects of the project of which no prior knowledge was known is presented. The report then focuses on the specifications of the project and more thoroughly defines what shall be the final goal of the project. Focus is then shifted to a methodology discussion and approaches taking during the projects life cycle. Next the report will draw attention to the materials selected for the project and why they were chosen. Attention is then drawn to the design and prototyping of the project and research. The report calumniates the knowledge gained in prior investigation to present the designs made to meet the requirements of the project and research of this report. The report will then present the assembly of the project with details on how the device was built including material listing and costing. The next section will focus on testing that was done throughout the research and comments on these tests. Finally the report will present a conclusion to the research and attempt to relay recommendations for future development.
+	\subsection{Note For Reader}
 	For convenience to the reader, if this document is being read on a computer or digital device that support the pdf format, take note that citations, cross-references and links are all clickable. This is to make navigating this report easier and more enjoyable to read on electronic devices. Also the author would like to thank you personally for taking the time to read this report and hopes you will enjoy it.
 	\newpage
 \setlength{\parskip}{1em}
@@ -779,7 +796,7 @@ This section presents the design of the enclosure that would house all the deliv
 	\caption{Frame of the enclosure illustrating the upper and lower compartments. \label{fig:frame}}
 	\end{figure}
 
-The "Upper Compartment" as illutrated in \halfref{fig:frame}, of the frame was designed to fit the tallest delivery mechanism, that being the DIP 20 dispenser and the longest measured component tube plus, a little room for error and potentially taller component tubes. The DIP 20 dispenser measured in at about 100 mm, from the base to the top of the housing structure, the tallest component tube measured in at about 600 mm with an addition 150 mm for potentially longer tubes, 10 mm for error, leading to a upper compartment height of  860 mm. The width of the enclosure was determined by the space it would take to fit 3 rows of dispensers in the Vending Machine leading to a width that was rounded to 600 mm. The "Lower Compartment" was designed to fit a sloped piece of aluminium that would guide the dispensed components to a "Bucket", labeled in the top view, accessible to the user to collect the component. This sloped piece of aluminium is illustrated in \halfref{fig:sloped}.
+The "Upper Compartment" as illutrated in \halfref{fig:frame}, of the frame was designed to fit the tallest delivery mechanism, that being the DIP 20 dispenser and the longest measured component tube plus, a little room for error and potentially taller component tubes. The DIP 20 dispenser measured in at about 100 mm, from the base to the top of the housing structure, the tallest component tube measured in at about 600 mm with an addition 150 mm for potentially longer tubes, 10 mm for error, leading to a upper compartment height of  860 mm. The width of the enclosure was determined by the space it would take to fit 3 rows of dispensers in the Vending Machine leading to a width that was rounded to 600 mm. The "Lower Compartment" was designed to fit a sloped piece of aluminium that would guide the dispensed components to a "Bucket", labeled in the top view, accessible to the user to collect the component. This sloped piece of aluminium is illustrated in \autoref{fig:sloped}.
 
 	\begin{figure}[ht]	
 	\centering
@@ -795,7 +812,7 @@ This sloped plate was designed to have an angle of incline above 45 degrees to e
 	\caption{Isometric and top view of the enclosure with the case on interior. \label{fig:case}}
 	\end{figure}
 
-The sheets that cover the enclosure can be seen in \halfref{fig:case}. Inside one can see 3 planks of wood as the shelving. The wood plank furthest back has a delivery mechanism situated on it to illustrate how the mechanism would be places and a reference for size. The first plank, being the rear most plank, will is indented to be installed for the vending machine and the other two are to represent the means for expansion when the first plank has run out of space for more delivery mechanisms. Drawings of the parts that make up the enclosure and have been provided in \fullref{subsec:enctemplates} and \fullref{subsec:request}, these were used to assist assembling the enclosure and will be discussed more in later section of this report.
+The sheets that cover the enclosure can be seen in \autoref{fig:case}. Inside one can see 3 planks of wood as the shelving. The wood plank furthest back has a delivery mechanism situated on it to illustrate how the mechanism would be places and a reference for size. The first plank, being the rear most plank, will is indented to be installed for the vending machine and the other two are to represent the means for expansion when the first plank has run out of space for more delivery mechanisms. Drawings of the parts that make up the enclosure and have been provided in \fullref{subsec:enctemplates} and \fullref{sec:request}, these were used to assist assembling the enclosure and will be discussed more in later section of this report.
 
 \subsection{Enclosure Redesign}
 A redesign was needed for the enclosure as problems were encountered when trying to manufacture the sloped plate illustrated in \autoref{fig:sloped}, the bending needed to be outsourced. The bending needed was not feasible and so a small redesign of the enclosure was done.
@@ -816,7 +833,7 @@ A cover for the RFID reader was needed to protect the coils from damage from the
 	\caption{Isometric back and front views of the RFID coil cover. \label{fig:rfid}}
 	\end{figure}
 
-The cover can be seen in \halfref{fig:rfid} from the back and the front view. The cover was designed to be easily identifiable with the universal RFID symbol indented on the front of the cover making it easy for the user to know where to swipe their card illustrated by the item labeled "Indent of RFID Icon". The cavity was designed to fit the coil with a bit of room for unpredictable coil measurements, this is labeled "Cavity for RFID Coil" in the figure. "Cavity and hole for bolt" labeled above illustrated one of the cavities made for a bolt and washer to be situated to make the cover mountable on the casing of the enclosure. It was designed as such so no bolt was visible on the front side making for a clean design for the user to see. A detailed drawing can be seen in \fullref{subsec:rfid}.
+The cover can be seen in \autoref{fig:rfid} from the back and the front view. The cover was designed to be easily identifiable with the universal RFID symbol indented on the front of the cover making it easy for the user to know where to swipe their card illustrated by the item labeled "Indent of RFID Icon". The cavity was designed to fit the coil with a bit of room for unpredictable coil measurements, this is labeled "Cavity for RFID Coil" in the figure. "Cavity and hole for bolt" labeled above illustrated one of the cavities made for a bolt and washer to be situated to make the cover mountable on the casing of the enclosure. It was designed as such so no bolt was visible on the front side making for a clean design for the user to see. A detailed drawing can be seen in \fullref{subsec:rfid}.
 
 \subsection{PCB Design}
 This section present the designs that made the electronics of the vending machine. The PCB designed in this section were made in Eagle CAD.
@@ -1060,7 +1077,7 @@ The bill of materials for the servo can be seen in \autoref{tab:bomserv}. All th
 	\end{table}	
 
 \subsection{Enclosure Assembly}
-Assembly of the enclosure began with cutting the steel L and flat bars to length for the frame only. The frame was then welded using stick welding. Initially the the base and top of the frame were welded, then the columns in the corners. The walls of the frame, made of 2mm aluminium sheets, were then cut using a gulatine. The walls were clamped to the frame and holes were drilled through the walls and the frame. The walls were drilled one by one until the 4 walls, 2 sides back and top, were all drilled and attached using bolts for removal if needed. A picture of the enclosure at this stage of the build can be seen in \autoref{fig:enfrwal}.
+The enclosure assembly followed the design using drawings from \autoref{sec:request} and \autoref{subsec:enctemplates} to guide the process. Assembly of the enclosure began with cutting the steel L and flat bars to length for the frame only. The frame was then welded using stick welding. Initially the the base and top of the frame were welded, then the columns in the corners. The walls of the frame, made of 2mm aluminium sheets, were then cut using a gulatine. The walls were clamped to the frame and holes were drilled through the walls and the frame. The walls were drilled one by one until the 4 walls, 2 sides back and top, were all drilled and attached using bolts for removal if needed. A picture of the enclosure at this stage of the build can be seen in \autoref{fig:enfrwal}.
 
 	\begin{figure}[!ht]	
 	\centering
@@ -1068,16 +1085,16 @@ Assembly of the enclosure began with cutting the steel L and flat bars to length
 	\caption{Pictures of the enclosure frame with the walls bolted on. \label{fig:enfrwal}}
 	\end{figure}
 
-Holes and openings were drilled in the front door plate and rear plate to accomedate the PSU, Ethernet cable, LCD and RFID cover. Next the drop plate was bent using a bending machine. The height of the drop plate was marked inside the frame and the piece to hold the wooden shelves was welded onto the frame. A strip was also welded onto these pieces, which would hold up the shelves, to bolt the drop plate in place. The drop plate and frame were drilled and bolts were placed to secure it in place. The front door panel was placed on the frame and marked with the hinges in place. Holes for the hinges in the frame and aluminium were drilled and the hinges were secured with countersunk bolts and nuts. Next the holes for the lock were drilled and the lock was also attached with countersunk bolts and nuts. It was intended that the frame would be brushed and painted to give it a nice finish but was not done before the compilation of this report. A picture of the enclosure at this stage of the build can be seen in \autoref{fig:endone}. All the materials used are listed in the \autoref{tab:bomen}.
+Holes and openings were drilled in the front door plate and rear plate to accomedate the PSU, Ethernet cable, LCD and RFID cover. Next the drop plate was bent using a bending machine. The height of the drop plate was marked inside the frame and the piece to hold the wooden shelves was welded onto the frame. A strip was also welded onto these pieces, which would hold up the shelves, to bolt the drop plate in place. The drop plate and frame were drilled and bolts were placed to secure it in place. The front door panel was placed on the frame and marked with the hinges in place. Holes for the hinges in the frame and aluminium were drilled and the hinges were secured with countersunk bolts and nuts. Next the holes for the lock were drilled and the lock was also attached with countersunk bolts and nuts. It was intended that the frame would be brushed and painted to give it a nice finish but was not done before the compilation of this report. A picture of the enclosure at this stage of the build can be seen in \autoref{fig:endone}. All the materials used are listed in the \autoref{tab:bomen}. The enclosure had final dimension of width, height and length as follows; ........
 
 	\begin{figure}[!ht]	
 	\centering
 	\includegraphics[scale=0.25]{{enfin}.jpg}
-	\caption{Pictures of the enclosure frame with the walls bolted on. \label{fig:endone}}
+	\caption{Pictures of the enclosure frame all the internal elements in place. \label{fig:endone}}
 	\end{figure}
 	\FloatBarrier
 
-Additionally, a small plate was fashioned in order to mount to Raspberry Pi perpendicular to the rear wall instead of against it to allow for the Ethernet port to be exposed from back. This was not specified in the design but was added to reduce additional costs to allow for the Raspberry Pi to connect to the internet via CAT5 cable. A piece of wood was cut for the shelve and is included in the overall assembly of the project. 
+Additionally, a small plate was fashioned in order to mount to Raspberry Pi perpendicular to the rear wall instead of against it to allow for the Ethernet port to be exposed from back. This was not specified in the design but was added to reduce additional costs to allow for the Raspberry Pi to connect to the internet via CAT5 cable. A piece of wood was cut, from a sheet of compressed chip board, for the shelf and is included in the overall assembly of the project. This piece of wood is specified in the designs with width, height and length as follows; ........
 
 	\begin{table}[ht]
 	\centering		
@@ -1282,9 +1299,9 @@ To begin assembly of a delivery mechanism the perspex was ordered and cut as per
 	\caption{Picture of the 3D printed IC guide and roller after assembly. \label{fig:3Dprints}}
 	\end{figure}
 	
-Once the 3D printed IC guide were done printing the bolts and washers were placed in the designated holes. Next the two IR LEDs and two phototransistors had wires soldered to the leads. A pair of IR LED and phototransitor were glued into the designated slots making sure to line them up with the intended component to minimize false readings. The Vibration motor was then placed inside the cavity made for it and leads soldered to it. Finally the servo worn was lined up with the foothold and a small amount of glue was used to secure it. The finished product for one of the IC guides and rollers can be seen in \autoref{fig:3Dprints}.
+Once the 3D printed IC guide were done printing the bolts and washers were placed in the designated holes. Next the two IR LEDs and two phototransistors had wires soldered to the leads. A pair of IR LED and phototransitor were glued into the designated slots making sure to line them up with the intended component to minimize false readings. The sensors where lined up in the IC guide by playing a tube in the guide and placing components in the tube to determine the optimal slot, of three, to use. The Vibration motor was then placed inside the cavity made for it and leads soldered to it. Finally the servo horn was lined up with the foothold and a small amount of glue was used to secure it. The finished product for one of the IC guides and rollers can be seen in \autoref{fig:3Dprints}.
 
-Next the housing structure was assembled. The structure was assembled according to the drawings in \autoref{subsec:h3} using tensol adhesive to secure the structure. The servo motor was placed inside the housing structure during assembly. The 3D prints that where assembled and described above where then fixed to the housing structure with bolts, nuts and a screw for the servo horn. The final product of this assembly can be seen in \autoref{fig:housing}.
+Next the housing structure was assembled. The structure was assembled according to the drawings in \autoref{subsec:h3} using tensol adhesive to secure the structure. The servo motor was placed inside the housing structure during assembly. The 3D prints that where assembled and described above where then fixed to the housing structure with bolts, nuts and a screws for the servo horn. The final product of this assembly can be seen in \autoref{fig:housing}. In total six delivery mechanisms were assembled, one for each design.
 
 	\begin{figure}[!ht]	
 	\centering
@@ -1319,13 +1336,55 @@ Next the housing structure was assembled. The structure was assembled according 
 	 *** Pricing from Hobby King, Obtained from UCT
 	\caption{Estimated Bill of Materials for the Delivery mechanism. \label{tab:bomdel}}
 	\end{table}	
+
+\subsection{Overall and Final Assembly}
+Once all individual modules and enclosure had been assembled the final product of the research could be put together. This section will presents the the methods used to assemble all the components of the project together to complete the vending machine.
+
+Initially the shelve for all the delivery mechanisms was prepared. I drill template, which can be seen in \autoref{subsec:drilltemp}, was made in order to make holes for mounting each delivery mechanism. Included in this template is a template for the size of the a pate that would serve to hold the PCB vertically on the plank. This was done, as specified in the design, to increase the density of the delivery mechanisms allowed on one shelf. Using this template, holes where drilled in the plank and plates where cut from the same wood the shelf was. Holes were drilled in the wooden plates, using the PCBs as a template, to mount the PCBs using metal standoffs. Once all the necessary holes where drilled the six assembled delivery mechanisms were attached using m4 bolts, washers and nuts. Next the leads for the motors and sensors were cut and fitted to a sockets so they could attach to the PCBs. A test PCB was made to help with wiring of the sensors to correspond with the terminal on the PCB, a picture of its schematic and physical realization can be seen in \autoref{fig:tester}.
+
+	\begin{figure}[!ht]	
+	\centering
+	\includegraphics[scale=0.2]{{tester}.jpg}
+	\caption{Picture of the sensor tester circuit schematic on the left and the physical circuit on the right. \label{fig:tester}}
+	\end{figure}
+
+Once all the connectors had been attached the PCBs were attached to the plates and the plates were screwed on perpendicularly to the shelf using wood screws. This allowed them to be stacked one behind the other. Wires were made to connect the PCBs together in a linear fashion, ie daisy chaining from one to the next and so on. A picture of the shelf with all the delivery mechanism and PCBs in place can be seen in \autoref{fig:shelf}.
+
+	\begin{figure}[!ht]	
+	\centering
+	\includegraphics[scale=0.2]{{shelfinal}.jpg}
+	\caption{Picture from the rear of the shelf, top image, and the front, bottom image. \label{fig:shelf}}
+	\end{figure}
+	\FloatBarrier
+
+Next the cover for the RFID tag reader antenna was assembled using the template in \autoref{sec:request}, sheet number 6 and 7. Bottom plate and middle plate were glued together first. Then bolts were placed in the cavity through the designed holes. Next the antenna was placed in the center of the middle plate and the top plate was glued in place to hold the antenna and bolts in the cover. This was left to set and a picture of the finished product can be seen in \autoref{fig:rfidcover}.
+
+	\begin{figure}[!ht]	
+	\centering
+	\includegraphics[scale=0.2]{{rfidcover}.jpg}
+	\caption{Picture of the back and front of the RFID antenna cover. \label{fig:rfidcover}}
+	\end{figure}
 	
+The RFID cover and LCD module were then mounted on the Front panel door with bolts and nuts to hold them in place. A wire for the LCD module was fashioned with sockets that would enable it to connect to the first MCU module. The RFID module was connected to the antenna and a USB cable was connected and secured to the case with epoxy to prevent it from detaching. The Raspberry Pi and computer PSU were attached next. The Raspberry Pi was attached the the small sheet that put it perpendicular to the rear wall and the PSU attached directly to the rear wall using screws. The PSU was connected to the Pi HAT and the USB from the RFID cover was attached to the Raspberry Pi. Next the power switch for the Pi HAT was mounted in the wall and the terminals were soldered. The magnetic switch for the Pi HAT was mounted on the frame and the door using double sided tape. Wires were attached from the Pi HAT to the magnetic switch. The Shelf holding all the delivery mechanism was placed on the shelf holder in the enclosure and wired to the Pi HAT to complete the assembly of the Component Vending Machine. A pictures of the finished product can be seen in \autoref{fig:comvm}.
+
+\begin{figure}[!ht]	
+	\centering
+	\includegraphics[scale=0.2]{{rfidcover}.jpg}
+	\caption{Picture of the finished Component Vending Machine. \label{fig:comvm}}
+	\end{figure}
+	
+\subsection{Additional Assembly notes}
+This section will serve to present implementations that were not in the designs. 
+
+The sensors for the DIp 20 IC socket where giving false readings during testing and it was found that the components were falling too low. This was only a problem for the DIP sockets and the DIP 20 specifically as it has a slot in the middle of the component which light can shine though. To help mitigate false reading s small slice of perpsex was sanded down to place under the bucket when loading components. This helped mitigate false readings. The same was done for the DIP 20 IC dispenser as it was the most unreliable dispenser, this will be discussed further in \autoref{subsec:fintest}.
+
+A handle was placed on the door of the enclosure to give an alternative to people pulling on the lock and possibly breaking it. This was done due to the door sagging on the open end meaning the door needed to be propped up. This was done by placing two holes in the door and two bolts in the from on which the door would be propped on to prevent it from sagging when closed.
 \newpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	%build review, results and disussion
 \section{Results and Discussion}
-Results from various tests were recorded during the process of the project. Some results have been stated in relevant sections prior to this one but will be discussed in more detail in this section. The three major categories tests fell under were; Prototyping tests, Comparison test and finally Final build stress tests. These tests and results will be presented in this section.
+Results from various tests were recorded during the process of the project. Some results have been stated in relevant sections prior to this one but will be discussed in more detail in this section. The three major categories tests fell under were; Prototyping tests, Comparison test and finally Final build stress tests. These tests and results will be presented in this section. Also included in this section will be tests done on the communications and final operations tests with the full system assembled.
 
 \subsection{Prototyping Tests}
 
@@ -1351,6 +1410,7 @@ A comparison test was done to compare the reliability of the horizontal roller w
 As can be seen in the graph, the run with the vibration motor was more reliable that without a vibration motor as expected. The vibration motor helped with loading an releasing increasing the reliability to 100\%. This caused design on the delivery mechanism to stop as it proved the design was successful.
 
 \subsection{Final Build Stress Tests}
+\label{subsec:fintest}
 Stress tests were done on the assembled delivery mechanism to validate they worked as intended. The test was set up to be repeatable on future delivery mechanism to validate them before deployment. The tests entailed 20 rounds of 10 components dispensed per round, this amounted to a total of 200 individual dispenses. This was done in order to thoroughly test assembled delivery mechanism before it was deployed in the White Lab Vending Machine. To reduce external errors the MCU board was programmed to dispense all 10 components with a manual switch of the 8 address bit on the DIP switch. Only three failure modes were recorded as a half load was no longer focus of the test. The actions recorded were; a "Success" meant the dispensary action completed without an error, a "Load Error" meant the component to be dispensed failed to fall in the bucket properly, a "Release Error" meant the component to be dispensed  failed to vacate from the bucket when being released. The results from the test done on the assembled delivery mechanism can be seen in \autoref{fig:fintest}. A time-lapse video of the testing can be seen at \cite{stresstest}. 
 
 	\begin{figure}[!ht]	
@@ -1361,7 +1421,21 @@ Stress tests were done on the assembled delivery mechanism to validate they work
 	\FloatBarrier
 
 As can bee seen in the results, all the delivery mechanism displayed a reliability rating that exceeded expectations and requirements. All achieved a reliability rating of 100\% with the exception of the DIP 20 delivery mechanism, with a rating of 99\%. The failure in the DIP 20 delivery mechanism was due to the height of the bucket and the component, to be loaded in the next cycle, catching on the filleted slope of the bucket. 
+
+\subsection{Communications testing}
+The communications between the devices was tested thoroughly to make sure the system would not fail because of a communications error. In prototyping tests were done on communications to observe noise on the transmission lines. When using the all sensors and motors the system produced enough noise to corrupt the data when standard UART was used. Take note of \autoref{fig:noise}. The image was captured from a logic analyzers output after being connected to the transmission lines and observing the data over the lines.
+
+	\begin{figure}[!ht]	
+	\centering
+	\includegraphics[scale=0.44]{{CommonNoise1}.jpg}
+	\caption{Common mode noise observed on the transmission lines. \label{fig:noise}}
+	\end{figure}
 	
+In this picture one can see a message being sent in between the 1 second and 2 second mark. Another message can be seen in between the 2 second and 3 second mark, This is the expected result. In between the 3 second mark and the 4 second mark there are abnormal spikes on the transmission line corrupting the data preventing proper communications. This tests was done after communications failed during prototyping leading to the expected need for a more reliable communications protocol. 
+
+Test were done with the RS 485 bus transceiver chip and the communications worked as expected. However there were problems with communication but it was found that limitations of the Raspberry Pi and its ability to interact with the RS 485 bus transceiver. This was found during debugging of the final assembly. It was isolated to the Raspberry pi by testing communications with the MCU modules alone and they were able to communicate with each other flawlessly. 
+
+\subsection{Final build Results and Discussion}
 \newpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1372,14 +1446,23 @@ As can bee seen in the results, all the delivery mechanism displayed a reliabili
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	%recommendations
 \section{Recommendations}
-%Apache is losing market share which could mean its counter part may become the leader in the future. More time should be invested in researching the benefits of using Nginx over Apache
+Although the Component Vending Machine worked as intended there were some problems that occurred. The recommendations for the focus mostly on the build and what could be improved after experience with the assembling the vending machine. Comments on process and future implementations will also be made and are presented in this final section.
 
-%a mistake was made when soldering to sensor molex connectors in reverse this should be corrected for future boards and sensor molex pins, it didnt cause any porblems with the delivery mechanism but could cause confusion for someone assembling it without prior knowledge of this mistake.
+As seen in the research Apache is fast becoming an outdated software package with Nginx to take the lead. This should be taking into consideration. Even though the vending machine is not expected to have a lot of traffic on the website future demands and its possible popularity may justify a shift to Nginx. Also support for Apache may be reduced in the future as Nginx gains popularity in which case the server should be migrated to a Nginx web server. 
 
-%redesign dip20 dispenser to compensate for height of components.
+A mistake was made when soldering the sensor headers on the PCBs and to keep the format of the PCBs uniform this mistake was replicated. It did not change the functionality of the PCBs but may cause confusion for future installers when looking at pictures. Future builds should follow the designs to reduce the impassibility of mistakes that could damage to the sensors or PCB.
 
-%dip holder sensor should be placed flat as low as possible
+The DIP 20 IC and IC socket dispensers where the most unreliable and problematic dispensers. A fix for the issue was implemented but is not practical. The root cause for the IC dispenser was the high of the dispenser. The bucket was too high causing the IC to be loading on the next round to jam against the filleted slope as discussed in testing. A redesign should with follow up tests. A small height adjustment to the bucket should fix the issue. Th IC socket dispenser was getting false readings due to the slightly elevated sensor position in the bucket. Although this was only a problem on the DIP 20 IC socket dispenser it could cause problems on the other socket dispensers. This issue should be monitored and possible, preemptively solved. The sensor for all IC socket dispensers should be redesigned so the sensor slots are flat, not slanted for 3D printing efficiency. Also the sensors should be as low as possible as there is no slot at the bottom of the IC sockets. This should be tested further to find an optimal position
 
+The Raspberry Pi serial library was not designed for an embedded system and so caused difficulty in communications when using in tandem with the RS 485 bus transceiver. It is unsure whether a more effective program is needed or not but a possible fix would be to have a STM32F0 MCU on the Pi HAT that the Raspberry Pi communicated too directly. The STM MCU would then relay the messages over the bus and relay any messages received back to the Raspberry Pi. This method would take advantage of the already working communications between the Raspberry Pi and STM . With the STM and Pi being connected without a wire would reduce the chance of noise interfering with this communications. Also a filter on the STM could be utilized as the RS 485 bus transceiver by design echos any serial data it is given to send, this is what cause problems with the Raspberry Pis program.
+
+Due to the limitation in scope only DIP packages were considered. If this project is to be successful, designs for other packages should be realized. This could also help students expand their knowledge by introducing not so common components. By doing this students will have the opportunity to use these uncommonly requested components they possibly never know about. This is a possibility due to the nature of the current White Lab component store being behind doors for the most part. The vending machines site will allow student to see what is behind the door and explore a wider variety of components than those they are told about in lectures.
+
+The enclosure, although served its function, is not adequate to server as the enclosure permanently. The enclosure is not sturdy enough due to the way the frame was designed and an oversight and inaccuracies during the assembly process. One of the major problems is the fact that the door sags when open and needs to be propped up when closed. This is due to the weight of the door hanging on the frame bending it casing it the sag on the open end. A pre-build enclosure should be bought to replace the current enclosure. A pre-bought enclosure was not considered for the purpose of this report due to the cost, that being far greater than making one out of raw materials, like the one made ofr this report. This information about a pre-built frame was obtained in passing conversations with technical officers at UCT, which is why it never made its why into the report prior to recommendations.
+
+When programming the STM MCU Modules the programmer should take not of the instructions in \autoref{subsec:progamming}. This appendix serves as a guide for the current software. For restocking and maintenance of the vending machine the guide in \autoref{subsec:maintenace}. If new information is gained or the software is changes the corresponding guide should be updated to reflect the changes.
+
+Finally when considering future expansion of this project it is strongly recommended that it be made open source. Having it open source makes it possible for a community to develop around the project just like that of the RepRap project \cite{reprap}. Doing so would greatly increase the success of the project possibly bring in highly skilled designers and engineers to contribute to the project. Asking other universities to collaborate would be a good idea as well as this would benefit their students too. Making use of Github to distribute the resources would promote this open source idea. If the project gains more popularity a shift to an Atmel based system should be considered as it is more widely used in open sourced projects. With Atmel more people might be interested in the project if it were to be open source. Due to the success of the first assembly of the first White Lab Vending Machine this project should definitely continue.
 \newpage
 
 
@@ -1467,9 +1550,8 @@ As can bee seen in the results, all the delivery mechanism displayed a reliabili
 	\includegraphics[scale=1]{{LCDBOARD}.png}
 	\end{center}	
 \end{landscape}
-\section{Drawing Templates}
-\subsection{Material Request Forms}
-\label{subsec:request}
+\section{Material Request Forms}
+\label{sec:request}
 
 	\begin{center}
 	\includegraphics[scale=7]{{sheet1v3}.jpg}
@@ -1528,6 +1610,13 @@ As can bee seen in the results, all the delivery mechanism displayed a reliabili
 	\includegraphics[scale=7.4]{{DIP20TEMPv2}.jpg}
 	\end{center}
 	\end{changemargin}
+\subsection{Drill Template}
+	\label{subsec:drilltemp}
+	\begin{changemargin}{-1cm}{-1cm}
+	\begin{center}
+	\includegraphics[scale=1]{{drilltemplate}.jpg}
+	\end{center}
+	\end{changemargin}
 \newpage
 
 \subsection{Exploded Enclosure View}
@@ -1542,7 +1631,7 @@ As can bee seen in the results, all the delivery mechanism displayed a reliabili
 \section{Manuals and Guides}
 
 \subsection{Programming Guide}
-
+\label{subsec:progamming}
 This instruction set is to help program the microcontroller for the delivery mechanism that it required, it is presented in list form and should be performed in order. This list should be updated as the project progresses
 \begin{enumerate}
   \item Before programming the STM make sure all the voltage level on the terminals are correct and the PCB has been assembled correctly.
@@ -1557,19 +1646,21 @@ This instruction set is to help program the microcontroller for the delivery mec
   \begin{enumerate}
  
   \item Use an FTDI UART to USB convert or equivalent to connect the USART2 port to the computer for debug output.
+  \item Take the terminal short off the "Mode" terminal and put one on the terminal next to the potentiometer.
   \item use the Calibration potentiometer calibrate the update the values for dispensary actions. 
   \item Play with this action to see what values change to learn what the action does. It is fairly self explanatory once observed.
   \item for the Roller dispensary mechanism the first calibration will be the release value. once the right value has been obtained through the serial monitor and aligning the bucket with the hole in the housing structure, go to definitions.h under Headers/src and go to line 30 and enter the new value for "releasevalINIT".
-  \item after 15s calibration for the pickup value will begin.
+  \item after 30s calibration for the pickup value will begin.
   \item Record the value on the serial monitor and enter it as the new value for "pickupINIT" in definitions.h on line 31.
   \item It will change between release and pickup calibration every 15s so if either is missed the first time just wait for it to go back.
-  \item Place terminal short back on "Mode" selection
+  \item Place terminal short back on "Mode" terminal and remove the short on the terminal next to the potentiometer in this order.
   \end{enumerate}}
   \item Test the dispensary action with the 8th address switch on the DIP switch.
   \item plug into the RS485 bus and do a test dispense from the master.
-  \item If everything went well the board is ready to be installed in the vending machine.
-  \item If there is an issue it is more than likely the board has not been assembled correctly, go back and check the tracks and components again before trying to upload anymore code.
 \end{enumerate}
+
+\subsection{Restocking and Maintenance Guide}
+\label{subsec:maintenace}
 
 \newpage
 
@@ -1665,6 +1756,11 @@ tail /var/www/html/MasterLog.log
 \newpage
 
 \section{Ethics Forms}
+	\begin{changemargin}{-1cm}{-1cm}
+	\begin{center}
+	\includegraphics[scale=0.93]{{Signatureform}.jpg}
+	\end{center}
+	\end{changemargin}		
 \end{appendices}
 	%the end
 \end{document}

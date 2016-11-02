@@ -18,14 +18,14 @@
 **********************************************************************/
 //macros
 //#define _EXTRA_   //defined extra debugging
-#define _DEBUG_     //debugging serial interface
+//#define _DEBUG_     //debugging serial interface
 #define _ROLLER_    //roller code so it can be excluded for another variation of delivery mechanism
 //#define _LCD_       //LCD code excluded for most delivery mechanisms, only used on first one
 
 //defines which package is being dispensed, important for wait times
 //#define _DIP8_
-//#define _DIP1416_
-#define _DIP20_
+#define _DIP1416_
+//#define _DIP20_
 
 //Libraries
 #include "stm32f0xx_conf.h"
@@ -139,6 +139,7 @@ int main(void)
     lcd_string("Nice To Meet");
 #endif
     InitWatchdog();
+    GPIO_WriteBit(GPIOA,RE,0);
     Ready();
 
 #ifdef _LCD_
@@ -331,8 +332,9 @@ void SerialMonitor(void(*FNCName)()){
 //Message Decoder from master
 void Decode(){
     //if only 6 values in buffer it is a command code
-    //print16bits(buffercount - bufferreadcount, 0x4d,3);
+    print16bits(buffercount - bufferreadcount, 0x4d,3);
     if(buffercount - bufferreadcount == 6){
+        printbyte(0x59);
         int i;
         //transfer from serial buffer to rx reading buffer
         for(i = 0; i < 6 ; i++){
@@ -397,14 +399,16 @@ void Decode(){
         uint8_t check = checksumcal(RXBuffer,lcdbuffer - 2);
         if((RXBuffer[0] == StartByte) && (RXBuffer[1] == address) && (RXBuffer[2] == LCDPRINT) && (RXBuffer[lcdbuffer - 1] == EndByte)){//(RXBuffer[lcdbuffer - 2] == check) &&
             PopulateBuffer(UpdateToo);
+            printbyte(0x4C);
+            delay(1000);
             sendReport(SUCCESS);
         }
     }
     #else
     else{   //if buffer contains more than 6 bytes then LCD command
-        //printbyte(0x4C);
-        //printbyte(0x43);
-        //printbyte(0x44);
+        printbyte(0x4C);
+        printbyte(0x43);
+        printbyte(0x44);
         uint8_t lcdbuffer = buffercount - bufferreadcount;
         //transferring serial data the rx buffer then string to print into a separate buffer
         int i;
@@ -464,7 +468,7 @@ void sendReport(uint8_t ReportCode){
     delay(10);
 
     GPIO_WriteBit(GPIOA,DE,0); //disbale sending on the rs485 bus
-    GPIO_WriteBit(GPIOA,RE,0);//enable receiving of data
+    //GPIO_WriteBit(GPIOA,RE,0);//enable receiving of data
 }
 
 //function used if roller is being used
@@ -794,7 +798,7 @@ void CheckLow(){
 
 //finish off the task and back to idle
 void FinishTask(){
-    GPIO_WriteBit(GPIOA,RE,0);          //enable receiving of data again
+    //GPIO_WriteBit(GPIOA,RE,0);          //enable receiving of data again
     GPIO_WriteBit(GPIOB,VBRMTR,0);      //turn off vibration mtr
     GPIO_WriteBit(GPIOB,IRLED1,0);      //turn off IR LED
     GPIO_WriteBit(GPIOB,IRLED2,0);      //turn off IR LED
@@ -890,13 +894,16 @@ void Test(){
     uint8_t tempbit = testflag;
     testflag = GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_7);
     if(tempbit != testflag){
+        delay(100);
         DeliverxMany = deliverytest;
 #ifdef _EXTRA_
         print16bits(DeliverxMany,0x43,3);
 #endif
         jam = 0;
         task = 1;
+        sendfakeReport();
     }
+
 }
 
 #ifdef _DEBUG_
@@ -1060,4 +1067,40 @@ void InitWatchdog(){
     IWDG_Enable();
 }
 
+//send fake dispense request
+void sendfakeReport(){
+    //GPIO_WriteBit(GPIOA,RE,1);//disable receiving of data
+    GPIO_WriteBit(GPIOA,DE,1);//enable sending on the rs485 bus
+
+    delay(10);
+
+    USART_SendData(USART1, 0xA1);//start byte
+    /* Loop until the end of transmission */
+    while (USART_GetFlagStatus(USART1, USART_FLAG_TC) == RESET){}
+
+    USART_SendData(USART1, 1);
+    /* Loop until the end of transmission */
+    while (USART_GetFlagStatus(USART1, USART_FLAG_TC) == RESET){}
+
+    USART_SendData(USART1, 0xB3);
+    /* Loop until the end of transmission */
+    while (USART_GetFlagStatus(USART1, USART_FLAG_TC) == RESET){}
+
+    USART_SendData(USART1, 3);
+    /* Loop until the end of transmission */
+    while (USART_GetFlagStatus(USART1, USART_FLAG_TC) == RESET){}
+
+    USART_SendData(USART1, 0x58);
+    /* Loop until the end of transmission */
+    while (USART_GetFlagStatus(USART1, USART_FLAG_TC) == RESET){}
+
+    USART_SendData(USART1, 0xF1);//stop byte
+    /* Loop until the end of transmission */
+    while (USART_GetFlagStatus(USART1, USART_FLAG_TC) == RESET){}
+
+    delay(10);
+
+    GPIO_WriteBit(GPIOA,DE,0); //disbale sending on the rs485 bus
+    //GPIO_WriteBit(GPIOA,RE,0);//enable receiving of data
+}
 
