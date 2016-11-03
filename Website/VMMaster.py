@@ -43,13 +43,13 @@ ser1 = serial.Serial(
                timeout=1
            )
 
-# ser = serial.Serial(
-# 	port = '/dev/ttyACM0',
-# 	baudrate=9600,
-# 	parity=serial.PARITY_ODD,
-# 	stopbits=serial.STOPBITS_TWO,
-# 	bytesize=serial.SEVENBITS
-# 	)
+ser = serial.Serial(
+	port = '/dev/ttyACM0',
+	baudrate=9600,
+	parity=serial.PARITY_ODD,
+	stopbits=serial.STOPBITS_TWO,
+	bytesize=serial.SEVENBITS
+	)
 
 # initializers
 # pin setup
@@ -78,7 +78,7 @@ exitFlag = 0
 tagLength = 14
 value = 0
 retries = 0
-maxretry = 5
+maxretry = 0
 DispenseStatus = 0
 # component limit
 complimit = 6
@@ -142,10 +142,13 @@ def DispenceIC(addressbyte,commandbyte,valuebyte):
 			GPIO.output(DE, GPIO.LOW)
 
 			time.sleep(1.9*valuebyte)
+			value2 = {}
 			value = {}
 			if(ser1.inWaiting() > 0):
-				ser1.read(6)
+				value2 = ser1.read(6)
 				value = ser1.read(6)
+				print(value2)
+				print(value)
 				# logging.debug("Reading response:")
 				# logging.debug(value[2])
 
@@ -323,13 +326,14 @@ def RequestDispence(studentNo):
 				row = cursor.fetchone()
 				if(rowlen > 0):
 					DispenceIC(row[0],0xB3,Quantity[i][0])
-					time.sleep(8)
+					# time.sleep(8)
 			i = i + 1
 		cursor.execute("""UPDATE Orders SET Done = 1 WHERE StudentNo = %s""", (studentNo))
 		db.commit()
 		cursor.close()
 		db.close()
 		logging.debug("Finished Dispensing")
+		FinalMsg()
 	except:
 		logging.warning("failed to dispense with student number")
 
@@ -547,60 +551,60 @@ def callModules():
 	# 	logging.warning("failed to call modules one by one")
 
 # connect to uct db and reqeust student number
-# def RequestStNo(ID):
-# 	logging.debug("searching db")
-# 	conn = pymssql.connect('srvwinsqlvs007.wf.uct.ac.za\DW', 'uctaccessreports', 'uct@cc3$$r3p0rt$', 'DB400_reports')  #Username and password missing
-# 	cursor = conn.cursor()
-# 	sqlquery = """EXEC DB400_reports.dbo.GET_TAG_DETAILS @TAG_CODE = %s""" % ID
-# 	cursor.execute(sqlquery)
-# 	info = cursor.fetchone()	
-# 	if(len(info) > 0):
-# 		i = 0
-# 		for i in range (0, len(admins)):
-# 			if info[0] == admins[i]:
-# 				logging.debug('freeing up ics')
-# 				Free();	
-# 				command = ''
-# 			i = i + 1
-# 		logging.debug('requesting')		
-# 		return RequestDispence(info[0])
-# 	else:
-# 		logging.debug('found nothing')
-# 	ser.close()
-# 	return
+def RequestStNo(ID):
+	logging.debug("searching db")
+	conn = pymssql.connect('srvwinsqlvs007.wf.uct.ac.za\DW', 'uctaccessreports', 'uct@cc3$$r3p0rt$', 'DB400_reports')  #Username and password missing
+	cursor = conn.cursor()
+	sqlquery = """EXEC DB400_reports.dbo.GET_TAG_DETAILS @TAG_CODE = %s""" % ID
+	cursor.execute(sqlquery)
+	info = cursor.fetchone()	
+	if(len(info) > 0):
+		i = 0
+		for i in range (0, len(admins)):
+			if info[0] == admins[i]:
+				logging.debug('freeing up ics')
+				Free();	
+				command = ''
+			i = i + 1
+		logging.debug('requesting')		
+		return RequestDispence(info[0])
+	else:
+		logging.debug('found nothing')
+	ser.close()
+	return
 
 # msg = bytearray([0x48,0x45,0x4C,0x4C,0x4F,0x0A])
 # ser1.write('hello\n')
 
-try:
+# try:
 # time.sleep(5)
 # callModules()
-	while True:
-		# try:
-		# if(ser.inWaiting()>0):
-		# 	currentTimeout = timeout;
-		# if(ser.inWaiting()%tagLength == 0):
-		# 	value = ser.read(tagLength)
-		# 	logging.debug("Reading card...")
-		# 	value = value.decode("utf-8")
-		# 	value = int(value[1:-3],16)
+while True:
+	# try:
+	if(ser.inWaiting()>0):
+		currentTimeout = timeout;
+	if(ser.inWaiting()%tagLength == 0):
+		value = ser.read(tagLength)
+		logging.debug("Reading card...")
+		value = value.decode("utf-8")
+		value = int(value[1:-3],16)
 
-		# 	while(ser.inWaiting() > 0):
-		# 		logging.debug("Flushing extra reads...")
-		# 		ser.read(ser.inWaiting()) #flushing the system.
-		# 		logging.debug("Done!")
-			
-		# 	RequestStNo(value)			
-		# elif (ser.inWaiting() > tagLength):
-		# 	logging.debug("Too much data in buffer - flushing")
-		# 	time.sleep(2)
-		# 	logging.debug(ser.inWaiting())
-		# 	logging.debug(ser.read(ser.inWaiting())) #flushing the system.
-		# 	logging.debug("Flushed")
+		while(ser.inWaiting() > 0):
+			logging.debug("Flushing extra reads...")
+			ser.read(ser.inWaiting()) #flushing the system.
+			logging.debug("Done!")
+		
+		RequestStNo(value)			
+	elif (ser.inWaiting() > tagLength):
+		logging.debug("Too much data in buffer - flushing")
+		time.sleep(2)
+		logging.debug(ser.inWaiting())
+		logging.debug(ser.read(ser.inWaiting())) #flushing the system.
+		logging.debug("Flushed")
 
-		# else:
-		# 	time.sleep(1)
-		# 	currentTimeout-=1;	
+	else:
+		time.sleep(1)
+		currentTimeout-=1;	
 		# except KeyboardInterrupt:
 		# 	logging.debug("keyboard out!")
 		# 	sys.exit()
@@ -618,23 +622,23 @@ try:
 		# 	sys.stdin.flush()
 
 		# ComponentNoCheck("MRGBAD001")
-		command = input("enter g: ")
-		if command == 'g':
+		# command = input("enter g: ")
+		# if command == 'g':
 			# Free()
 			# RequestDispence('MRGBAD001')
 			# RequestStNo('81607133871')
 			# logging.debug("despensing")
-			DispenceIC(1,0xB3,3)
-			time.sleep(2)
-			DispenceIC(2,0xB3,3)
+			# DispenceIC(1,0xB3,3)
+			# time.sleep(2)
+			# DispenceIC(2,0xB3,3)
 			# FinalMsg()
 			# 
 			# DispenceIC(1,0xB5,0)
-			command = ''
-		if command == 'f':
-			Free();
-		if command == 'e':
-			mailadmin(6,0)
+			# command = ''
+		# if command == 'f':
+			# Free();
+		# if command == 'e':
+			# mailadmin(6,0)
 			# i = 0
 			# for i in range (0, len(admins)):
 			# 	logging.debug(admins[i])
@@ -643,9 +647,9 @@ try:
 			# 		command = ''
 			# 	i = i + 1
 
-except KeyboardInterrupt:
-	logging.debug("keyboard out!")
-except:
-	logging.warning("Unkown Error")
-finally:
-	GPIO.cleanup()
+# except KeyboardInterrupt:
+# 	logging.debug("keyboard out!")
+# except:
+# 	logging.warning("Unkown Error")
+# finally:
+# 	GPIO.cleanup()
