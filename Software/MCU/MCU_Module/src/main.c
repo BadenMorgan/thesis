@@ -18,15 +18,15 @@
 **********************************************************************/
 //macros
 //#define _EXTRA_   //defined extra debugging
-#define _TEST_      //used to define test cases in the code base
-#define _DEBUG_     //debugging serial interface
+//#define _TEST_      //used to define test cases in the code base
+//#define _DEBUG_     //debugging serial interface
 #define _ROLLER_    //roller code so it can be excluded for another variation of delivery mechanism
-#define _LCD_       //LCD code excluded for most delivery mechanisms, only used on first one
+//#define _LCD_       //LCD code excluded for most delivery mechanisms, only used on first one
 
 //defines which package is being dispensed, important for wait times
 //#define _DIP8_
-#define _DIP1416_
-//#define _DIP20_
+//#define _DIP1416_
+#define _DIP20_
 
 //Libraries
 #include "stm32f0xx_conf.h"
@@ -325,7 +325,7 @@ void SerialMonitor(void(*FNCName)()){
         Stamp[7] = counterval;
     }
     uint16_t sum = counterval - Stamp[7];
-    if((sum >= 10) && (RXFlag != 2)){
+    if((sum >= 5) && (RXFlag != 2)){
         FNCName();
         RXFlag = 2;
     }
@@ -333,7 +333,9 @@ void SerialMonitor(void(*FNCName)()){
 //Message Decoder from master
 void Decode(){
     //if only 6 values in buffer it is a command code
+    #ifdef _DEBUG_
     print16bits(buffercount - bufferreadcount, 0x4d,3);
+    #endif
     if(buffercount - bufferreadcount == 6){
         printbyte(0x59);
         int i;
@@ -348,6 +350,7 @@ void Decode(){
             switch(RXBuffer[2]){
                 //send black response to master
                 case CALL:{
+                    delay(1000);
                     sendReport(SUCCESS);
                     break;
                 }
@@ -358,6 +361,7 @@ void Decode(){
                         DeliverxMany = RXBuffer[3];
                         Stamp[9] = TIM_GetCounter(TIM14);
                     }else{
+                        delay(1000);
                         sendReport(JAM);
                     }
                     break;
@@ -366,8 +370,8 @@ void Decode(){
                 case FREE:{
                     jam = 0;
                     ServoSet(pickval);
-                    sendReport(SUCCESS);
                     delay(1000);
+                    sendReport(SUCCESS);
                     ServoZero();
                     break;
                 }
@@ -404,6 +408,13 @@ void Decode(){
             delay(1000);
             sendReport(SUCCESS);
         }
+        #ifdef _DEBUG_
+        else{
+             for(i = 0; i < lcdbuffer ; i++){
+                print16bits(RXBuffer[i],0x41+i,3);
+             }
+        }
+        #endif
     }
     #else
     else{   //if buffer contains more than 6 bytes then LCD command
@@ -414,7 +425,7 @@ void Decode(){
         //transferring serial data the rx buffer then string to print into a separate buffer
         int i;
         for(i = 0; i < lcdbuffer ; i++){
-            bufferreadcount++; //flush the buffer
+           bufferreadcount++; //flush the buffer
         }
     }
     #endif
@@ -431,7 +442,7 @@ uint8_t checksumcal(uint8_t *values, uint8_t checkpos){
 
 //reports to send back to master
 void sendReport(uint8_t ReportCode){
-    //GPIO_WriteBit(GPIOA,RE,1);//disable receiving of data
+    GPIO_WriteBit(GPIOA,RE,1);//disable receiving of data
     GPIO_WriteBit(GPIOA,DE,1);//enable sending on the rs485 bus
 
     delay(10);
@@ -469,7 +480,8 @@ void sendReport(uint8_t ReportCode){
     delay(10);
 
     GPIO_WriteBit(GPIOA,DE,0); //disbale sending on the rs485 bus
-    //GPIO_WriteBit(GPIOA,RE,0);//enable receiving of data
+    GPIO_WriteBit(GPIOA,RE,0);//enable receiving of data
+    bufferreadcount++; //flush the buffer
 }
 
 //function used if roller is being used

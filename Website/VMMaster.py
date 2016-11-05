@@ -43,13 +43,13 @@ ser1 = serial.Serial(
                timeout=1
            )
 
-ser = serial.Serial(
-	port = '/dev/ttyACM0',
-	baudrate=9600,
-	parity=serial.PARITY_ODD,
-	stopbits=serial.STOPBITS_TWO,
-	bytesize=serial.SEVENBITS
-	)
+# ser = serial.Serial(
+# 	port = '/dev/ttyACM0',
+# 	baudrate=9600,
+# 	parity=serial.PARITY_ODD,
+# 	stopbits=serial.STOPBITS_TWO,
+# 	bytesize=serial.SEVENBITS
+# 	)
 
 # initializers
 # pin setup
@@ -128,24 +128,26 @@ def DispenceIC(addressbyte,commandbyte,valuebyte):
 		else:
 			global retries
 			global maxretry
-			# if valuebyte != 0:
-				# UpdateLCD("Dispensing      Components")
+			if valuebyte != 0:
+				UpdateLCD("Dispensing      Components")
 			TXBuffer[1] = addressbyte
 			TXBuffer[2] = commandbyte
 			TXBuffer[3] = valuebyte
 			TXBuffer[4] = checksumcal()
 
+			GPIO.output(RE, GPIO.HIGH)
 			GPIO.output(DE, GPIO.HIGH)
 			time.sleep(0.1)
 			ser1.write(TXBuffer)
 			time.sleep(0.1)
 			GPIO.output(DE, GPIO.LOW)
+			GPIO.output(RE, GPIO.LOW)
 
 			time.sleep(1.9*valuebyte)
 			value2 = {}
 			value = {}
 			if(ser1.inWaiting() > 0):
-				value2 = ser1.read(6)
+				value2 = ser1.read(1)
 				value = ser1.read(6)
 				print(value2)
 				print(value)
@@ -232,19 +234,19 @@ def UpdateLCD(StringToPrint):
 	LCDBuffer.extend(bytearray(map(ord,StringToPrint)))
 	LCDBuffer.extend([0x04,0xF1])
 	
-	# GPIO.output(RE, GPIO.HIGH)
+	GPIO.output(RE, GPIO.HIGH)
 	GPIO.output(DE, GPIO.HIGH)
 	time.sleep(0.1)
 	ser1.write(LCDBuffer)
 	time.sleep(0.1)
 	GPIO.output(DE, GPIO.LOW)
-	# GPIO.output(RE, GPIO.LOW)
+	GPIO.output(RE, GPIO.LOW)
 
 	time.sleep(3)
 	value = {}
 	value2 = {}
 	if(ser1.inWaiting() > 0):
-		value2 = ser1.read(discard)
+		value2 = ser1.read(1)
 		value = ser1.read(6)
 		# logging.debug("Reading response:")
 		# logging.debug(value[2])
@@ -484,17 +486,19 @@ def callModules():
 		TXBuffer[3] = 0
 		TXBuffer[4] = checksumcal()
 
-
+		GPIO.output(RE, GPIO.HIGH)
 		GPIO.output(DE, GPIO.HIGH)
 		time.sleep(0.1)
 		ser1.write(TXBuffer)
 		time.sleep(0.1)
 		GPIO.output(DE, GPIO.LOW)
+		GPIO.output(RE, GPIO.LOW)
 
 		time.sleep(0.5)
 		
 		value = {}
 		if(ser1.inWaiting() > 0):
+			ser1.read(1)
 			value = ser1.read(6)
 			# logging.debug("Reading response:")
 			# logging.debug(value[2])
@@ -581,30 +585,30 @@ def RequestStNo(ID):
 # callModules()
 while True:
 	# try:
-	if(ser.inWaiting()>0):
-		currentTimeout = timeout;
-	if(ser.inWaiting()%tagLength == 0):
-		value = ser.read(tagLength)
-		logging.debug("Reading card...")
-		value = value.decode("utf-8")
-		value = int(value[1:-3],16)
+	# if(ser.inWaiting()>0):
+	# 	currentTimeout = timeout;
+	# if(ser.inWaiting()%tagLength == 0):
+	# 	value = ser.read(tagLength)
+	# 	logging.debug("Reading card...")
+	# 	value = value.decode("utf-8")
+	# 	value = int(value[1:-3],16)
 
-		while(ser.inWaiting() > 0):
-			logging.debug("Flushing extra reads...")
-			ser.read(ser.inWaiting()) #flushing the system.
-			logging.debug("Done!")
+	# 	while(ser.inWaiting() > 0):
+	# 		logging.debug("Flushing extra reads...")
+	# 		ser.read(ser.inWaiting()) #flushing the system.
+	# 		logging.debug("Done!")
 		
-		RequestStNo(value)			
-	elif (ser.inWaiting() > tagLength):
-		logging.debug("Too much data in buffer - flushing")
-		time.sleep(2)
-		logging.debug(ser.inWaiting())
-		logging.debug(ser.read(ser.inWaiting())) #flushing the system.
-		logging.debug("Flushed")
+	# 	RequestStNo(value)			
+	# elif (ser.inWaiting() > tagLength):
+	# 	logging.debug("Too much data in buffer - flushing")
+	# 	time.sleep(2)
+	# 	logging.debug(ser.inWaiting())
+	# 	logging.debug(ser.read(ser.inWaiting())) #flushing the system.
+	# 	logging.debug("Flushed")
 
-	else:
-		time.sleep(1)
-		currentTimeout-=1;	
+	# else:
+	# 	time.sleep(1)
+	# 	currentTimeout-=1;	
 		# except KeyboardInterrupt:
 		# 	logging.debug("keyboard out!")
 		# 	sys.exit()
@@ -622,16 +626,18 @@ while True:
 		# 	sys.stdin.flush()
 
 		# ComponentNoCheck("MRGBAD001")
-		# command = input("enter g: ")
-		# if command == 'g':
+		command = input("enter g: ")
+		if command == 'g':
 			# Free()
 			# RequestDispence('MRGBAD001')
 			# RequestStNo('81607133871')
 			# logging.debug("despensing")
-			# DispenceIC(1,0xB3,3)
+			DispenceIC(1,0xB3,1)
+			DispenceIC(2,0xB3,1)
+			DispenceIC(3,0xB3,1)
 			# time.sleep(2)
 			# DispenceIC(2,0xB3,3)
-			# FinalMsg()
+			FinalMsg()
 			# 
 			# DispenceIC(1,0xB5,0)
 			# command = ''

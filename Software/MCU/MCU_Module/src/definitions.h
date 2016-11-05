@@ -18,8 +18,8 @@
 //program macros
 #define WaitT 250            //Time between each dispensary task
 //threshold before event is triggered
-#define GapThreshold 150    //threshold for dip IC dispensers
-//#define GapThreshold 100        //threshold for dip IC holder dispensers
+//#define GapThreshold 150    //threshold for dip IC dispensers
+#define GapThreshold 50        //threshold for dip IC holder dispensers
 
 
 #define channel0 0
@@ -33,11 +33,11 @@
 //#define releasevalINIT 113  //servo position to set the release
 //#define pickupINIT 274      //servo value to set the pickup
 //address 2
-#define releasevalINIT 153  //servo position to set the release
-#define pickupINIT 307      //servo value to set the pickup
+//#define releasevalINIT 153  //servo position to set the release
+//#define pickupINIT 307      //servo value to set the pickup
 //address 3
-//#define releasevalINIT 123  //servo position to set the release
-//#define pickupINIT 280      //servo value to set the pickup
+#define releasevalINIT 123  //servo position to set the release
+#define pickupINIT 280      //servo value to set the pickup
 //address 4
 //#define releasevalINIT 130  //servo position to set the release
 //#define pickupINIT 288      //servo value to set the pickup
