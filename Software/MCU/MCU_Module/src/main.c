@@ -18,9 +18,10 @@
 **********************************************************************/
 //macros
 //#define _EXTRA_   //defined extra debugging
-//#define _DEBUG_     //debugging serial interface
+#define _TEST_      //used to define test cases in the code base
+#define _DEBUG_     //debugging serial interface
 #define _ROLLER_    //roller code so it can be excluded for another variation of delivery mechanism
-//#define _LCD_       //LCD code excluded for most delivery mechanisms, only used on first one
+#define _LCD_       //LCD code excluded for most delivery mechanisms, only used on first one
 
 //defines which package is being dispensed, important for wait times
 //#define _DIP8_
@@ -599,7 +600,10 @@ void CheckIC(){
                     printbyte(0x4A);
                     #endif
                     ReportCode = JAM;
+                    #ifdef _TEST_
+                    #else
                     jam = 1;
+                    #endif
                     DeliverxMany = 1;
                     task = 0xFF;
                 }else{  //tube is empty
@@ -653,7 +657,10 @@ void Release(){
                     printbyte(0x4A);
 #endif
                     ReportCode = JAM;
+                    #ifdef _TEST_
+                    #else
                     jam = 1;
+                    #endif
                     task = 0xFF;
                 }
             }
@@ -736,7 +743,10 @@ void CheckIC2(){
                     if(DeliverxMany == 1)printbyte(0x53);;
                     #endif
                     ReportCode = JAM;
+                    #ifdef _TEST_
+                    #else
                     jam = 1;
+                    #endif
                     DeliverxMany = 1;
                     task = 0xFF;
                 }else{  //tube is empty

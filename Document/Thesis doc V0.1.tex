@@ -268,14 +268,14 @@ The purpose of this research and report is to assess the overall viability of a 
 The scope of this project is defined only by the components supplied by the White Lab but was narrowed down in order to focus on the overall objectives. The scope of the overall objectives defined that an entire Vending Machine be designed from the ground up. This meant compromised need to be made. The scope of the internet connection was limited to a test case of specifically designed website to prove the viability of having the Vending Machine operate in conjunction with a web based store. The current component store stocks a plethora of components that student can request. To design for all cases would not be viable and ineffective as not all components are requested as often as others. To this point the scope of the design was limited to DIP package components, those being the most commonly requested components, information obtained from the current White Lab Component Store. It is intended that recommendations be given on other component packages but no designs will be specifically discussed. 
 	\subsection{Plan of Development}	
 The report begins with investigations and research in prior work similar to that of the intended research of this report. Next research into theory and practical work which pertains to certain aspects of the project of which no prior knowledge was known is presented. The report then focuses on the specifications of the project and more thoroughly defines what shall be the final goal of the project. Focus is then shifted to a methodology discussion and approaches taking during the projects life cycle. Next the report will draw attention to the materials selected for the project and why they were chosen. Attention is then drawn to the design and prototyping of the project and research. The report calumniates the knowledge gained in prior investigation to present the designs made to meet the requirements of the project and research of this report. The report will then present the assembly of the project with details on how the device was built including material listing and costing. The next section will focus on testing that was done throughout the research and comments on these tests. Finally the report will present a conclusion to the research and attempt to relay recommendations for future development.
-	\subsection{Note For Reader}
+	\subsection{Note for Reader}
 	For convenience to the reader, if this document is being read on a computer or digital device that support the pdf format, take note that citations, cross-references and links are all clickable. This is to make navigating this report easier and more enjoyable to read on electronic devices. Also the author would like to thank you personally for taking the time to read this report and hopes you will enjoy it.
 	\newpage
 \setlength{\parskip}{1em}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	% literature review
 \section{Literature Review}
-Investigations into similar work to the topic of this project, dispensers of small objects, was done in order to gain more insight into the project and better understand how a design of this caliber should operate. The reviews were done so that similar mistakes could be mitigated and possibly improve on existing ideas. A literature review of various works will be presented in this section. It will start with work and designs similar to that of this project. After similar work has been reviewed and presented, documentation and literature on fundamental aspects of the project will be reviewed. This is in order to gain specific insight into how to customize the design in order to adhere to the needs of this project effectively. 
+Investigations into similar work to the topic of this project, dispensers of small objects, were done in order to gain more insight into the project and better understand how a design of this calibre should operate. The reviews were done so that similar mistakes could be mitigated and possibly improve on existing ideas. A literature review of various works will be presented in this section. It will start with work and designs similar to that of this project. After similar work has been reviewed and presented, documentation and literature on fundamental aspects of the project will be reviewed. This is in order to gain specific insight into how to customize the design in order to adhere to the needs of this project effectively. 
 \subsection{Similar Work}
 Similar work to the topic of this report will be presented in this section. It was difficult to find work specifically related so for the most, part medical dispensers were considered a close comparison. This comparison was chosen as medication comes in a small package and can also be specific to each package, where one unit of medication is dispensed at a time. This drew parallels to the White Lab Vending Machine requirements and so work in this field was reviewed but only the design aspects of these works.
 
@@ -285,7 +285,7 @@ At Portland State University under the ECE department a Vending Machine was retr
 	\begin{figure}[ht]
 	\centering
 	\includegraphics[scale=0.2]{{PortVM}.jpg}
-	\caption{The Portlands State Universitys' component Vending Machine and how components are presented \cite{vend}.\label{fig:port}}
+	\caption{The Portlands State University's component Vending Machine and how components are presented \cite{vend}.\label{fig:port}}
 	\end{figure}
 
 A major advantage of Portland State University's solution is that it is not component specific. Since a vending machine can have multiple racks with multiple rails on each rack, the capacity of components can be very large. Although this is a good solution to the problem and up scaling an old Vending Machine is a good use of resources, this solution has many drawbacks. 
@@ -315,7 +315,7 @@ The second medication dispenser reviewed was one intended for narcotic rehabilit
 	\begin{figure}[ht]
 	\centering
 	\includegraphics[scale=0.25]{{med2}.jpg}
-	\caption{Dispensing mechanism for Medication dispensor for narcotic rehabilitation with cover removed \cite{med2}. \label{fig:med2}}
+	\caption{Dispensing mechanism for Medication dispenser for narcotic rehabilitation with cover removed \cite{med2}. \label{fig:med2}}
 	\end{figure}
 	
 The medication dispenser started of with a few specifications ranging from a tamper-proof housing to remote control via the internet, those being related to the design of the Vending Machine. Depicted in  \halfref{fig:med2}, the mechanism is driven by a stepper motor , (5), connected to a cylinder, (1), by a shaft at (8), with the dosages attached to the cylinder, (4). As the dosage rotated to the bottom position another stepper motor would engage a mechanical drive, (7), to push the dosage rod out as shown at (2) and retract the rod. Limit switches, at (9), are used to determine the position of the bottom rod an optical sensor was used to determine the amount of rotation of the cylinder at (10). It measured the rotations by using a slotted disk and shining a light through the slots and counting the times the light is blocked and re-appears. The mechanism would then be situated in a strong housing to prevent tamper, and if tamper did occur it would be obvious due to damage needed to open the housing. This dispensary mechanism is controlled by a microcontroller communicating with a computer, which in turn, is connected to the internet. 
@@ -1454,7 +1454,7 @@ A mistake was made when soldering the sensor headers on the PCBs and to keep the
 
 The DIP 20 IC and IC socket dispensers where the most unreliable and problematic dispensers. A fix for the issue was implemented but is not practical. The root cause for the IC dispenser was the high of the dispenser. The bucket was too high causing the IC to be loading on the next round to jam against the filleted slope as discussed in testing. A redesign should with follow up tests. A small height adjustment to the bucket should fix the issue. Th IC socket dispenser was getting false readings due to the slightly elevated sensor position in the bucket. Although this was only a problem on the DIP 20 IC socket dispenser it could cause problems on the other socket dispensers. This issue should be monitored and possible, preemptively solved. The sensor for all IC socket dispensers should be redesigned so the sensor slots are flat, not slanted for 3D printing efficiency. Also the sensors should be as low as possible as there is no slot at the bottom of the IC sockets. This should be tested further to find an optimal position
 
-The Raspberry Pi serial library was not designed for an embedded system and so caused difficulty in communications when using in tandem with the RS 485 bus transceiver. It is unsure whether a more effective program is needed or not but a possible fix would be to have a STM32F0 MCU on the Pi HAT that the Raspberry Pi communicated too directly. The STM MCU would then relay the messages over the bus and relay any messages received back to the Raspberry Pi. This method would take advantage of the already working communications between the Raspberry Pi and STM . With the STM and Pi being connected without a wire would reduce the chance of noise interfering with this communications. Also a filter on the STM could be utilized as the RS 485 bus transceiver by design echos any serial data it is given to send, this is what cause problems with the Raspberry Pis program.
+The Raspberry Pi serial library was not designed for an embedded system and so caused difficulty in communications when using in tandem with the RS 485 bus transceiver. It is unsure whether a more effective program is needed or not but a possible fix would be to have a STM32F0 MCU on the Pi HAT that the Raspberry Pi communicates too directly. The STM MCU would then relay the messages over the bus and relay any messages received back to the Raspberry Pi. This method would take advantage of the already working communications between the Raspberry Pi and STM. With the STM and Pi being connected without a wire would reduce the chance of noise interfering with this communications, allowing standard UART. Also a filter on the STM could be utilized as the RS 485 bus transceiver by design echos any serial data it is given to send, this is what caused problems with the Raspberry Pis program.
 
 Due to the limitation in scope only DIP packages were considered. If this project is to be successful, designs for other packages should be realized. This could also help students expand their knowledge by introducing not so common components. By doing this students will have the opportunity to use these uncommonly requested components they possibly never know about. This is a possibility due to the nature of the current White Lab component store being behind doors for the most part. The vending machines site will allow student to see what is behind the door and explore a wider variety of components than those they are told about in lectures.
 
@@ -1462,7 +1462,9 @@ The enclosure, although served its function, is not adequate to server as the en
 
 When programming the STM MCU Modules the programmer should take not of the instructions in \autoref{subsec:progamming}. This appendix serves as a guide for the current software. For restocking and maintenance of the vending machine the guide in \autoref{subsec:maintenace}. If new information is gained or the software is changes the corresponding guide should be updated to reflect the changes.
 
-Finally when considering future expansion of this project it is strongly recommended that it be made open source. Having it open source makes it possible for a community to develop around the project just like that of the RepRap project \cite{reprap}. Doing so would greatly increase the success of the project possibly bring in highly skilled designers and engineers to contribute to the project. Asking other universities to collaborate would be a good idea as well as this would benefit their students too. Making use of Github to distribute the resources would promote this open source idea. If the project gains more popularity a shift to an Atmel based system should be considered as it is more widely used in open sourced projects. With Atmel more people might be interested in the project if it were to be open source. Due to the success of the first assembly of the first White Lab Vending Machine this project should definitely continue.
+The Colour of the PLA 3D printed material affected the sensor readings. The black print seemed to work the best as it would not reflect infrared light for the sensor whereas the white print increased the sampled values because of reflection. This should taken note of for future delivery mechanism as it will effect the sampling code. Either black PLA should be used consistently or, if a differently colour is done calibration on the sampling code should be done.
+
+Finally when considering future expansion of this project it is strongly recommended that it be made open source. Having it open source makes it possible for a community to develop around the project just like that of the RepRap project \cite{reprap}. Doing so would greatly increase the success of the project possibly bring in highly skilled designers and engineers to contribute to the project. Asking other universities to collaborate would be a good idea as well as this would benefit their students too. Making use of Github to distribute the resources would promote this open source idea. If the project gains more popularity a shift to an Atmel based system should be considered as it is more widely used in open sourced projects. With Atmel more people might be interested in the project if it were to be open source. Due to the success of the first assembly of the first White Lab Vending Machine this project should definitely continue. All the resources to this project can currently be found on the Github repository at \cite{github}.
 \newpage
 
 
@@ -1471,7 +1473,7 @@ Finally when considering future expansion of this project it is strongly recomme
 \newpage
 
 \begin{appendices}
-\begin{landscape}
+\begin{landscape}☺
 \section{Research Mind Map}
 	\label{sec:resmm}
 	\begin{center}
@@ -1661,6 +1663,19 @@ This instruction set is to help program the microcontroller for the delivery mec
 
 \subsection{Restocking and Maintenance Guide}
 \label{subsec:maintenace}
+\textbf{Restocking:}
+\begin{enumerate}
+\item Unplug the first MCU module from the Raspberry Pi and the LCD module.
+\item Take the shelve or shelves out of the enclosure.
+\item Slide the empty rail out of the guide.
+\item Put the shelve perpendicular to the table
+\item Take a new rail and unplug one of the ends.
+\item Slide the new rail into the guide and return the shelve or shelves to the enclosure.
+\item Plug the Raspberry Pi and LCD back into the first MCU module.
+\end{enumerate}
+\textbf{Admin settings:}
+
+The admin settings can be found in the websites files and in the master program. 
 
 \newpage
 

@@ -228,4 +228,10 @@ B.~Morgan. (October 2016) Final build stress tests. [Online]. Available:
   \url{https://youtu.be/CHXiJHn9fzM}
 \BIBentrySTDinterwordspacing
 
+\bibitem{github}
+\BIBentryALTinterwordspacing
+B.~Morgan. (Novemeber 2016) Thesis github repository. [Online]. Available:
+  \url{https://github.com/BadenMorgan/thesis}
+\BIBentrySTDinterwordspacing
+
 \end{thebibliography}
