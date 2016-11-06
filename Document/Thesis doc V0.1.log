@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9) (preloaded format=pdflatex 2016.7.1)  4 NOV 2016 01:11
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9) (preloaded format=pdflatex 2016.7.1)  6 NOV 2016 23:55
 entering extended mode
 **"./Thesis doc V0.1.tex"
 ("Thesis doc V0.1.tex"
@@ -1161,7 +1161,7 @@ File: C:/"Google Drive"/thesis/Document/Pictures/RMM.jpg Graphic file (type jpg
 )
  <use C:/"Google Drive"/thesis/Document/Pictures/RMM.jpg>
 Package pdftex.def Info: C:/"Google Drive"/thesis/Document/Pictures/RMM.jpg use
-d on input line 1480.
+d on input line 1481.
 (pdftex.def)             Requested size: 712.16284pt x 363.92073pt.
  [64
 
@@ -1172,7 +1172,7 @@ File: C:/"Google Drive"/thesis/Document/Pictures/guidedet.jpg Graphic file (typ
 e jpg)
  <use C:/"Google Drive"/thesis/Document/Pictures/guidedet.jpg>
 Package pdftex.def Info: C:/"Google Drive"/thesis/Document/Pictures/guidedet.jp
-g used on input line 1488.
+g used on input line 1489.
 (pdftex.def)             Requested size: 394.99707pt x 500.01343pt.
 
 [65
@@ -1185,7 +1185,7 @@ File: C:/"Google Drive"/thesis/Document/Pictures/guideholddet.jpg Graphic file
 
 <use C:/"Google Drive"/thesis/Document/Pictures/guideholddet.jpg>
 Package pdftex.def Info: C:/"Google Drive"/thesis/Document/Pictures/guideholdde
-t.jpg used on input line 1495.
+t.jpg used on input line 1496.
 (pdftex.def)             Requested size: 443.10132pt x 550.82782pt.
  [66 <C:/Google Drive/thesis/Document/Pictures/guideholddet.jpg>]
 <C:/"Google Drive"/thesis/Document/Pictures/comparison1.jpg, id=1459, 537.50812
@@ -1195,7 +1195,7 @@ type jpg)
 
 <use C:/"Google Drive"/thesis/Document/Pictures/comparison1.jpg>
 Package pdftex.def Info: C:/"Google Drive"/thesis/Document/Pictures/comparison1
-.jpg used on input line 1502.
+.jpg used on input line 1503.
 (pdftex.def)             Requested size: 483.75284pt x 575.21872pt.
  [67 <C:/Google Drive/thesis/Document/Pictures/comparison1.jpg>]
 <C:/"Google Drive"/thesis/Document/Pictures/ideah1v2.jpg, id=1464, 602.25pt x 8
@@ -1204,7 +1204,7 @@ File: C:/"Google Drive"/thesis/Document/Pictures/ideah1v2.jpg Graphic file (typ
 e jpg)
  <use C:/"Google Drive"/thesis/Document/Pictures/ideah1v2.jpg>
 Package pdftex.def Info: C:/"Google Drive"/thesis/Document/Pictures/ideah1v2.jp
-g used on input line 1509.
+g used on input line 1510.
 (pdftex.def)             Requested size: 481.80064pt x 682.22974pt.
 
 [68 <C:/Google Drive/thesis/Document/Pictures/ideah1v2.jpg>]
@@ -1215,7 +1215,7 @@ File: C:/"Google Drive"/thesis/Document/Pictures/horfinalallv2.jpg Graphic file
 
 <use C:/"Google Drive"/thesis/Document/Pictures/horfinalallv2.jpg>
 Package pdftex.def Info: C:/"Google Drive"/thesis/Document/Pictures/horfinalall
-v2.jpg used on input line 1516.
+v2.jpg used on input line 1517.
 (pdftex.def)             Requested size: 481.7987pt x 676.44531pt.
 
 <C:/"Google Drive"/thesis/Document/Pictures/ALLROLLERSv2.jpg, id=1470, 60.225pt
@@ -1225,7 +1225,7 @@ File: C:/"Google Drive"/thesis/Document/Pictures/ALLROLLERSv2.jpg Graphic file
 
 <use C:/"Google Drive"/thesis/Document/Pictures/ALLROLLERSv2.jpg>
 Package pdftex.def Info: C:/"Google Drive"/thesis/Document/Pictures/ALLROLLERSv
-2.jpg used on input line 1522.
+2.jpg used on input line 1523.
 (pdftex.def)             Requested size: 481.7987pt x 605.62097pt.
  [69 <C:/Google Drive/thesis/Document/Pictures/horfinalallv2.jpg>] [70 <C:/Goog
 le Drive/thesis/Document/Pictures/ALLROLLERSv2.jpg>]
@@ -1236,7 +1236,7 @@ e (type jpg)
 
 <use C:/"Google Drive"/thesis/Document/Pictures/RFIDdetailedv2.jpg>
 Package pdftex.def Info: C:/"Google Drive"/thesis/Document/Pictures/RFIDdetaile
-dv2.jpg used on input line 1529.
+dv2.jpg used on input line 1530.
 (pdftex.def)             Requested size: 451.68628pt x 664.88228pt.
  [71 <C:/Google Drive/thesis/Document/Pictures/RFIDdetailedv2.jpg>]
 <C:/"Google Drive"/thesis/Document/Pictures/pihat.png, id=1485, 526.99284pt x 3
@@ -1245,7 +1245,7 @@ File: C:/"Google Drive"/thesis/Document/Pictures/pihat.png Graphic file (type p
 ng)
  <use C:/"Google Drive"/thesis/Document/Pictures/pihat.png>
 Package pdftex.def Info: C:/"Google Drive"/thesis/Document/Pictures/pihat.png u
-sed on input line 1538.
+sed on input line 1539.
 (pdftex.def)             Requested size: 526.99155pt x 382.4519pt.
 
 <C:/"Google Drive"/thesis/Document/Pictures/MCUmod.png, id=1486, 743.505pt x 51
@@ -1254,7 +1254,7 @@ File: C:/"Google Drive"/thesis/Document/Pictures/MCUmod.png Graphic file (type
 png)
  <use C:/"Google Drive"/thesis/Document/Pictures/MCUmod.png>
 Package pdftex.def Info: C:/"Google Drive"/thesis/Document/Pictures/MCUmod.png 
-used on input line 1545.
+used on input line 1546.
 (pdftex.def)             Requested size: 639.4132pt x 440.52647pt.
  [72
 
@@ -1265,7 +1265,7 @@ File: C:/"Google Drive"/thesis/Document/Pictures/LCDBOARD.png Graphic file (typ
 e png)
  <use C:/"Google Drive"/thesis/Document/Pictures/LCDBOARD.png>
 Package pdftex.def Info: C:/"Google Drive"/thesis/Document/Pictures/LCDBOARD.pn
-g used on input line 1552.
+g used on input line 1553.
 (pdftex.def)             Requested size: 526.99155pt x 382.4519pt.
 
 [73 <C:/Google Drive/thesis/Document/Pictures/MCUmod.png (PNG copy)>] [74 <C:/G
@@ -1276,7 +1276,7 @@ File: C:/"Google Drive"/thesis/Document/Pictures/sheet1v3.jpg Graphic file (typ
 e jpg)
  <use C:/"Google Drive"/thesis/Document/Pictures/sheet1v3.jpg>
 Package pdftex.def Info: C:/"Google Drive"/thesis/Document/Pictures/sheet1v3.jp
-g used on input line 1559.
+g used on input line 1560.
 (pdftex.def)             Requested size: 421.57387pt x 634.46878pt.
 
 <C:/"Google Drive"/thesis/Document/Pictures/sheet2v3.jpg, id=1501, 60.225pt x 8
@@ -1285,7 +1285,7 @@ File: C:/"Google Drive"/thesis/Document/Pictures/sheet2v3.jpg Graphic file (typ
 e jpg)
  <use C:/"Google Drive"/thesis/Document/Pictures/sheet2v3.jpg>
 Package pdftex.def Info: C:/"Google Drive"/thesis/Document/Pictures/sheet2v3.jp
-g used on input line 1560.
+g used on input line 1561.
 (pdftex.def)             Requested size: 481.7987pt x 717.88pt.
 
 <C:/"Google Drive"/thesis/Document/Pictures/sheet3v3.jpg, id=1502, 60.225pt x 9
@@ -1294,7 +1294,7 @@ File: C:/"Google Drive"/thesis/Document/Pictures/sheet3v3.jpg Graphic file (typ
 e jpg)
  <use C:/"Google Drive"/thesis/Document/Pictures/sheet3v3.jpg>
 Package pdftex.def Info: C:/"Google Drive"/thesis/Document/Pictures/sheet3v3.jp
-g used on input line 1561.
+g used on input line 1562.
 (pdftex.def)             Requested size: 481.7987pt x 723.17993pt.
 
 <C:/"Google Drive"/thesis/Document/Pictures/sheet4v2.jpg, id=1503, 60.225pt x 9
@@ -1303,7 +1303,7 @@ File: C:/"Google Drive"/thesis/Document/Pictures/sheet4v2.jpg Graphic file (typ
 e jpg)
  <use C:/"Google Drive"/thesis/Document/Pictures/sheet4v2.jpg>
 Package pdftex.def Info: C:/"Google Drive"/thesis/Document/Pictures/sheet4v2.jp
-g used on input line 1562.
+g used on input line 1563.
 (pdftex.def)             Requested size: 481.7987pt x 723.66162pt.
 
 <C:/"Google Drive"/thesis/Document/Pictures/sheet5v2.jpg, id=1504, 60.225pt x 9
@@ -1312,7 +1312,7 @@ File: C:/"Google Drive"/thesis/Document/Pictures/sheet5v2.jpg Graphic file (typ
 e jpg)
  <use C:/"Google Drive"/thesis/Document/Pictures/sheet5v2.jpg>
 Package pdftex.def Info: C:/"Google Drive"/thesis/Document/Pictures/sheet5v2.jp
-g used on input line 1563.
+g used on input line 1564.
 (pdftex.def)             Requested size: 481.7987pt x 723.17993pt.
 
 <C:/"Google Drive"/thesis/Document/Pictures/sheet6v2.jpg, id=1505, 60.225pt x 9
@@ -1321,7 +1321,7 @@ File: C:/"Google Drive"/thesis/Document/Pictures/sheet6v2.jpg Graphic file (typ
 e jpg)
  <use C:/"Google Drive"/thesis/Document/Pictures/sheet6v2.jpg>
 Package pdftex.def Info: C:/"Google Drive"/thesis/Document/Pictures/sheet6v2.jp
-g used on input line 1564.
+g used on input line 1565.
 (pdftex.def)             Requested size: 481.7987pt x 722.69812pt.
 
 <C:/"Google Drive"/thesis/Document/Pictures/sheet7v2.jpg, id=1506, 60.225pt x 9
@@ -1330,7 +1330,7 @@ File: C:/"Google Drive"/thesis/Document/Pictures/sheet7v2.jpg Graphic file (typ
 e jpg)
  <use C:/"Google Drive"/thesis/Document/Pictures/sheet7v2.jpg>
 Package pdftex.def Info: C:/"Google Drive"/thesis/Document/Pictures/sheet7v2.jp
-g used on input line 1565.
+g used on input line 1566.
 (pdftex.def)             Requested size: 481.7987pt x 722.69812pt.
 
 [75
@@ -1348,7 +1348,7 @@ File: C:/"Google Drive"/thesis/Document/Pictures/webordersupv2.jpg Graphic file
 
 <use C:/"Google Drive"/thesis/Document/Pictures/webordersupv2.jpg>
 Package pdftex.def Info: C:/"Google Drive"/thesis/Document/Pictures/webordersup
-v2.jpg used on input line 1573.
+v2.jpg used on input line 1574.
 (pdftex.def)             Requested size: 520.86049pt x 632.50856pt.
 
 <C:/"Google Drive"/thesis/Document/Pictures/webordersdownv2.jpg, id=1537, 1062.
@@ -1358,7 +1358,7 @@ le (type jpg)
 
 <use C:/"Google Drive"/thesis/Document/Pictures/webordersdownv2.jpg>
 Package pdftex.def Info: C:/"Google Drive"/thesis/Document/Pictures/webordersdo
-wnv2.jpg used on input line 1579.
+wnv2.jpg used on input line 1580.
 (pdftex.def)             Requested size: 520.86049pt x 588.73465pt.
  [82 <C:/Google Drive/thesis/Document/Pictures/webordersupv2.jpg>]
 <C:/"Google Drive"/thesis/Document/Pictures/webcontactv2.jpg, id=1543, 1080.035
@@ -1368,7 +1368,7 @@ File: C:/"Google Drive"/thesis/Document/Pictures/webcontactv2.jpg Graphic file
 
 <use C:/"Google Drive"/thesis/Document/Pictures/webcontactv2.jpg>
 Package pdftex.def Info: C:/"Google Drive"/thesis/Document/Pictures/webcontactv
-2.jpg used on input line 1587.
+2.jpg used on input line 1588.
 (pdftex.def)             Requested size: 540.01619pt x 624.33098pt.
  [83 <C:/Google Drive/thesis/Document/Pictures/webordersdownv2.jpg>] [84 <C:/Go
 ogle Drive/thesis/Document/Pictures/webcontactv2.jpg>]
@@ -1378,7 +1378,7 @@ File: C:/"Google Drive"/thesis/Document/Pictures/DIP8TEMPv2.jpg Graphic file (t
 ype jpg)
  <use C:/"Google Drive"/thesis/Document/Pictures/DIP8TEMPv2.jpg>
 Package pdftex.def Info: C:/"Google Drive"/thesis/Document/Pictures/DIP8TEMPv2.
-jpg used on input line 1597.
+jpg used on input line 1598.
 (pdftex.def)             Requested size: 534.79611pt x 569.55777pt.
 
 <C:/"Google Drive"/thesis/Document/Pictures/DIP1416TEMPv2.jpg, id=1553, 72.27pt
@@ -1388,7 +1388,7 @@ File: C:/"Google Drive"/thesis/Document/Pictures/DIP1416TEMPv2.jpg Graphic file
 
 <use C:/"Google Drive"/thesis/Document/Pictures/DIP1416TEMPv2.jpg>
 Package pdftex.def Info: C:/"Google Drive"/thesis/Document/Pictures/DIP1416TEMP
-v2.jpg used on input line 1605.
+v2.jpg used on input line 1606.
 (pdftex.def)             Requested size: 534.79611pt x 565.8142pt.
  [85 <C:/Google Drive/thesis/Document/Pictures/DIP8TEMPv2.jpg>]
 <C:/"Google Drive"/thesis/Document/Pictures/DIP20TEMPv2.jpg, id=1558, 72.27pt x
@@ -1397,7 +1397,7 @@ File: C:/"Google Drive"/thesis/Document/Pictures/DIP20TEMPv2.jpg Graphic file (
 type jpg)
  <use C:/"Google Drive"/thesis/Document/Pictures/DIP20TEMPv2.jpg>
 Package pdftex.def Info: C:/"Google Drive"/thesis/Document/Pictures/DIP20TEMPv2
-.jpg used on input line 1612.
+.jpg used on input line 1613.
 (pdftex.def)             Requested size: 534.79611pt x 576.51018pt.
 
 [86 <C:/Google Drive/thesis/Document/Pictures/DIP1416TEMPv2.jpg>]
@@ -1408,7 +1408,7 @@ File: C:/"Google Drive"/thesis/Document/Pictures/drilltemplate.jpg Graphic file
 
 <use C:/"Google Drive"/thesis/Document/Pictures/drilltemplate.jpg>
 Package pdftex.def Info: C:/"Google Drive"/thesis/Document/Pictures/drilltempla
-te.jpg used on input line 1619.
+te.jpg used on input line 1620.
 (pdftex.def)             Requested size: 447.3502pt x 636.69714pt.
  [87 <C:/Google Drive/thesis/Document/Pictures/DIP20TEMPv2.jpg>] [88 <C:/Google
  Drive/thesis/Document/Pictures/drilltemplate.jpg>]
@@ -1419,18 +1419,18 @@ file (type jpg)
 
 <use C:/"Google Drive"/thesis/Document/Pictures/explodedenclosure.jpg>
 Package pdftex.def Info: C:/"Google Drive"/thesis/Document/Pictures/explodedenc
-losure.jpg used on input line 1628.
+losure.jpg used on input line 1629.
 (pdftex.def)             Requested size: 483.30492pt x 622.49683pt.
  [89 <C:/Google Drive/thesis/Document/Pictures/explodedenclosure.jpg>] [90] [91
 ]
-LaTeX Font Info:    Try loading font information for OML+cmr on input line 1703
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 1704
 .
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\omlcmr.fd"
 File: omlcmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 1703.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 1704.
 
  [92] [93]
 <C:/"Google Drive"/thesis/Document/Pictures/Signatureform.jpg, id=1675, 577.437
@@ -1440,18 +1440,18 @@ File: C:/"Google Drive"/thesis/Document/Pictures/Signatureform.jpg Graphic file
 
 <use C:/"Google Drive"/thesis/Document/Pictures/Signatureform.jpg>
 Package pdftex.def Info: C:/"Google Drive"/thesis/Document/Pictures/Signaturefo
-rm.jpg used on input line 1776.
+rm.jpg used on input line 1777.
 (pdftex.def)             Requested size: 537.01114pt x 676.13669pt.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1781.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1782.
  [94 <C:/Google Drive/thesis/Document/Pictures/Signatureform.jpg>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1781.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1782.
  ("Thesis doc V0.1.aux")
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1781.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1781.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1782.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1782.
 
 Package rerunfilecheck Info: File `"Thesis doc V0.1".out' has not changed.
-(rerunfilecheck)             Checksum: FEB008CFC8A3F507376F1B9410D51FC0;9442.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1781.
+(rerunfilecheck)             Checksum: A3F167C4F6EBCE9961D33599A4CFD298;9442.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1782.
  ) 
 Here is how much of TeX's memory you used:
  9641 strings out of 493335
@@ -1474,8 +1474,9 @@ m Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program
 Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Fil
 es (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files
  (x86)/MiKTeX 2.9/fonts/type1/public/eurosym/feymr10.pfb>
-Output written on "Thesis doc V0.1.pdf" (109 pages, 16360436 bytes).
+Output written on "Thesis doc V0.1.pdf" (109 pages, 16360135 bytes).
 PDF statistics:
  1823 PDF objects out of 2073 (max. 8388607)
  444 named destinations out of 1000 (max. 500000)
  1424 words of extra memory for PDF output out of 10000 (max. 10000000)
+

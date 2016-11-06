@@ -17,15 +17,11 @@ import sys
 from select import select
 import logging
 
-LOG_FILENAME = 'MasterLog.log'
-
 # Set up a specific logger with our desired output level
 logging.basicConfig(level=logging.DEBUG,
                     format='%(asctime)s %(name)-12s %(levelname)-8s %(message)s',
                     datefmt='%m-%d %H:%M',
                     filename='/var/www/html/MasterLog.log')
-                    # ,
-                    # filemode='w')
 
 logging.debug("=========================")
 logging.debug("Program Started")
