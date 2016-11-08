@@ -119,8 +119,9 @@
 \contentsline {subsection}{\numberline {F.3}DIP 20 Template}{87}{subsection.1.F.3}
 \contentsline {subsection}{\numberline {F.4}Drill Template}{88}{subsection.1.F.4}
 \contentsline {subsection}{\numberline {F.5}Exploded Enclosure View}{89}{subsection.1.F.5}
-\contentsline {section}{\numberline {G}Manuals and Guides}{90}{Appendix.1.G}
-\contentsline {subsection}{\numberline {G.1}Programming Guide}{90}{subsection.1.G.1}
-\contentsline {subsection}{\numberline {G.2}Restocking and Maintenance Guide}{91}{subsection.1.G.2}
-\contentsline {section}{\numberline {H}Terminal Commands}{92}{Appendix.1.H}
-\contentsline {section}{\numberline {I}Ethics Forms}{94}{Appendix.1.I}
+\contentsline {section}{\numberline {G}Master Program Log}{90}{Appendix.1.G}
+\contentsline {section}{\numberline {H}Manuals and Guides}{91}{Appendix.1.H}
+\contentsline {subsection}{\numberline {H.1}Programming Guide}{91}{subsection.1.H.1}
+\contentsline {subsection}{\numberline {H.2}Restocking and Maintenance Guide}{92}{subsection.1.H.2}
+\contentsline {section}{\numberline {I}Terminal Commands}{93}{Appendix.1.I}
+\contentsline {section}{\numberline {J}Ethics Forms}{95}{Appendix.1.J}

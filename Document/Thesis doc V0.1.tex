@@ -69,6 +69,14 @@ xrightmargin=1in}
 
 \usepackage{placeins}
 
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\rightmark}
+\fancyhead[R]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+
 \begin{document}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	% title page
@@ -280,7 +288,7 @@ Investigations into similar work to the topic of this project, dispensers of sma
 Similar work to the topic of this report will be presented in this section. It was difficult to find work specifically related so for the most, part medical dispensers were considered a close comparison. This comparison was chosen as medication comes in a small package and can also be specific to each package, where one unit of medication is dispensed at a time. This drew parallels to the White Lab Vending Machine requirements and so work in this field was reviewed but only the design aspects of these works.
 
 \subsubsection{Portland State University Vending Machine}
-At Portland State University under the ECE department a Vending Machine was retro-fitted to provide a wide range of components, 24/7. They employed a method of using zip lock bags and placing a package of components in each bag. These bags were then put in a standard snack vending machine like the ones commonly seen at stores and on campuses, like UCT. In order to restock the machine, volunteers package these bags with various components. Below is a picture of what is inside the vending machine \cite{PORTU,vend}.
+At Portland State University under the ECE department, a Vending Machine was retro-fitted to provide a wide range of components, 24/7. They employed a method of using zip lock bags and placing a package of components in each bag. These bags were then put in a standard snack vending machine like the ones commonly seen at stores and on campuses, like UCT. In order to restock the machine, volunteers package these bags with various components. Below is a picture of what is inside the vending machine \cite{PORTU,vend}.
 
 	\begin{figure}[ht]
 	\centering
@@ -464,7 +472,7 @@ A mind map is also included in \fullref{sec:resmm} which was created on commenci
 \subsection{Mechanical Specifications}
 The mechanical Specifications and requirements will be discussed in more detail below.
 \subsubsection{DIP Specifications}
-In order to determine the design requirements for the dispensers the dimensions of varies DIP components where measured. The method of investigation was searching a well known vendors site\cite{mantech}  for datasheets on the varies DIP components. Datasheets were check for dimensions until 5 different measurements were obtained, the list is summarized in \autoref{tab:dipd}.
+In order to determine the design requirements for the dispensers the dimensions of varies DIP components where measured. The method of investigation was searching a well-known vendor's site\cite{mantech}  for datasheets on the various DIP components. Datasheets were check for dimensions until 5 different measurements were obtained, the list is summarized in \autoref{tab:dipd}.
 \newpage
 
 	\begin{table}[ht]
@@ -488,7 +496,7 @@ In order to determine the design requirements for the dispensers the dimensions 
 	Average & 10.06 & 19.19 & 20.23 & 25.84 \\
 	\hline
 	\end{tabular}
-	\caption{DIP package dimension for varies components measured in millimeter. \label{tab:dipd}}
+	\caption{DIP package dimension for various components measured in millimeter. \label{tab:dipd}}
 	\end{table}
 
 From the data collected it showed that there were only 3 different packages to cater for, as the DIP 14 and 16 packages were observed to be very similar.
@@ -508,14 +516,14 @@ The PCB requirements and specifications will be discussed in more detail below.
 \subsubsection{Raspberry Pi}
 The main purpose of a PCB to interface with the Raspberry Pi is to be able to power the Pi and create a starting point for communications bus. This module should also be able to sense if the door of the enclosure is open. This is to prevent the machine dispensing components or moving parts when someone could potentially have their finger in the mechanism to try and fix a fault. 
 \subsubsection{MCU Modules}
-The MCU module has many small specifications all coming together to serve the the main purpose of being modular and interchangeable for different types of delivery systems that may be needed. It would need to operate a DC motor, stepper motor, and servo motor either all at the same time or at once. Gap sensors to be able to detect an empty load for delivery or a jam, or a low cartridge or tube. It was later decided that the MCU module should be able to operate an LCD, This was so messages could be relayed to someone using the Vending Machine i.e. to communicate a problem with the machine. A micro-controller capable of handling the specifications of the MCU Module with a crystal designed to the micro-controllers specifications. A communications and power bus that can be daisy chained to addition modules adding expansion for more than one module on the same bus. Calibration controls to adjust and fine tune the operation of the device. This will allow small imperfects in manufacturing and building to be worked around by changing set limits in the code.
+The MCU module has many small specifications all coming together to serve the main purpose of being modular and interchangeable for different types of delivery systems that may be needed. It would need to operate a DC motor, stepper motor, and servo motor either all at the same time or at once. Gap sensors to be able to detect an empty load for delivery or a jam, or a low cartridge or tube. It was later decided that the MCU module should be able to operate an LCD, This was so messages could be relayed to someone using the Vending Machine i.e. to communicate a problem with the machine. A micro-controller capable of handling the specifications of the MCU Module with a crystal designed to the micro-controllers specifications. A communications and power bus that can be daisy chained to addition modules adding expansion for more than one module on the same bus. Calibration controls to adjust and fine tune the operation of the device. This will allow small imperfects in manufacturing and building to be worked around by changing set limits in the code.
 \subsection{Software Specifications}
 The specifications of the Software requirements and specifications will be discussed below.
 \subsubsection{Master Program for the Raspberry Pi}
-The main function of the master program must be to recognize student cards and the student number attached to them and communicate with the MCU modules. This communication will allow the Master program to control the actions of each MCU module when needed. The master program must also manage the data base and make sure the orders are not invalid. Another feature the Master program must have is admin control in order to be able to induce addition admin features on the each MCU module for maintenance purposes. To do all this the Master program must be able to interface with a database but it must not record any user ID's or information taken from a student card.
+The main function of the master program must be to recognize student cards and the student number attached to them and communicates with the MCU modules. This communication will allow the Master program to control the actions of each MCU module when needed. The master program must also manage the data base and make sure the orders are not invalid. Another feature the Master program must have is admin control in order to be able to induce addition admin features on the each MCU module for maintenance purposes. To do all this the Master program must be able to interface with a database but it must not record any user ID's or information taken from a student card.
 \subsubsection{MCU Module}
 \label{subsec:mcuspec}
-The specification for the program were set out to make sure the program ran reliably. To ensure this one of the first requirements were that the MCU would use very few delays and instead use a task manager. The task manager must enable to MCU module to operate without delays when dispensing components so the system will not be held up by any one task. In addition to the task manager, motor control for the 3 kinds of motors must be present. Detection for empty load and low cartridge/tube using optical gap sensors. An address storage system must be in place so the device will now when it is being commanded over the communications bus. Finally the MCU module must have a task to calibrate the device and save the newly set values. A summary of the I/O needed has been listed below:
+The specification for the program was set out to make sure the program ran reliably. To ensure this, one of the first requirements were that the MCU would use very few delays and instead use a task manager. The task manager must enable to MCU module to operate without delays when dispensing components so the system will not be held up by any one task. In addition to the task manager, motor control for the 3 kinds of motors must be present. Detection for empty load and low cartridge/tube using optical gap sensors. An address storage system must be in place so the device will now when it is being commanded over the communications bus. Finally the MCU module must have a task to calibrate the device and save the newly set values. A summary of the I/O needed has been listed below:
 	
 	\begin{itemize}
 	\setlength\itemsep{0em}
@@ -535,15 +543,15 @@ The website is a proof of concept in order to show the device is capable of inte
 	In order to begin the design process a clear methodology was needed to proceed in order to get the best results. This included a set of rules to follow when designing and testing prototypes and more. This section aims to discuss these and elaborate on how the design was approached to meet the requirements set out in the previous section.
 
 \subsection{Design}
-The methodology behind the mechanical design will be reviewed first then circuit design, software design and and finally prototyping:
+The methodology behind the mechanical design will be reviewed first then circuit design, software design and finally prototyping:
 \subsubsection{Mechanical Design Methodology}
 In order to make an effective design certain constraints were first laid out to limit the scope and complexity of the design.
 
-In order to limit the complexity a simple design approach was used where simplicity and the method forward thinking of "how would it fail" were always the first and ongoing design considerations. Once the simple idea was theorized details were added in order to make it more functional. Simplicity was not the main goal as complexity would be needed in some cases i.e. were functionality took priority. To reduce complexity the number of moving parts would be kept at a minimum in order to prevent failure of functionality and structure. 
+In order to limit the complexity a simple design approach was used where simplicity and the method of forward thinking ``how would it fail" were always the first and ongoing design considerations. Once the simple idea was theorized details, were added in order to make it more functional. Simplicity was not the main goal as complexity would be needed in some cases i.e. were functionality took priority. To reduce complexity the number of moving parts would be kept at a minimum in order to prevent failure of functionality and structure. 
 
 Design for the delivery mechanism started out on paper as sketches with basic ideas until a practical idea was ready. Once ready the idea was designed in SolidWorks with the above mentioned goals. Once the Model was fully defined in SolidWorks, the model was printed on a 3D printer to prototype and test the effectiveness of the design. If the design had flaws a redesign was done to change and eliminate those flaws and the model was printed again to further test and find any more potential flaws. This process was repeated until a reliable working prototype for the delivery mechanism was produced.
 
-As for the enclosure a similar process was followed as the delivery mechanism however there was no prototyping as the cost for prototyping would have been too high. Another reason for no prototyping for the enclosure was that the functionality was not as complex as the delivery mechanism. This meant that it was designed with measurements in mind more so than functionality, although not to say functionality didn't play a part in decision making. For the enclosure first the frame was designed then the internal housing to hold all the delivery mechanism, Raspberry pi and power supply were designed. Next the shell was designed along with the slide for the components to fall down and the front door. Once design was finished all the parts were detailed in sketches to finalize the design.
+As for the enclosure a similar process was followed as the delivery mechanism however there was no prototyping as the cost for prototyping would have been too high. Another reason for no prototyping for the enclosure was that the functionality was not as complex as the delivery mechanism. This meant that it was designed with measurements in mind more so than functionality, although not to say functionality didn't play a part in decision making. For the enclosure first the frame was designed then the internal housing to hold all the delivery mechanism, Raspberry pi and power supply was designed. Next the shell was designed along with the slide for the components to fall down and the front door. Once the design was finished all the parts were detailed in sketches to finalize the design.
 
 \subsubsection{Circuit Design Methodology}
 The basic idea behind the design of the PCB was to have it be versatile and able to adapt to the needs of the project by adding in features to allow for multiple configurations of mechanical delivery needs. This required a somewhat modular design.
@@ -576,10 +584,10 @@ This section will cover the components and materials selected for the design of 
 
 \subsection{Communications bus}
 \label{subsec:bus}
-In order to communicate using an RS485 bus a differential bus transceiver was needed to convert the UART signal. The SN75176B was chosen as it has many advantages over many other differential bus transceivers. It acts as a half duplex RS485 device when connected to a RS485 bus meaning it can only communicate one way at a time which meets the requirements of the communications needs, also this means only 2 wires will be needed for communication plus a common ground. To manage the half duplex communications each transceiver has data enable and receive enable triggers to allow it communicate and receive data only when needed allowing the device in control to manage its communications better, i.e. when tasks are being performed and no communication is expected or needed it can turn of its  bus connection. This will allow for more reliable task execution.
+In order to communicate using an RS485 bus a differential bus transceiver was needed to convert the UART signal. The SN75176B was chosen as it has many advantages over many other differential bus transceivers. It acts as a half-duplex RS485 device when connected to a RS485 bus meaning it can only communicate one way at a time which meets the requirements of the communications needs, also this means only 2 wires will be needed for communication plus a common ground. To manage the half-duplex communications each transceiver has data enable and receive enable triggers to allow it to communicate and receive data only when needed allowing the device in control to manage its communications better, i.e. when tasks are being performed and no communication is expected or needed it can turn of its  bus connection. This will allow for more reliable task execution.
 
 \subsection{Servo Motor}
-In order to drive the roller version of the delivery mechanism a appropriate servo motor was needed. The Hextronik 9g servo was selected, or any 9g servo equivalent (9g stands for the weight of the servo), as it is inexpensive at \euro 2,42 \cite{hobbyking}. It was capable of moving the rollers and was light and compact making the overall design compact. Later on though it was decided to use a stronger and more reliable Corona DS-339 as it did not have overshoot that was observed in testing on the 9g servo. Although it is more expensive at \euro 7,61 \cite{hobbyking} it is more readily available at UCT.
+In order to drive the roller version of the delivery mechanism an appropriate servo motor was needed. The Hextronik 9g servo was selected, or any 9g servo equivalent (9g stands for the weight of the servo), as it is inexpensive at \euro 2,42 \cite{hobbyking}. It was capable of moving the rollers and was light and compact making the overall design compact. Later on though it was decided to use a stronger and more reliable Corona DS-339 as it did not have overshoot that was observed in testing on the 9g servo. Although it is more expensive at \euro 7,61 \cite{hobbyking} it is more readily available at UCT.
 
 \subsection{Stepper motor and Driver}
 Although a stepper motor was not used in any of the final builds the design caters for a stepper motor for future development. The stepper motor the PCB was designed for is the NEMA 17. This stepper motor was chosen as it is a fairly commonly used stepper motor and popular in the 3D printing community, RepRap project \cite{reprap}, meaning trouble shooting potential problems would be easier than using another motor.
@@ -596,16 +604,16 @@ In the end the STM MCU was chosen over an Atmel MCU based system mainly because 
 The STM MCU features a 48MHz max system clock with 32Kbytes of flash and 8Kbytes of SRAM. It has 11 timers in total which will assist with the PWM channel and task manager. It has 27 available I/O channels. Of these 27 channels 10 can be mapped to the ADC, 6 can be mapped to the timers and used as PWM channels. Additionally the STM MCU has 2 UART interfaces.
 
 \subsection{Delivery Mechanism Housing}
-It was decided that the housing structure for the delivery mechanism would be clear 2mm perspex. This was because perspex would be able to handle the small forces applied to the mechanism. It was also chosen as perspex is easy to cut given a laser cutter is used, making for accurate assembly of the design. Lastly clear perspex was specifically used so the housing wouldn't impede viewing of the delivery mechanism for assembly, maintenance and repair. 
+It was decided that the housing structure for the delivery mechanism would be clear 2mm perspex. This was because acrylic glass would be able to handle the small forces applied to the mechanism. It was also chosen as acrylic glass is easy to cut given a laser cutter is used, making for accurate assembly of the design. Lastly clear acrylic glass was specifically used so the housing wouldn't impede viewing of the delivery mechanism for assembly, maintenance and repair. 
 
 \subsection{Enclosure Frame}
 Steel L beams and bars where chosen as the frame for the enclosure. Steel was chosen because it would be strong and durable making the enclosure last long. Also steel is one of the easier metals to weld making it ideal as the facilities are common for welding steel.
 
 \subsection{Enclosure Casing}
-Aluminium was chosen over perspex for the casing for the enclosure. This is because aluminium is stronger than perspex making it harder for people to tamper with the enclosure and breach it to access the interior. Perspex and aluminium are roughly the same price per meter$^2$ making the advantages of aluminium a the obvious choice.  
+Aluminium was chosen over acrylic glass for the casing for the enclosure. This is because aluminium is stronger than acrylic glass making it harder for people to tamper with the enclosure and breach it to access the interior. acrylic glass and aluminium are roughly the same price per meter$^2$ making the advantages of aluminium the obvious choice.  
 
 \subsection{Enclosure Shelving}
-Shelving for the delivery mechanisms and the housings was chosen to be wood as it was the most cost effective solution over using steel, aluminium or perspex. Wooden planks 12mm thick would be used.
+Shelving for the delivery mechanisms and the housings was chosen to be wood as it was the most cost effective solution over using steel, aluminium or acrylic glass. Wooden planks 12mm thick would be used.
 
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -667,7 +675,7 @@ The Vertical Roller was named after the axis the part pivoted on, this pivoting 
 	\caption{Vertical Roller and Housing Delivery mechanism. \label{fig:v1}}
 	\end{figure}
 
-The "Vertical Roller" is labeled in the \autoref{fig:v1} situated in the "Housing Structure", made of 2mm perspex, that would enable it to pivot on the vertical axis with the assist of a servo motor. The housing structure had a width of 103 mm to keep it stable allowing for 9 delivery mechanisms to be placed on a 1 m span. The design of the Roller consisted of a bucket for the DIP component to drop into, this bucket would be situated on a wheel that would pivot the bucket from a position where a component would drop into the bucket. The bucket was designed to accommodate a component with splayed legs so took on a trapezoidal shape. The dimensions of the bucket where determined by measuring dimensions on a DIP component. The wheel would then pivot to a position where the component would fall out, this position is depicted in the \autoref{fig:v1}. A plate labeled "Guide plate" was designed to force components to fall away from the housing if they fell straight down. The components are guided into the bucket by the "IC Guide", the design of the IC guide are detailed in \halfref{subsec:Guide}. A more detailed drawing of the delivery mechanism in its housing can be seen in \fullref{subsec:v1}.
+The "Vertical Roller" is labeled in the \autoref{fig:v1} situated in the "Housing Structure", made of 2mm acrylic glass, that would enable it to pivot on the vertical axis with the assist of a servo motor. The housing structure had a width of 103 mm to keep it stable allowing for 9 delivery mechanisms to be placed on a 1 m span. The design of the Roller consisted of a bucket for the DIP component to drop into, this bucket would be situated on a wheel that would pivot the bucket from a position where a component would drop into the bucket. The bucket was designed to accommodate a component with splayed legs so took on a trapezoidal shape. The dimensions of the bucket where determined by measuring dimensions on a DIP component. The wheel would then pivot to a position where the component would fall out, this position is depicted in the \autoref{fig:v1}. A plate labeled "Guide plate" was designed to force components to fall away from the housing if they fell straight down. The components are guided into the bucket by the "IC Guide", the design of the IC guide are detailed in \halfref{subsec:Guide}. A more detailed drawing of the delivery mechanism in its housing can be seen in \fullref{subsec:v1}.
 
 	\begin{figure}[ht]	
 	\centering
@@ -681,7 +689,7 @@ In \halfref{fig:multi}, labeled (c), IC1 will be the name given the component in
 
 \subsubsection{Prototyping Vertical Roller Version 1}
 
-A prototype of the Delivery mechanism was built to test its functionality and reliability. A portion of the testing is seen in the video \cite{verttest1p1,verttest1p2}. The parts for the housing were laser cut, scrap perspex was used to reduce prototyping costs. The Vertical Roller and IC guide were 3D printed using PLA. 
+A prototype of the Delivery mechanism was built to test its functionality and reliability. A portion of the testing is seen in the video \cite{verttest1p1,verttest1p2}. The parts for the housing were laser cut, scrap acrylic glass was used to reduce prototyping costs. The Vertical Roller and IC guide were 3D printed using PLA. 
 \newpage
 	\begin{figure}[ht]	
 	\centering
@@ -720,7 +728,7 @@ The Horizontal roller just like the vertical roller is named after the axis is p
 	\caption{Horizontal Roller and Housing Delivery mechanism. \label{fig:hv11}}
 	\end{figure}
 
-The idea for the horizontal roller was inspired by a combination of the literature review in \halfref{subsec:med2} and \halfref{subsec:med3}. The "Horizontal roller" labeled in \halfref{fig:hv11} would be situated in a "Housing structure" made of 2mm perspex. The housing structure had the same span as the vertical roller. The design was also to be more adaptable with regards to the range of DIP components it could accommodate. In theory if a longer DIP package was required, the height of the roller could be modified in order to satisfy the requirements. Another benefit of this design is that the wall of the servo and the housing made a closed channel to expel the components in a controlled direction reducing the possibility of a component falling back and failing to expel from the mechanism properly. A more detailed diagram of the Housing and roller can be seen in \fullref{subsec:h1}. 
+The idea for the horizontal roller was inspired by a combination of the literature review in \halfref{subsec:med2} and \halfref{subsec:med3}. The "Horizontal roller" labeled in \halfref{fig:hv11} would be situated in a "Housing structure" made of 2mm acrylic glass. The housing structure had the same span as the vertical roller. The design was also to be more adaptable with regards to the range of DIP components it could accommodate. In theory if a longer DIP package was required, the height of the roller could be modified in order to satisfy the requirements. Another benefit of this design is that the wall of the servo and the housing made a closed channel to expel the components in a controlled direction reducing the possibility of a component falling back and failing to expel from the mechanism properly. A more detailed diagram of the Housing and roller can be seen in \fullref{subsec:h1}. 
 
 	\begin{figure}[ht]	
 	\centering
@@ -736,7 +744,7 @@ This design works by first loading a component in the bucket, IC1. Then the roll
 The horizontal roller was designed to eliminate some of the problems encountered with the vertical roller. Firstly, the problem where IC1 being caught in the bucket, by using a horizontal roller that used a different method to expel the component this would be eliminated. Secondly, IC2 jamming up against IC1 as illustrated in \halfref{fig:jam}, by rotating IC1 instead of moving tangentially on the circumference of the roller away for IC2 this would eliminate IC2 from jamming against IC1. This is because the force on IC1 by IC2 will be localized to one corner when rotating instead of being distribute across a surface when moving tangentially on the circumference of the roller. Lastly, unpredictable ejections would be eliminated as the component would be dropped down a a guide controlling its fall path instead of being flung out like in the Vertical roller.
 
 \subsubsection{Prototyping Horizontal Roller Version 1}
-Another prototype of the Delivery mechanism was built. The housing structure was made again as it was different from the vertical roller. Again the housing was made of 2mm scrap perspex, to keep prototyping costs low, and the roller was 3D printed using PLA. A video of a portion of the testing is seen in the video \cite{newhor}.
+Another prototype of the Delivery mechanism was built. The housing structure was made again as it was different from the vertical roller. Again the housing was made of 2mm scrap acrylic glass, to keep prototyping costs low, and the roller was 3D printed using PLA. A video of a portion of the testing is seen in the video \cite{newhor}.
 	
 	\begin{figure}[ht]	
 	\centering
@@ -1291,7 +1299,7 @@ The \autoref{fig:lcdassem} illustrates the assembly process at varies stages. To
 	\end{table}	
 
 \subsection{Delivery Mechanism Assembly}
-To begin assembly of a delivery mechanism the perspex was ordered and cut as per one of the templates in \fullref{subsec:templates}. The Roller and IC guide were 3D printed using PLA. Once all the parts had been acquired assembly could begin.
+To begin assembly of a delivery mechanism the acrylic glass was ordered and cut as per one of the templates in \fullref{subsec:templates}. The Roller and IC guide were 3D printed using PLA. Once all the parts had been acquired assembly could begin.
 
 	\begin{figure}[!ht]	
 	\centering
@@ -1315,7 +1323,7 @@ Next the housing structure was assembled. The structure was assembled according 
 	\hline
 	\textbf{Part Name} & \textbf{Cost} & \textbf{Quantity} \\
 	\hline
-	Perspex 311.85cm$^2$ & R * & 1 \\
+	acrylic glass 311.85cm$^2$ & R * & 1 \\
 	\hline
 	3D Printed parts & ~R 20.00 ** & 1 \\
 	\hline
@@ -1338,6 +1346,7 @@ Next the housing structure was assembled. The structure was assembled according 
 	\end{table}	
 
 \subsection{Overall and Final Assembly}
+\label{subsec:finbuild}
 Once all individual modules and enclosure had been assembled the final product of the research could be put together. This section will presents the the methods used to assemble all the components of the project together to complete the vending machine.
 
 Initially the shelve for all the delivery mechanisms was prepared. I drill template, which can be seen in \autoref{subsec:drilltemp}, was made in order to make holes for mounting each delivery mechanism. Included in this template is a template for the size of the a pate that would serve to hold the PCB vertically on the plank. This was done, as specified in the design, to increase the density of the delivery mechanisms allowed on one shelf. Using this template, holes where drilled in the plank and plates where cut from the same wood the shelf was. Holes were drilled in the wooden plates, using the PCBs as a template, to mount the PCBs using metal standoffs. Once all the necessary holes where drilled the six assembled delivery mechanisms were attached using m4 bolts, washers and nuts. Next the leads for the motors and sensors were cut and fitted to a sockets so they could attach to the PCBs. A test PCB was made to help with wiring of the sensors to correspond with the terminal on the PCB, a picture of its schematic and physical realization can be seen in \autoref{fig:tester}.
@@ -1436,11 +1445,17 @@ In this picture one can see a message being sent in between the 1 second and 2 s
 Test were done with the RS 485 bus transceiver chip and the communications worked as expected. However there were problems with communication but it was found that limitations of the Raspberry Pi and its ability to interact with the RS 485 bus transceiver. This was found during debugging of the final assembly. It was isolated to the Raspberry pi by testing communications with the MCU modules alone and they were able to communicate with each other flawlessly. After further debugging a solution was found by changing the way the code interacted with the RS 485 chip allowing for reliable communications.
 
 \subsection{Final build Results and Discussion}
+The final build as detailed in \autoref{subsec:finbuild} was tested to make sure it operated as expected. The tests there were done were repeated orders and dispensary requests. After some debugging it was found that two of the MCU modules were faulty and were taken off the chain. This proved to fix functionality enabling the device to operate properly. Although there were some changes needed to the code base in order to make this so, this is mainly due to problems with communications handling. After these issues were fixed the vending machine operated as expected. An excerpt of the log of the Master Program can be seen in \autoref{sec:maslog}. This log shows majority successful dispensary actions with some corrupted communications warnings. The corrected code accounted for this by attempting the resend the message which would successfully complete the dispensary action.
 \newpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	%conclusion
 \section{Conclusion}
+The aim of the this research and report was the investigate the possibility of fabricating a White Lab Vending Machine. Designs and construction requirements were set out to define what the vending machine needed to do and how it should be done. The function of the vending machine was the reliable dispensing of individual components so as to deliver a 24 hour 7 days a week store that students could request components from. The system needed to be able to identify students by reading their student cards and interacting with a online store. This was so students could easily interact with the vending machine at any time of the day or night. Finally an enclosure was to be designed that should be able to house all the parts that made up the internals of the vending machine while being able to present the components to the students ordering components.
+
+Designs were theorized and prototypes were made of each version of the design until an optimal solution was designed. The 
+
+The delivery mechanism all worked better than expected exceeding the set out reliability standard. Although the delivery mechanisms themselves were successful the MCU modules were not all functional. This was due to problems encounter in assembly and not the design. This meant that the design of the MCU module was successful and met the requirements set out at the beginning of the project. With the Pi HAT also working along with all of the above the basic functionality of the vending machine was successful. On top of this success the vending machine is able to communicate over the internet and interact with a website to enable online ordering. Paired with the RFID tag reader the system was able to identify students numbers and match them to orders that were placed on the online store. After matching student numbers with orders on the store, components were successfully delivered to said student. The design worked for the intended purpose and therefore is a successful prototype or even product for the White Lab Vending Machine, given improvements need be made.
 
 \newpage
 
@@ -1459,7 +1474,9 @@ The DIP 20 IC and IC socket dispensers where the most unreliable and problematic
 
 Due to the limitation in scope only DIP packages were considered. If this project is to be successful, designs for other packages should be realized. This could also help students expand their knowledge by introducing not so common components. By doing this students will have the opportunity to use these uncommonly requested components they possibly never know about. This is a possibility due to the nature of the current White Lab component store being behind doors for the most part. The vending machines site will allow student to see what is behind the door and explore a wider variety of components than those they are told about in lectures.
 
-The enclosure, although served its function, is not adequate to server as the enclosure permanently. The enclosure is not sturdy enough due to the way the frame was designed and an oversight and inaccuracies during the assembly process. One of the major problems is the fact that the door sags when open and needs to be propped up when closed. This is due to the weight of the door hanging on the frame bending it casing it the sag on the open end. A pre-build enclosure should be bought to replace the current enclosure. A pre-bought enclosure was not considered for the purpose of this report due to the cost, that being far greater than making one out of raw materials, like the one made ofr this report. This information about a pre-built frame was obtained in passing conversations with technical officers at UCT, which is why it never made its why into the report prior to recommendations.
+The enclosure, although served its function, is not adequate to serve as the enclosure permanently. The enclosure is not sturdy enough due to the way the frame was designed and an oversight and inaccuracies during the assembly process. One of the major problems is the fact that the door sags when open and needs to be propped up when closed. This is due to the weight of the door hanging on the frame bending it casing it the sag on the open end. Either improvements need to be made or, a pre-build enclosure should be bought to replace the current enclosure. A pre-bought enclosure was not considered for the purpose of this report due to the cost, that being far greater than making one out of raw materials, like the one made for this report. This information about a pre-built frame was obtained in passing conversations with technical officers at UCT, which is why it never made its why into the report prior to recommendations.
+
+The ``daisy chain" method of connecting devices may cause strain on the cables currently used. This may occur in the form of overloading them with too much current and causing catastrophic failure or the resistance over the wire becomes to great causes unknown errors on the bus. An alternative would be to use DIN rails in a future implementation which may make attaching each MCU module to the system easier and more efficient while eliminating concerns that arise from using a ``daisy chain" method.
 
 When programming the STM MCU Modules the programmer should take not of the instructions in \autoref{subsec:progamming}. This appendix serves as a guide for the current software. For restocking and maintenance of the vending machine the guide in \autoref{subsec:maintenace}. If new information is gained or the software is changes the corresponding guide should be updated to reflect the changes.
 
@@ -1629,7 +1646,10 @@ Finally when considering future expansion of this project it is strongly recomme
 	\includegraphics[scale=5.35]{{explodedenclosure}.jpg}
 	\end{center}
 
-	
+\newpage
+\section{Master Program Log}
+\label{sec:maslog}
+
 \newpage
 \section{Manuals and Guides}
 

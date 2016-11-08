@@ -16,9 +16,9 @@
 			<Cursor1 position="249" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="src\definitions.h" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
+	<File name="src\definitions.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="993" topLine="0" />
+			<Cursor1 position="1421" topLine="2" />
 		</Cursor>
 	</File>
 	<File name="src\GPIOLib.c" open="1" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -26,7 +26,7 @@
 			<Cursor1 position="3704" topLine="81" />
 		</Cursor>
 	</File>
-	<File name="src\GPIOLib.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\GPIOLib.h" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="360" topLine="0" />
 		</Cursor>
@@ -38,7 +38,7 @@
 	</File>
 	<File name="src\main.c" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="662" topLine="0" />
+			<Cursor1 position="27751" topLine="456" />
 		</Cursor>
 		<Folding>
 			<Collapse line="176" />
@@ -62,8 +62,6 @@
 			<Collapse line="769" />
 			<Collapse line="803" />
 			<Collapse line="821" />
-			<Collapse line="842" />
-			<Collapse line="868" />
 			<Collapse line="890" />
 			<Collapse line="902" />
 			<Collapse line="917" />

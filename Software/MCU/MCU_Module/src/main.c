@@ -19,14 +19,14 @@
 //macros
 //#define _EXTRA_   //defined extra debugging
 //#define _TEST_      //used to define test cases in the code base
-//#define _DEBUG_     //debugging serial interface
+#define _DEBUG_     //debugging serial interface
 #define _ROLLER_    //roller code so it can be excluded for another variation of delivery mechanism
 //#define _LCD_       //LCD code excluded for most delivery mechanisms, only used on first one
 
 //defines which package is being dispensed, important for wait times
 //#define _DIP8_
-//#define _DIP1416_
-#define _DIP20_
+#define _DIP1416_
+//#define _DIP20_
 
 //Libraries
 #include "stm32f0xx_conf.h"
