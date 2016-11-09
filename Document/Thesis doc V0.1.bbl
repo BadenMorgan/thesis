@@ -25,15 +25,17 @@
 \BIBentryALTinterwordspacing
 {Portland State University, Maseh College of Engineering \& Computer Science:
   Electrical \& Computer Engineering}. Engineering parts vending machine.
-  [Accessed: Sept. 2016]. [Online]. Available:
-  \url{https://www.pdx.edu/ece/engineering-parts-vending-machine}
+  [Online]. Available:
+  \url{https://www.pdx.edu/ece/engineering-parts-vending-machine} [Accessed:
+  Sept. 2016]
 \BIBentrySTDinterwordspacing
 
 \bibitem{vend}
 \BIBentryALTinterwordspacing
-M.~G. Gusso. (August 4th, 2014) Late-night component cravings? [Accessed: Sept.
-  2016]. [Online]. Available:
+M.~G. Gusso. (August 4th, 2014) Late-night component cravings? [Online].
+  Available:
   \url{http://www.latticesemi.com/~/media/LatticeSemi/Documents/WhitePapers/HM/ImprovingNoiseImmunityforSerialInterface.pdf?document_id=50728}
+  [Accessed: Sept. 2016]
 \BIBentrySTDinterwordspacing
 
 \bibitem{med1}
@@ -43,14 +45,14 @@ S.~G. Patil and T.~J. Gale, ``Preliminary design of remotely used and monitored
   pp. 3616--3619.
 
 \bibitem{med2}
-V.~Q. Ho, T.~J. Gale, and C.~R. Stack, ``Medication dispenser for narcotic
+T.~J.~G. V.~Q.~Ho and C.~R. Stack, ``Medication dispenser for narcotic
   rehabilitation patients,'' in \emph{2009 Annual International Conference of
   the IEEE Engineering in Medicine and Biology Society}, Sept 2009, pp.
   1742--1745.
 
 \bibitem{med3}
-C.~K. Toh, S.~L.~J. Ng, and Y.~O. Tan, ``Three dimensional adjustable cavity
-  for flexible singulation of multiple medications in an automated medication
+S.~L. J.~N. C.~K.~Toh and Y.~O. Tan, ``Three dimensional adjustable cavity for
+  flexible singulation of multiple medications in an automated medication
   dispenser,'' in \emph{2012 IEEE International Conference on Automation
   Science and Engineering (CASE)}, Aug 2012, pp. 347--352.
 
@@ -65,8 +67,9 @@ T.~K. {Texas Instruments}, ``Application report: The rs-485 design guide,''
 \bibitem{UART}
 \BIBentryALTinterwordspacing
 A.~Minor. (2007) Implementing your mcu-based system's serial uart in software.
-  [Accessed: Sept. 2016]. [Online]. Available:
+  [Online]. Available:
   \url{http://www.embedded.com/design/other/4025995/Implementing-your-MCU-based-system-s-serial-UART-in-software}
+  [Accessed: Sept. 2016]
 \BIBentrySTDinterwordspacing
 
 \bibitem{dif}
@@ -76,58 +79,64 @@ J.~G. {Texas Instruments}, ``Literature report: Low-voltage differential
 
 \bibitem{rfidsys}
 \BIBentryALTinterwordspacing
-IMPINJ. (2016) The different typres of rfid systems. [Accessed: Sept. 2016].
-  [Online]. Available:
+IMPINJ. (2016) The different typres of rfid systems. [Online]. Available:
   \url{http://www.impinj.com//resources/about-rfid/the-different-types-of-rfid-systems/}
+  [Accessed: Sept. 2016]
 \BIBentrySTDinterwordspacing
 
 \bibitem{rfidhow}
-IMPINJ. (2016) How do rfid systems work?
-  \url{http://www.impinj.com/resources/about-rfid/how-do-rfid-systems-work/}.
-  [Accessed: Sept. 2016].
+\BIBentryALTinterwordspacing
+IMPINJ. (2016) How do rfid systems work? [Online]. Available:
+  \url{http://www.impinj.com/resources/about-rfid/how-do-rfid-systems-work/}
+  [Accessed: Sept. 2016]
+\BIBentrySTDinterwordspacing
 
 \bibitem{justin}
 J. Pead. (Sept. 2016). Principal Technical Officer [Online].Available e-mail:
   justin.pead@uct.ac.za, Message: RFID Documentation.
 
 \bibitem{RDM}
-Seedwiki. (2016) 125khz rfid module - uart.
-  \url{http://wiki.seeedstudio.com/wiki/125Khz_RFID_module_-_UART}. [Accessed:
-  Sept. 2016].
+\BIBentryALTinterwordspacing
+Seedwiki. (2016) 125khz rfid module - uart. [Online]. Available:
+  \url{http://wiki.seeedstudio.com/wiki/125Khz_RFID_module_-_UART} [Accessed:
+  Sept. 2016]
+\BIBentrySTDinterwordspacing
 
 \bibitem{MCP}
 \BIBentryALTinterwordspacing
-Microchip. (2011) Mcp2200 datasheet. [Accessed: Sept. 2016]. [Online].
-  Available: \url{http://ww1.microchip.com/downloads/en/DeviceDoc/22228B.pdf}
+Microchip. (2011) Mcp2200 datasheet. [Online]. Available:
+  \url{http://ww1.microchip.com/downloads/en/DeviceDoc/22228B.pdf} [Accessed:
+  Sept. 2016]
 \BIBentrySTDinterwordspacing
 
 \bibitem{LAMP}
-J.~V. Jay~Versluis, \emph{LAMP Stack for Humans: How to turn a laptop into a
-  web server on your local network}.\hskip 1em plus 0.5em minus 0.4em\relax Jay
-  Versluis(Self Published), 2015.
+J.~Versluis and J.~Versluis, \emph{LAMP Stack for Humans: How to turn a laptop
+  into a web server on your local network}.\hskip 1em plus 0.5em minus
+  0.4em\relax Jay Versluis(Self Published), 2015.
 
 \bibitem{Nginx}
 \BIBentryALTinterwordspacing
 O.~Garret. (October 9, 2015) Nginx vs. apache: Our view of a decade-old
-  question. [Accessed: Sept. 2016]. [Online]. Available:
-  \url{https://www.nginx.com/blog/nginx-vs-apache-our-view/}
+  question. [Online]. Available:
+  \url{https://www.nginx.com/blog/nginx-vs-apache-our-view/} [Accessed: Sept.
+  2016]
 \BIBentrySTDinterwordspacing
 
 \bibitem{Apache}
 \BIBentryALTinterwordspacing
-Netcraft. (2016) August 2016 web server survey. [Accessed: Sept. 2016].
-  [Online]. Available:
+Netcraft. (2016) August 2016 web server survey. [Online]. Available:
   \url{https://news.netcraft.com/archives/2016/08/24/august-2016-web-server-survey.html}
+  [Accessed: Sept. 2016]
 \BIBentrySTDinterwordspacing
 
 \bibitem{apachebook1}
-S.~S. Ben~Laurie, Peter~Laurie, \emph{"Apache: The Definitive Guide" 3rd
+P.~L. Ben~Laurie and S.~St.Laurent, \emph{"Apache: The Definitive Guide" 3rd
   Edition}.\hskip 1em plus 0.5em minus 0.4em\relax O'Reilly Media, Inc., 2002.
   pp. 1-5.
 
 \bibitem{apachebook2}
-M.~M. Antum~Peicevic, \emph{Apache HTTP Server introduction}.\hskip 1em plus
-  0.5em minus 0.4em\relax Geek University Press, 2016. pp. 4-6.
+A.~Peicevic and M.~Maslac, \emph{Apache HTTP Server introduction}.\hskip 1em
+  plus 0.5em minus 0.4em\relax Geek University Press, 2016. pp. 4-6.
 
 \bibitem{PHP}
 R.~Nixon, \emph{Learning PHP, MySQL \& JavaScript: With jQuery, CSS \& HTML5
@@ -136,8 +145,9 @@ R.~Nixon, \emph{Learning PHP, MySQL \& JavaScript: With jQuery, CSS \& HTML5
 
 \bibitem{mysql}
 \BIBentryALTinterwordspacing
-O.~C. and/or~its affiliates. What is mysql? [Accessed: Sept. 2016]. [Online].
-  Available: \url{https://dev.mysql.com/doc/refman/5.7/en/what-is-mysql.html}
+O.~C. and/or~its affiliates. What is mysql? [Online]. Available:
+  \url{https://dev.mysql.com/doc/refman/5.7/en/what-is-mysql.html} [Accessed:
+  Sept. 2016]
 \BIBentrySTDinterwordspacing
 
 \bibitem{ATX}
@@ -148,78 +158,82 @@ I.~Corporation, ``Atx specification version 2.1,'' June 2002.
 E.~Tutorials. (September 2016) Convert atx psu to bench supply. [Online].
   Available:
   \url{http://www.electronics-tutorials.ws/blog/convert-atx-psu-to-bench-supply.html}
+  [Accessed: Sept. 2016]
 \BIBentrySTDinterwordspacing
 
 \bibitem{mantech}
 \BIBentryALTinterwordspacing
 Mantech. (September 2016) Mantech electronics. [Online]. Available:
-  \url{http://www.mantech.co.za/}
+  \url{http://www.mantech.co.za/} [Accessed: Sept. 2016]
 \BIBentrySTDinterwordspacing
 
 \bibitem{hobbyking}
 \BIBentryALTinterwordspacing
 H.~King. (September 2016) Hobbyking. [Online]. Available:
-  \url{http://www.hobbyking.com/hobbyking/store/index.asp}
+  \url{http://www.hobbyking.com/hobbyking/store/index.asp} [Accessed: Sept.
+  2016]
 \BIBentrySTDinterwordspacing
 
 \bibitem{reprap}
 \BIBentryALTinterwordspacing
 A.~Bowyer. (September 2016) Reprap. [Online]. Available:
-  \url{http://reprap.org/}
+  \url{http://reprap.org/} [Accessed: Sept. 2016]
 \BIBentrySTDinterwordspacing
 
 \bibitem{rsonline}
 \BIBentryALTinterwordspacing
 R.~C. (SA). (September 2016) Rs-online. [Online]. Available:
-  \url{http://za.rs-online.com/}
+  \url{http://za.rs-online.com/} [Accessed: Sept. 2016]
 \BIBentrySTDinterwordspacing
 
 \bibitem{verttest1p1}
 \BIBentryALTinterwordspacing
 B.~Morgan. (September 2016) Vertical roller v 1 test part 1. [Online].
-  Available: \url{https://youtu.be/nNe5YlRPoKM}
+  Available: \url{https://youtu.be/nNe5YlRPoKM} [Accessed: Sept. 2016]
 \BIBentrySTDinterwordspacing
 
 \bibitem{verttest1p2}
 \BIBentryALTinterwordspacing
 B.~Morgan. (September 2016) Vertical roller v 1 test part 2. [Online].
-  Available: \url{https://youtu.be/4hIJvzhvt88}
+  Available: \url{https://youtu.be/4hIJvzhvt88} [Accessed: Sept. 2016]
 \BIBentrySTDinterwordspacing
 
 \bibitem{vertv2}
 \BIBentryALTinterwordspacing
 B.~Morgan. (September 2016) Vertical roller v 2 test. [Online]. Available:
-  \url{https://youtu.be/DLGEwFN1RbM}
+  \url{https://youtu.be/DLGEwFN1RbM} [Accessed: Sept. 2016]
 \BIBentrySTDinterwordspacing
 
 \bibitem{newhor}
 \BIBentryALTinterwordspacing
 B.~Morgan. (September 2016) New horizontal roller test. [Online]. Available:
-  \url{https://youtu.be/_Ol1D7sp83Q}
+  \url{https://youtu.be/_Ol1D7sp83Q} [Accessed: Sept. 2016]
 \BIBentrySTDinterwordspacing
 
 \bibitem{raspbian}
 \BIBentryALTinterwordspacing
 R.~P. Foundation. (october 2016) Raspbian download. [Online]. Available:
-  \url{https://www.raspberrypi.org/downloads/raspbian/}
+  \url{https://www.raspberrypi.org/downloads/raspbian/} [Accessed: Oct. 2016]
 \BIBentrySTDinterwordspacing
 
 \bibitem{diskimage}
 \BIBentryALTinterwordspacing
-J.~D. Tobin~Davis. (october 2016) Win32 disk imager. [Online]. Available:
-  \url{https://sourceforge.net/projects/win32diskimager/}
+T.~Davis and J.~Davis. (october 2016) Win32 disk imager. [Online]. Available:
+  \url{https://sourceforge.net/projects/win32diskimager/} [Accessed: Oct. 2016]
 \BIBentrySTDinterwordspacing
 
 \bibitem{horvbr}
 \BIBentryALTinterwordspacing
 B.~Morgan. (September 2016) Horizontal roller dip 8 variant test with vibration
-  motor. [Online]. Available: \url{https://youtu.be/JkFqaCLoxYs}
+  motor. [Online]. Available: \url{https://youtu.be/JkFqaCLoxYs} [Accessed:
+  Sept. 2016]
 \BIBentrySTDinterwordspacing
 
 \bibitem{hornovbr}
 \BIBentryALTinterwordspacing
 B.~Morgan. (September 2016) Horizontal roller dip 8 test no vibration motor.
-  [Online]. Available: \url{https://youtu.be/PZypj8374xY}
+  [Online]. Available: \url{https://youtu.be/PZypj8374xY} [Accessed: Sept.
+  2016]
 \BIBentrySTDinterwordspacing
 
 \bibitem{stresstest}
@@ -231,7 +245,7 @@ B.~Morgan. (October 2016) Final build stress tests. [Online]. Available:
 \bibitem{github}
 \BIBentryALTinterwordspacing
 B.~Morgan. (Novemeber 2016) Thesis github repository. [Online]. Available:
-  \url{https://github.com/BadenMorgan/thesis}
+  \url{https://github.com/BadenMorgan/thesis} [Accessed: Nov. 2016]
 \BIBentrySTDinterwordspacing
 
 \end{thebibliography}

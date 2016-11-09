@@ -17,9 +17,9 @@
 
 **********************************************************************/
 //macros
-//#define _EXTRA_   //defined extra debugging
+#define _EXTRA_   //defined extra debugging
 //#define _TEST_      //used to define test cases in the code base
-#define _DEBUG_     //debugging serial interface
+//#define _DEBUG_     //debugging serial interface
 #define _ROLLER_    //roller code so it can be excluded for another variation of delivery mechanism
 //#define _LCD_       //LCD code excluded for most delivery mechanisms, only used on first one
 
@@ -130,6 +130,7 @@ int main(void)
 #ifdef _DEBUG_
     USART2Init();
     printBIN(address);
+    sendReport(CALL);
     //input();
 #endif
 #ifdef _LCD_
