@@ -19,7 +19,7 @@
 //macros
 #define _EXTRA_   //defined extra debugging
 //#define _TEST_      //used to define test cases in the code base
-//#define _DEBUG_     //debugging serial interface
+#define _DEBUG_     //debugging serial interface
 #define _ROLLER_    //roller code so it can be excluded for another variation of delivery mechanism
 //#define _LCD_       //LCD code excluded for most delivery mechanisms, only used on first one
 
@@ -46,7 +46,7 @@
 
 
 //global variables
-uint16_t Stamp[10];                     //stamps used for timing 0: idler 1:test 2:taskmanager 3:alignment 4:taskmanager 5: delay 6: wiggle 7:debug coms 8:scrolling 9defaulting lcd 9: timing
+uint16_t Stamp[11];                     //stamps used for timing 0: idler 1:test 2:taskmanager 3:alignment 4:taskmanager 5: delay 6: wiggle 7:debug coms 8:scrolling 9defaulting lcd 9: timing
 uint8_t status = 0;                     //status to display on the sysled
 uint8_t Serialdata[256];                //serial data buffer
 uint8_t buffercount = 0;                //counts serial data buffer position
@@ -884,6 +884,14 @@ void Idler(uint16_t period){
         GPIO_WriteBit(GPIOB,GPIO_Pin_8,0);
     }
 #endif
+#ifdef _EXTRA_
+    uint16_t counterval2 = TIM_GetCounter(TIM14);
+    uint16_t sum2 = counterval2 - Stamp[10];
+    if(sum2 >= 60000){
+        printBIN(address);
+        Stamp[0] = counterval;
+    }
+#endif
 }
 
 /*
@@ -918,13 +926,16 @@ void Test(){
     testflag = GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_7);
     if(tempbit != testflag){
         delay(100);
-        DeliverxMany = deliverytest;
 #ifdef _EXTRA_
         print16bits(DeliverxMany,0x43,3);
-#endif
+        sendfakeReport();
+#else
+        DeliverxMany = deliverytest;
         jam = 0;
         task = 1;
-        sendfakeReport();
+#endif
+
+
     }
 
 }

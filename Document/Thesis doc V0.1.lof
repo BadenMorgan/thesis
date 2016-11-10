@@ -37,20 +37,20 @@
 \contentsline {figure}{\numberline {6.24}{\ignorespaces LCD breakout board PCB layout, Bottom layer with silkscreen of top layer overlaid. }}{37}{figure.6.24}
 \contentsline {figure}{\numberline {6.25}{\ignorespaces LCD breakout board PCB layout, Bottom layer with silkscreen of top layer overlaid. }}{38}{figure.6.25}
 \contentsline {figure}{\numberline {6.26}{\ignorespaces LCD breakout board PCB layout, Bottom layer with silkscreen of top layer overlaid. }}{41}{figure.6.26}
-\contentsline {figure}{\numberline {6.27}{\ignorespaces State Machine Diagram for MCU software. }}{43}{figure.6.27}
-\contentsline {figure}{\numberline {6.28}{\ignorespaces A simplified logic diagram of the task manager and how it will function. }}{44}{figure.6.28}
-\contentsline {figure}{\numberline {7.1}{\ignorespaces Pictures of the enclosure frame with the walls bolted on. }}{46}{figure.7.1}
-\contentsline {figure}{\numberline {7.2}{\ignorespaces Pictures of the enclosure frame all the internal elements in place. }}{46}{figure.7.2}
-\contentsline {figure}{\numberline {7.3}{\ignorespaces Pictures of the PiHAT PCB by istelf, on the left, on the Raspberry Pi, on the right. }}{48}{figure.7.3}
-\contentsline {figure}{\numberline {7.4}{\ignorespaces Pictures of the MCU Module PCB, with the LCD plugin on the left, without the pcb plugin on the right. }}{49}{figure.7.4}
-\contentsline {figure}{\numberline {7.5}{\ignorespaces Pictures from the etching proccess to make the LCD breakout baord. }}{50}{figure.7.5}
-\contentsline {figure}{\numberline {7.6}{\ignorespaces Picture of the 3D printed IC guide and roller after assembly. }}{51}{figure.7.6}
-\contentsline {figure}{\numberline {7.7}{\ignorespaces Picture of the housing structure for the delivery mechanism. }}{51}{figure.7.7}
-\contentsline {figure}{\numberline {7.8}{\ignorespaces Picture of the sensor tester circuit schematic on the left and the physical circuit on the right. }}{52}{figure.7.8}
-\contentsline {figure}{\numberline {7.9}{\ignorespaces Picture from the rear of the shelf, top image, and the front, bottom image. }}{53}{figure.7.9}
-\contentsline {figure}{\numberline {7.10}{\ignorespaces Picture of the back and front of the RFID antenna cover. }}{53}{figure.7.10}
-\contentsline {figure}{\numberline {7.11}{\ignorespaces Picture of the finished Component Vending Machine. }}{54}{figure.7.11}
-\contentsline {figure}{\numberline {8.1}{\ignorespaces Graph showing the results of the protoyping tests done during the design phase of the project. }}{55}{figure.8.1}
-\contentsline {figure}{\numberline {8.2}{\ignorespaces Graph showing the results of the protoyping tests done to compare the reliability rating with and without a vibration motor. }}{56}{figure.8.2}
-\contentsline {figure}{\numberline {8.3}{\ignorespaces Graph showing the results of the stress tests done on all the assembled delivery mechanism for the final build. }}{57}{figure.8.3}
-\contentsline {figure}{\numberline {8.4}{\ignorespaces Common mode noise observed on the transmission lines. }}{57}{figure.8.4}
+\contentsline {figure}{\numberline {6.27}{\ignorespaces State Machine Diagram for MCU software. }}{44}{figure.6.27}
+\contentsline {figure}{\numberline {6.28}{\ignorespaces A simplified logic diagram of the task manager and how it will function. }}{45}{figure.6.28}
+\contentsline {figure}{\numberline {7.1}{\ignorespaces Pictures of the enclosure frame with the walls bolted on. }}{47}{figure.7.1}
+\contentsline {figure}{\numberline {7.2}{\ignorespaces Pictures of the enclosure frame all the internal elements in place. }}{47}{figure.7.2}
+\contentsline {figure}{\numberline {7.3}{\ignorespaces Pictures of the PiHAT PCB by istelf, on the left, on the Raspberry Pi, on the right. }}{49}{figure.7.3}
+\contentsline {figure}{\numberline {7.4}{\ignorespaces Pictures of the MCU Module PCB, with the LCD plugin on the left, without the pcb plugin on the right. }}{50}{figure.7.4}
+\contentsline {figure}{\numberline {7.5}{\ignorespaces Pictures from the etching proccess to make the LCD breakout baord. }}{51}{figure.7.5}
+\contentsline {figure}{\numberline {7.6}{\ignorespaces Picture of the 3D printed IC guide and roller after assembly. }}{52}{figure.7.6}
+\contentsline {figure}{\numberline {7.7}{\ignorespaces Picture of the housing structure for the delivery mechanism. }}{52}{figure.7.7}
+\contentsline {figure}{\numberline {7.8}{\ignorespaces Picture of the sensor tester circuit schematic on the left and the physical circuit on the right. }}{53}{figure.7.8}
+\contentsline {figure}{\numberline {7.9}{\ignorespaces Picture from the rear of the shelf, top image, and the front, bottom image. }}{54}{figure.7.9}
+\contentsline {figure}{\numberline {7.10}{\ignorespaces Picture of the back and front of the RFID antenna cover. }}{54}{figure.7.10}
+\contentsline {figure}{\numberline {7.11}{\ignorespaces Picture of the finished Component Vending Machine. }}{55}{figure.7.11}
+\contentsline {figure}{\numberline {8.1}{\ignorespaces Graph showing the results of the protoyping tests done during the design phase of the project. }}{56}{figure.8.1}
+\contentsline {figure}{\numberline {8.2}{\ignorespaces Graph showing the results of the protoyping tests done to compare the reliability rating with and without a vibration motor. }}{57}{figure.8.2}
+\contentsline {figure}{\numberline {8.3}{\ignorespaces Graph showing the results of the stress tests done on all the assembled delivery mechanism for the final build. }}{58}{figure.8.3}
+\contentsline {figure}{\numberline {8.4}{\ignorespaces Common mode noise observed on the transmission lines. }}{58}{figure.8.4}
