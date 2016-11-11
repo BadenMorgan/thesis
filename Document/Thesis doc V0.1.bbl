@@ -21,6 +21,26 @@
 \providecommand{\BIBdecl}{\relax}
 \BIBdecl
 
+\bibitem{CHELVAM2014240}
+\BIBentryALTinterwordspacing
+Y.~K. Chelvam, N.~Zamin, and G.~S. Steele, ``A preliminary investigation of
+  m3ditrack3r: A medicine dispensing mobile robot for senior citizens,''
+  \emph{Procedia Computer Science}, vol.~42, pp. 240 -- 246, 2014. [Online].
+  Available:
+  \url{http://www.sciencedirect.com/science/article/pii/S1877050914014963}
+\BIBentrySTDinterwordspacing
+
+\bibitem{6203052}
+F.~Mehboob, ``A novel multi purpose robotic dispenser with database management
+  system,'' in \emph{2012 6th International Symposium on Medical Information
+  and Communication Technology (ISMICT)}, March 2012, pp. 1--4.
+
+\bibitem{7145252}
+C.~Crema, A.~Depari, A.~Flammini, M.~Lavarini, E.~Sisinni, and A.~Vezzoli, ``A
+  smartphone-enhanced pill-dispenser providing patient identification and
+  in-take recognition,'' in \emph{Medical Measurements and Applications
+  (MeMeA), 2015 IEEE International Symposium on}, May 2015, pp. 484--489.
+
 \bibitem{PORTU}
 \BIBentryALTinterwordspacing
 {Portland State University, Maseh College of Engineering \& Computer Science:

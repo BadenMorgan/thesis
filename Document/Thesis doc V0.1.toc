@@ -22,7 +22,7 @@
 \contentsline {subsubsection}{\numberline {2.4.1}The Web server: Apache vs. Nginx }{11}{subsubsection.2.4.1}
 \contentsline {subsubsection}{\numberline {2.4.2}The Scripting Language: PHP}{12}{subsubsection.2.4.2}
 \contentsline {subsubsection}{\numberline {2.4.3}The Database: MySQL}{12}{subsubsection.2.4.3}
-\contentsline {subsection}{\numberline {2.5}ATX Specification}{12}{subsection.2.5}
+\contentsline {subsection}{\numberline {2.5}ATX Specification}{13}{subsection.2.5}
 \contentsline {section}{\numberline {3}System Specifications}{14}{section.3}
 \contentsline {subsection}{\numberline {3.1}Mechanical Specifications}{14}{subsection.3.1}
 \contentsline {subsubsection}{\numberline {3.1.1}DIP Specifications}{14}{subsubsection.3.1.1}
@@ -96,32 +96,32 @@
 \contentsline {subsection}{\numberline {8.5}Final build Results and Discussion}{59}{subsection.8.5}
 \contentsline {section}{\numberline {9}Conclusion}{60}{section.9}
 \contentsline {section}{\numberline {10}Recommendations}{61}{section.10}
-\contentsline {section}{\numberline {A}Research Mind Map}{65}{Appendix.1.A}
-\contentsline {section}{\numberline {B}Detailed Drawings}{66}{Appendix.1.B}
-\contentsline {subsection}{\numberline {B.1}IC Guide DIP Components}{66}{subsection.1.B.1}
-\contentsline {subsection}{\numberline {B.2}IC Guide DIP Holder}{67}{subsection.1.B.2}
-\contentsline {subsection}{\numberline {B.3}Vertical Roller \& Housing Version 1 \& 2}{68}{subsection.1.B.3}
-\contentsline {subsection}{\numberline {B.4}Horizontal Roller \& Housing Version 1}{69}{subsection.1.B.4}
-\contentsline {subsection}{\numberline {B.5}Horizontal Roller \& Housing Final Version}{70}{subsection.1.B.5}
-\contentsline {subsection}{\numberline {B.6}Horizontal Roller Final Version}{71}{subsection.1.B.6}
-\contentsline {subsection}{\numberline {B.7}RFID Coil Cover}{72}{subsection.1.B.7}
-\contentsline {section}{\numberline {C}PCB Diagrams}{73}{Appendix.1.C}
-\contentsline {subsection}{\numberline {C.1}PI HAT Diagram}{73}{subsection.1.C.1}
-\contentsline {subsection}{\numberline {C.2}MCU Module Diagram}{74}{subsection.1.C.2}
-\contentsline {subsection}{\numberline {C.3}LCD Breakout Diagram}{75}{subsection.1.C.3}
-\contentsline {section}{\numberline {D}Material Request Forms}{76}{Appendix.1.D}
-\contentsline {section}{\numberline {E}Website}{83}{Appendix.1.E}
-\contentsline {subsection}{\numberline {E.1}Components Store Page}{83}{subsection.1.E.1}
-\contentsline {subsection}{\numberline {E.2}Contacts Page}{85}{subsection.1.E.2}
-\contentsline {section}{\numberline {F}Templates \& Drawings for Assembly}{86}{Appendix.1.F}
-\contentsline {subsection}{\numberline {F.1}DIP 8 Template}{86}{subsection.1.F.1}
-\contentsline {subsection}{\numberline {F.2}DIP 14 or 16 Template}{87}{subsection.1.F.2}
-\contentsline {subsection}{\numberline {F.3}DIP 20 Template}{88}{subsection.1.F.3}
-\contentsline {subsection}{\numberline {F.4}Drill Template}{89}{subsection.1.F.4}
-\contentsline {subsection}{\numberline {F.5}Exploded Enclosure View}{90}{subsection.1.F.5}
-\contentsline {section}{\numberline {G}Master Program Log}{91}{Appendix.1.G}
-\contentsline {section}{\numberline {H}Manuals and Guides}{92}{Appendix.1.H}
-\contentsline {subsection}{\numberline {H.1}Programming Guide}{92}{subsection.1.H.1}
-\contentsline {subsection}{\numberline {H.2}Restocking and Maintenance Guide}{93}{subsection.1.H.2}
-\contentsline {section}{\numberline {I}Terminal Commands}{94}{Appendix.1.I}
-\contentsline {section}{\numberline {J}Ethics Forms}{96}{Appendix.1.J}
+\contentsline {section}{\numberline {A}Research Mind Map}{66}{Appendix.1.A}
+\contentsline {section}{\numberline {B}Detailed Drawings}{67}{Appendix.1.B}
+\contentsline {subsection}{\numberline {B.1}IC Guide DIP Components}{67}{subsection.1.B.1}
+\contentsline {subsection}{\numberline {B.2}IC Guide DIP Holder}{68}{subsection.1.B.2}
+\contentsline {subsection}{\numberline {B.3}Vertical Roller \& Housing Version 1 \& 2}{69}{subsection.1.B.3}
+\contentsline {subsection}{\numberline {B.4}Horizontal Roller \& Housing Version 1}{70}{subsection.1.B.4}
+\contentsline {subsection}{\numberline {B.5}Horizontal Roller \& Housing Final Version}{71}{subsection.1.B.5}
+\contentsline {subsection}{\numberline {B.6}Horizontal Roller Final Version}{72}{subsection.1.B.6}
+\contentsline {subsection}{\numberline {B.7}RFID Coil Cover}{73}{subsection.1.B.7}
+\contentsline {section}{\numberline {C}PCB Diagrams}{74}{Appendix.1.C}
+\contentsline {subsection}{\numberline {C.1}PI HAT Diagram}{74}{subsection.1.C.1}
+\contentsline {subsection}{\numberline {C.2}MCU Module Diagram}{75}{subsection.1.C.2}
+\contentsline {subsection}{\numberline {C.3}LCD Breakout Diagram}{76}{subsection.1.C.3}
+\contentsline {section}{\numberline {D}Material Request Forms}{77}{Appendix.1.D}
+\contentsline {section}{\numberline {E}Website}{84}{Appendix.1.E}
+\contentsline {subsection}{\numberline {E.1}Components Store Page}{84}{subsection.1.E.1}
+\contentsline {subsection}{\numberline {E.2}Contacts Page}{86}{subsection.1.E.2}
+\contentsline {section}{\numberline {F}Templates \& Drawings for Assembly}{87}{Appendix.1.F}
+\contentsline {subsection}{\numberline {F.1}DIP 8 Template}{87}{subsection.1.F.1}
+\contentsline {subsection}{\numberline {F.2}DIP 14 or 16 Template}{88}{subsection.1.F.2}
+\contentsline {subsection}{\numberline {F.3}DIP 20 Template}{89}{subsection.1.F.3}
+\contentsline {subsection}{\numberline {F.4}Drill Template}{90}{subsection.1.F.4}
+\contentsline {subsection}{\numberline {F.5}Exploded Enclosure View}{91}{subsection.1.F.5}
+\contentsline {section}{\numberline {G}Master Program Log}{92}{Appendix.1.G}
+\contentsline {section}{\numberline {H}Manuals and Guides}{93}{Appendix.1.H}
+\contentsline {subsection}{\numberline {H.1}Programming Guide}{93}{subsection.1.H.1}
+\contentsline {subsection}{\numberline {H.2}Restocking and Maintenance Guide}{94}{subsection.1.H.2}
+\contentsline {section}{\numberline {I}Terminal Commands}{95}{Appendix.1.I}
+\contentsline {section}{\numberline {J}Ethics Forms}{97}{Appendix.1.J}

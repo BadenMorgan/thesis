@@ -927,7 +927,7 @@ void Test(){
     if(tempbit != testflag){
         delay(100);
 #ifdef _EXTRA_
-        print16bits(DeliverxMany,0x43,3);
+        print16bits(DeliverxMany,0x54,3);
         sendfakeReport();
 #else
         DeliverxMany = deliverytest;
@@ -1103,7 +1103,7 @@ void InitWatchdog(){
 
 //send fake dispense request
 void sendfakeReport(){
-    //GPIO_WriteBit(GPIOA,RE,1);//disable receiving of data
+    GPIO_WriteBit(GPIOA,RE,1);//disable receiving of data
     GPIO_WriteBit(GPIOA,DE,1);//enable sending on the rs485 bus
 
     delay(10);
@@ -1135,6 +1135,7 @@ void sendfakeReport(){
     delay(10);
 
     GPIO_WriteBit(GPIOA,DE,0); //disbale sending on the rs485 bus
-    //GPIO_WriteBit(GPIOA,RE,0);//enable receiving of data
+    GPIO_WriteBit(GPIOA,RE,0);//enable receiving of data
+    bufferreadcount++; //flush the buffer
 }
 
