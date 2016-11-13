@@ -105,6 +105,7 @@ uint8_t InitAdress(){
     return NewAddress^0xFF;
 }
 
+//code has been ported from James Gowans ADC code
 //initialize 3 adc's for vsense1, vsense2 and alignment
 void ADCsInit(){
     RCC->APB2ENR |= RCC_APB2ENR_ADCEN; //enable clock for ADC

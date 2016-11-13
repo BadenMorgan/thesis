@@ -10,7 +10,7 @@
    Last changed date:  $Date:  24.08.2016
    ID:                 $Id:  MCU_Module
 
-   Resources used as references to assist coding include James Gowans
+   Resources used to assist coding include James Gowans
    Github Repo: https://github.com/jgowans, and the STM peripheral
    library manual
 
