@@ -4,7 +4,7 @@ After=multi-user.target
 
 [Service]
 Type=idle
-ExecStart=/usr/bin/python3 /var/www/html/VMMaster.py
+ExecStart=/usr/bin/sudo /usr/bin/python3 /var/www/html/VMMaster.py
 
 [Install]
 WantedBy=multi-user.target

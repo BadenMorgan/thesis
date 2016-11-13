@@ -13,7 +13,7 @@
 \contentsline {subsubsection}{\numberline {2.1.3}Medication Dispenser, Narcotic Rehabilitation}{6}{subsubsection.2.1.3}
 \contentsline {subsubsection}{\numberline {2.1.4}3D Adjustable cavity Medication Dispenser}{7}{subsubsection.2.1.4}
 \contentsline {subsection}{\numberline {2.2}Communication between devices}{8}{subsection.2.2}
-\contentsline {subsubsection}{\numberline {2.2.1}I2C}{8}{subsubsection.2.2.1}
+\contentsline {subsubsection}{\numberline {2.2.1}I2C}{9}{subsubsection.2.2.1}
 \contentsline {subsubsection}{\numberline {2.2.2}RS-485/TIA-485}{9}{subsubsection.2.2.2}
 \contentsline {subsection}{\numberline {2.3}RFID Reader}{10}{subsection.2.3}
 \contentsline {subsubsection}{\numberline {2.3.1}System Specification}{10}{subsubsection.2.3.1}
@@ -78,16 +78,16 @@
 \contentsline {subsubsection}{\numberline {6.7.3}Web design}{40}{subsubsection.6.7.3}
 \contentsline {subsubsection}{\numberline {6.7.4}Raspberry Pi Master Program}{41}{subsubsection.6.7.4}
 \contentsline {subsubsection}{\numberline {6.7.5}Microntroller Software}{42}{subsubsection.6.7.5}
-\contentsline {section}{\numberline {7}System Assembly}{46}{section.7}
-\contentsline {subsection}{\numberline {7.1}Software Assembly: Server}{46}{subsection.7.1}
-\contentsline {subsection}{\numberline {7.2}Enclosure Assembly}{46}{subsection.7.2}
-\contentsline {subsection}{\numberline {7.3}PCB Assembly}{48}{subsection.7.3}
-\contentsline {subsubsection}{\numberline {7.3.1}Pi HAT}{48}{subsubsection.7.3.1}
-\contentsline {subsubsection}{\numberline {7.3.2}MCU Module}{49}{subsubsection.7.3.2}
-\contentsline {subsubsection}{\numberline {7.3.3}LCD Breakout Board}{51}{subsubsection.7.3.3}
-\contentsline {subsection}{\numberline {7.4}Delivery Mechanism Assembly}{51}{subsection.7.4}
-\contentsline {subsection}{\numberline {7.5}Overall and Final Assembly}{53}{subsection.7.5}
-\contentsline {subsection}{\numberline {7.6}Additional Assembly notes}{55}{subsection.7.6}
+\contentsline {section}{\numberline {7}System Assembly}{45}{section.7}
+\contentsline {subsection}{\numberline {7.1}Software Assembly: Server}{45}{subsection.7.1}
+\contentsline {subsection}{\numberline {7.2}Enclosure Assembly}{45}{subsection.7.2}
+\contentsline {subsection}{\numberline {7.3}PCB Assembly}{47}{subsection.7.3}
+\contentsline {subsubsection}{\numberline {7.3.1}Pi HAT}{47}{subsubsection.7.3.1}
+\contentsline {subsubsection}{\numberline {7.3.2}MCU Module}{48}{subsubsection.7.3.2}
+\contentsline {subsubsection}{\numberline {7.3.3}LCD Breakout Board}{50}{subsubsection.7.3.3}
+\contentsline {subsection}{\numberline {7.4}Delivery Mechanism Assembly}{50}{subsection.7.4}
+\contentsline {subsection}{\numberline {7.5}Overall Assembly}{52}{subsection.7.5}
+\contentsline {subsection}{\numberline {7.6}Additional Notes and Final Assembly}{54}{subsection.7.6}
 \contentsline {section}{\numberline {8}Results and Discussion}{56}{section.8}
 \contentsline {subsection}{\numberline {8.1}Prototyping Tests}{56}{subsection.8.1}
 \contentsline {subsection}{\numberline {8.2}Comparison test}{57}{subsection.8.2}
@@ -123,5 +123,5 @@
 \contentsline {section}{\numberline {H}Manuals and Guides}{93}{Appendix.1.H}
 \contentsline {subsection}{\numberline {H.1}Programming Guide}{93}{subsection.1.H.1}
 \contentsline {subsection}{\numberline {H.2}Restocking and Maintenance Guide}{94}{subsection.1.H.2}
-\contentsline {section}{\numberline {I}Terminal Commands}{95}{Appendix.1.I}
-\contentsline {section}{\numberline {J}Ethics Forms}{97}{Appendix.1.J}
+\contentsline {section}{\numberline {I}Terminal Commands}{96}{Appendix.1.I}
+\contentsline {section}{\numberline {J}Ethics Forms}{98}{Appendix.1.J}
