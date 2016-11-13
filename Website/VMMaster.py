@@ -39,13 +39,13 @@ ser1 = serial.Serial(
                timeout=1
            )
 
-# ser = serial.Serial(
-# 	port = '/dev/ttyACM0',
-# 	baudrate=9600,
-# 	parity=serial.PARITY_ODD,
-# 	stopbits=serial.STOPBITS_TWO,
-# 	bytesize=serial.SEVENBITS
-# 	)
+ser = serial.Serial(
+	port = '/dev/ttyACM0',
+	baudrate=9600,
+	parity=serial.PARITY_ODD,
+	stopbits=serial.STOPBITS_TWO,
+	bytesize=serial.SEVENBITS
+	)
 
 # initializers
 # pin setup
@@ -74,7 +74,8 @@ exitFlag = 0
 tagLength = 14
 value = 0
 retries = 0
-maxretry = 0
+dretries = 0
+maxretry = 2
 DispenseStatus = 0
 # component limit
 complimit = 6
@@ -115,17 +116,16 @@ def FinalMsg():
 
 # function to request a dispence
 def DispenceIC(addressbyte,commandbyte,valuebyte):
+	global dretries
+	global maxretry
 	try:
 		global DispenseStatus
-
+		
 		if valuebyte != 0 and GPIO.input(door2) == 0:
 			logging.debug("Cant dispence door is open")
 			UpdateLCD("Cant dispence   gdoor is open")
 		else:
-			global retries
-			global maxretry
-			if valuebyte != 0:
-				UpdateLCD("Dispensing      Components")
+				
 			TXBuffer[1] = addressbyte
 			TXBuffer[2] = commandbyte
 			TXBuffer[3] = valuebyte
@@ -139,11 +139,13 @@ def DispenceIC(addressbyte,commandbyte,valuebyte):
 			GPIO.output(DE, GPIO.LOW)
 			GPIO.output(RE, GPIO.LOW)
 
-			time.sleep(1.9*valuebyte)
+			time.sleep(3*valuebyte)
+			print("go")
 			value2 = {}
 			value = {}
+			value2 = ser1.read(1)
 			if(ser1.inWaiting() > 0):
-				value2 = ser1.read(1)
+				
 				value = ser1.read(6)
 				print(value2)
 				print(value)
@@ -155,68 +157,85 @@ def DispenceIC(addressbyte,commandbyte,valuebyte):
 					ser1.read(ser1.inWaiting()) #flushing the system.
 					logging.debug("Done!")
 
-			elif (ser1.inWaiting() > 6):
-				logging.debug("Too much data in buffer - flushing")
-				time.sleep(2)
-				logging.debug(ser1.inWaiting())
-				logging.debug(ser1.read(ser1.inWaiting())) #flushing the system.
-				logging.debug("Flushed")
-			else:
-				time.sleep(1.4*valuebyte)
-				if(ser1.inWaiting() > 0):
-					value = ser1.read(6)
-					logging.debug("Reading response:")
-					logging.debug(value[2])
+			# elif (ser1.inWaiting() > 6):
+			# 	logging.debug("Too much data in buffer - flushing")
+			# 	time.sleep(2)
+			# 	logging.debug(ser1.inWaiting())
+			# 	logging.debug(ser1.read(ser1.inWaiting())) #flushing the system.
+			# 	logging.debug("Flushed")
+			# else:
+			# 	time.sleep(1.4*valuebyte)
+			# 	if(ser1.inWaiting() > 0):
+			# 		value = ser1.read(6)
+			# 		logging.debug("Reading response:")
+			# 		logging.debug(value[2])
 					
 
-					while(ser1.inWaiting() > 0):
-						logging.debug("Flushing extra reads...")
-						ser1.read(ser1.inWaiting()) #flushing the system.
-						logging.debug("Done!")
+			# 		while(ser1.inWaiting() > 0):
+			# 			logging.debug("Flushing extra reads...")
+			# 			ser1.read(ser1.inWaiting()) #flushing the system.
+			# 			logging.debug("Done!")
 
-				elif (ser1.inWaiting() > 6):
-					logging.debug("Too much data in buffer - flushing")
-					time.sleep(2)
-					logging.debug(ser1.inWaiting())
-					logging.debug(ser1.read(ser1.inWaiting())) #flushing the system.
-					logging.debug("Flushed")
-				else:
-					logging.debug("Failed Dispense")
-			try:
-				check = value[0]
-				# print(check)
-				check = (check + value[1]) & 0xFF
-				# print(check)
-				check = (check + value[2]) & 0xFF
-				# print(check)
-				check = (check + value[3]) & 0xFF
-				# print(check)
-				if value[0] == 0xD1 and value[1] == addressbyte and value[3] == 1 and value[4] == check and value[5] == 0xE1:
-					retries = 0
-					if value[2] & 0x01:
-						logging.debug("Jammed")
-						DispenseStatus  = DispenseStatus | 1
-						UpdateJEL(0,addressbyte)
-					if value[2] & 0x04:
-						logging.debug("Low")
-						UpdateJEL(2,addressbyte)
-					if value[2] & 0x08:
-						logging.debug("Dispensed Successfully")
-						if value[2] & 0x02:
+				# elif (ser1.inWaiting() > 6):
+				# 	logging.debug("Too much data in buffer - flushing")
+				# 	time.sleep(2)
+				# 	logging.debug(ser1.inWaiting())
+				# 	logging.debug(ser1.read(ser1.inWaiting())) #flushing the system.
+				# 	logging.debug("Flushed")
+				# else:
+				# 	logging.debug("Failed Dispense")
+				try:
+					check = value[0]
+					# print(check)
+					check = (check + value[1]) & 0xFF
+					# print(check)
+					check = (check + value[2]) & 0xFF
+					# print(check)
+					check = (check + value[3]) & 0xFF
+					# print(check)
+					if value[0] == 0xD1 and value[1] == addressbyte and value[3] == 1 and value[4] == check and value[5] == 0xE1:
+						dretries = 0
+						if value[2] & 0x01:
+							logging.debug("Jammed")
+							DispenseStatus  = DispenseStatus | 1
+							UpdateJEL(0,addressbyte)
+						if value[2] & 0x04:
+							logging.debug("Low")
+							UpdateJEL(2,addressbyte)
+						if value[2] & 0x08:
+							logging.debug("Dispensed Successfully")
+							if value[2] & 0x02:
+								logging.debug("Empty")
+								UpdateJEL(1,addressbyte)
+						elif value[2] & 0x02:
 							logging.debug("Empty")
+							DispenseStatus  = DispenseStatus | 2
 							UpdateJEL(1,addressbyte)
-					elif value[2] & 0x02:
-						logging.debug("Empty")
-						DispenseStatus  = DispenseStatus | 2
-						UpdateJEL(1,addressbyte)
-
+					else:
+						logging.debug("dispense failed, retrying")
+						if dretries < maxretry:
+							dretries = retries + 1
+							DispenceIC(addressbyte,commandbyte,valuebyte)
+						else:
+							dretries = 0
+				except:
+					logging.warning("Communications failure, Dispense")
+			else:
+				logging.debug("dispense failed, retrying")
+				if dretries < maxretry:
+					dretries = retries + 1
+					DispenceIC(addressbyte,commandbyte,valuebyte)
 				else:
-					logging.debug("Failed")
-			except:
-				logging.warning("Communications failure, Dispense")
+					dretries = 0
+
 		return 
 	except:
 		logging.warning("failed to dispense a component")
+		if dretries < maxretry:
+			dretries = retries + 1
+			DispenceIC(addressbyte,commandbyte,valuebyte)
+		else:
+			dretries = 0
 
 # function to LCD UPDATE
 def UpdateLCD(StringToPrint):
@@ -241,8 +260,8 @@ def UpdateLCD(StringToPrint):
 	time.sleep(3)
 	value = {}
 	value2 = {}
-	if(ser1.inWaiting() > 0):
-		value2 = ser1.read(1)
+	value2 = ser1.read(1)
+	if(ser1.inWaiting() > 0):		
 		value = ser1.read(6)
 		# logging.debug("Reading response:")
 		# logging.debug(value[2])
@@ -317,7 +336,10 @@ def RequestDispence(studentNo):
 		Done = cursor.fetchall()
 		i = 0
 		PartLen = len(Part)
+		if PartLen > 0:
+			UpdateLCD("Dispensing      Components")
 		while i < PartLen:
+
 			if Done[i][0] == 0  and Quantity[i][0] > 0:
 				logging.debug("go")
 				rowlen = cursor.execute("""SELECT address from Components WHERE PartName = %s""", (Part[i][0]))
@@ -581,35 +603,35 @@ def RequestStNo(ID):
 # callModules()
 while True:
 	# try:
-	# if(ser.inWaiting()>0):
-	# 	currentTimeout = timeout;
-	# if(ser.inWaiting()%tagLength == 0):
-	# 	value = ser.read(tagLength)
-	# 	logging.debug("Reading card...")
-	# 	value = value.decode("utf-8")
-	# 	value = int(value[1:-3],16)
-
-	# 	while(ser.inWaiting() > 0):
-	# 		logging.debug("Flushing extra reads...")
-	# 		ser.read(ser.inWaiting()) #flushing the system.
-	# 		logging.debug("Done!")
+	if(ser.inWaiting()>0):
+		currentTimeout = timeout;
+	if(ser.inWaiting()%tagLength == 0):
+		value = ser.read(tagLength)
+		logging.debug("Reading card...")
+		value = value.decode("utf-8")
+		value = int(value[1:-3],16)
+		time.sleep(2)
+		while(ser.inWaiting() > 0):
+			logging.debug("Flushing extra reads...")
+			ser.read(ser.inWaiting()) #flushing the system.
+			logging.debug("Done!")
 		
-	# 	RequestStNo(value)			
-	# elif (ser.inWaiting() > tagLength):
-	# 	logging.debug("Too much data in buffer - flushing")
-	# 	time.sleep(2)
-	# 	logging.debug(ser.inWaiting())
-	# 	logging.debug(ser.read(ser.inWaiting())) #flushing the system.
-	# 	logging.debug("Flushed")
+		RequestStNo(value)			
+	elif (ser.inWaiting() > tagLength):
+		logging.debug("Too much data in buffer - flushing")
+		time.sleep(2)
+		logging.debug(ser.inWaiting())
+		logging.debug(ser.read(ser.inWaiting())) #flushing the system.
+		logging.debug("Flushed")
 
-	# else:
-	# 	time.sleep(1)
-	# 	currentTimeout-=1;	
-		# except KeyboardInterrupt:
-		# 	logging.debug("keyboard out!")
-		# 	sys.exit()
-		# except:
-		# 	logging.debug('ERROR')
+	else:
+		time.sleep(1)
+		currentTimeout-=1;	
+	# except KeyboardInterrupt:
+	# 	logging.debug("keyboard out!")
+	# 	sys.exit()
+	# except:
+	# 	logging.debug('ERROR')
 
 
 
@@ -622,26 +644,32 @@ while True:
 		# 	sys.stdin.flush()
 
 		# ComponentNoCheck("MRGBAD001")
-		command = input("enter g: ")
-		if command == 'g':
-			# Free()
-			# RequestDispence('MRGBAD001')
-			# RequestStNo('81607133871')
-			# logging.debug("despensing")
-			DispenceIC(1,0xB3,1)
-			DispenceIC(2,0xB3,1)
-			DispenceIC(3,0xB3,1)
-			DispenceIC(4,0xB3,1)
-			DispenceIC(5,0xB3,1)
-			DispenceIC(6,0xB3,1)
-			# time.sleep(2)
-			# DispenceIC(2,0xB3,3)
-			FinalMsg()
-			# 
-			# DispenceIC(1,0xB5,0)
-			# command = ''
+		# command = input("enter g: ")
+		# if command == 'g':
+		# 	# Free()
+		# 	# RequestDispence('MRGBAD001')
+		# 	# RequestStNo('81607133871')
+		# 	# logging.debug("despensing")
+		# 	UpdateLCD("Dispensing      Components")
+		# 	DispenceIC(1,0xB3,1)
+		# 	DispenceIC(2,0xB3,1)
+		# 	DispenceIC(3,0xB3,1)
+		# 	DispenceIC(4,0xB3,1)
+		# 	DispenceIC(5,0xB3,1)
+		# 	# DispenceIC(6,0xB3,1)
+		# 	# time.sleep(2)
+		# 	# DispenceIC(2,0xB3,3)
+		# 	FinalMsg()
+		# 	# 
+		# 	# DispenceIC(1,0xB5,0)
+		# 	# command = ''
 		# if command == 'f':
-			# Free();
+		# 	#Free();
+		# 	DispenceIC(1,0xB5,0)
+		# 	DispenceIC(2,0xB5,0)
+		# 	DispenceIC(3,0xB5,0)
+		# 	DispenceIC(4,0xB5,0)
+		# 	DispenceIC(5,0xB5,0)
 		# if command == 'e':
 			# mailadmin(6,0)
 			# i = 0
