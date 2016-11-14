@@ -38,7 +38,7 @@ ser1 = serial.Serial(
                bytesize=serial.EIGHTBITS,
                timeout=1
            )
-
+# RFID serial setup
 ser = serial.Serial(
 	port = '/dev/ttyACM0',
 	baudrate=9600,
@@ -108,7 +108,7 @@ def FinalMsg():
 		elif DispenseStatus == 3:
 			UpdateLCD("There was a problem with delivery and one of the components you ordered is out of stock, sorry for the inconvenience")
 		else:
-			UpdateLCD("Thank You for using UCT's Vending Machine")
+			UpdateLCD("Done, Thank You :)")
 
 		DispenseStatus = 0
 	except:
@@ -116,21 +116,17 @@ def FinalMsg():
 
 # function to request a dispence
 def DispenceIC(addressbyte,commandbyte,valuebyte):
+	try:
 	global dretries
 	global maxretry
 	try:
 		global DispenseStatus
-		
-		if valuebyte != 0 and GPIO.input(door2) == 0:
-			logging.debug("Cant dispence door is open")
-			UpdateLCD("Cant dispence   gdoor is open")
-		else:
-				
+			# construct message
 			TXBuffer[1] = addressbyte
 			TXBuffer[2] = commandbyte
 			TXBuffer[3] = valuebyte
 			TXBuffer[4] = checksumcal()
-
+			# send message
 			GPIO.output(RE, GPIO.HIGH)
 			GPIO.output(DE, GPIO.HIGH)
 			time.sleep(0.1)
@@ -138,67 +134,30 @@ def DispenceIC(addressbyte,commandbyte,valuebyte):
 			time.sleep(0.1)
 			GPIO.output(DE, GPIO.LOW)
 			GPIO.output(RE, GPIO.LOW)
-
+			# wait then read message
 			time.sleep(3*valuebyte)
-			print("go")
 			value2 = {}
 			value = {}
 			value2 = ser1.read(1)
-			if(ser1.inWaiting() > 0):
-				
+			if(ser1.inWaiting() > 0):				
 				value = ser1.read(6)
-				print(value2)
-				print(value)
-				# logging.debug("Reading response:")
-				# logging.debug(value[2])
-
 				while(ser1.inWaiting() > 0):
 					logging.debug("Flushing extra reads...")
 					ser1.read(ser1.inWaiting()) #flushing the system.
 					logging.debug("Done!")
-
-			# elif (ser1.inWaiting() > 6):
-			# 	logging.debug("Too much data in buffer - flushing")
-			# 	time.sleep(2)
-			# 	logging.debug(ser1.inWaiting())
-			# 	logging.debug(ser1.read(ser1.inWaiting())) #flushing the system.
-			# 	logging.debug("Flushed")
-			# else:
-			# 	time.sleep(1.4*valuebyte)
-			# 	if(ser1.inWaiting() > 0):
-			# 		value = ser1.read(6)
-			# 		logging.debug("Reading response:")
-			# 		logging.debug(value[2])
-					
-
-			# 		while(ser1.inWaiting() > 0):
-			# 			logging.debug("Flushing extra reads...")
-			# 			ser1.read(ser1.inWaiting()) #flushing the system.
-			# 			logging.debug("Done!")
-
-				# elif (ser1.inWaiting() > 6):
-				# 	logging.debug("Too much data in buffer - flushing")
-				# 	time.sleep(2)
-				# 	logging.debug(ser1.inWaiting())
-				# 	logging.debug(ser1.read(ser1.inWaiting())) #flushing the system.
-				# 	logging.debug("Flushed")
-				# else:
-				# 	logging.debug("Failed Dispense")
 				try:
+					# check the message integrity
 					check = value[0]
-					# print(check)
 					check = (check + value[1]) & 0xFF
-					# print(check)
 					check = (check + value[2]) & 0xFF
-					# print(check)
 					check = (check + value[3]) & 0xFF
-					# print(check)
 					if value[0] == 0xD1 and value[1] == addressbyte and value[3] == 1 and value[4] == check and value[5] == 0xE1:
 						dretries = 0
 						if value[2] & 0x01:
 							logging.debug("Jammed")
 							DispenseStatus  = DispenseStatus | 1
 							UpdateJEL(0,addressbyte)
+							mailadmin(addressbyte,0)
 						if value[2] & 0x04:
 							logging.debug("Low")
 							UpdateJEL(2,addressbyte)
@@ -211,6 +170,7 @@ def DispenceIC(addressbyte,commandbyte,valuebyte):
 							logging.debug("Empty")
 							DispenseStatus  = DispenseStatus | 2
 							UpdateJEL(1,addressbyte)
+							mailadmin(addressbyte,1)
 					else:
 						logging.debug("dispense failed, retrying")
 						if dretries < maxretry:
@@ -227,6 +187,8 @@ def DispenceIC(addressbyte,commandbyte,valuebyte):
 					DispenceIC(addressbyte,commandbyte,valuebyte)
 				else:
 					dretries = 0
+	except:
+		logging.warning("failed to dispence")
 
 		return 
 	except:
@@ -239,93 +201,79 @@ def DispenceIC(addressbyte,commandbyte,valuebyte):
 
 # function to LCD UPDATE
 def UpdateLCD(StringToPrint):
-	# try:
-	global retries
-	global maxretry
+	try:
+		global retries
+		global maxretry
 
-	discard = len(StringToPrint) + 5
-
-	LCDBuffer = bytearray([0xA1,0x01,0xB7])
-	LCDBuffer.extend(bytearray(map(ord,StringToPrint)))
-	LCDBuffer.extend([0x04,0xF1])
-	
-	GPIO.output(RE, GPIO.HIGH)
-	GPIO.output(DE, GPIO.HIGH)
-	time.sleep(0.1)
-	ser1.write(LCDBuffer)
-	time.sleep(0.1)
-	GPIO.output(DE, GPIO.LOW)
-	GPIO.output(RE, GPIO.LOW)
-
-	time.sleep(3)
-	value = {}
-	value2 = {}
-	value2 = ser1.read(1)
-	if(ser1.inWaiting() > 0):		
-		value = ser1.read(6)
-		# logging.debug("Reading response:")
-		# logging.debug(value[2])
-		print(value2)
-		print(value)
-
-		while(ser1.inWaiting() > 0):
-			logging.debug("Flushing extra reads...")
-			ser1.read(ser1.inWaiting()) #flushing the system.
-			logging.debug("Done!")
-		try:
-			# gprint("checking")
-			check = value[0]
-			# print(check)
-			check = (check + value[1]) & 0xFF
-			# print(check)
-			check = (check + value[2]) & 0xFF
-			# print(check)
-			check = (check + value[3]) & 0xFF
-			# print(check)
-			# print('wtf')
-			# print(value[0])
-			# print(value[1])
-			# print(value[2])
-			# print(value[3])
-			# print(value[4])
-			# print(value[5])
-			if value[0] == 0xD1 and value[1] == 1 and value[3] == 1 and value[4] == check and value[5] == 0xE1:
-				if value[2] & 0x08:
-					logging.debug("Displayed Successfully")
-					retries = 0
-			else:
-				logging.debug("display failed Failed")
-				if retries < maxretry:
-					retries = retries + 1
-					UpdateLCD(StringToPrint)
+		discard = len(StringToPrint) + 5
+		# construct message
+		LCDBuffer = bytearray([0xA1,0x01,0xB7])
+		LCDBuffer.extend(bytearray(map(ord,StringToPrint)))
+		LCDBuffer.extend([0x04,0xF1])
+		# send message
+		GPIO.output(RE, GPIO.HIGH)
+		GPIO.output(DE, GPIO.HIGH)
+		time.sleep(0.1)
+		ser1.write(LCDBuffer)
+		time.sleep(0.1)
+		GPIO.output(DE, GPIO.LOW)
+		GPIO.output(RE, GPIO.LOW)
+		# wait then read message
+		time.sleep(3)
+		value = {}
+		value2 = {}
+		value2 = ser1.read(1)
+		if(ser1.inWaiting() > 0):		
+			value = ser1.read(6)
+			while(ser1.inWaiting() > 0):
+				logging.debug("Flushing extra reads...")
+				ser1.read(ser1.inWaiting()) #flushing the system.
+				logging.debug("Done!")
+			try:
+				# check message integrity
+				check = value[0]
+				check = (check + value[1]) & 0xFF
+				check = (check + value[2]) & 0xFF
+				check = (check + value[3]) & 0xFF
+				if value[0] == 0xD1 and value[1] == 1 and value[3] == 1 and value[4] == check and value[5] == 0xE1:
+					if value[2] & 0x08:
+						logging.debug("Displayed Successfully")
+						retries = 0
 				else:
-					retries = 0
-		except:
-			logging.warning("Communications failure, LCD")
+					logging.debug("display failed Failed")
+					if retries < maxretry:
+						retries = retries + 1
+						UpdateLCD(StringToPrint)
+					else:
+						retries = 0
+			except:
+				logging.warning("Communications failure, LCD")
 
-	elif (ser1.inWaiting() > 6):
-		logging.debug("Too much data in buffer - flushing")
-		time.sleep(2)
-		logging.debug(ser1.inWaiting())
-		logging.debug(ser1.read(ser1.inWaiting())) #flushing the system.
-		logging.debug("Flushed")
+		elif (ser1.inWaiting() > 6):
+			logging.debug("Too much data in buffer - flushing")
+			time.sleep(2)
+			logging.debug(ser1.inWaiting())
+			logging.debug(ser1.read(ser1.inWaiting())) #flushing the system.
+			logging.debug("Flushed")
 
-	else:
-		logging.debug("retrying LCD")
-		if retries < maxretry:
-			retries = retries + 1
-			UpdateLCD(StringToPrint)
 		else:
-			retries = 0
+			logging.debug("retrying LCD")
+			if retries < maxretry:
+				retries = retries + 1
+				UpdateLCD(StringToPrint)
+			else:
+				retries = 0
 
-	return 
-	# except:
-	# 	logging.warning("failed to update the LCD")
+		return 
+	except:
+		logging.warning("failed to update the LCD")
 
 # request dispencary on all that match the student number
 # and if the entry has not been used
 def RequestDispence(studentNo):
 	try:
+		ComponentNoCheck(studentNo)
+		# find orders relating to student number
 		db = pymysql.connect("localhost", "root", "pimysql2016", "UCTVendingMachine")
 		cursor=db.cursor()
 		cursor.execute("""SELECT PartName from Orders WHERE StudentNo = %s""", (studentNo))
@@ -339,7 +287,6 @@ def RequestDispence(studentNo):
 		if PartLen > 0:
 			UpdateLCD("Dispensing      Components")
 		while i < PartLen:
-
 			if Done[i][0] == 0  and Quantity[i][0] > 0:
 				logging.debug("go")
 				rowlen = cursor.execute("""SELECT address from Components WHERE PartName = %s""", (Part[i][0]))
@@ -381,12 +328,13 @@ def ComponentNoCheck(ID):
 		global complimit
 		db = pymysql.connect("localhost", "root", "pimysql2016", "UCTVendingMachine")
 		cursor=db.cursor()
-
+		# check students orders
 		cursor.execute("""SELECT Quantity,ID from Orders WHERE StudentNo = %s""", (ID))
 		Order = cursor.fetchall()
 		OrderLen = len(Order)
 		i = 0
 		count = 0
+		# if they exceed 6 update to only show 6
 		while i < OrderLen:
 			if count < complimit:
 				tempcount = count + Order[i][0]
@@ -413,10 +361,12 @@ def Free():
 	try:
 		db = pymysql.connect("localhost", "root", "pimysql2016", "UCTVendingMachine")
 		cursor=db.cursor()
+		# look for set flags in components table
 		rowlen = cursor.execute("""SELECT address from Components WHERE Jam = 1""")
 		if(rowlen > 0):
 			row = cursor.fetchall()
 			i = 0
+			# send FREE message and update database
 			for i in range (0, rowlen):	
 				DispenceIC(row[i][0],0xB5,0)
 				cursor.execute("""UPDATE Components SET Jam = 0 WHERE Address = %s""", (row[i]))
@@ -454,7 +404,7 @@ def UpdateJEL(JEL, address):
 	try:
 		db = pymysql.connect("localhost", "root", "pimysql2016", "UCTVendingMachine")
 		cursor=db.cursor()
-
+		# update table if unsuccessful dispence
 		if JEL == 0:
 			cursor.execute("""UPDATE Components SET Jam = 1 WHERE Address = %s""", address)
 		elif JEL == 1:
@@ -468,221 +418,175 @@ def UpdateJEL(JEL, address):
 	except:
 		logging.warning("failed to Update database on jam, empty or low status")
 
+		# create a php script that will email the admin
 def mailadmin(address, report):
-	fo = open("email.php", "w+")
-	fo.write('<?php\n')
-	fo.write("include 'includes/variables.php';\n")
-	fo.write('$fromHeader = "From: Vending Machie Report";\n')
-	reportcode = ''
-	if report == 0:
-		reportcode = "JAM"
-	else:
-		reportcode = "EMPTY"
-	fo.write('$text = "The Vending Machine has a:\\n' + reportcode + '\\nThe device reporting is at address, shown as integer (binary):\\n' + str(address) + ' (' + str('{0:08b}'.format(address)) + ')\\nPlease attend to it as soon as possible.";\n')
-	fo.write('mail($EmailAdmin,"Vending Machine Report" , "From: Vending Machine\\n\\n".$text."\\n\\n"."Sent: ".date("h:i:sa d-m-Y"),$fromHeader);\n')
-	fo.write('?>\n')
-	fo.close()
-	os.system('sudo mv email.php /var/www/html/')
-	os.system('sudo php -f /var/www/html/email.php')
-	os.system('sudo rm /var/www/html/email.php')
-	return
+	try:
+		fo = open("email.php", "w+")
+		fo.write('<?php\n')
+		fo.write("include 'includes/variables.php';\n")
+		fo.write('$fromHeader = "From: Vending Machie Report";\n')
+		reportcode = ''
+		if report == 0:
+			reportcode = "JAM"
+		else:
+			reportcode = "EMPTY"
+		fo.write('$text = "The Vending Machine has a:\\n' + reportcode + '\\nThe device reporting is at address, shown as integer (binary):\\n' + str(address) + ' (' + str('{0:08b}'.format(address)) + ')\\nPlease attend to it as soon as possible.";\n')
+		fo.write('mail($EmailAdmin,"Vending Machine Report" , "From: Vending Machine\\n\\n".$text."\\n\\n"."Sent: ".date("h:i:sa d-m-Y"),$fromHeader);\n')
+		fo.write('?>\n')
+		fo.close()
+		os.system('sudo mv email.php /var/www/html/')
+		os.system('sudo php -f /var/www/html/email.php')
+		os.system('sudo rm /var/www/html/email.php')
+		return
+	except:
+		logging.warning("failed to email an admin")
 	
-
+# calls the adrresses listed in the components table
 def callModules():
-	# try:
-	global retries
-	global maxretry
-	db = pymysql.connect("localhost", "root", "pimysql2016", "UCTVendingMachine")
-	cursor=db.cursor()
-	cursor.execute("""SELECT Address from Components""")
-	Address = cursor.fetchall()
-	i = 0
-	LenAddress = len(Address)
-	while i < LenAddress:
-		TXBuffer[1] = Address[i][0]
-		TXBuffer[2] = 0xB1
-		TXBuffer[3] = 0
-		TXBuffer[4] = checksumcal()
+	try:
+		global retries
+		global maxretry
+		db = pymysql.connect("localhost", "root", "pimysql2016", "UCTVendingMachine")
+		cursor=db.cursor()
+		cursor.execute("""SELECT Address from Components""")
+		Address = cursor.fetchall()
+		i = 0
+		LenAddress = len(Address)
+		while i < LenAddress:
+			TXBuffer[1] = Address[i][0]
+			TXBuffer[2] = 0xB1
+			TXBuffer[3] = 0
+			TXBuffer[4] = checksumcal()
 
-		GPIO.output(RE, GPIO.HIGH)
-		GPIO.output(DE, GPIO.HIGH)
-		time.sleep(0.1)
-		ser1.write(TXBuffer)
-		time.sleep(0.1)
-		GPIO.output(DE, GPIO.LOW)
-		GPIO.output(RE, GPIO.LOW)
+			GPIO.output(RE, GPIO.HIGH)
+			GPIO.output(DE, GPIO.HIGH)
+			time.sleep(0.1)
+			ser1.write(TXBuffer)
+			time.sleep(0.1)
+			GPIO.output(DE, GPIO.LOW)
+			GPIO.output(RE, GPIO.LOW)
 
-		time.sleep(0.5)
-		
-		value = {}
-		if(ser1.inWaiting() > 0):
-			ser1.read(1)
-			value = ser1.read(6)
-			# logging.debug("Reading response:")
-			# logging.debug(value[2])
+			time.sleep(0.5)
+			
+			value = {}
+			if(ser1.inWaiting() > 0):
+				ser1.read(1)
+				value = ser1.read(6)
+				# logging.debug("Reading response:")
+				# logging.debug(value[2])
+				
+
+				while(ser1.inWaiting() > 0):
+					logging.debug("Flushing extra reads...")
+					ser1.read(ser1.inWaiting()) #flushing the system.
+					logging.debug("Done!")
+				try:
+					check = value[0]
+					check = (check + value[1]) & 0xFF
+					check = (check + value[2]) & 0xFF
+					check = (check + value[3]) & 0xFF
+					if value[0] == 0xD1 and value[1] == Address[i] and value[3] == 1 and value[4] == check and value[5] == 0xE1:
+						if value[2] == 0xC8:
+							logging.debug("Successfuly called " + Address[0])
+							retries = 0
+							i = i + 1
+					else:
+						logging.debug("failed to call")
+						if retries < maxretry:
+							retries = retries + 1
+						else:
+							cursor.execute("""UPDATE Components SET Empty = 1 WHERE Address = %s""", Address[i][0])
+							retries = 0
+							i = i + 1
+				except:
+					logging.warning("Communications failure, calling")
+
+			elif (ser1.inWaiting() > 6):
+				logging.debug("Too much data in buffer - flushing")
+				time.sleep(2)
+				logging.debug(ser1.inWaiting())
+				logging.debug(ser1.read(ser1.inWaiting())) #flushing the system.
+				logging.debug("Flushed")
+
+			else:
+				logging.debug("retrying call")
+				if retries < maxretry:
+					retries = retries + 1
+				else:
+					retries = 0
+					cursor.execute("""UPDATE Components SET Empty = 1 WHERE Address = %s""", Address[i][0])
+					i = i + 1
+
 			
 
-			while(ser1.inWaiting() > 0):
-				logging.debug("Flushing extra reads...")
-				ser1.read(ser1.inWaiting()) #flushing the system.
-				logging.debug("Done!")
-			try:
-				check = value[0]
-				check = (check + value[1]) & 0xFF
-				check = (check + value[2]) & 0xFF
-				check = (check + value[3]) & 0xFF
-				if value[0] == 0xD1 and value[1] == Address[i] and value[3] == 1 and value[4] == check and value[5] == 0xE1:
-					if value[2] == 0xC8:
-						logging.debug("Successfuly called " + Address[0])
-						retries = 0
-						i = i + 1
-				else:
-					logging.debug("failed to call")
-					if retries < maxretry:
-						retries = retries + 1
-					else:
-						cursor.execute("""UPDATE Components SET Empty = 1 WHERE Address = %s""", Address[i][0])
-						retries = 0
-						i = i + 1
-			except:
-				logging.warning("Communications failure, calling")
-
-		elif (ser1.inWaiting() > 6):
-			logging.debug("Too much data in buffer - flushing")
-			time.sleep(2)
-			logging.debug(ser1.inWaiting())
-			logging.debug(ser1.read(ser1.inWaiting())) #flushing the system.
-			logging.debug("Flushed")
-
-		else:
-			logging.debug("retrying call")
-			if retries < maxretry:
-				retries = retries + 1
-			else:
-				retries = 0
-				cursor.execute("""UPDATE Components SET Empty = 1 WHERE Address = %s""", Address[i][0])
-				i = i + 1
-
-		
-
-	db.commit()
-	cursor.close()
-	db.close()
-	logging.debug("Finished calling")
-	# except:
-	# 	logging.warning("failed to call modules one by one")
+		db.commit()
+		cursor.close()
+		db.close()
+		logging.debug("Finished calling")
+	except:
+	 	logging.warning("failed to call modules one by one")
 
 # connect to uct db and reqeust student number
 def RequestStNo(ID):
-	logging.debug("searching db")
-	conn = pymssql.connect('srvwinsqlvs007.wf.uct.ac.za\DW', 'uctaccessreports', 'uct@cc3$$r3p0rt$', 'DB400_reports')  #Username and password missing
-	cursor = conn.cursor()
-	sqlquery = """EXEC DB400_reports.dbo.GET_TAG_DETAILS @TAG_CODE = %s""" % ID
-	cursor.execute(sqlquery)
-	info = cursor.fetchone()	
-	if(len(info) > 0):
-		i = 0
-		for i in range (0, len(admins)):
-			if info[0] == admins[i]:
-				logging.debug('freeing up ics')
-				Free();	
-				command = ''
-			i = i + 1
-		logging.debug('requesting')		
-		return RequestDispence(info[0])
-	else:
-		logging.debug('found nothing')
-	ser.close()
-	return
+	try:
+		# dont dispence if door is open
+		if valuebyte != 0 and GPIO.input(door2) == 0:
+			logging.debug("Cant dispence door is open")
+			UpdateLCD("Cant dispence    door is open")
+		else:
+			logging.debug("searching db")
+			conn = pymssql.connect('srvwinsqlvs007.wf.uct.ac.za\DW', 'uctaccessreports', 'uct@cc3$$r3p0rt$', 'DB400_reports')  #Username and password missing
+			cursor = conn.cursor()
+			sqlquery = """EXEC DB400_reports.dbo.GET_TAG_DETAILS @TAG_CODE = %s""" % ID
+			cursor.execute(sqlquery)
+			info = cursor.fetchone()	
+			if(len(info) > 0):
+				i = 0
+				for i in range (0, len(admins)):
+					if info[0] == admins[i]:
+						logging.debug('freeing up ics')
+						Free();	
+						command = ''
+					i = i + 1
+				logging.debug('requesting')		
+				return RequestDispence(info[0])
+			else:
+				logging.debug('found nothing')
+			ser.close()
+		return
+	except:
+		logging.warning("failed to Request student number")
 
-# msg = bytearray([0x48,0x45,0x4C,0x4C,0x4F,0x0A])
-# ser1.write('hello\n')
 
-# try:
-# time.sleep(5)
-# callModules()
 while True:
-	# try:
-	if(ser.inWaiting()>0):
-		currentTimeout = timeout;
-	if(ser.inWaiting()%tagLength == 0):
-		value = ser.read(tagLength)
-		logging.debug("Reading card...")
-		value = value.decode("utf-8")
-		value = int(value[1:-3],16)
-		time.sleep(2)
-		while(ser.inWaiting() > 0):
-			logging.debug("Flushing extra reads...")
-			ser.read(ser.inWaiting()) #flushing the system.
-			logging.debug("Done!")
-		
-		RequestStNo(value)			
-	elif (ser.inWaiting() > tagLength):
-		logging.debug("Too much data in buffer - flushing")
-		time.sleep(2)
-		logging.debug(ser.inWaiting())
-		logging.debug(ser.read(ser.inWaiting())) #flushing the system.
-		logging.debug("Flushed")
+	try:
+		if(ser.inWaiting()>0):
+			currentTimeout = timeout;
+		if(ser.inWaiting()%tagLength == 0):
+			value = ser.read(tagLength)
+			logging.debug("Reading card...")
+			value = value.decode("utf-8")
+			value = int(value[1:-3],16)
+			time.sleep(2)
+			while(ser.inWaiting() > 0):
+				logging.debug("Flushing extra reads...")
+				ser.read(ser.inWaiting()) #flushing the system.
+				logging.debug("Done!")
+			
+			RequestStNo(value)			
+		elif (ser.inWaiting() > tagLength):
+			logging.debug("Too much data in buffer - flushing")
+			time.sleep(2)
+			logging.debug(ser.inWaiting())
+			logging.debug(ser.read(ser.inWaiting())) #flushing the system.
+			logging.debug("Flushed")
 
-	else:
-		time.sleep(1)
-		currentTimeout-=1;	
-	# except KeyboardInterrupt:
-	# 	logging.debug("keyboard out!")
-	# 	sys.exit()
-	# except:
-	# 	logging.debug('ERROR')
-
-
-
-
-
-		# FlushDB()
-		# rlist, _, _ = select([sys.stdin], [], [], 1)
-		# if rlist:		
-		# 	command = sys.stdin.readline()
-		# 	sys.stdin.flush()
-
-		# ComponentNoCheck("MRGBAD001")
-		# command = input("enter g: ")
-		# if command == 'g':
-		# 	# Free()
-		# 	# RequestDispence('MRGBAD001')
-		# 	# RequestStNo('81607133871')
-		# 	# logging.debug("despensing")
-		# 	UpdateLCD("Dispensing      Components")
-		# 	DispenceIC(1,0xB3,1)
-		# 	DispenceIC(2,0xB3,1)
-		# 	DispenceIC(3,0xB3,1)
-		# 	DispenceIC(4,0xB3,1)
-		# 	DispenceIC(5,0xB3,1)
-		# 	# DispenceIC(6,0xB3,1)
-		# 	# time.sleep(2)
-		# 	# DispenceIC(2,0xB3,3)
-		# 	FinalMsg()
-		# 	# 
-		# 	# DispenceIC(1,0xB5,0)
-		# 	# command = ''
-		# if command == 'f':
-		# 	#Free();
-		# 	DispenceIC(1,0xB5,0)
-		# 	DispenceIC(2,0xB5,0)
-		# 	DispenceIC(3,0xB5,0)
-		# 	DispenceIC(4,0xB5,0)
-		# 	DispenceIC(5,0xB5,0)
-		# if command == 'e':
-			# mailadmin(6,0)
-			# i = 0
-			# for i in range (0, len(admins)):
-			# 	logging.debug(admins[i])
-			# 	if 'MRGBAD001' == admins[i]:
-						
-			# 		command = ''
-			# 	i = i + 1
-
-# except KeyboardInterrupt:
-# 	logging.debug("keyboard out!")
-# except:
-# 	logging.warning("Unkown Error")
-# finally:
-# 	GPIO.cleanup()
+		else:
+			time.sleep(1)
+			currentTimeout-=1;	
+		FlushDB()
+	except KeyboardInterrupt:
+		logging.debug("keyboard out!")
+		sys.exit()
+	except:
+		logging.warning('ERROR, in main loop')

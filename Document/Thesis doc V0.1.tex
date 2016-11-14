@@ -96,7 +96,6 @@
 \hyphenpenalty 10000
 \exhyphenpenalty 10000
 
-
 \begin{document}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	% title page
@@ -131,7 +130,7 @@
 	
 	\vfill
 	{\bfseries Key words:}
-	Vending Machine, Embedded Systems, Web Design, Circuit Design, Design Report, Build Report, C, Python, PHP, HTML, MySQL
+	Vending Machine, Embedded Systems, Web Design, Circuit Design, Design Report, Build Report, C, Python, PHP, HTML, MySQL, Mechatronics
 \end{titlepage}
 
 	% empty page
@@ -144,7 +143,7 @@
 	
 	\begin{figure}[ht]
 	\centering	
-	\includegraphics[scale=4.704]{{plagiarismdec}.jpg}
+	\includegraphics[scale=4.45]{{plagiarismdec}.jpg}
 	\end{figure}
 	%{\huge Plagiarism Declaration \par}
 	%\begin{enumerate}
@@ -217,17 +216,17 @@ requirements increase.
 	%abstract
 	{\centering\Huge\bfseries\underline{Abstract}\par}
 
-The White Lab was a hub for the UCT undergraduate to study and wok on their project and assignments. To allow them to do so certain services had been supplied to assist them. One of these services was the White Lab Component store which operates during the day. This store allowed students to acquire components during the day. However, at night they had no options to acquire components. The white Lab Component Vending Machine was to solve this problem.
+The White Lab is a hub for the UCT undergraduates where they can study and work on their projects and assignments. Certain services are supplied for them in order to assist them. One of these services has been the White Lab Component store which operates during the day. This store allowed students to acquire components during the day. However, they have no option to acquire components at night. The White Lab Component Vending Machine would be designed to solve this problem.
 
-The research began by reviewing work similar to that of this project. The similar work focusing on medication dispensers reviewing three in total to gain am understanding of the mechanical methods used and draw inspiration for the designs of this report. Reviews into to topics pertaining to aspects of the project, like the communication standards needed and the RFID module to be used for the Component Vending Machine.
+The research began by reviewing work similar to that of this research. The similar work focused on medication dispensers and one component dispenser. Four articles in total were reviewed, in order to gain an understanding of the mechanical methods used to draw inspiration for the designs of this report. Reviews into the topics pertaining to aspects of the research were conducted, for example, the communication standards required and the RFID module to be used for the Component Vending Machine.
 
-Multiple design aspects were approached for the Component Vending Machine to enable a ground up design that could facilitate the White Lab Component Vending Machine. Delivery mechanisms were designed to dispense DIP package components and DIP IC holder. A PCB, called the MCU module, was designed in order to control the delivery mechanism. A PCB was designed in order to interface with a Raspberry Pi and enable it to control the MCU modules and connect to a PSU. An enclosure was designed that would be able to fit all the delivery mechanisms and electronics that made up the Component Vending Machine. Additional designs were done for aesthetics to enable the Component Vending Machine to be user friendly.
+Multiple design aspects were approached for the Component Vending Machine to enable a ground up design that could facilitate the White Lab Component Vending Machine. Delivery mechanisms were designed to dispense DIP package components and DIP IC holders. A PCB, called the MCU module, was designed in order to control the delivery mechanism. A PCB was designed in order to interface with a Raspberry Pi and enable it to control the MCU modules and connect to a PSU. An enclosure was designed that would be able to fit all the delivery mechanisms and electronics that made up the Component Vending Machine. Additional designs were done for aesthetics, to enable the Component Vending Machine to be user friendly.
 
-A LAMP server was installed on the Raspberry Pi and a custom website was installed that would enable students to order components online before collecting them at the Component Vending Machine. They collected them by using their student card. The enclosure was assembled by welding the frame and bolting the panels onto the frame. The drop plate was bent and attached to the enclosure. Six delivery mechanisms were built, one for each specific design in this report. Six MCU modules were assembled and connected to the a delivery mechanism each. The PCB to interface with the Raspberry Pi was assembled. Finally all the assembled pieces were put into the enclosure and connected to enable them to communicate with one another.
+A LAMP server and a custom website were installed on the Raspberry Pi that would enable students to order components online, before collecting them at the Component Vending Machine. The components could be collected by swiping their student card. The enclosure was assembled by welding the frame and bolting the panels onto the aforementioned frame. The drop plate was bent and attached to the enclosure. Six delivery mechanisms were built, one for each specific design in this report. Six MCU modules were assembled and connected to a delivery mechanism. The PCB which was to interface with the Raspberry Pi, was assembled. Finally, all the assembled pieces were installed in the enclosure and connected enabling them to communicate with one another.
 
-Tests were done in order to make sure the Component Vending Machine was reliable enough to meet the requirements. Upon testing it was found that delivery mechanisms performed better than expected and surpassed the reliability requirements. It was found that the Component Vending Machine was also able to communicate with a website for online orders and able to reliably dispense orders that would be made on the online store.
+Tests were done in order to make sure the Component Vending Machine was reliable enough to meet the requirements. Upon testing, it was found that delivery mechanisms exceeded expectations and the reliability requirements. It was found that the Component Vending Machine was also able to communicate with a website as designed, for online orders and able to reliably dispense orders made on the online store.
 
-Although the Component Vending Machine was a success improvements were recommended. The enclosure frame was not rigid enough and needed to be strengthened. The RFID antenna had a poor range or the aliminium panel was absorbing the signal and a redesign of the RFID scanning system was needed to make it more reliable. Due to the scope of the project the variety of the Component Vending Machine was limited to DIP packages. Further research and testing should be done to find solutions for other packages. The project was recommended to continue and advance with manual and instruction on how to assemble more modules to add to the existing stock of the Component Vending Machine.
+Although the Component Vending Machine was a success, improvements have been recommended. The enclosure frame was not rigid enough and needed to be strengthened. The RFID antenna had a poor range combined with the aliminium panel absorbing the signal made the RFID reader unreliable. A redesign of the RFID cover system would be needed to make it more reliable. Due to the scope of the project, the variety of the Component Vending Machine was limited to DIP packages. Further research should be done to increase the range of components the Component Vending Machine can dispense. It is recommended that this research project be continued because it proved to be successful.
 	
 	\newpage	
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -333,7 +332,7 @@ The following section will cover the assembly of the project the research is on.
 
 The next section covers the testing that was done at various stages of the research. Each test is first presented then a discussion and remarks are made about the results of the tests.
 
-The conclusions comes next, finalizing the design and giving a verdict on the research project based on the results from the previous section.
+The conclusion comes next, finalizing the design and giving a verdict on the research project based on the results from the previous section.
 
 Finally, recommendations are presented for improvements that could be made to the research, design and assembly. The recommendations cover many issues and possible implementations all gained from experience throughout the course of the research.
 
@@ -347,9 +346,10 @@ Additionally, appendices are attached to give further insight into the research.
 \section{Literature Review}\thispagestyle{sectionstart}
 Investigations into work similar about the topic of this report i.e., dispensers of small objects, were done in order to gain more insight into the report and better understand how a design of this calibre should operate. The reviews were done so that similar mistakes could be mitigated and to possibly improve on existing ideas. A literature review of various works will be presented in this section. It will start with work and designs similar to that of this project. After similar work has been reviewed and presented, documentation and literature on fundamental aspects of the project will be reviewed. This is in order to gain specific insight into how to customize the design in order to adhere to the requirements of this project effectively. 
 
-The investigations started off by looking at multiple sources. The list of possible sources was narrowed down to 10 in total as those 10 were the most relevant to the research of this project. After further reading it was found that not all the sources were thorough enough or outdated. M3DITRACK3 \cite{CHELVAM2014240} was reviewed but later discarded as the design documented in the report was insufficient. The Multipurpose Robotic Dispenser \cite{6203052} was also discarded as its design report was insufficient. After a quick read of the smartphone-enhanced pill-dispenser \cite{7145252} report it was found that the main focus was on software and so this was also discarded. Additionally patents were looked at but were either out of date or better designs had already been reviewed. This lead to the four sources that were reviewed below.
 \subsection{Similar Work}
 Similar work to the topic of this report will be presented in this section. It was difficult to find work specifically related, so for the most part, medical dispensers were considered a close comparison. This comparison was chosen as medication comes in a small package and can also be specific to each package, where one unit of medication was dispensed at a time. This drew parallels to the White Lab Component Vending Machine requirements and so work in this field was reviewed, but only the design aspects of these works.
+
+The investigations started off by looking at multiple sources. The list of possible sources was narrowed down to 10 in total as those 10 were the most relevant to the research of this project. After further reading it was found that not all the sources were thorough enough or outdated. M3DITRACK3 \cite{CHELVAM2014240} was reviewed but later discarded as the design documented in the report was insufficient. The Multipurpose Robotic Dispenser \cite{6203052} was also discarded as its design report was insufficient. After a quick read of the smartphone-enhanced pill-dispenser \cite{7145252} report it was found that the main focus was on software and so this was also discarded. Additionally patents were looked at but were either out of date or better designs had already been reviewed. This lead to the four sources that were reviewed below.
 
 \subsubsection{Portland State University Vending Machine}
 At Portland State University under the ECE department, a vending machine was retrofitted to provide a wide range of components, 24/7. They employed a method of using zip lock bags and placing a package of components in each bag. These bags were then put in a standard snack vending machine like the ones commonly seen at stores and on campuses, like UCT. In order to restock the machine, volunteers packaged these bags with various components. A picture of what was inside the vending machine can be seen at \autoref{fig:port} \cite{PORTU,vend}.   
@@ -390,11 +390,11 @@ The second medication dispenser reviewed was one intended for narcotic rehabilit
 	\caption{Dispensing mechanism for Medication dispenser for narcotic rehabilitation with cover removed \cite{med2}. \label{fig:med2}}
 	\end{figure}
 	
-The medication dispenser started off with a few specifications ranging from a tamper-proof housing to remote control via the internet, those being related to the design of the Component Vending Machine. Depicted in  \halfref{fig:med2}, the mechanism was driven by a stepper-motor , (5), connected to a cylinder, (1), by a shaft at (8), with the dosages attached to the cylinder, (4). As the dosage rotated to the bottom position another stepper motor would engage a mechanical drive, (7), to push the dosage rod out as shown at (2) and retract the rod. Limit switches, at (9), were used to determine the position of the bottom rod and optical sensor was used to determine the amount of rotation of the cylinder at (10). It measured the rotations by using a slotted disk and shining a light through the slots and counting the times the light was blocked and re-appeared. The mechanism would then be situated in a strong housing to prevent tampering, and if tampering did occur, it would be obvious due to damage needed to open the housing. This dispensary mechanism was controlled by a microcontroller communicating with a computer, which in turn, was connected to the internet. 
+The medication dispenser started off with a few specifications ranging from a tamper-proof housing to remote control via the internet, those being related to the design of the Component Vending Machine. Depicted in  \halfref{fig:med2}, the mechanism was driven by a stepper-motor , (5), connected to a cylinder, (1), by a shaft at (8), with the dosages attached to the cylinder, (4). As the dosage rotated to the bottom position another stepper motor would engage a mechanical drive, (7), to push the dosage rod out as shown at (2) and retract the rod. Limit switches, at (9), were used to determine the position of the bottom rod and an optical sensor was used to determine the amount of rotation of the cylinder at (10). It measured the rotations by using a slotted disk and shining a light through the slots and counting the times the light was blocked and re-appeared. The mechanism would then be situated in a strong housing to prevent tampering, and if tampering did occur, it would be obvious due to damage needed to open the housing. This dispensary mechanism was controlled by a microcontroller communicating with a computer, which in turn, was connected to the internet. 
 
 The cylinder provided a reliable delivery mechanism but limited the amount of stock of the tablets that could be loaded in the dispenser. This could be a design choice by the people who designed it as patients being rehabilitated should not have access to medication in large amounts even if it was protected. This reliable method of using a cylinder or a wheel could be advantageous as the design rotated with all its parts making it difficult for a jam to occur from clashing of parts. The only danger would be if the dispensary rod was extended and the cylinder rotated. This was avoided by using sensors to detect the extension of the rod. This rationale of preventing the device from causing damage to itself by effectively using sensors and programming should be implemented in the Component Vending Machine.
 
-Another interesting approach used for the programming was the compartmentalization of tasks. The microcontroller acted on its own with all the programming to do a complete dispensary action if needed but, received commands to do so by a computer connected to the internet. This method maked each individual device act reliably, like the microcontroller and the computer which enabled the system as a hole, to be more reliable. This kind of programming style should be used for the Component Vending Machine to make it work effectively.
+Another interesting approach used for the programming was the compartmentalization of tasks. The microcontroller acted on its own with all the programming to do a complete dispensary action if needed but, received commands to do so by a computer connected to the internet. This method made each individual device act reliably, like the microcontroller and the computer which enabled the system as a hole, to be more reliable. This kind of programming style should be used for the Component Vending Machine to make it work effectively.
 
 \subsubsection{3D Adjustable cavity Medication Dispenser}
 \label{subsec:med3}
@@ -494,18 +494,18 @@ In order to host a functional website, a web server had to be used. Although a L
 	\caption{Graph showing active websites and their backend web server being used \cite{Apache}. \label{fig:apache}}
 	\end{figure}
 	
-Apache translated a URL that would be attached to an IP address and fetched files related to that IP address, returning them to the browser or program that the IP request came from. This could also be a program, where the server would execute the program requested and return the output. This was all done through a protocol called HTTP (Hypertext Transfer Protocol) which allowed the browser to make a request in a manner the server would understand it, similar to a protocol used to communicate between micro-controllers. More specifically for Apache, these were files stored on the computer the LAMP stack was installed on and in a directory Apache was directed to \cite{apachebook1,apachebook2}.  
+Apache translated a URL that would be attached to an IP address and fetched files related to that IP address, returning them to the browser or program that the IP request came from. This could also be a program, where the server would execute the program requested and return the output. This was all done through a protocol called HTTP (Hypertext Transfer Protocol) which allowed the browser to make a request in a manner the server would understand it, similar to a protocol used to communicate between microcontrollers. More specifically for Apache, these were files stored on the computer the LAMP stack was installed on and in a directory Apache was directed to \cite{apachebook1,apachebook2}.  
 
 
 \subsubsection{The Scripting Language: PHP}
-If the site was directed to a PHP file or a file it saw contained PHP syntax it would pass it onto the PHP interpreter. The interpreter would then execute the code on the server side and a result would be returned with a static page like HTML. Although a static page could be served using just HTML, PHP ad the advantage of enabling dynamic content based on server side variables; such as content from a database. Another advantage of PHP was it could be embedded into HTML code. This made it possible to make the UI look great with static HTML and serve embedded dynamic content with PHP. Another big advantage of PHP which helped it gain a large market share of users in its infancy was its ability to interface with multiple database servers. The one that is to be focused on in the report would be MySQL \cite{PHP}.
+If the site was directed to a PHP file or a file it saw contained PHP syntax it would pass it onto the PHP interpreter. The interpreter would then execute the code on the server side and a result would be returned with a static page like HTML. Although a static page could be served using just HTML, PHP added the advantage of enabling dynamic content based on server side variables; such as content from a database. Another advantage of PHP was it could be embedded into HTML code. This made it possible to make the UI look great with static HTML and serve embedded dynamic content with PHP. Another big advantage of PHP which helped it gain a large market share of users in its infancy was its ability to interface with multiple database servers. The one that is to be focused on in the report would be MySQL \cite{PHP}.
 
 
 \subsubsection{The Database: MySQL}
 MySQL was a database platform built to run independently. It managed data by storing in databases with separate tables each with its own rows and columns. It was able to relate certain data from one table to another by using user defined rules making operation and navigation fast when used properly. MySQL also helped protect the databases with proper protection giving access to users defined during configuration, making it a secure way to store sensitive data. MySQL used the ANSI/ISO standard SQL (Structured Query Language) which enabled easy access when permitted. The SQL standard and access to MySQL worked on a query basis, ie; when an SQL statement was constructed and sent to the MySQL. Once the query had been interpreted, the relevant data pertaining to the request was returned \cite{mysql}.  
 
 \subsection{ATX Specification}
-In order to power the Component Vending Machine, a computer power supply was to be used. In order to understand how to use this power supply connection, the standard used was investigated. The standard used for computer power supplies was well documented and open source, which was called the ATX Specification and was made by Intel \cite{ATX}. Additionally, tutorials were followed on how to setup the ATX connection for use outside of motherboard applications to be thorough. Revision 2.1 of the ATX specification was used instead of the latest 2.2 as the latest version has been updated to only cover ATX2 which was an updated standard adding addition pins for newer motherboards.
+In order to power the Component Vending Machine, a computer power supply was to be used. In order to understand how to use this power supply connection, the standard used was investigated. The standard used for computer power supplies was well documented and open source, which was called the ATX Specification and was made by Intel \cite{ATX}. Additionally, tutorials were followed on how to setup the ATX connection for use outside of motherboard applications to be thorough. Revision 2.1 of the ATX specification was used instead of the latest 2.2 as the latest version had been updated to only cover ATX2 which was an updated standard adding addition pins for newer motherboards.
 
 	
 
@@ -516,13 +516,13 @@ In order to power the Component Vending Machine, a computer power supply was to 
 	\caption{ATX 20 pin connection layout \cite{ATX}. \label{fig:atx}}
 	\end{figure}
 	
-The ATX standard complied with the specifications set out by Intel to operate their processors. This was useful as an ATX compliant power supply had a 12V; 5V and 3V3 supply line capable of supplying large amount of current. The connection layout is illustrated in \autoref{fig:atx}. In order to use the power supply specific connections needed to be made and certain power rails had to be used. A kettle plug had to be connected for the AC power to power upit he PSU. The AC switch had to be turned on and the ``PS\_ON\#" must be grounded to supply power over the 12V, 5V and 3V3 rails. If left open, the voltage rails would be shut off . A ``PWR\_OK" output was provided from the power supply that indicated if the voltage rails were supplying the correct voltages with a high signal \cite{ATX}. This was not necessary for operation but convenient for indication. In order for the power to maintain a constant voltage it may need to be tricked into thinking it was connected to a motherboard. This could be done by connecting a 5W load to the 5V rail \cite{ATXON}.
+The ATX standard complied with the specifications set out by Intel to operate their processors. This was useful as an ATX compliant power supply had a 12V; 5V and 3V3 supply line capable of supplying a large amount of current. The connection layout is illustrated in \autoref{fig:atx}. In order to use the power supply specific connections needed to be made and certain power rails had to be used. A kettle plug had to be connected for the AC power to power up the PSU. The AC switch had to be turned on and the ``PS\_ON\#" must be grounded to supply power over the 12V, 5V and 3V3 rails. If left open, the voltage rails would be shut off . A ``PWR\_OK" output was provided from the power supply that indicated if the voltage rails were supplying the correct voltages with a high signal \cite{ATX}. This was not necessary for operation but convenient for indication. In order for the power to maintain a constant voltage it may need to be tricked into thinking it was connected to a motherboard. This could be done by connecting a 5W load to the 5V rail \cite{ATXON}.
 
 	\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %system specifications
 \section{System Specifications}\thispagestyle{sectionstart}
-In order to begin designing the Component Vending Machine, the specifications needed to be defined in detail in order to know what the designs needed to be focus on. There will be three major sections in the design and discussion of this report. Those will be; the mechanical design including the delivery mechanism and enclosure, the PCB design of both controller for the delivery mechanism, which will be called the MCU module from now on, and the Raspberry pi module plugin, and the software for the Master program i.e. the Raspberry Pi, the MCU modules and the website. A mind map was created to assist defining the specifications and can be seen in \autoref{fig:specdef}. It shows the relevant specifications for each three sections and how they interact.
+In order to begin designing the Component Vending Machine, the specifications needed to be defined in detail in order to know what the designs needed to focus on. There will be three major sections in the design and discussion of this report. Those will be; the mechanical design including the delivery mechanism and enclosure, the PCB design of both controller for the delivery mechanism, which will be called the MCU module from now on, and the Raspberry pi module plugin, and the software for the Master program i.e. the Raspberry Pi, the MCU modules and the website. A mind map was created to assist defining the specifications and can be seen in \autoref{fig:specdef}. It shows the relevant specifications for each three sections and how they interact.
 
 	\begin{figure}[ht]
 	\centering
@@ -564,7 +564,7 @@ The dimensions of various DIP components were measured in order to determine the
 
 From the data collected it showed that there were only 3 different packages to cater for, as the DIP 14 and 16 packages were observed to be very similar.
 \subsubsection{Delivery Mechanism}
-The main objective of the delivery mechanism needs to be stated as being able to deliver one component at a time in a reliable manner. The delivery mechanism needed to be very reliable with a success rate of 95\% or above. It was set high because a failure in the system would mean human intervention to correct the error breaking the autonomous nature the Component Vending Machine was to have. This autonomy was another specification as the Component Vending Machine was to operate at potentially late hours of the night when no authority to amend a failure would be available. To improve autonomy, Component tubes, pictured below, would need to be held in the machine while being fed into the delivery mechanism to give the Component Vending Machine a large capacity.
+The main objective of the delivery mechanism needs to be stated as being able to deliver one component at a time in a reliable manner. The delivery mechanism needed to be very reliable with a success rate of 95\% or above. It was set high because a failure in the system would mean human intervention to correct the error breaking the autonomous nature the Component Vending Machine was to have. This autonomy was another specification as the Component Vending Machine was to operate at potentially late hours of the night when no authority to amend a failure would be available. To improve autonomy, component tubes, pictured below, would need to be held in the machine while being fed into the delivery mechanism to give the Component Vending Machine a large capacity.
 
 	\begin{figure}[ht]
 	\centering
@@ -577,16 +577,16 @@ The enclosure's priority specification was, to be able to hold all the modules o
 \subsection{PCB Specifications}
 The PCB requirements and specifications will be discussed in more detail below.
 \subsubsection{Raspberry Pi}
-The main purpose of the PCB to that would interface with the Raspberry Pi, was to be able to power the Pi and create a starting point for communication bus. This module should also be able to sense if the door of the enclosure was open. This would be to prevent the machine from dispensing components or from moving parts, while someone could potentially have their finger in the mechanism to try and fix a fault. 
+The main purpose of the PCB that would interface with the Raspberry Pi, was to be able to power the Pi and create a starting point for the communication the bus. This module should also be able to sense if the door of the enclosure was open. This would be to prevent the machine from dispensing components or from moving parts, while someone could potentially have their finger in the mechanism to try and fix a fault. 
 \subsubsection{MCU Modules}
-The MCU module had many small specifications, contributing to serve the main purpose of being modular and interchangeable for different types of delivery systems that must be required. It would need to operate a DC motor, stepper motor, and servo motor, either on at a time or all at once. Gap sensors should be able to detect an empty load for delivery or a jam, or a low cartridge or a tube. It was later decided that the MCU module should be able to operate an LCD. This was so that messages could be relayed to someone using the Component Vending Machine, i.e, to communicate a problem with the machine. A micro-controller capable of handling the specifications of the MCU module should be coupled with a crystal designed to the microcontrollers specifications was needed. A communication and power bus that could be daisy-chained to additional modules was required for expansion. This was so that more than one module could be attached to the same communication bus. Calibration controls to adjust and fine tune the operation of the device were needed to enable adjustments. This would allow for small imperfections in manufacturing and building to be circumnavigated by changing set limits in the code.
+The MCU module had many small specifications, contributing to serve the main purpose of being modular and interchangeable for different types of delivery systems that must be required. It would need to operate a DC motor, stepper motor, and servo motor, either one at a time or all at once. Gap sensors should be able to detect an empty load for delivery or a jam, or a low cartridge or a tube. It was later decided that the MCU module should be able to operate an LCD. This was so that messages could be relayed to someone using the Component Vending Machine, i.e, to communicate a problem with the machine. A micro-controller capable of handling the specifications of the MCU module should be coupled with a crystal designed to the microcontrollers specifications was needed. A communication and power bus that could be daisy-chained to additional modules was required for expansion. This was so that more than one module could be attached to the same communication bus. Calibration controls to adjust and fine tune the operation of the device were needed to enable adjustments. This would allow for small imperfections in manufacturing and building to be circumnavigated by changing set limits in the code.
 \subsection{Software Specifications}
 The specifications of the Software requirements and specifications will be discussed below.
 \subsubsection{Master Program for the Raspberry Pi}
-The main function of the Master program needed be to recognize student cards and the student number attached to them and communicate with the MCU modules. This communication would allow the Master program to control the actions of each MCU module when needed. The Master program must also manage the database and had to make sure the orders were not invalid. Another feature the Master program needed to have was administrative control in order to be able to induce additional administrator features on each MCU module for maintenance purposes. The Master program had to be able not only to interface with a database, to do all the above, but also should not record any user ID's or information taken from a student card.
+The main function of the Master program needed be to recognize student cards and the student number attached to them and communicate with the MCU modules. This communication would allow the Master program to control the actions of each MCU module when needed. The Master program must also manage the database and had to make sure the orders were not invalid. Another feature the Master program needed to have was administrative control in order to be able to induce additional administrator features on each MCU module for maintenance purposes. The Master program should under no circumstance record any user ID's or information taken from a student card.
 \subsubsection{MCU Module}
 \label{subsec:mcuspec}
-The specification for the program was set out to make sure the program ran reliably. To ensure this, one of the first requirements was that the MCU would use very few delays and instead use a task manager. The task manager needed to enable the MCU module to operate without delays when dispensing components so that the system would not be held up by any one task. In addition to the task manager, motor control for the 3 kinds of motors had be present. Detection for empty load and low cartridge/tube using optical gap sensors was required so the module could sense if a component were present in the mechanism or not. An address storage system must be in place so that the device would know when it had being commanded over the communication bus. Finally, the MCU module had to required to have a task manager to calibrate the device and save the newly set values. A summary of the I/Os needed has been listed below:
+The specification for the program was set out to make sure the program ran reliably. To ensure this, one of the first requirements was that the MCU would use very few delays and instead use a task manager. The task manager needed to enable the MCU module to operate without delays when dispensing components so that the system would not be held up by any one task. In addition to the task manager, motor control for the 3 kinds of motors had be present. Detection for empty load and low cartridge/tube using optical gap sensors was required so the module could sense if a component were present in the mechanism or not. An address storage system must be in place so that the device would know when it had been commanded over the communication bus. Finally, the MCU module had to required to have a task manager to calibrate the device and save the newly set values. A summary of the I/Os needed has been listed below:
 	
 	\begin{itemize}
 	\setlength\itemsep{0em}
@@ -615,16 +615,14 @@ In order to make an effective design, certain constraints were first laid out to
 
 A simple design approach was used to limit the complexity where simplicity and the method of forward thinking; ``how would it fail", were always the first and ongoing design considerations. Once a simple idea was theorized, details were added in order to make it more functional. Simplicity was not the main goal as complexity would be needed in some cases, i.e., where functionality took priority. The number of moving parts would be kept to a minimum to reduce complexity in order to prevent failure of functionality and structure. 
 
-Design of the delivery mechanism started out on paper as sketches of basic ideas, until these culminated into a practical. Once ready, the idea was designed in SolidWorks with the above mentioned goals. After the Model was fully defined in SolidWorks, the model was printed on a 3D printer to prototype and the effectiveness of the design was then tested. If the design had flaws, a redesign was done to change and eliminate those flaws and the model was printed again to further test and find any other potential flaws. This process was repeated until a reliable working prototype for the delivery mechanism was produced.
+Design of the delivery mechanism started out on paper as sketches of basic ideas, until these culminated into a practical idea. Once ready, the idea was designed in SolidWorks with the previously mentioned requirements. After the Model was fully defined in SolidWorks, the model was printed on a 3D printer to prototype and test the effectiveness of the design. If the design had flaws, a redesign was done to change and eliminate those flaws and the model was printed again to further test and find any other potential flaws. This process was repeated until a reliable working prototype for the delivery mechanism was produced.
 
-As for the enclosure, a similar process was followed, as was for the delivery mechanism. However, no prototyping was included as the cost for prototyping would have been too high. Another reason for no prototyping for the enclosure, was that the functionality was not as complex as the delivery mechanism. This meant that it was designed with measurements more so than functionality in mind. However, this is not to say functionality did not play a part in decision making. The frame of the enclosure was designed first, followed by the internal housing for the delivery mechanism. The Raspberry pi and power supply was design thereafter. The next step was that the shell was designed along with the slide for the components to fall down and then the front door. Once the design was completed, all the parts were detailed in sketches to finalize the design.
+As for the enclosure, a similar process was followed, as was for the delivery mechanism. However, no prototyping was included as the cost for prototyping would have been too high. Another reason for no prototyping for the enclosure, was that the functionality was not as complex as the delivery mechanism. This meant that it was designed with measurements more so than functionality in mind. However, this is not to say functionality did not play a part in decision making. The frame of the enclosure was designed first, followed by the internal housing for the delivery mechanism. The Raspberry pi and power supply were designed thereafter. The next step was that the shell was designed along with the slide for the components to fall down and then the front door. Once the design was completed, all the parts were detailed in Solidwork sketches to finalize the design.
 
 \subsubsection{Circuit Design Methodology}
 The basic idea behind the design of the PCB was to make it versatile and able to adapt to the requirements of the project by adding in features to allow for multiple configurations of mechanical delivery requirements. This required a somewhat modular design.
 
-The circuit started with a sketch on paper detailing what would be needed in the final design and what type of configurations it should be able to handle. Three configurations were considered as the mechanical system needed a motor of some kind. The design needed to include the ability to handle a stepper motor, servo motor and simple DC motor either one at a time or all concurrently. Included in the design was a set of sensors needed to track the status of the delivery and contents of rails. A Raspberry Pi HAT was theorized that would be capable of connecting the power source to the Raspberry Pi and starting the bus for the RS-485 communications and power rails. This HAT would be a fairly simple design to satisfy communication and power supply requirements.
-
-
+The circuit started with a sketch on paper detailing what would be needed in the final design and what type of configurations it should be able to handle. A schematic was then created in EagleCAD allowing for a more formal design. The schematic was then turned into a board using the same software. The layout of the board was adjusted and configured until a satisfactory layout for the PCB was achieved.
 
 \subsubsection{Software Design Methodology}
 The software for the machine is one of the most important aspect to consider, as it would influence each part of the design and how they would interact.
@@ -653,7 +651,7 @@ This section will cover the components and materials selected for the design of 
 
 \subsection{Communications bus}
 \label{subsec:bus}
-In order to communicate using an RS485 bus, a differential bus transceiver, was needed to convert the UART signal. The SN75176B was chosen as it had many advantages over and above numerous other differential bus transceivers. It acts as a half-duplex RS485 device when connected to a RS485 bus meaning it can only communicate one way at a time which met the requirements of the communication's requirements. It also meant only two wires would be needed for communication plus a common ground. To manage the half-duplex communications, each transceiver had data enable and receive enable triggers to allow it to communicate and receive data only when needed, allowing the device in control to manage its communications better, i.e. when tasks would be performed and no communication would be expected or needed it could turn off its bus connection. This would allow for more reliable task execution.
+In order to communicate using an RS485 bus, a differential bus transceiver, was needed to convert the UART signal. The SN75176B was chosen as it had many advantages over and above numerous other differential bus transceivers. It acts as a half-duplex RS485 device when connected to a RS485 bus meaning it can only communicate one way at a time which met the communication's requirements. It also meant only two wires would be needed for communication plus a common ground. To manage the half-duplex communications, each transceiver had data enable and receive enable triggers to allow it to communicate and receive data only when needed, allowing the device in control to manage its communications better, i.e. when tasks would be performed and no communication would be expected or needed it could turn off its bus connection. This would allow for more reliable task execution.
 
 \subsection{Servo Motor}
 In order to drive the roller version of the delivery mechanism, an appropriate servo motor was needed. The Hextronik 9g servo was selected, or any 9g servo equivalent (9g stands for the weight of the servo), as it was inexpensive at \euro 2,42 \cite{hobbyking}, at the date of compiling this report. It was capable of moving the rollers and was light and compact making the overall design compact. Later on though, it was decided to use a stronger and more reliable Corona DS-339 as it did not have overshoot that was observed in testing on the 9g servo. Although it was more expensive at \euro 7,61 \cite{hobbyking}, it was more readily available at UCT.
@@ -667,12 +665,12 @@ The stepper motor driver chosen to be compatible with the Component Vending Mach
 The power supply chosen was a PSU from a computer. The computer PSU was chosen as it could supply 3.3v, 5v and 12v simultaneously and provided enough power to operate all the electronics concurrently. It was also chosen as it would eliminate the design process of making a power supply and provide a more reliable and effective solution.
 
 \subsection{Microcontroller}
-The choice was narrowed down to two microcontrollers, the STM32F051C6 and the ATmega1280. They both met the requirements set out in \halfref{subsec:mcuspec}. In the end, the STM MCU was chosen over an Atmel MCU based system mainly because of cost and it was more accessible at UCT. An Atmega1280 costs above R200 where as the STM MCU costs around R30 \cite{rsonline}, at the date this report was compiled. 
+The choice was narrowed down to two microcontrollers, the STM32F051C6 and the ATmega1280. They both met the requirements set out in \halfref{subsec:mcuspec}. In the end, the STM MCU was chosen over an Atmel MCU based system mainly because of cost and that it was more accessible at UCT. An Atmega1280 cost above R200 where as the STM MCU cost around R30 \cite{rsonline}, at the date this report was compiled. 
 
 The STM MCU featured a 48MHz max system clock with 32Kbytes of flash and 8Kbytes of SRAM. It had 11 timers in total which would assist with the PWM channel and task manager. It had 27 available I/O channels. Of those 27 channels 10 could be mapped to the ADC, 6 could be mapped to the timers and used as PWM channels. Additionally, the STM MCU had 2 UART interfaces.
 
 \subsection{Delivery Mechanism Housing}
-It was decided that the housing structure for the delivery mechanism would be clear 2mm perspex. This was because acrylic glass would be able to handle the small forces applied to the mechanism. It was also chosen, as acrylic glass was easy to cut given that a laser cutter was used, making for accurate assembly of the design. Lastly, clear acrylic glass was specifically used so the housing would not impede viewing the of the delivery mechanism for the assembly, maintenance and repair. 
+It was decided that the housing structure for the delivery mechanism would be clear 2mm acrylic glass. This was because acrylic glass would be able to handle the small forces applied to the mechanism. It was also chosen, as acrylic glass was easy to cut given that a laser cutter was used, making for accurate assembly of the design. Lastly, clear acrylic glass was specifically used so the housing would not impede viewing the of the delivery mechanism for the assembly, maintenance and repair. 
 
 \subsection{Enclosure Frame}
 Steel L beams and bars where chosen as the frame for the enclosure. Steel was chosen because it would be strong and durable making the enclosure last long. Also, steel was one of the easier metals to weld making it ideal, as the facilities were common for welding steel.
@@ -687,7 +685,7 @@ Wood was chosen for the shelving for the delivery mechanisms, as it was the most
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	%system design and prototyping
 \section{System Design and Prototyping}\thispagestyle{sectionstart}
-The design of the Component Vending Machine is be split up into three sections as prior sections have been. The mechanical design will be presented first, then the PCB design and finally, the Software development and design. Prototyping will be presented where relevant but not in its own section, in order to maintain its context with the design it is related to. All 3D models, unless specified otherwise, were produced using Solidworks.
+The design of the Component Vending Machine has been split up into three sections as prior sections have been. The mechanical design will be presented first, then the PCB design and finally, the Software development and design. Prototyping will be presented where relevant but not in its own section, in order to maintain its context with the design it is related to. All 3D models, unless specified otherwise, were produced using Solidworks.
 \subsection{Guide For Component Tubes}
 \label{subsec:Guide}
 In order to help make restocking the Component Vending Machine easier, the delivery mechanism would be fed from the same component tubes the components were stored in. The idea was also to make the delivery mechanism gravity fed, an idea inspired by the literature review discussed in \autoref{subsec:med1} and \autoref{subsec:med3}. This would mean restocking would only entail disposing of the empty tube and fitting in a full tube of components, instead of individually loading each component. A guide for these component tubes was needed to keep them in place and make restocking simple for the user. This guide was called the IC guide. Although the Guide did not change much through each version, improvements were made to compensate for ech problem encountered. Although the Guide forms part of the delivery mechanism, it deserved an update review of its own, therefore, the relevant changes are presented in this subsection.
@@ -718,7 +716,7 @@ Version two of the IC guide improved on the design of the first and addressed th
 	\begin{figure}[ht]	
 	\centering
 	\includegraphics[scale=0.45]{{guide3}.jpg}
-	\caption{Comparison between Version 1 and Version 2 of the IC Guide. \label{fig:g3}}
+	\caption{Labelled picture of the final version of the IC guide. \label{fig:g3}}
 	\end{figure}
 
 The final version of the IC Guide changed three details of the design. First, the gap for the sensor was moved to the bottom and 2 additional gaps were added to allow for alignment of the gap and IC to be dispensed. The alignment lip was removed to allow for a more adjustable design per IC and compensate for possible misalignment caused by manufacturing and assembly. Lastly, all 90\degree corners which were overhanging were changed to 45\degree slants to reduce supports being produced in 3D printing, reducing material costs. These changes can be seen in \autoref{fig:g3}. Additionally, a guide for IC holders was designed, as the tube for IC holders were rectangular. The guide hole was simply changed to fit this shape. This has been illustrated in \autoref{fig:g4}.
@@ -743,17 +741,17 @@ The vertical roller was named after the axis the part pivoted on. This pivoting 
 	\caption{Vertical roller and housing delivery mechanism. \label{fig:v1}}
 	\end{figure}
 
-The ``Vertical Roller" as labelled in the \autoref{fig:v1} was situated in the ``Housing Structure", made of 2mm acrylic glass, that would enable it to pivot on the vertical axis with the assistance of a servo motor. The housing structure had a width of 103 mm to keep it stable, allowing for 9 delivery mechanisms to be placed on a 1 m span. The design of the roller consisted of a bucket for the DIP component to drop into. This bucket would be situated on a wheel that would pivot the bucket from a position where a component would drop into the bucket. The bucket was designed to accommodate a component with splayed legs, hence took on a trapezoidal shape. The dimensions of the bucket were determined by measuring dimensions on a DIP component. The wheel would then pivot to a position where the component would fall out. This position has been depicted in the \autoref{fig:v1}. A plate labelled ``Guide plate" was designed to force components to fall away from the housing if they fell straight down. The components would be guided into the bucket by the ``IC Guide". The design of the IC guide has been detailed in \halfref{subsec:Guide}. A more detailed drawing of the delivery mechanism in its housing can be seen in \fullref{subsec:v1}.
+The ``Vertical Roller" as labelled in the \autoref{fig:v1} was situated in the ``Housing Structure", made of 2mm acrylic glass, that would enable it to pivot on the vertical axis with the assistance of a servo motor. The housing structure had a width of 103 mm to keep it stable, allowing for 9 delivery mechanisms to be placed on a 1 m span. The design of the roller consisted of a bucket for the DIP component to drop into. This bucket would be situated on a wheel that would pivot the bucket from a position where a component would drop into the bucket. The bucket was designed to accommodate a component with splayed legs, hence took on a trapezoidal shape. The dimensions of the bucket were determined by measuring dimensions on a DIP component. The wheel would then pivot to a position where the component would fall out. This position has been depicted in the \autoref{fig:v1}. A plate labelled ``Guide plate" was designed to force components to fall away from the housing if they fell straight down. The components would be guided into the bucket by the ``IC Guide". The design of the IC guide has been detailed in \fullref{subsec:Guide}. A more detailed drawing of the delivery mechanism in its housing can be seen in \fullref{subsec:v1}.
 
 	\begin{figure}[ht]	
 	\centering
 	\includegraphics[scale=0.24]{{VertV1}.jpg}
 	\caption{Vertical roller (a) cross section  (b) isometric view (c) view to help explain loading.\label{fig:multi}}	
 	\end{figure}
+	
+In \halfref{fig:multi}, labelled (c), IC1 will be the name given to the component in the bucket. IC2, as shown in the figure above, will be the name given to component that would be loaded in the next loading cycle of the mechanism. This naming convention of IC1 and IC2 will be used in this report from now on. This diagram explains how IC's would be guided into the bucket, one on top of another from a tube situated in the guide, which would be positioned above the delivery mechanism.
 
 The \halfref{fig:multi} shows a cross sectional (a) and isometric view (b) of the vertical roller. The cross sectional view shows the features of the part. The cavity labelled ``Component bucket" is where the DIP package would fall into when being loaded, for this design it would be DIP 8 components. A ``Fillet" was added to prevent the next IC to be loaded from catching on the wall of the bucket. The slot labelled ``Gap for sensor" would house an IR LED and an IR phototransistor, one on either side. The cavity at the bottom of the bucket was for a vibration motor, which would assist in loading and dispensing components. The idea behind the vibration motor was to assist the component if it became jammed. A ``Frame" was to maintain structural rigidity. The isometric view shows detail of how the design would look in real life. A ``Foothold for servo horn" has been labelled, which would be to assist the servo motor attach to the roller to pivot it along the vertical axis. The part was hollowed out to reduce material costs for 3D printing and the wheel form was used so the wall of the disk could be used to block IC2 as the roller would pivot. 	
-
-In \halfref{fig:multi}, labelled (c), IC1 will be the name given to the component in the bucket. IC2, as shown in the figure above, will be the name given to component that would be loaded in the next loading cycle of the mechanism. This naming convention of IC1 and IC2 will be used in this report from now on. This diagram explains how IC's would be guided into the bucket, one on top of another from a tube situated in the guide, which would be positioned above the delivery mechanism.
 
 \subsubsection{Prototyping Vertical Roller Version 1}
 
@@ -895,11 +893,11 @@ A redesign was needed for the enclosure, as problems were encountered when tryin
 
 	\begin{figure}[ht]	
 	\centering
-	\includegraphics[scale=0.32]{{redenclose}.jpg}
+	\includegraphics[scale=0.3]{{redenclose}.jpg}
 	\caption{Isometric view of the redesign. \label{fig:reenc}}
 	\end{figure}
 	
-As can be seen in \autoref{fig:reenc} the initial sloped plate was replaced with the ``Simpler Sloped Plate". It would be feasible to bend this simpler plate with the tool at hand, eliminating the need to outsource the bending. In addition to changing the sloped plate, the front door was extended to reach the bucket at the bottom. The bucket was also widened to cater for the changed sloped plate. This redesign was done after the material that was ordered. No additional material was needed. The material ordered was adequate to complete the redesign.
+As can be seen in \autoref{fig:reenc} the initial sloped plate was replaced with the ``Simpler Sloped Plate". It would be feasible to bend this simpler plate with the tools at hand, eliminating the need to outsource the bending. In addition to changing the sloped plate, the front door was extended to reach the bucket at the bottom. The bucket was also widened to cater for the changed sloped plate. This redesign was done after the material that was ordered. No additional material was needed. The material ordered was adequate to complete the redesign.
 \subsection{RFID Coil Cover}
 A cover for the RFID reader was needed to protect the coils from damage that could be caused by the user. The cover was a simple design encasing just the coils and not the circuitry it connected to, as this would be situated behind the cover, inside the enclosure.
 
@@ -929,7 +927,7 @@ The Raspberry Pi HATs main purpose was to be able to connect to the power supply
 \subsubsection{MCU Module}
 The MCU module was originally designed to sit flat behind the delivery mechanism it was intended to control. It was later decided that it would be propped up vertically to help increase the density of the delivery mechanism that could fit in a meter length. The schematic was initially designed and can be seen in \fullref{subsec:mcu}.
 
-The top and bottom layers of the PCB layout has been illustrated in \autoref{fig:mcumod}. The MCU external oscillator was placed first, followed by the DIP switch, ``SW1", and SN75176B placed to facilitate the basic operation and communications, ``IC1". Sensors and headers for the power communications and motors were then placed; ``GAPSNR1", ``GAPSNR2", ``VBRMTR", ``SERVO",  ``STEPPERMTR", ``PWR+COM1", ``PWR+COM2" and ``PROG". A potentiometer was placed at ``R13" to assist with calibration of the modules. Terminals for selecting calibration mode and connecting the trimpot was placed at ``MODE" and ``TRIM" respectively. In addition, 3 LED indicators were used in the bottom left corner showing green for power, red for MCU on and yellow for status. Holes were added to provide for mounting the board on standoff bolts.
+The top and bottom layers of the PCB layout has been illustrated in \autoref{fig:mcumod}. The MCU external oscillator was placed first, followed by the DIP switch, ``SW1", and SN75176B placed to facilitate the basic operation and communications, ``IC1". Sensors and headers for the power communications and motors were then placed; ``GAPSNR1", ``GAPSNR2", ``VBRMTR", ``SERVO",  ``STEPPERMTR", ``PWR+COM1", ``PWR+COM2" and ``PROG". A potentiometer was placed at ``R13" to assist with calibration of the modules. Terminals for selecting calibration mode and connecting the trimpot were placed at ``MODE" and ``TRIM" respectively. In addition, 3 LED indicators were used in the bottom left corner showing green for power, red for MCU on and yellow for status. Holes were added to provide for mounting the board on standoff bolts.
 	
 	\begin{figure}[ht]	
 	\centering
@@ -957,7 +955,7 @@ The Component Vending Machine was designed to have a very clear and modular desi
 	\begin{figure}[ht]	
 	\centering
 	\includegraphics[scale=6]{{SystemOverview}.jpg}
-	\caption{LCD breakout board PCB layout, Bottom layer with silkscreen of top layer overlaid. \label{fig:sysover}}
+	\caption{Overview of how each software element would interactr with one another. \label{fig:sysover}}
 	\end{figure}
 	
 The \autoref{fig:sysover} illustrates the different modules and how they would interact for the purposes of this version of the Component Vending Machine. Users would order online using the website designed for the purpose of verifying the viability of an internet connected Component Vending Machine. This website would be hosted on a LAMP web server, hosted on the Raspberry Pi, allowing the website to interact with a database. The website would only have the ability to add or read entries in the database giving it limited control. In addition, a mail server would be used to generate administrators status updates, for example; Empty rails. Administrators would also have access to the website with elevated privileges allowing them complete control of the web server, website and database. This would allow administrators to edit who would be notified by the email system, update and manage the databases on the web server, website updates and edits as well as Master program updates.
@@ -967,7 +965,7 @@ The Master program would also be connected to the database. This way there would
 \subsubsection{API}
 \label{subsubsec:API}
 In order for the Master program and MCU module program to communicate, an API was developed in order to maintain a reliable and trustworthy communications protocol. The API was defined for a package length of six bytes in total, from either master or slave, to keep it constant. The only time this deviated, was when the master would send LCD print data. The table below documents the API that was used to communicate between the Master and MCU programs:
-	\begin{center}
+
 		\begin{table}[ht]
 			\centering
 			\begin{tabular}{| m{3cm} | m{5cm}| m{5cm} |}
@@ -980,19 +978,25 @@ In order for the Master program and MCU module program to communicate, an API wa
 			\hline
 			2$^{nd}$ byte & Address Byte, of device to interface & 0x00 - 0xFF \\
 			\hline
-			3$^{rd}$ byte & Command Byte: {\begin{enumerate}[noitemsep,topsep=0pt,parsep=0pt]			  
+			3$^{rd}$ byte & Command Byte: {\begin{enumerate}[nosep]			
+											\setlength{\itemsep}{0pt}
+   											\setlength{\parskip}{0pt}
+    										\setlength{\parsep}{0pt}  
 											\item Call for Blank Response
 											\item Dispense Components
 											\item Free up Jammed Device
 											\item Print on the LCD
-										\end{enumerate}}	& Specific Values: \begin{enumerate}[noitemsep,topsep=0pt,parsep=0pt] 
+										\end{enumerate}}	& Specific Values: \begin{enumerate}[nosep]	
+																			\setlength{\itemsep}{0pt}
+   																			\setlength{\parskip}{0pt}
+    																		\setlength{\parsep}{0pt}	
 																			\item 0xB1
 																			\item 0xB3
 																			\item 0xB5
 																			\item 0xB7
 																			\end{enumerate} \\
 			\hline
-			4$^{th}$ byte & Value Byte (no. pertaining to previous byte): \begin{enumerate}[nosep]
+			4$^{th}$ byte & Value Byte (no. pertaining to previous byte): \begin{enumerate}[nosep]	
 																				\setlength{\itemsep}{0pt}
    																				\setlength{\parskip}{0pt}
     																			\setlength{\parsep}{0pt} 
@@ -1009,9 +1013,7 @@ In order for the Master program and MCU module program to communicate, an API wa
 			\end{tabular}
 			\caption{API used to communicate from master to slave. \label{tab:M2SAPI}}
 		\end{table}
-	\end{center}
 	\newpage
-	\begin{center}
 		\begin{table}[ht]
 			\centering
 			\begin{tabular}{| m{3cm} | m{5cm}| m{5cm} |}
@@ -1024,7 +1026,7 @@ In order for the Master program and MCU module program to communicate, an API wa
 			\hline
 			2$^{nd}$ byte & Address Byte, of device sending message & 0x00 - 0xFF\\
 			\hline
-			3$^{rd}$ byte & Report Byte:\begin{enumerate}
+			3$^{rd}$ byte & Report Byte:\begin{enumerate}[nosep]		
 											\setlength{\itemsep}{0pt}
    											\setlength{\parskip}{0pt}
     										\setlength{\parsep}{0pt} 
@@ -1032,7 +1034,7 @@ In order for the Master program and MCU module program to communicate, an API wa
 											\item Empty rail
 											\item Low stock in rail
 											\item Successful dispensary
-										\end{enumerate} & Specific Values: \begin{enumerate}[noitemsep,topsep=0pt]
+										\end{enumerate} & Specific Values: \begin{enumerate}[nosep]	
 																				\setlength{\itemsep}{0pt}
    																				\setlength{\parskip}{0pt}
     																			\setlength{\parsep}{0pt} 
@@ -1051,9 +1053,8 @@ In order for the Master program and MCU module program to communicate, an API wa
 			\end{tabular}
 		\caption{API used to communicate from slave to master. \label{tab:S2MAPI}}
 		\end{table}
-	\end{center}
 
-The API was defined in such a way that it would be difficult for a corrupt message to be processed, ensuring only valid messages were used. The API would be set in place as an additional layer of security for the communication, in addition to the differential bus. The tables \autoref{tab:M2SAPI} and \autoref{tab:S2MAPI} can be used to replicate the protocol for any device intended to join the communication line.
+The API was defined in such a way that it would be difficult for a corrupt message to be processed, ensuring only valid messages were used. The API would be set in place as an additional layer of security for the communication, in addition to the differential bus. The tables \autoref{tab:M2SAPI} and \autoref{tab:S2MAPI} can be used to replicate the protocol for any device intended to join the communication bus.
 
 \subsubsection{Web design}
 \label{subsubsec:webdev}
@@ -1062,14 +1063,15 @@ The website was designed using Sublime Text Editor with the framework, as resear
 
 An image of the component store page can be seen at \fullref{subsec:weborders} and a picture of the contacts page can be seen at \fullref{subsec:contact}.
 
-The website heading and cover layout were designed first. An image of basic components and the UCT logo were edited together to make a cover photo for the website and to represent the topic of the website. A menu bar was placed underneath this cover photo to allow for navigation on the website. In addition, a border was applied to the website to make it stand out. These three features were standard on each page of the website. The Website would consist of two pages; the component store page and the contacts page. The components store page began with basic instructions. Followed would be a design to fit three columns of components order forms, a number seen to work on most display sizes, and as many rows as needed, determined by the amount of components needed on the store page. At the bottom of the component store page a text entry box, that would require a student number, with a submit button was placed. When the submit button were to be pressed the website would be directed to a PHP script that would check the order to make sure it did abides by the rules and correct it if needed. The script would then enter the data in to the database and give the user a small notification, in the form of a pop-up box, that the order had been processed and a breakdown of what the order contained. Then the user would be redirected back to the store page. The Contacts page was intended to simply allow users to contact the administrator with problems encountered with the Component Vending Machine or comments about improvements and additional features that could be implemented. It would contain an introductory message with an entry form below that would require; a name, student number, email address and message. A send button would be at the bottom of the form with which to submit the form. Once submitted the user would be redirected to a script that would send the relevant information in the form of an email to the administrator. Then the user would be redirected back to the contacts page.
+The website heading and cover layout were designed first. An image of basic components and the UCT logo were edited together to make a cover photo for the website and to represent the topic of the website. A menu bar was placed underneath this cover photo to allow for navigation on the website. In addition, a border was applied to the website to make it stand out. These three features were standard on each page of the website. The Website would consist of two pages; the component store page and the contacts page. The components store page began with basic instructions. Followed would be a design to fit three columns of components order forms, a number seen to work on most display sizes. The amount of rows would be determined by the amount of components needed on the store page. At the bottom of the component store page a text entry box, that would require a student number, with a submit button was placed. When the submit button were to be pressed the website would be directed to a PHP script that would check the order to make sure it did abides by the rules and correct it if needed. The script would then enter the data in to the database and give the user a small notification, in the form of a pop-up box, that the order had been processed and a breakdown of what the order contained. Then the user would be redirected back to the store page. The Contacts page was intended to simply allow users to contact the administrator with problems encountered with the Component Vending Machine or comments about improvements and additional features that could be implemented. It would contain an introductory message with an entry form below that would require; a name, student number, email address and message. A send button would be at the bottom of the form with which to submit the form. Once submitted the user would be redirected to a script that would send the relevant information in the form of an email to the administrator. Then the user would be redirected back to the contacts page.
 
 \subsubsection{Raspberry Pi Master Program}
 
 Both the Master program and MCU program were both designed in a modular fashion, in that most tasks were isolated into their own function, making it easier to adapt a certain function for alternative overall program functionality. This was done so that as the project progressed in the future, the software could be easily updated to adapt to future requirements.
 
-	\begin{center}
-		\begin{table}[ht]
+Before discussing the program, the databases should be explained. Two tables were used in the database, one called ``Orders", for the orders that would to be placed on the Component Store page and another table called ``Components", for a record of the dispensary mechanisms in the Component Vending Machine, the component they dispense and the address they would be using. \autoref{tab:DB} shows all the variables that would be in each table and what they would be for.
+
+		\begin{table}[!ht]
 			\centering
 			\begin{tabular}{| m{2cm} | m{2cm}| m{10cm} |}
 			\hline 
@@ -1104,28 +1106,30 @@ Both the Master program and MCU program were both designed in a modular fashion,
 			\end{tabular}
 		\caption{Database description of variables and what they are for. \label{tab:DB}}
 		\end{table}
-	\end{center}
-Before discussing the program, the databases should be explained. Two tables were used in the database, one called ``Orders", for the orders that would to be placed on the Component Store page and another table called ``Components", for a record of the dispensary mechanisms in the Component Vending Machine, the component they dispense and the address they would be using. \autoref{tab:DB} shows all the variables that would be in each table and what they would be for.
-
-\begin{figure}[!ht]	
-	\centering
-	\includegraphics[scale=0.74]{{statemachinemaster}.jpg}
-	\caption{LCD breakout board PCB layout, Bottom layer with silkscreen of top layer overlaid. \label{fig:masterdiag}}
-	\end{figure}
 
 The Master program logic diagram can be seen in \autoref{fig:masterdiag}. The diagram shows a simplified view of how the Master program operates. The program began by checking the RFID reader for incoming data. The database was then queried with the RFID data to get the student number. Extra checks were done to check if an administrator were present. If so, a free-up command would be performed, resetting the empty and jam flags in the database and relevant modules. The orders relating to the student number would then be acquired from the database and dispensary requests would be sent to each relevant module one by one. Responses from each module would be received after each module had finished dispensing and the Master program would act accordingly.
 
 The responses expected were; Jam, Empty, Low and Success. A Jam and Empty report would warrant the Master program to email an administrator advising the person to attend to the Component Vending Machine and the reason why. A Low and Success report would just update the relevant tables, but no email would be sent. All cases would give a report in the log. This will be discussed later in the report. 
 
 This would be repeated until all orders, relating to the student/staff number that corresponded to the requested dispensary action, were done. The program would then return to an idle state and wait for a student card to read and receive RFID data that would then begin this process again.
-
+\newpage
+	\begin{figure}[!ht]	
+	\centering
+	\includegraphics[scale=1]{{statemachinemaster}.jpg}
+	\caption{State machine diagram of the logic for the Master program. \label{fig:masterdiag}}
+	\end{figure}
+\newpage
 In addition to the above loop, additional user feedback was provided in the program. Firstly, a log was kept of all the activities of the program and whether there were errors or successful operations. Secondly, LCD messages were transmitted to the first MCU module, which should have an LCD connected, to give the user swiping his/her student card feedback. Lastly, limits in the Master program software were put in place to limit the number of components ordered by any one person in one day.
 
 \subsubsection{Microntroller Software}
 
 The MCU program  logic diagram can be seen in \autoref{fig:mcustate}. Although the logic flow for the MCU module was fairly complicated and could be broken down into two sections; the initialization and integrity checks, then the main logic loop. The diagram only contains the main functionality of the modules program. Additional functions will be discussed briefly later. The state machine diagram for the MCU module and its software can be seen in \autoref{fig:mcustate}. In order to gain a better understanding of the diagram, key features were highlighted. Those not highlighted should be explained by the diagram itself. 
 
-The MCU module program would start off with initialization. The initialization would entail setting up registers for the required inputs and outputs including PWM and ADC channels. Also, the Timers and UART channels would be setup. Lastly, the address of the module would be saved from the DIP switch meaning the address would only be recorded once. If the address were to be changed, the module would need a reset in order for it to take effect. Once initialized, the integrity checks would begin. The first check would be the ``Mode" check, which would determine whether the module should run the dispensary or the calibration task. If the calibration mode should be selected, the module would run through different angles on the servo motor for loading and dropping a component. The module would hold at each angle for a set period of time and the angle on the servo could be adjusted to match the delivery mechanism using the potentiometer. If in delivery mode, the module would run the dispensary task when requested via the UART communications over the RS485 bus. The module would idle in a low power state until serial data would be received. This low power state would release the angle on the servo by using a 0\% pwm and turning off the red and yellow LED. The check for jam or empty states would be done next, which would have been set, if a previous attempt at dispensing occurred in a jam or the tube on the delivery mechanism was empty. The only way to reset this flag would be by sending a free command from the master. Two other major checks needed explaining. The first being ``Is IC In Bucket", which would sample IR sensor on the bucket to determine if a component were in the bucket. The second would be the ``Is IC In Tube", which would sample the IR sensor on the IC Guide to determine if there were any components left in the tube.
+The MCU module program would start off with initialization. The initialization would entail setting up registers for the required inputs and outputs including PWM and ADC channels. Also, the Timers and UART channels would be setup. Lastly, the address of the module would be saved from the DIP switch meaning the address would only be recorded once. If the address were to be changed, the module would need a reset in order for it to take effect. Once initialized, the integrity checks would begin. The first check would be the ``Mode" check, which would determine whether the module should run the dispensary or the calibration task. If the calibration mode should be selected, the module would run through different angles on the servo motor for loading and dropping a component. The module would hold at each angle for a set period of time and the angle on the servo could be adjusted to match the delivery mechanism using the potentiometer. If in delivery mode, the module would run the dispensary task when requested via the UART communications over the RS485 bus. The module would idle in a low power state until serial data would be received. This low power state would release the angle on the servo by using a 0\% pwm and turning off the red and yellow LED. The check for jam or empty states would be done next, which would have been set, if a previous attempt at dispensing occurred in a jam or the tube on the delivery mechanism was empty. The only way to reset this flag would be by sending a free command from the master. Two other major checks needed explaining. The first being ``Is IC In Bucket", which would sample IR sensor on the bucket to determine if a component were in the bucket. The second would be the ``Is IC In Tube", which would sample the IR sensor on the IC Guide to determine if there were any components left in the tube. The last feature to be highlighted is the reporting and where ``Add" is used. This was highlights the fact that multiple reports can be sent simultaneously by using bit logic, where there were four report codes. The last four bits of the report code byte, represented one report code each.
+
+Additional features, not covered in the diagram, were also made available for the module. These came into effect when a different command, than a ``Dispense" command, matched those in the API. The first would be a ``Call" command which would prompt the module to send a blank ``Success" report back. Next the ``Free" command would prompt the module to set the Jam flag back to default allowing the module to resume normal operation. The last being the ``LCD" command, which only applies to the module with the address 1, as it was intended that this module had an LCD connected to it. If an ``LCD" command were to be received, bytes 4 to the 3$^{rd}$ last byte would be the data that should be displayed on the LCD. The data received should be in ASCII format. The normal integrity checks would be applied for all the above to ensure no corruption could occurred.
+
+The alpha version of this program was tested on a prototype setup using prototyping cables and electronic breadboard to simulate the PCB prior to assembly to verify its' functionality and to ensure it would not damage the PCB somehow. This was very successful and effective, as it helped debug various problems prior to having access to the PCB.
 
 \newpage
 	\begin{figure}[!ht]	
@@ -1136,20 +1140,16 @@ The MCU module program would start off with initialization. The initialization w
 	\FloatBarrier
 \newpage
 
- The last feature to be highlighted is the reporting and where ``Add" is used. This was highlights the fact that multiple reports can be sent simultaneously by using bit logic, where there were four report codes. The last four bits of the report code byte, represented one report code each.
 
-Additional features, not covered in the diagram, were also made available for the module. These came into effect when a different command, than a ``Dispense" command, matched those in the API. The first would be a ``Call" command which would prompt the module to send a blank ``Success" report back. Next the ``Free" command would prompt the module to set the Jam flag back to default allowing the module to resume normal operation. The last being the ``LCD" command, which only applies to the module with the address 1, as it was intended that this module had an LCD connected to it. If an ``LCD" command were to be received, bytes 4 to the 3$^{rd}$ last byte would be the data that should be displayed on the LCD. The data received should be in ASCII format. The normal integrity checks would be applied for all the above to ensure no corruption could occurred.
-
-The alpha version of this program was tested on a prototype setup using prototyping cables and electronic breadboard to simulate the PCB prior to assembly to verify its' functionality and to ensure it would not damage the PCB somehow. This was very successful and effective, as it helped debug various problems prior to having access to the PCB.
 
 	\begin{figure}[!ht]	
 	\centering
-	\includegraphics[scale=1.2]{{taskmanager}.jpg}
+	\includegraphics[scale=1.5]{{taskmanager}.jpg}
 	\caption{A simplified logic diagram of the task manager and how it would function. \label{fig:taskman}}
 	\end{figure}
 	\FloatBarrier
 
-OOne of the other features and specifications discussed in previous sections, was the minimal use of delays and a task manager to facilitate this. This would be designed using a timer that would be set to count up once every 1 millisecond. The design would be set to use a task counter and a conditional statement, based on the task counter, to facilitate invoking individual tasks. A task would entail an action that would occur without delays, for example when the sensors were to be sampled and the servo would be moved X\degree. After these actions would be taken, a short delay would be needed before the next action would be taken. In order to achieve this kind of task manager, a method was theorized and has been illustrated in \autoref{fig:taskman}. This method could be implemented for any number of tasks and would be implemented in the MCU module programming.
+One of the other features and specifications discussed in previous sections, was the minimal use of delays and a task manager to facilitate this. This would be designed using a timer that would be set to count up once every 1 millisecond. The design would be set to use a task counter and a conditional statement, based on the task counter, to facilitate invoking individual tasks. A task would entail an action that would occur without delays, for example when the sensors were to be sampled and the servo would be moved X\degree. After these actions would be taken, a short delay would be needed before the next action would be taken. In order to achieve this kind of task manager, a method was theorized and has been illustrated in \autoref{fig:taskman}. This method could be implemented for any number of tasks and would be implemented in the MCU module programming.
 	
 \newpage
 
@@ -1162,14 +1162,15 @@ The priced quoted were up to date at the time this report was compiled and do no
 
 \subsection{Software Assembly: Server}
 
-In order to host the website that had been designed in \autoref{subsubsec:webdev}, a LAMP server was installed in the Raspberry Pi.
+In order to host the website that had been designed in \autoref{subsubsec:webdev}, a LAMP server was installed on the Raspberry Pi.
 
 An operating system needed to be installed on the Raspberry Pi before a LAMP server could be installed. The latest version of the Rasbian OS, a fork of the Debian OS, image was acquired from the official Raspberry Pi site \cite{raspbian}. The latest version of Win32DiskImager was then acquired, \cite{diskimage}, and used to mount the Raspbian image onto a Micro SD card. Once the process was complete the Micro SD card was mounted in the Raspberry Pi and the Pi was connected to the network with an internet connection, with a CAT5 cable. The IP address was obtained by searching the network for the Raspberry Pi. Once the IP was obtained, a terminal to SSH into the Pi was used. In this case, the program used was Putty.
 
-Once the Pi was powered and running, the installation of the LAMP server could begin. A detailed log of commands used to make this possible, has been included in \autoref{sec:PiCommands}. The databases for the repositories was initially updated along with the software on the Pi itself. The LAMP server was then installed along with the required mail server for administrative notifications. The plugins for the Master program was then installed, along with registering the Master program to run on boot.
+Once the Pi was powered and running, the installation of the LAMP server could begin. A detailed log of commands used to make this possible, has been included in \fullref{sec:PiCommands}. The databases for the repositories was initially updated along with the software on the Pi itself. The LAMP server was then installed along with the required mail server for administrative notifications. The plugins for the Master program was then installed, along with registering the Master program to run on boot.
 
 The bill of materials for the serer can be seen in \autoref{tab:bomserv}. All the materials for the server
  were provided by UCT.
+ 
 	\begin{table}[ht]
 	\centering		
 	\begin{tabular}{| m{8cm} | m{4cm}| m{3cm} |}
@@ -1185,13 +1186,12 @@ The bill of materials for the serer can be seen in \autoref{tab:bomserv}. All th
 	 * Obtained from UCT
 	\caption{Bill of materials for the Server. \label{tab:bomserv}}
 	\end{table}	
-
 \subsection{Enclosure Assembly}
-The enclosure assembly followed the design using drawings from \autoref{sec:request} and \autoref{subsec:enctemplates} to guide the process. Initially, materials were ordered, aluminium and steal L and flat bars. The orders were placed through UCT to known suppliers that had working relationships with UCT. Assembly of the enclosure began with cutting the steel L and flat bars to length for the frame only. The frame was then welded using stick welding. Initially the the base and top of the frame were welded, then the columns in the corners. The walls of the frame, made of 2mm aluminium sheets, were then cut using a guillotine. The walls were clamped to the frame and holes were drilled through the walls and the frame. The walls were drilled one by one until the 4 walls, 2 sides back and top, were all drilled and attached using bolts for removal if needed. A picture of the enclosure at this stage of the build can be seen in \autoref{fig:enfrwal}.
+The enclosure assembly followed the design using drawings from \fullref{sec:request} and \fullref{subsec:enctemplates} to guide the process. Initially, materials were ordered, aluminium and steal L and flat bars. The orders were placed through UCT to known suppliers that had working relationships with UCT. Assembly of the enclosure began with cutting the steel L and flat bars to length for the frame only. The frame was then welded using stick welding. Initially the the base and top of the frame were welded, then the columns in the corners. The walls of the frame, made of 2mm aluminium sheets, were then cut using a guillotine. The walls were clamped to the frame and holes were drilled through the walls and the frame. The walls were drilled one by one until the 4 walls, 2 sides back and top, were all drilled and attached using bolts for removal if needed. A picture of the enclosure at this stage of the build can be seen in \autoref{fig:enfrwal}.
 
 	\begin{figure}[!ht]	
 	\centering
-	\includegraphics[scale=0.172]{{enfrwal}.jpg}
+	\includegraphics[scale=0.15]{{enfrwal}.jpg}
 	\caption{Pictures of the enclosure frame with the walls bolted on. \label{fig:enfrwal}}
 	\end{figure}
 
@@ -1293,13 +1293,12 @@ Once all parts had been acquired, the assembly of the Pi HAT began. First, the A
 The assembly began with soldering the the STM32F0 microcontroller. The IC was then tested for heat or static damage by connecting it to power without any programming or external oscillator. Next, the external 8Mhz oscillator was attached with the stabilizing capacitors. Again, the microcontroller was tested and the code was uploaded to test proper operation. After successful tests were run, the remainder of the components were soldered to complete the PCB. Six MCU module boards were ordered in total. Initially, three were soldered for testing purposes and for further debugging of the code. The idea was to test the code with more than one module on the system, to check for irregularities and problems with the code, as only one prototype on the system had been tested prior to assembly.
 
 There were two configurations made. One for the primary device at address 1 with an LCD and 2 without the LCD plugins. The plugins entailed a 4 way terminal on the ``EN", ``MS1", ``MS2", ``MS3" through holes and a two way terminal for the ``STEP" and``DIR" through hole. Those through holes mentioned related to the stepper module for future expansion and yet to be designed delivery mechanisms. A picture of both versions built for this report can be seen in \autoref{fig:mcumodpcb}. A complete bill of materials can be seen in \autoref{tab:bommcu}. The remaining three PCBs were soldered once the code worked reliably with more than one MCU module on the bus. They were assembled as stated above.
-
+\setlength{\textfloatsep}{5pt}
 	\begin{figure}[!ht]	
 	\centering
 	\includegraphics[scale=0.32]{{mcumodpcb}.jpg}
 	\caption{Pictures of the MCU module PCB, with the LCD plugin on the left, without the pcb plugin on the right. \label{fig:mcumodpcb}}
 	\end{figure}
-
 	\begin{table}[ht]
 	\centering		
 	\begin{tabular}{| m{8cm} | m{4cm}| m{3cm} |}
@@ -1362,6 +1361,7 @@ There were two configurations made. One for the primary device at address 1 with
 	 * Obtained from UCT
 	\caption{Bill of materials for the MCU module. \label{tab:bommcu}}
 	\end{table}	
+	\vfill
 	\FloatBarrier
 \newpage
 \subsubsection{LCD Breakout Board}
@@ -1413,7 +1413,7 @@ Bolts and washers were placed in the designated holes. The next step was to sold
 	\caption{Picture of the 3D printed IC guide and roller after assembly. \label{fig:3Dprints}}
 	\end{figure}
 
-The housing structure was assembled next. The structure was assembled according to the design and drawings in \autoref{subsec:h3} using Tensol adhesive to secure the structure. The servo motor was placed inside the housing structure during assembly. The 3D prints that were assembled and described above were then fixed to the housing structure with bolts, nuts and a screw for the servo horn. Sockets were attached to the end of the leads to enable them to be connected to the MCU modules. The final product of this assembly can be seen in \autoref{fig:housing}. In total, six delivery mechanisms were assembled, one for each design.
+The housing structure was assembled next. The structure was assembled according to the design and drawings in \fullref{subsec:h3} using Tensol adhesive to secure the structure. The servo motor was placed inside the housing structure during assembly. The 3D prints that were assembled and described above were then fixed to the housing structure with bolts, nuts and a screw for the servo horn. Sockets were attached to the end of the leads to enable them to be connected to the MCU modules. The final product of this assembly can be seen in \autoref{fig:housing}. In total, six delivery mechanisms were assembled, one for each design.
 
 	\begin{figure}[!ht]	
 	\centering
@@ -1446,14 +1446,14 @@ The housing structure was assembled next. The structure was assembled according 
 	 * Obtained from UCT
 	 ** Estimated by weight
 	 *** Pricing from Hobby King, Obtained from UCT
-	\caption{Estimated Bill of Materials for the delivery mechanism. \label{tab:bomdel}}
+	\caption{Bill of Materials for the delivery mechanism. \label{tab:bomdel}}
 	\end{table}	
 
 \subsection{Overall Assembly}
 \label{subsec:finbuild}
 Once all individual modules and the enclosure had been assembled, the final product of the research could be assembled. This section will present the methods used to assemble all the components of the project together to complete the Component Vending Machine.
 
-Initially, the shelves for all the delivery mechanisms were prepared. A drill template, which can be seen in \autoref{subsec:drilltemp}, was made in order to make holes for mounting each delivery mechanism. Included in this template is a template for the size of the a wooden plate that would serve to hold the PCB vertically on the plank. This was done, as specified in the design, to increase the density of the delivery mechanisms allowed on one shelf. Using this template, holes were drilled in the plank and plates were cut from the same wood the shelf was. Holes were drilled in the wooden plates, using the PCBs as a template, to mount the PCBs using metal standoffs. Once all the necessary holes were drilled, the six assembled delivery mechanisms were attached using M4 bolts, washers and nuts. The leads for the motors and sensors were cut and fitted to sockets so they could attach to the PCBs. A test PCB was made to help with wiring of the sensors to correspond with the terminal on the PCB, a picture of its schematic and physical realization can be seen in \autoref{fig:tester}.
+Initially, the shelves for all the delivery mechanisms were prepared. A drill template, which can be seen in \fullref{subsec:drilltemp}, was made in order to make holes for mounting each delivery mechanism. Included in this template is a template for the size of the a wooden plate that would serve to hold the PCB vertically on the plank. This was done, as specified in the design, to increase the density of the delivery mechanisms allowed on one shelf. Using this template, holes were drilled in the plank and plates were cut from the same wood the shelf was. Holes were drilled in the wooden plates, using the PCBs as a template, to mount the PCBs using metal standoffs. Once all the necessary holes were drilled, the six assembled delivery mechanisms were attached using M4 bolts, washers and nuts. The leads for the motors and sensors were cut and fitted to sockets so they could attach to the PCBs. A test PCB was made to help with wiring of the sensors to correspond with the terminal on the PCB, a picture of its schematic and physical realization can be seen in \autoref{fig:tester}.
 
 	\begin{figure}[!ht]	
 	\centering
@@ -1470,7 +1470,7 @@ Once all the connectors had been attached, the PCBs were attached to the plates 
 	\end{figure}
 	\FloatBarrier
 
-Next the cover for the RFID tag reader antenna was assembled using the template in \autoref{sec:request}, sheet number 6 and 7. The bottom plate and middle plate were glued together first. Then bolts were placed in the cavity, through the designed holes. The antenna was then placed in the center of the middle plate and the top plate was glued in place to hold the antenna and bolts in the cover. This was left to set and a picture of the finished product can be seen in \autoref{fig:rfidcover}.
+Next the cover for the RFID tag reader antenna was assembled using the template in \fullref{sec:request}, sheet number 6 and 7. The bottom plate and middle plate were glued together first. Then bolts were placed in the cavity, through the designed holes. The antenna was then placed in the center of the middle plate and the top plate was glued in place to hold the antenna and bolts in the cover. This was left to set and a picture of the finished product can be seen in \autoref{fig:rfidcover}.
 
 	\begin{figure}[!ht]	
 	\centering
@@ -1478,12 +1478,12 @@ Next the cover for the RFID tag reader antenna was assembled using the template 
 	\caption{Picture of the back and front of the RFID antenna cover. \label{fig:rfidcover}}
 	\end{figure}
 	
-The RFID cover and LCD module were then mounted on the Front panel door with bolts and nuts to hold them in place. A wire for the LCD module was fashioned with sockets that would enable it to connect to the first MCU module. The RFID module was connected to the antenna and a USB cable was connected and secured to the case with epoxy to prevent it from detaching. The Raspberry Pi and computer PSU were attached next. The Raspberry Pi was attached the the small sheet that put it perpendicular to the rear wall and the PSU attached directly to the rear wall using screws. The PSU was connected to the Pi HAT and the USB from the RFID cover was attached to the Raspberry Pi. The power switch for the Pi HAT was mounted in the wall and the terminals were soldered. The magnetic switch for the Pi HAT was mounted on the frame of the door using double sided tape. Wires were attached from the Pi HAT to the magnetic switch. The shelf, holding all the delivery mechanisms, was placed on the shelf holder in the enclosure and wired to the Pi HAT.
+The RFID cover and LCD module were then mounted on the Front panel door with bolts and nuts to hold them in place. A wire for the LCD module was fashioned with sockets that would enable it to connect to the first MCU module. The RFID module was connected to the antenna and a USB cable was connected and secured to the case with epoxy to prevent it from detaching. The Raspberry Pi and computer PSU were attached next. The Raspberry Pi was attached the the small sheet that put it perpendicular to the rear wall and the PSU attached directly to the rear wall using screws. The PSU was connected to the Pi HAT and the USB from the RFID cover was attached to the Raspberry Pi. The power switch for the Pi HAT was mounted in the wall and the terminals were soldered. The magnetic switch for the Pi HAT was mounted on the frame of the door using double sided tape. Wires were attached from the Pi HAT to the magnetic switch. The shelf, holding all the delivery mechanisms, were placed on the shelf holder in the enclosure and wired to the Pi HAT.
 	
 \subsection{Additional Notes and Final Assembly}
 This section will serve to present implementations that were not in the designs. 
 
-The sensors for the DIP 20 IC socket were giving false readings during testing and it was found that the components were falling too low. This was only a problem for the DIP sockets and the DIP 20 specifically, as it had a slot in the middle of the component which allowed light to shine through. To help mitigate false readings, a small slice of perpsex was sanded down to place under the bucket when loading components. This helped mitigate false readings. The same was done for the DIP 20 IC dispenser as, it was the most unreliable dispenser. The unreliability of this dispenser will be discussed further in \autoref{subsec:fintest}.
+The sensors for the DIP 20 IC socket were giving false readings during testing and it was found that the components were falling too low. This was only a problem for the DIP holder of the DIP 20 specifically, as it had a slot in the middle of the component which allowed light to shine through. To help mitigate false readings, a small slice of acrylic glass was sanded down to place under the bucket when loading components. This helped mitigate false readings. The same was done for the DIP 20 IC dispenser as, it was the most unreliable dispenser. The unreliability of this dispenser will be discussed further in \autoref{subsec:fintest}.
 
 A handle was placed on the door of the enclosure to give an alternative for people pulling on the lock and possibly breaking it. This was done due to the door sagging on the open end, meaning the door needed to be propped up. This was done by placing two holes in the door, and two bolts on the frame which the holes in the door would be propped on to prevent it from sagging when closed.
 
@@ -1499,7 +1499,7 @@ The final product can be seen in \autoref{fig:finalassem}, \autoref{fig:finalint
 	
 	\begin{figure}[!ht]	
 	\centering
-	\includegraphics[scale=0.9]{{finalinternal}.jpg}
+	\includegraphics[scale=4.4]{{finalinternal}.jpg}
 	\caption{Labelled picture of the interior of the Component Vending Machine and its components. \label{fig:finalint}}
 	\end{figure}
 	
@@ -1541,7 +1541,7 @@ A comparison test was done to compare the reliability of the horizontal roller w
 	\caption{Graph showing the results of the protoyping tests done to compare the reliability rating with and without a vibration motor. \label{fig:comptest}}
 	\end{figure}
 		
-As can be seen in the graph, the run with the vibration motor was more reliable than without a vibration motor, as expected. The vibration motor helped with loading and releasing, increasing the reliability to 100\%. This resulted in the design on the delivery mechanism to be concluded, as it proved the design was successful.
+As can be seen in the graph, the test with the vibration motor was more reliable than without a vibration motor, as expected. The vibration motor helped with loading and releasing, increasing the reliability to 100\%. This resulted in the design on the delivery mechanism to be concluded, as it proved the design was successful.
 
 \subsection{Final Build Stress Tests}
 \label{subsec:fintest}
@@ -1570,7 +1570,7 @@ One can see a message was sent in between the 1 second and 2 second mark in this
 Test were done with the RS 485 bus transceiver chip and the communications worked as expected. There were problems with communication, but it was found that the limitations of the Raspberry Pi and its' ability to interact with the RS 485 bus transceiver. This was found during debugging of the final assembly. It was isolated to the Raspberry Pi, by testing communications with the MCU modules alone and they were able to communicate with each other flawlessly. After further debugging, a solution was found by changing the way the code interacted with the RS 485 chip, allowing for reliable communications.
 
 \subsection{Final build Results and Discussion}
-The final build as detailed in \autoref{subsec:finbuild} was tested to make sure it operated as expected. The tests that were done, were repeated orders and dispensary requests. After some debugging, it was found that one of the MCU modules were faulty and was taken off the chain. This proved to fix functionality enabling the device to operate properly. Although there were some changes needed to the code base in order to make this so, this was mainly due to problems with communications handling. After these issues were fixed, the Component Vending Machine operated as expected. An excerpt of the log of the Master Program can be seen in \autoref{sec:maslog}. This log shows majority successful dispensary actions with some corrupted communication warnings. The corrected code accounted for these unsuccessful communication attempts by attempting to resend the message which would then successfully complete the dispensary action. A video corresponding to this log can be seen at \cite{fintest} or on the CD that accompanied this report called ``Video 10" along with the log file named ``Master.log"
+The final build as detailed in \autoref{subsec:finbuild} was tested to make sure it operated as expected. The tests that were done, were repeated orders and dispensary requests. After some debugging, it was found that one of the MCU modules were faulty and was taken off the chain. This proved to fix functionality enabling the device to operate properly. Although there were some changes needed to the code base in order to make this so, this was mainly due to problems with communications handling. After these issues were fixed, the Component Vending Machine operated as expected. An excerpt of the log of the Master Program can be seen in \fullref{sec:maslog}. This log shows majority successful dispensary actions with some corrupted communication warnings. The corrected code accounted for these unsuccessful communication attempts by attempting to resend the message which would then successfully complete the dispensary action. A video corresponding to this log can be seen at \cite{fintest} or on the CD that accompanied this report called ``Video 10" along with the log file named ``Master.log"
 \newpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1601,9 +1601,9 @@ Although The website achieved its purpose, when compared to more commercial webs
 
 A mistake was made when soldering the sensor headers on the PCBs and to keep the format of the PCBs uniform, this mistake was replicated. It did not change the functionality of the PCBs, but may cause confusion for future installers when looking at pictures. Future builds should follow the designs to reduce the possibility of mistakes that could cause damage to the sensors or PCB.
 
-The DIP 20 IC and IC socket dispensers were the most unreliable and problematic dispensers. A fix for the issue was implemented but was not practical. The root cause for the IC dispenser was the height of the roller bucket. The bucket was too high, causing the IC to be loaded on the next round to jam up against the filleted slope as discussed in the testing. A redesign should be undertaken with follow up tests. A small height adjustment to the bucket should fix the issue. Th IC socket dispenser was getting false readings due to the slightly elevated sensor position in the bucket. Although this was only a problem on the DIP 20 IC socket dispenser, it could cause problems on the other socket dispensers as well. This issue should be monitored and where possibly be solved preemptively. The sensor for all IC socket dispensers should be redesigned so that the sensor slots are flat, not slanted for 3D printing efficiency. Also, the sensors should be as low as possible, since there was no slot at the bottom of the IC sockets. This should be tested further to find an optimal position.
+The DIP 20 IC and IC socket dispensers were the most unreliable and problematic dispensers. A fix for the issue was implemented but was not practical. The root cause for the IC dispenser was the height of the roller bucket. The bucket was too high, causing the IC to be loaded on the next round to jam up against the filleted slope as discussed in the testing. A redesign should be undertaken with follow up tests. A small height adjustment to the bucket should fix the issue. The IC socket dispenser was getting false readings due to the slightly elevated sensor position in the bucket. Although this was only a problem on the DIP 20 IC holder dispenser, it could cause problems on the other holder dispensers as well. This issue should be monitored and when possible be solved preemptively. The sensor for all IC socket dispensers should be redesigned so that the sensor slots are flat, not slanted for 3D printing efficiency. Also, the sensors should be as low as possible, since there was no slot at the bottom of the IC sockets. This should be tested further to find an optimal position.
 
-The MCU modules although operated as expected, lacked capacitors on the supply. This may help with stability issues seen on the bus at times and make the modules more reliable than they already are. It is suggested that the design be amended to add capacitors on the supply lines.
+The MCU modules although operated as expected, lacked capacitors on the supply lines. This may help with stability issues seen on the bus at times and make the modules more reliable than they already are. It is suggested that the design be amended to add capacitors on the supply lines.
 
 Due to the limitation in scope, only DIP packages were considered. If the Component Vending Machine project is to be successfully advanced, designs for other packages should be designed and implemented. This could also help students expand their knowledge by introducing uncommon components. By doing this, students would have the opportunity to use these rarely requested components they possibly never knew about. This is a possibility, due to the nature of the current White Lab component store being behind doors for the most part. The Component Vending Machines site would allow students to see what would be behind the door and explore a wider variety of components than those they have been told about in lectures.
 
@@ -1611,11 +1611,11 @@ The enclosure, although it served its' function, was not adequate to serve as th
 
 The ``daisy chain" method of connecting devices could cause strain on the cables currently used. This might occur in the form of overloading them with too much current and causing catastrophic failure. Furthermore, the resistance over the wires might become too great and cause unknown errors on the bus. To prevent this in the current form, thicker inner core transmission lines should be used as the system expands. A twisted shielded pair should be considered if more units were to be added to the chain. This would help reduce noise on the bus and make the communication more reliable. A twisted shielded pair was not used for the transmission lines as the communications worked without it in the current setup of the Component Vending Machine. An alternative would be to use DIN rails in a future implementation, which might make attaching each MCU module to the system easier and more efficient, while eliminating concerns that arose from using a ``daisy chain" method.
 
-When programming the STM MCU modules, the programmer should take note of the instructions in \autoref{subsec:progamming}. This appendix serves as a guide for the current software. The guide in \autoref{subsec:maintenace} provides instructions for restocking and for maintenance of the Component Vending Machine. If new information is gained or the software changes, the corresponding guide should be updated to reflect the changes. All the software developed for this project has been included on the CD accompanying this report. Additionally, included on the CD also are the 3D models, circuit schematics and boards.
+When programming the STM MCU modules, the programmer should take note of the instructions in \fullref{subsec:progamming}. This appendix serves as a guide for the current software. The guide in \fullref{subsec:maintenace} provides instructions for restocking and for maintenance of the Component Vending Machine. If new information is gained or the software changes, the corresponding guide should be updated to reflect the changes. All the software developed for this project has been included on the CD accompanying this report. Additionally, included on the CD also are the 3D models, circuit schematics and boards.
 
 The Colour of the PLA 3D printed material affected the sensor readings. The black print seemed to work the best, as it would not reflect infrared light for the sensor, whereas the white print increased the sampled values because of the reflection. This should be taken into account for future delivery mechanism, as it would affect the sampling code. Either black PLA should be used consistently, or if a different colour is used, then calibration on the sampling code should be done.
 
-The RFID reader proved unreliable due to its close proximity to the aluminium. It was moved further away with a wood piece as a spacer, between the RFID cover and aluminium. The RFID cover should be redone, in order to resolve this issue in a presentable manner. This could be achieved by using 2mm acrylic glass for the front cover, instead of 3mm and a second 3mm sheet on the back of the cover. 
+The RFID reader proved unreliable due to its close proximity to the aluminium. It was moved further away with a wood piece as a spacer, between the RFID cover and aluminium. The RFID cover should be redesigned, in order to resolve this issue in a presentable manner. This could be achieved by using 2mm acrylic glass for the front cover, instead of 3mm and a second 3mm sheet on the back. 
 
 Finally, when considering future expansion of this project, it is strongly recommended that it be made open source. Having it open source makes it possible for a community to develop around the project, similar to the RepRap project \cite{reprap}. Doing so would greatly increase the success of the project, possibly bringing in highly skilled designers and engineers to contribute to the project. Asking other universities to collaborate would be a good idea as well, as this would benefit their students too. Making use of Github to distribute the resources would promote this open source idea. If the project gains more popularity, a shift to an Atmel based system should be considered, as it is more widely used in open source projects. With an Atmel based system, more people might be interested in the project as it is a widely used system. Due to the success of the first assembly of the first White Lab Component Vending Machine, this project should definitely continue. All the resources in this project can be found on the Github repository at \cite{github} and on the CD that accompanied this report.
 \newpage
@@ -1909,18 +1909,18 @@ Lastly, The administrator list on the Master program is on \textbf{line 83} in a
 \begin{enumerate}
 \item Assemble the Delivery mechanism:
 \item \begin{enumerate}
-		\item Get the corresponding design cut using one of the templates in \autoref{subsec:templates}.
-		\item 3D print the IC guide; \autoref{subsec:g1} or \autoref{subsec:g2}, and a roller; \autoref{subsec:h4}.
+		\item Get the corresponding design cut using one of the templates in \fullref{subsec:templates}.
+		\item 3D print the IC guide; \fullref{subsec:g1} or \fullref{subsec:g2}, and a roller; \fullref{subsec:h4}.
 		\item Assemble as per \autoref{subsec:deliveryassembly} on page no. \pageref{subsec:deliveryassembly}.
 		\item When connecting the gap sensor sockets use the test board referenced in \autoref{fig:tester}.
-		\item detailed pictures of the delivery mechanism has been provided in \autoref{subsec:h3}
+		\item detailed pictures of the delivery mechanism has been provided in \fullref{subsec:h3}
 		\end{enumerate}
 \item Assemble the MCU Module:
 \item \begin{enumerate}
 		\item Order the PCB through a well known manufacturer.
-		\item Assemble as per \autoref{subsubsec:mcuassemble} on page \pageref{subsubsec:mcuassemble} using the diagram \autoref{subsec:mcu} on page \pageref{subsec:mcu}.
+		\item Assemble as per \autoref{subsubsec:mcuassemble} on page \pageref{subsubsec:mcuassemble} using the diagram \fullref{subsec:mcu} on page \pageref{subsec:mcu}.
 		\end{enumerate}
-\item Cut out a plate of wood as per the rectangular template \autoref{subsec:drilltemp} on page \pageref{subsec:drilltemp}.
+\item Cut out a plate of wood as per the rectangular template \fullref{subsec:drilltemp} on page \pageref{subsec:drilltemp}.
 \item Drill holes in this plate that line up with the holes on the MCU module.
 \item Attache the MCU module using 3 10mm metal standoffs.
 \item Take the shelf that the new module will be added too.

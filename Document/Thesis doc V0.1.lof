@@ -13,7 +13,7 @@
 \contentsline {figure}{\numberline {3.2}{\ignorespaces Two tubes of components, the top full of DIP IC Holders and the bottom one being full of DIP 8 Components.}}{15}{figure.3.2}
 \contentsline {figure}{\numberline {6.1}{\ignorespaces IC Guide (a) detailed diagram and (b) isometric view. }}{23}{figure.6.1}
 \contentsline {figure}{\numberline {6.2}{\ignorespaces Comparison between Version 1 and Version 2 of the IC Guide. }}{24}{figure.6.2}
-\contentsline {figure}{\numberline {6.3}{\ignorespaces Comparison between Version 1 and Version 2 of the IC Guide. }}{24}{figure.6.3}
+\contentsline {figure}{\numberline {6.3}{\ignorespaces Labelled picture of the final version of the IC guide. }}{24}{figure.6.3}
 \contentsline {figure}{\numberline {6.4}{\ignorespaces Rectangular IC guide for DIP IC holder tubes. }}{25}{figure.6.4}
 \contentsline {figure}{\numberline {6.5}{\ignorespaces Vertical roller and housing delivery mechanism. }}{25}{figure.6.5}
 \contentsline {figure}{\numberline {6.6}{\ignorespaces Vertical roller (a) cross section (b) isometric view (c) view to help explain loading.}}{26}{figure.6.6}
@@ -30,29 +30,29 @@
 \contentsline {figure}{\numberline {6.17}{\ignorespaces Frame of the enclosure illustrating the upper and lower compartments. }}{33}{figure.6.17}
 \contentsline {figure}{\numberline {6.18}{\ignorespaces A detailed drawing of the sloped plate. }}{33}{figure.6.18}
 \contentsline {figure}{\numberline {6.19}{\ignorespaces Isometric and top view of the enclosure with the case on interior. }}{34}{figure.6.19}
-\contentsline {figure}{\numberline {6.20}{\ignorespaces Isometric view of the redesign. }}{35}{figure.6.20}
+\contentsline {figure}{\numberline {6.20}{\ignorespaces Isometric view of the redesign. }}{34}{figure.6.20}
 \contentsline {figure}{\numberline {6.21}{\ignorespaces Isometric back and front views of the RFID coil cover. }}{35}{figure.6.21}
 \contentsline {figure}{\numberline {6.22}{\ignorespaces PCB layout of the Raspberry Pi HAT, top and bottom layer. }}{36}{figure.6.22}
 \contentsline {figure}{\numberline {6.23}{\ignorespaces PCB layout of the MCU module, top and bottom layer. }}{37}{figure.6.23}
 \contentsline {figure}{\numberline {6.24}{\ignorespaces LCD breakout board PCB layout, Bottom layer with silkscreen of top layer overlaid. }}{37}{figure.6.24}
-\contentsline {figure}{\numberline {6.25}{\ignorespaces LCD breakout board PCB layout, Bottom layer with silkscreen of top layer overlaid. }}{38}{figure.6.25}
-\contentsline {figure}{\numberline {6.26}{\ignorespaces LCD breakout board PCB layout, Bottom layer with silkscreen of top layer overlaid. }}{43}{figure.6.26}
+\contentsline {figure}{\numberline {6.25}{\ignorespaces Overview of how each software element would interactr with one another. }}{38}{figure.6.25}
+\contentsline {figure}{\numberline {6.26}{\ignorespaces State machine diagram of the logic for the Master program. }}{42}{figure.6.26}
 \contentsline {figure}{\numberline {6.27}{\ignorespaces State Machine Diagram for MCU software. }}{44}{figure.6.27}
 \contentsline {figure}{\numberline {6.28}{\ignorespaces A simplified logic diagram of the task manager and how it would function. }}{45}{figure.6.28}
 \contentsline {figure}{\numberline {7.1}{\ignorespaces Pictures of the enclosure frame with the walls bolted on. }}{47}{figure.7.1}
-\contentsline {figure}{\numberline {7.2}{\ignorespaces Pictures of the enclosure frame with all the internal elements in place. }}{48}{figure.7.2}
+\contentsline {figure}{\numberline {7.2}{\ignorespaces Pictures of the enclosure frame with all the internal elements in place. }}{47}{figure.7.2}
 \contentsline {figure}{\numberline {7.3}{\ignorespaces Pictures of the PiHAT PCB by istelf, on the left, on the Raspberry Pi, on the right. }}{49}{figure.7.3}
 \contentsline {figure}{\numberline {7.4}{\ignorespaces Pictures of the MCU module PCB, with the LCD plugin on the left, without the pcb plugin on the right. }}{50}{figure.7.4}
 \contentsline {figure}{\numberline {7.5}{\ignorespaces Pictures from the etching proccess to make the LCD breakout baord. }}{51}{figure.7.5}
-\contentsline {figure}{\numberline {7.6}{\ignorespaces Picture of the 3D printed IC guide and roller after assembly. }}{53}{figure.7.6}
-\contentsline {figure}{\numberline {7.7}{\ignorespaces Picture of the housing structure for the delivery mechanism. }}{53}{figure.7.7}
-\contentsline {figure}{\numberline {7.8}{\ignorespaces Picture of the sensor tester circuit schematic on the left and the physical circuit on the right. }}{54}{figure.7.8}
+\contentsline {figure}{\numberline {7.6}{\ignorespaces Picture of the 3D printed IC guide and roller after assembly. }}{52}{figure.7.6}
+\contentsline {figure}{\numberline {7.7}{\ignorespaces Picture of the housing structure for the delivery mechanism. }}{52}{figure.7.7}
+\contentsline {figure}{\numberline {7.8}{\ignorespaces Picture of the sensor tester circuit schematic on the left and the physical circuit on the right. }}{53}{figure.7.8}
 \contentsline {figure}{\numberline {7.9}{\ignorespaces Picture from the rear of the shelf, top image, and the front, bottom image. }}{54}{figure.7.9}
-\contentsline {figure}{\numberline {7.10}{\ignorespaces Picture of the back and front of the RFID antenna cover. }}{55}{figure.7.10}
-\contentsline {figure}{\numberline {7.11}{\ignorespaces Picture of the finished Component Vending Machine from the back, front and with the door open. }}{56}{figure.7.11}
+\contentsline {figure}{\numberline {7.10}{\ignorespaces Picture of the back and front of the RFID antenna cover. }}{54}{figure.7.10}
+\contentsline {figure}{\numberline {7.11}{\ignorespaces Picture of the finished Component Vending Machine from the back, front and with the door open. }}{55}{figure.7.11}
 \contentsline {figure}{\numberline {7.12}{\ignorespaces Labelled picture of the interior of the Component Vending Machine and its components. }}{56}{figure.7.12}
-\contentsline {figure}{\numberline {7.13}{\ignorespaces Labelled picture of the Raspberry Pi and PSU situated behind the sloped plate and below the wooden shelf. }}{57}{figure.7.13}
-\contentsline {figure}{\numberline {8.1}{\ignorespaces Graph showing the results of the protoyping tests done during the design phase of the project. }}{58}{figure.8.1}
-\contentsline {figure}{\numberline {8.2}{\ignorespaces Graph showing the results of the protoyping tests done to compare the reliability rating with and without a vibration motor. }}{59}{figure.8.2}
-\contentsline {figure}{\numberline {8.3}{\ignorespaces Graph showing the results of the stress tests done on all the assembled delivery mechanism for the final build. }}{60}{figure.8.3}
-\contentsline {figure}{\numberline {8.4}{\ignorespaces Common mode noise observed on the transmission lines. }}{60}{figure.8.4}
+\contentsline {figure}{\numberline {7.13}{\ignorespaces Labelled picture of the Raspberry Pi and PSU situated behind the sloped plate and below the wooden shelf. }}{56}{figure.7.13}
+\contentsline {figure}{\numberline {8.1}{\ignorespaces Graph showing the results of the protoyping tests done during the design phase of the project. }}{57}{figure.8.1}
+\contentsline {figure}{\numberline {8.2}{\ignorespaces Graph showing the results of the protoyping tests done to compare the reliability rating with and without a vibration motor. }}{58}{figure.8.2}
+\contentsline {figure}{\numberline {8.3}{\ignorespaces Graph showing the results of the stress tests done on all the assembled delivery mechanism for the final build. }}{59}{figure.8.3}
+\contentsline {figure}{\numberline {8.4}{\ignorespaces Common mode noise observed on the transmission lines. }}{59}{figure.8.4}
