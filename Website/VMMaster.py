@@ -81,7 +81,7 @@ DispenseStatus = 0
 complimit = 6
 
 # admins for the VM
-admins = ('MRGBAD001','01422682','Brendan')
+admins = ('01422682','Brendan')
 
 # function definitions
 # checsum
@@ -117,10 +117,10 @@ def FinalMsg():
 # function to request a dispence
 def DispenceIC(addressbyte,commandbyte,valuebyte):
 	try:
-	global dretries
-	global maxretry
-	try:
-		global DispenseStatus
+		global dretries
+		global maxretry
+		try:
+			global DispenseStatus
 			# construct message
 			TXBuffer[1] = addressbyte
 			TXBuffer[2] = commandbyte
@@ -135,10 +135,11 @@ def DispenceIC(addressbyte,commandbyte,valuebyte):
 			GPIO.output(DE, GPIO.LOW)
 			GPIO.output(RE, GPIO.LOW)
 			# wait then read message
-			time.sleep(3*valuebyte)
+			time.sleep(5*valuebyte)
 			value2 = {}
 			value = {}
 			value2 = ser1.read(1)
+			print(value2)
 			if(ser1.inWaiting() > 0):				
 				value = ser1.read(6)
 				while(ser1.inWaiting() > 0):
@@ -172,25 +173,25 @@ def DispenceIC(addressbyte,commandbyte,valuebyte):
 							UpdateJEL(1,addressbyte)
 							mailadmin(addressbyte,1)
 					else:
-						logging.debug("dispense failed, retrying")
+						logging.debug("1 dispense failed, retrying")
 						if dretries < maxretry:
-							dretries = retries + 1
+							dretries = dretries + 1
 							DispenceIC(addressbyte,commandbyte,valuebyte)
 						else:
 							dretries = 0
 				except:
 					logging.warning("Communications failure, Dispense")
 			else:
-				logging.debug("dispense failed, retrying")
+				logging.debug("2 dispense failed, retrying")
 				if dretries < maxretry:
-					dretries = retries + 1
+					dretries = dretries + 1
 					DispenceIC(addressbyte,commandbyte,valuebyte)
 				else:
 					dretries = 0
-	except:
-		logging.warning("failed to dispence")
+		except:
+			logging.warning("failed to dispence")
 
-		return 
+			return 
 	except:
 		logging.warning("failed to dispense a component")
 		if dretries < maxretry:
@@ -219,7 +220,7 @@ def UpdateLCD(StringToPrint):
 		GPIO.output(DE, GPIO.LOW)
 		GPIO.output(RE, GPIO.LOW)
 		# wait then read message
-		time.sleep(3)
+		time.sleep(5)
 		value = {}
 		value2 = {}
 		value2 = ser1.read(1)
@@ -308,15 +309,16 @@ def RequestDispence(studentNo):
 def FlushDB():
 	try:
 		global FlushDate
+		logging.debug("flushish db")
 		currentdate = time.strftime("%Y-%m-%d")
 		if currentdate != FlushDate:
+			FlushDate = currentdate
 			db = pymysql.connect("localhost", "root", "pimysql2016", "UCTVendingMachine")
 			cursor=db.cursor()
-			cursor.execute("""DELETE FROM Orders WHERE Date = %s""", (FlushDate))
+			cursor.execute("""DELETE FROM Orders WHERE Date != %s""", (FlushDate))
 			db.commit()
 			cursor.close()
 			db.close()
-			FlushDate = currentdate
 			logging.debug("flushed")
 	except:
 		logging.warning("failed to flush database")
@@ -530,7 +532,7 @@ def callModules():
 def RequestStNo(ID):
 	try:
 		# dont dispence if door is open
-		if valuebyte != 0 and GPIO.input(door2) == 0:
+		if GPIO.input(door2) == 0:
 			logging.debug("Cant dispence door is open")
 			UpdateLCD("Cant dispence    door is open")
 		else:

@@ -1,6 +1,6 @@
 #include "Servo.h"
 
-//code has been ported from James Gowans Code on PWM control
+
 //setup timer 2 for PWM on channel 4
 void ServoInit(uint8_t startval){
     RCC->AHBENR |= RCC_AHBENR_GPIOBEN;
