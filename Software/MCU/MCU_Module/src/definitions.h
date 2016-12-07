@@ -19,8 +19,8 @@
 #define WaitT 250            //Time between each dispensary task
 //threshold before event is triggered
 //#define GapThreshold 150    //threshold for dip IC dispensers
-#define GapThreshold 50        //threshold for dip IC holder dispensers
-
+//#define GapThreshold 100        //threshold for dip IC holder dispensers
+#define GapThreshold 50
 
 #define channel0 0
 #define channel8 1
@@ -30,8 +30,8 @@
 #define ReleaseWiggle 15    //wiggle rate for releasing
 
 //address 1
-//#define releasevalINIT 113  //servo position to set the release
-//#define pickupINIT 274      //servo value to set the pickup
+#define releasevalINIT 113  //servo position to set the release
+#define pickupINIT 274      //servo value to set the pickup
 //address 2
 //#define releasevalINIT 153  //servo position to set the release
 //#define pickupINIT 307      //servo value to set the pickup
@@ -42,12 +42,12 @@
 //#define releasevalINIT 130  //servo position to set the release
 //#define pickupINIT 288      //servo value to set the pickup
 //address 5
-#define releasevalINIT 123  //servo position to set the release
-#define pickupINIT 284      //servo value to set the pickup
+//#define releasevalINIT 123  //servo position to set the release
+//#define pickupINIT 284      //servo value to set the pickup
 //address 6
 //#define releasevalINIT 135  //servo position to set the release
 //#define pickupINIT 280      //servo value to set the pickup
 
-#define deliverytest 3 //how many components to delivery on a switching address bit 8
+#define deliverytest 2 //how many components to delivery on a switching address bit 8
 
 #endif /* DEFINITIONS_H_INCLUDED */

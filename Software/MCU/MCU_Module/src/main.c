@@ -10,23 +10,22 @@
    Last changed date:  $Date:  24.08.2016
    ID:                 $Id:  MCU_Module
 
-   Resources used to assist coding include James Gowans
+   Resources used as references to assist coding include James Gowans
    Github Repo: https://github.com/jgowans, and the STM peripheral
    library manual
 
 
 **********************************************************************/
 //macros
-#define _EXTRA_   //defined extra debugging
-//#define _TEST_      //used to define test cases in the code base
-#define _DEBUG_     //debugging serial interface
+//#define _EXTRA_   //defined extra debugging
+//#define _DEBUG_     //debugging serial interface
 #define _ROLLER_    //roller code so it can be excluded for another variation of delivery mechanism
-//#define _LCD_       //LCD code excluded for most delivery mechanisms, only used on first one
+#define _LCD_       //LCD code excluded for most delivery mechanisms, only used on first one
 
 //defines which package is being dispensed, important for wait times
 //#define _DIP8_
-#define _DIP1416_
-//#define _DIP20_
+//#define _DIP1416_
+#define _DIP20_
 
 //Libraries
 #include "stm32f0xx_conf.h"
@@ -46,7 +45,7 @@
 
 
 //global variables
-uint16_t Stamp[11];                     //stamps used for timing 0: idler 1:test 2:taskmanager 3:alignment 4:taskmanager 5: delay 6: wiggle 7:debug coms 8:scrolling 9defaulting lcd 9: timing
+uint16_t Stamp[10];                     //stamps used for timing 0: idler 1:test 2:taskmanager 3:alignment 4:taskmanager 5: delay 6: wiggle 7:debug coms 8:scrolling 9defaulting lcd 9: timing
 uint8_t status = 0;                     //status to display on the sysled
 uint8_t Serialdata[256];                //serial data buffer
 uint8_t buffercount = 0;                //counts serial data buffer position
@@ -130,7 +129,6 @@ int main(void)
 #ifdef _DEBUG_
     USART2Init();
     printBIN(address);
-    sendReport(CALL);
     //input();
 #endif
 #ifdef _LCD_
@@ -145,7 +143,7 @@ int main(void)
     Ready();
 
 #ifdef _LCD_
-    PopulateBuffer("Please Swipe Your Student Card Below");
+    PopulateBuffer("Please Swipe    Stdt Card Below");
 #endif
 
     while(1)
@@ -326,7 +324,7 @@ void SerialMonitor(void(*FNCName)()){
         Stamp[7] = counterval;
     }
     uint16_t sum = counterval - Stamp[7];
-    if((sum >= 5) && (RXFlag != 2)){
+    if((sum >= 10) && (RXFlag != 2)){
         FNCName();
         RXFlag = 2;
     }
@@ -334,9 +332,7 @@ void SerialMonitor(void(*FNCName)()){
 //Message Decoder from master
 void Decode(){
     //if only 6 values in buffer it is a command code
-    #ifdef _DEBUG_
     print16bits(buffercount - bufferreadcount, 0x4d,3);
-    #endif
     if(buffercount - bufferreadcount == 6){
         printbyte(0x59);
         int i;
@@ -409,13 +405,6 @@ void Decode(){
             delay(1000);
             sendReport(SUCCESS);
         }
-        #ifdef _DEBUG_
-        else{
-             for(i = 0; i < lcdbuffer ; i++){
-                print16bits(RXBuffer[i],0x41+i,3);
-             }
-        }
-        #endif
     }
     #else
     else{   //if buffer contains more than 6 bytes then LCD command
@@ -426,7 +415,7 @@ void Decode(){
         //transferring serial data the rx buffer then string to print into a separate buffer
         int i;
         for(i = 0; i < lcdbuffer ; i++){
-           bufferreadcount++; //flush the buffer
+            bufferreadcount++; //flush the buffer
         }
     }
     #endif
@@ -443,7 +432,7 @@ uint8_t checksumcal(uint8_t *values, uint8_t checkpos){
 
 //reports to send back to master
 void sendReport(uint8_t ReportCode){
-    GPIO_WriteBit(GPIOA,RE,1);//disable receiving of data
+    //GPIO_WriteBit(GPIOA,RE,1);//disable receiving of data
     GPIO_WriteBit(GPIOA,DE,1);//enable sending on the rs485 bus
 
     delay(10);
@@ -481,8 +470,7 @@ void sendReport(uint8_t ReportCode){
     delay(10);
 
     GPIO_WriteBit(GPIOA,DE,0); //disbale sending on the rs485 bus
-    GPIO_WriteBit(GPIOA,RE,0);//enable receiving of data
-    bufferreadcount++; //flush the buffer
+    //GPIO_WriteBit(GPIOA,RE,0);//enable receiving of data
 }
 
 //function used if roller is being used
@@ -613,10 +601,7 @@ void CheckIC(){
                     printbyte(0x4A);
                     #endif
                     ReportCode = JAM;
-                    #ifdef _TEST_
-                    #else
                     jam = 1;
-                    #endif
                     DeliverxMany = 1;
                     task = 0xFF;
                 }else{  //tube is empty
@@ -670,10 +655,7 @@ void Release(){
                     printbyte(0x4A);
 #endif
                     ReportCode = JAM;
-                    #ifdef _TEST_
-                    #else
                     jam = 1;
-                    #endif
                     task = 0xFF;
                 }
             }
@@ -756,10 +738,7 @@ void CheckIC2(){
                     if(DeliverxMany == 1)printbyte(0x53);;
                     #endif
                     ReportCode = JAM;
-                    #ifdef _TEST_
-                    #else
                     jam = 1;
-                    #endif
                     DeliverxMany = 1;
                     task = 0xFF;
                 }else{  //tube is empty
@@ -884,14 +863,6 @@ void Idler(uint16_t period){
         GPIO_WriteBit(GPIOB,GPIO_Pin_8,0);
     }
 #endif
-#ifdef _EXTRA_
-    uint16_t counterval2 = TIM_GetCounter(TIM14);
-    uint16_t sum2 = counterval2 - Stamp[10];
-    if(sum2 >= 60000){
-        printBIN(address);
-        Stamp[0] = counterval;
-    }
-#endif
 }
 
 /*
@@ -926,16 +897,13 @@ void Test(){
     testflag = GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_7);
     if(tempbit != testflag){
         delay(100);
-#ifdef _EXTRA_
-        print16bits(DeliverxMany,0x54,3);
-        sendfakeReport();
-#else
         DeliverxMany = deliverytest;
+#ifdef _EXTRA_
+        print16bits(DeliverxMany,0x43,3);
+#endif
         jam = 0;
         task = 1;
-#endif
-
-
+        sendfakeReport();
     }
 
 }
@@ -1073,7 +1041,7 @@ void DefaultLCD(){
     uint16_t sum = counterval - Stamp[9];
     //after 60 seconds of populating the buffer the lcd will be defaulted
     if(sum >= 60000){
-        PopulateBuffer("Please Swipe Your Student Card Below");
+        PopulateBuffer("Please Swipe    Stdt Card Below");
         Stamp[9] = counterval;
     }
 }
@@ -1103,7 +1071,7 @@ void InitWatchdog(){
 
 //send fake dispense request
 void sendfakeReport(){
-    GPIO_WriteBit(GPIOA,RE,1);//disable receiving of data
+    //GPIO_WriteBit(GPIOA,RE,1);//disable receiving of data
     GPIO_WriteBit(GPIOA,DE,1);//enable sending on the rs485 bus
 
     delay(10);
@@ -1135,7 +1103,6 @@ void sendfakeReport(){
     delay(10);
 
     GPIO_WriteBit(GPIOA,DE,0); //disbale sending on the rs485 bus
-    GPIO_WriteBit(GPIOA,RE,0);//enable receiving of data
-    bufferreadcount++; //flush the buffer
+    //GPIO_WriteBit(GPIOA,RE,0);//enable receiving of data
 }
 

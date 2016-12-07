@@ -194,10 +194,10 @@
 
 1473094073 source:c:\google drive\thesis\software\mcu\mcu_module\src\startup_stm32f0xx.s
 
-1478818589 source:c:\google drive\thesis\software\mcu\mcu_module\src\system_stm32f0xx.c
+1477513472 source:c:\google drive\thesis\software\mcu\mcu_module\src\system_stm32f0xx.c
 	"stm32f0xx.h"
 
-1478852615 source:c:\google drive\thesis\software\mcu\mcu_module\src\main.c
+1478033910 source:c:\google drive\thesis\software\mcu\mcu_module\src\main.c
 	"stm32f0xx_conf.h"
 	"SerialMonitor.h"
 	"Timers.h"
@@ -216,13 +216,13 @@
 1471860371 c:\google drive\thesis\software\mcu\mcu_module\src\timers.h
 	"stm32f0xx_conf.h"
 
-1478818592 source:c:\google drive\thesis\software\mcu\mcu_module\src\timers.c
+1477514090 source:c:\google drive\thesis\software\mcu\mcu_module\src\timers.c
 	"Timers.h"
 
 1471860397 c:\google drive\thesis\software\mcu\mcu_module\src\serialmonitor.h
 	"stm32f0xx_conf.h"
 
-1478638783 source:c:\google drive\thesis\software\mcu\mcu_module\src\serialmonitor.c
+1478017997 source:c:\google drive\thesis\software\mcu\mcu_module\src\serialmonitor.c
 	"SerialMonitor.h"
 
 1473843631 source:c:\google drive\thesis\software\mcu\mcu_module\src\gpiolib.c
@@ -238,7 +238,7 @@
 1473843631 source:c:\google drive\thesis\software\mcu\mcu_module\src\servo.c
 	"Servo.h"
 
-1478638836 source:c:\google drive\thesis\software\mcu\mcu_module\src\debug.c
+1473843633 source:c:\google drive\thesis\software\mcu\mcu_module\src\debug.c
 	"Debug.h"
 
 1472162704 c:\google drive\thesis\software\mcu\mcu_module\src\debug.h
@@ -249,7 +249,7 @@
 	"Servo.h"
 	"definitions.h"
 
-1478648013 c:\google drive\thesis\software\mcu\mcu_module\src\definitions.h
+1478033920 c:\google drive\thesis\software\mcu\mcu_module\src\definitions.h
 
 1472118017 c:\google drive\thesis\software\mcu\mcu_module\src\globalvariables.h
 
@@ -259,4 +259,257 @@
 
 1472925258 source:c:\google drive\thesis\software\mcu\mcu_module\src\lcd.c
 	"lcd.h"
+
+1471605652 source:c:\users\stuart morgan\desktop\thesis 02.11.2016\software\mcu\mcu_module\spl\src\stm32f0xx_adc.c
+	"stm32f0xx_adc.h"
+	"stm32f0xx_rcc.h"
+
+1471605652 c:\users\stuart morgan\desktop\thesis 02.11.2016\software\mcu\mcu_module\spl\inc\stm32f0xx_adc.h
+	"stm32f0xx.h"
+
+1471709614 c:\users\stuart morgan\desktop\thesis 02.11.2016\software\mcu\mcu_module\inc\stm32f0xx.h
+	"core_cm0.h"
+	"system_stm32f0xx.h"
+	<stdint.h>
+	"stm32f0xx_conf.h"
+
+1471605652 c:\users\stuart morgan\desktop\thesis 02.11.2016\software\mcu\mcu_module\cmsis\core_cm0.h
+	<stdint.h>
+	"core_cmInstr.h"
+	"core_cmFunc.h"
+
+1471605652 c:\users\stuart morgan\desktop\thesis 02.11.2016\software\mcu\mcu_module\cmsis\core_cminstr.h
+	<cmsis_iar.h>
+
+1471605652 c:\users\stuart morgan\desktop\thesis 02.11.2016\software\mcu\mcu_module\cmsis\core_cmfunc.h
+	<cmsis_iar.h>
+
+1471605652 c:\users\stuart morgan\desktop\thesis 02.11.2016\software\mcu\mcu_module\inc\system_stm32f0xx.h
+
+1471605652 c:\users\stuart morgan\desktop\thesis 02.11.2016\software\mcu\mcu_module\inc\stm32f0xx_conf.h
+	"stm32f0xx_adc.h"
+	"stm32f0xx_can.h"
+	"stm32f0xx_cec.h"
+	"stm32f0xx_crc.h"
+	"stm32f0xx_crs.h"
+	"stm32f0xx_comp.h"
+	"stm32f0xx_dac.h"
+	"stm32f0xx_dbgmcu.h"
+	"stm32f0xx_dma.h"
+	"stm32f0xx_exti.h"
+	"stm32f0xx_flash.h"
+	"stm32f0xx_gpio.h"
+	"stm32f0xx_syscfg.h"
+	"stm32f0xx_i2c.h"
+	"stm32f0xx_iwdg.h"
+	"stm32f0xx_pwr.h"
+	"stm32f0xx_rcc.h"
+	"stm32f0xx_rtc.h"
+	"stm32f0xx_spi.h"
+	"stm32f0xx_tim.h"
+	"stm32f0xx_usart.h"
+	"stm32f0xx_wwdg.h"
+	"stm32f0xx_misc.h"
+
+1471605652 c:\users\stuart morgan\desktop\thesis 02.11.2016\software\mcu\mcu_module\spl\inc\stm32f0xx_can.h
+	"stm32f0xx.h"
+
+1471605652 c:\users\stuart morgan\desktop\thesis 02.11.2016\software\mcu\mcu_module\spl\inc\stm32f0xx_cec.h
+	"stm32f0xx.h"
+
+1471605652 c:\users\stuart morgan\desktop\thesis 02.11.2016\software\mcu\mcu_module\spl\inc\stm32f0xx_crc.h
+	"stm32f0xx.h"
+
+1471605652 c:\users\stuart morgan\desktop\thesis 02.11.2016\software\mcu\mcu_module\spl\inc\stm32f0xx_crs.h
+	"stm32f0xx.h"
+
+1471605652 c:\users\stuart morgan\desktop\thesis 02.11.2016\software\mcu\mcu_module\spl\inc\stm32f0xx_comp.h
+	"stm32f0xx.h"
+
+1471605652 c:\users\stuart morgan\desktop\thesis 02.11.2016\software\mcu\mcu_module\spl\inc\stm32f0xx_dac.h
+	"stm32f0xx.h"
+
+1471605652 c:\users\stuart morgan\desktop\thesis 02.11.2016\software\mcu\mcu_module\spl\inc\stm32f0xx_dbgmcu.h
+	"stm32f0xx.h"
+
+1471605652 c:\users\stuart morgan\desktop\thesis 02.11.2016\software\mcu\mcu_module\spl\inc\stm32f0xx_dma.h
+	"stm32f0xx.h"
+
+1471605652 c:\users\stuart morgan\desktop\thesis 02.11.2016\software\mcu\mcu_module\spl\inc\stm32f0xx_exti.h
+	"stm32f0xx.h"
+
+1471605652 c:\users\stuart morgan\desktop\thesis 02.11.2016\software\mcu\mcu_module\spl\inc\stm32f0xx_flash.h
+	"stm32f0xx.h"
+
+1471605652 c:\users\stuart morgan\desktop\thesis 02.11.2016\software\mcu\mcu_module\spl\inc\stm32f0xx_gpio.h
+	"stm32f0xx.h"
+
+1471605652 c:\users\stuart morgan\desktop\thesis 02.11.2016\software\mcu\mcu_module\spl\inc\stm32f0xx_syscfg.h
+	"stm32f0xx.h"
+
+1471605652 c:\users\stuart morgan\desktop\thesis 02.11.2016\software\mcu\mcu_module\spl\inc\stm32f0xx_i2c.h
+	"stm32f0xx.h"
+
+1471605652 c:\users\stuart morgan\desktop\thesis 02.11.2016\software\mcu\mcu_module\spl\inc\stm32f0xx_iwdg.h
+	"stm32f0xx.h"
+
+1471605652 c:\users\stuart morgan\desktop\thesis 02.11.2016\software\mcu\mcu_module\spl\inc\stm32f0xx_pwr.h
+	"stm32f0xx.h"
+
+1471605652 c:\users\stuart morgan\desktop\thesis 02.11.2016\software\mcu\mcu_module\spl\inc\stm32f0xx_rcc.h
+	"stm32f0xx.h"
+
+1471605652 c:\users\stuart morgan\desktop\thesis 02.11.2016\software\mcu\mcu_module\spl\inc\stm32f0xx_rtc.h
+	"stm32f0xx.h"
+
+1471605652 c:\users\stuart morgan\desktop\thesis 02.11.2016\software\mcu\mcu_module\spl\inc\stm32f0xx_spi.h
+	"stm32f0xx.h"
+
+1471605652 c:\users\stuart morgan\desktop\thesis 02.11.2016\software\mcu\mcu_module\spl\inc\stm32f0xx_tim.h
+	"stm32f0xx.h"
+
+1471605652 c:\users\stuart morgan\desktop\thesis 02.11.2016\software\mcu\mcu_module\spl\inc\stm32f0xx_usart.h
+	"stm32f0xx.h"
+
+1471605652 c:\users\stuart morgan\desktop\thesis 02.11.2016\software\mcu\mcu_module\spl\inc\stm32f0xx_wwdg.h
+	"stm32f0xx.h"
+
+1471605652 c:\users\stuart morgan\desktop\thesis 02.11.2016\software\mcu\mcu_module\spl\inc\stm32f0xx_misc.h
+	"stm32f0xx.h"
+
+1471605652 source:c:\users\stuart morgan\desktop\thesis 02.11.2016\software\mcu\mcu_module\spl\src\stm32f0xx_can.c
+	"stm32f0xx_can.h"
+	"stm32f0xx_rcc.h"
+
+1471605652 source:c:\users\stuart morgan\desktop\thesis 02.11.2016\software\mcu\mcu_module\spl\src\stm32f0xx_cec.c
+	"stm32f0xx_cec.h"
+	"stm32f0xx_rcc.h"
+
+1471605652 source:c:\users\stuart morgan\desktop\thesis 02.11.2016\software\mcu\mcu_module\spl\src\stm32f0xx_comp.c
+	"stm32f0xx_comp.h"
+
+1471605652 source:c:\users\stuart morgan\desktop\thesis 02.11.2016\software\mcu\mcu_module\spl\src\stm32f0xx_crc.c
+	"stm32f0xx_crc.h"
+
+1471605652 source:c:\users\stuart morgan\desktop\thesis 02.11.2016\software\mcu\mcu_module\spl\src\stm32f0xx_crs.c
+	"stm32f0xx_crs.h"
+	"stm32f0xx_rcc.h"
+
+1471605652 source:c:\users\stuart morgan\desktop\thesis 02.11.2016\software\mcu\mcu_module\spl\src\stm32f0xx_dac.c
+	"stm32f0xx_dac.h"
+
+1471605652 source:c:\users\stuart morgan\desktop\thesis 02.11.2016\software\mcu\mcu_module\spl\src\stm32f0xx_dbgmcu.c
+	"stm32f0xx_dbgmcu.h"
+
+1471605652 source:c:\users\stuart morgan\desktop\thesis 02.11.2016\software\mcu\mcu_module\spl\src\stm32f0xx_dma.c
+	"stm32f0xx_dma.h"
+
+1471605652 source:c:\users\stuart morgan\desktop\thesis 02.11.2016\software\mcu\mcu_module\spl\src\stm32f0xx_exti.c
+	"stm32f0xx_exti.h"
+
+1471605652 source:c:\users\stuart morgan\desktop\thesis 02.11.2016\software\mcu\mcu_module\spl\src\stm32f0xx_flash.c
+	"stm32f0xx_flash.h"
+
+1471605652 source:c:\users\stuart morgan\desktop\thesis 02.11.2016\software\mcu\mcu_module\spl\src\stm32f0xx_gpio.c
+	"stm32f0xx_gpio.h"
+	"stm32f0xx_rcc.h"
+
+1471605652 source:c:\users\stuart morgan\desktop\thesis 02.11.2016\software\mcu\mcu_module\spl\src\stm32f0xx_i2c.c
+	"stm32f0xx_i2c.h"
+	"stm32f0xx_rcc.h"
+
+1471605652 source:c:\users\stuart morgan\desktop\thesis 02.11.2016\software\mcu\mcu_module\spl\src\stm32f0xx_iwdg.c
+	"stm32f0xx_iwdg.h"
+
+1471605652 source:c:\users\stuart morgan\desktop\thesis 02.11.2016\software\mcu\mcu_module\spl\src\stm32f0xx_misc.c
+	"stm32f0xx_misc.h"
+
+1471605652 source:c:\users\stuart morgan\desktop\thesis 02.11.2016\software\mcu\mcu_module\spl\src\stm32f0xx_pwr.c
+	"stm32f0xx_pwr.h"
+	"stm32f0xx_rcc.h"
+
+1471605652 source:c:\users\stuart morgan\desktop\thesis 02.11.2016\software\mcu\mcu_module\spl\src\stm32f0xx_rcc.c
+	"stm32f0xx_rcc.h"
+
+1471605652 source:c:\users\stuart morgan\desktop\thesis 02.11.2016\software\mcu\mcu_module\spl\src\stm32f0xx_rtc.c
+	"stm32f0xx_rtc.h"
+
+1471605652 source:c:\users\stuart morgan\desktop\thesis 02.11.2016\software\mcu\mcu_module\spl\src\stm32f0xx_spi.c
+	"stm32f0xx_spi.h"
+	"stm32f0xx_rcc.h"
+
+1471605652 source:c:\users\stuart morgan\desktop\thesis 02.11.2016\software\mcu\mcu_module\spl\src\stm32f0xx_syscfg.c
+	"stm32f0xx_syscfg.h"
+
+1471605652 source:c:\users\stuart morgan\desktop\thesis 02.11.2016\software\mcu\mcu_module\spl\src\stm32f0xx_tim.c
+	"stm32f0xx_tim.h"
+	"stm32f0xx_rcc.h"
+
+1471605652 source:c:\users\stuart morgan\desktop\thesis 02.11.2016\software\mcu\mcu_module\spl\src\stm32f0xx_usart.c
+	"stm32f0xx_usart.h"
+	"stm32f0xx_rcc.h"
+
+1471605652 source:c:\users\stuart morgan\desktop\thesis 02.11.2016\software\mcu\mcu_module\spl\src\stm32f0xx_wwdg.c
+	"stm32f0xx_wwdg.h"
+	"stm32f0xx_rcc.h"
+
+1473843634 source:c:\users\stuart morgan\desktop\thesis 02.11.2016\software\mcu\mcu_module\src\debug.c
+	"Debug.h"
+
+1472162706 c:\users\stuart morgan\desktop\thesis 02.11.2016\software\mcu\mcu_module\src\debug.h
+	"stm32f0xx_conf.h"
+	"SerialMonitor.h"
+	"Timers.h"
+	"GPIOLib.h"
+	"Servo.h"
+	"definitions.h"
+
+1471860398 c:\users\stuart morgan\desktop\thesis 02.11.2016\software\mcu\mcu_module\src\serialmonitor.h
+	"stm32f0xx_conf.h"
+
+1471860372 c:\users\stuart morgan\desktop\thesis 02.11.2016\software\mcu\mcu_module\src\timers.h
+	"stm32f0xx_conf.h"
+
+1472118400 c:\users\stuart morgan\desktop\thesis 02.11.2016\software\mcu\mcu_module\src\gpiolib.h
+	"stm32f0xx_conf.h"
+	"definitions.h"
+
+1479965246 c:\users\stuart morgan\desktop\thesis 02.11.2016\software\mcu\mcu_module\src\definitions.h
+
+1472910214 c:\users\stuart morgan\desktop\thesis 02.11.2016\software\mcu\mcu_module\src\servo.h
+	"stm32f0xx_conf.h"
+
+1473843632 source:c:\users\stuart morgan\desktop\thesis 02.11.2016\software\mcu\mcu_module\src\gpiolib.c
+	"GPIOLib.h"
+
+1472925260 source:c:\users\stuart morgan\desktop\thesis 02.11.2016\software\mcu\mcu_module\src\lcd.c
+	"lcd.h"
+
+1472925184 c:\users\stuart morgan\desktop\thesis 02.11.2016\software\mcu\mcu_module\src\lcd.h
+	<stdint.h>
+	"stm32f0xx.h"
+
+1479965152 source:c:\users\stuart morgan\desktop\thesis 02.11.2016\software\mcu\mcu_module\src\main.c
+	"stm32f0xx_conf.h"
+	"SerialMonitor.h"
+	"Timers.h"
+	"GPIOLib.h"
+	"Servo.h"
+	"definitions.h"
+	"Debug.h"
+	"lcd.h"
+
+1478017998 source:c:\users\stuart morgan\desktop\thesis 02.11.2016\software\mcu\mcu_module\src\serialmonitor.c
+	"SerialMonitor.h"
+
+1473843632 source:c:\users\stuart morgan\desktop\thesis 02.11.2016\software\mcu\mcu_module\src\servo.c
+	"Servo.h"
+
+1473094074 source:c:\users\stuart morgan\desktop\thesis 02.11.2016\software\mcu\mcu_module\src\startup_stm32f0xx.s
+
+1478259385 source:c:\users\stuart morgan\desktop\thesis 02.11.2016\software\mcu\mcu_module\src\system_stm32f0xx.c
+	"stm32f0xx.h"
+
+1478259346 source:c:\users\stuart morgan\desktop\thesis 02.11.2016\software\mcu\mcu_module\src\timers.c
+	"Timers.h"
 
