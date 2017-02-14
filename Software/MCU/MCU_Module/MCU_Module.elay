@@ -18,7 +18,7 @@
 	</File>
 	<File name="src\definitions.h" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="947" topLine="19" />
+			<Cursor1 position="947" topLine="2" />
 		</Cursor>
 	</File>
 	<File name="src\GPIOLib.c" open="1" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -38,11 +38,7 @@
 	</File>
 	<File name="src\main.c" open="1" top="1" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-<<<<<<< HEAD
-			<Cursor1 position="317" topLine="6" />
-=======
-			<Cursor1 position="28138" topLine="0" />
->>>>>>> origin/master
+			<Cursor1 position="28138" topLine="144" />
 		</Cursor>
 		<Folding>
 			<Collapse line="175" />
@@ -63,7 +59,7 @@
 	</File>
 	<File name="src\SerialMonitor.c" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1399" topLine="27" />
+			<Cursor1 position="1399" topLine="19" />
 		</Cursor>
 	</File>
 	<File name="src\SerialMonitor.h" open="0" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
